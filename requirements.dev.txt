@@ -1,0 +1,7 @@
+-r requirements.txt
+
+pycobertura>=3.0.0
+pytest-mock==3.10.0
+coverage>=6.5.0
+pytest
+deepdiff
