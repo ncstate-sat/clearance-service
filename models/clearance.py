@@ -2,7 +2,6 @@
 Model for Clearances.
 """
 
-import os
 from typing import Union, Optional
 import requests
 from plugins.database.clearance import ClearanceDB

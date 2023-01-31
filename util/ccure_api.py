@@ -186,7 +186,7 @@ class CcureApi(Singleton):
                     if prefix:
                         entries.append(f"{prefix}[{key}]={val}")
                     else:
-                        entries.append(f"{prefix}{key}={val}")
+                        entries.append(f"{key}={val}")
                 elif isinstance(val, list):
                     for i, list_item in enumerate(val):
                         if isinstance(list_item, dict):
@@ -194,8 +194,10 @@ class CcureApi(Singleton):
                                 data=list_item,
                                 prefix=prefix + f"{key}[{i}]"
                             ))
-                        else:
+                        elif prefix:
                             entries.append(f"{prefix}[{key}][]={list_item}")
+                        else:
+                            entries.append(f"{key}[]={list_item}")
             return entries
         return "&".join(get_form_entries(data))
 
