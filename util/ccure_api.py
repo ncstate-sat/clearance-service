@@ -13,10 +13,6 @@ class CcureApi(Singleton):
     session_id_expires = None
 
     base_url = os.getenv("CCURE_BASE_URL")
-    ccure_username = os.getenv("CCURE_USERNAME")
-    ccure_password = os.getenv("CCURE_PASSWORD")
-    ccure_client_name = os.getenv("CCURE_CLIENT_NAME")
-    ccure_client_version = os.getenv("CCURE_CLIENT_VERSION")
 
     @classmethod
     def get_session_id(cls):
@@ -30,27 +26,15 @@ class CcureApi(Singleton):
             response = requests.post(
                 cls.base_url + login_route,
                 data={
-                    "UserName": cls.ccure_username,
-                    "Password": cls.ccure_password,
-                    "ClientName": cls.ccure_client_name,
-                    "ClientVersion": cls.ccure_client_version,
-                    "ClientID": ""
+                    "UserName": os.getenv("CCURE_USERNAME"),
+                    "Password": os.getenv("CCURE_PASSWORD"),
+                    "ClientName": os.getenv("CCURE_CLIENT_NAME"),
+                    "ClientVersion": os.getenv("CCURE_CLIENT_VERSION"),
+                    "ClientID": os.getenv("CCURE_CLIENT_ID")
                 },
                 timeout=5000
             )
-            login_session_id = response.headers["session-id"]
-            login_response = requests.post(
-                cls.base_url + login_route,
-                data={
-                    "UserName": cls.ccure_username,
-                    "Password": cls.ccure_password,
-                    "ClientName": cls.ccure_client_name,
-                    "ClientVersion": cls.ccure_client_version,
-                    "ClientID": login_session_id
-                },
-                timeout=5000
-            )
-            cls.session_id = login_response.headers["session-id"]
+            cls.session_id = response.headers["session-id"]
             cls.session_id_expires = now + timedelta(seconds=899)
         return cls.session_id
 
@@ -60,7 +44,7 @@ class CcureApi(Singleton):
         logout_route = "/victorwebservice/api/Authenticate/Logout"
         return requests.post(
             cls.base_url + logout_route,
-            headers={"session-id": cls.session_id},
+            headers={"session-id": cls.get_session_id()},
             timeout=5000
         )
 

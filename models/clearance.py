@@ -27,7 +27,7 @@ class Clearance:
             self.name = self.ccure_api.get_clearance_name(_id)
 
     @classmethod
-    def get(cls, query: str = "") -> list["Clearance"]:
+    def get(cls, query: str | None = "") -> list["Clearance"]:
         """
         Queries a list of clearances.
 
@@ -38,13 +38,11 @@ class Clearance:
         Returns:
             A list of clearance objects.
         """
-        session_id = cls.ccure_api.get_session_id()
-        base_url = cls.ccure_api.base_url
         route = "/victorwebservice/api/v2/Personnel/ClearancesForAssignment"
-        url = base_url + route
+        url = cls.ccure_api.base_url + route
         request_json = {
             "partitionList": [],
-            "whereClause": f"Name LIKE '%{query}%'",
+            "whereClause": f"Name LIKE '%{query or ''}%'",
             "pageSize": 0,
             "pageNumber": 1,
             "sortColumnName": "",
@@ -56,7 +54,7 @@ class Clearance:
             url,
             json=request_json,
             headers={
-                "session-id": session_id,
+                "session-id": cls.ccure_api.get_session_id(),
                 "Access-Control-Expose-Headers": "session-id"
             },
             timeout=5000

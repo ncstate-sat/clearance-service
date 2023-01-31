@@ -2,7 +2,6 @@
 Model for Personnel.
 """
 
-import os
 from typing import Union
 import datetime
 import requests
@@ -173,10 +172,9 @@ class Personnel:
         :param str search_terms: terms to search by, separated by whitespace
         :returns list[Personnel]: the people who match the search
         """
-        session_id = CcureApi.get_session_id()
-        base_url = os.getenv("CCURE_BASE_URL")
+        ccure_api = CcureApi()
         query_route = "/victorwebservice/api/Objects/FindObjsWithCriteriaFilter"
-        url = base_url + query_route
+        url = ccure_api.base_url + query_route
         search_terms = search_terms or ""
 
         term_queries = [
@@ -194,7 +192,7 @@ class Personnel:
             url,
             json=request_json,
             headers={
-                "session-id": session_id,
+                "session-id": ccure_api.get_session_id(),
                 "Access-Control-Expose-Headers": "session-id"
             },
             timeout=5000
