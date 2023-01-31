@@ -11,6 +11,7 @@ from crud.audit import router as audit_router
 from crud.personnel import router as personnel_router
 from crud.liaison import router as liaison_router
 from models.scheduler_framework import ServiceScheduler
+from util.ccure_api import CcureApi
 
 DESCRIPTION = """
 Backend service for Clearance Assignment functionality.
@@ -54,3 +55,12 @@ def startup_db_client():
         scheduler = ServiceScheduler()
         scheduler.start_scheduler()
         print("Started scheduler")
+
+
+@app.on_event("shutdown")
+def logout_ccure_session():
+    """Log out of the CCURE session"""
+    ccure_api = CcureApi()
+    response = ccure_api.logout()
+    if response.status_code == 200:
+        print("Ended CCURE session")
