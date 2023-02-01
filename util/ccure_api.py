@@ -10,7 +10,7 @@ class CcureApi(Singleton):
     """Class for managing interactions with the CCURE api"""
 
     session_id = None
-    session_id_expires = None
+    session_id_expiration_time = None
 
     base_url = os.getenv("CCURE_BASE_URL")
 
@@ -21,7 +21,7 @@ class CcureApi(Singleton):
         :return str: the session_id
         """
         now = datetime.now()
-        if cls.session_id is None or cls.session_id_expires <= now:
+        if cls.session_id is None or cls.session_id_expiration_time <= now:
             login_route = "/victorwebservice/api/Authenticate/Login"
             response = requests.post(
                 cls.base_url + login_route,
@@ -35,7 +35,7 @@ class CcureApi(Singleton):
                 timeout=5000
             )
             cls.session_id = response.headers["session-id"]
-            cls.session_id_expires = now + timedelta(seconds=899)
+            cls.session_id_expiration_time = now + timedelta(seconds=899)
         return cls.session_id
 
     @classmethod
