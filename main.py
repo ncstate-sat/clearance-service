@@ -63,4 +63,4 @@ def logout_ccure_session():
     ccure_api = CcureApi()
     response = ccure_api.logout()
     if response.status_code == 200:
-        print("Ended CCURE session")
+        print("Ending CCURE session...")
