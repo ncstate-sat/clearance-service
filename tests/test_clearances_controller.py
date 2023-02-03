@@ -88,7 +88,7 @@ def mock_get_clearance_permissions(*_, **__):
     ]
 
 
-def mock_get_clearance_name(clearance_guid):
+def mock_get_clearance_name(_, clearance_guid):
     """Mocks getting a clearance name from a clearance ID."""
     for clnce in clean_clearances_full:
         if clnce['id'] == clearance_guid:

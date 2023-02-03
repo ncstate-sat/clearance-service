@@ -140,3 +140,5 @@ dmypy.json
 
 # GitHub Action files
 .secrets
+*.yml
+*.yaml

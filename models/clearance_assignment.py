@@ -2,7 +2,6 @@
 Model for Clearance Assignments.
 """
 
-import os
 from typing import Optional
 from datetime import datetime, date
 import requests
@@ -64,11 +63,10 @@ class ClearanceAssignment:
         ])
 
         # first get object ids for clearances assigned to assignee_id
-        assignee_object_id = CcureApi.get_object_id(assignee_id)
-        session_id = CcureApi.get_session_id()
-        base_url = os.getenv("CCURE_BASE_URL")
+        ccure_api = CcureApi()
+        assignee_object_id = ccure_api.get_object_id(assignee_id)
         route = "/victorwebservice/api/Objects/GetAllWithCriteria"
-        url = base_url + route
+        url = ccure_api.base_url + route
         request_json = {
             "TypeFullName": ("SoftwareHouse.NextGen.Common.SecurityObjects."
                              "PersonnelClearancePairTimed"),
@@ -78,7 +76,7 @@ class ClearanceAssignment:
             url,
             json=request_json,
             headers={
-                "session-id": session_id,
+                "session-id": ccure_api.get_session_id(),
                 "Access-Control-Expose-Headers": "session-id"
             },
             timeout=5000
@@ -102,10 +100,10 @@ class ClearanceAssignment:
                 "explicitPropertyList": []
             }
             response = requests.post(
-                base_url + route,
+                ccure_api.base_url + route,
                 json=request_json,
                 headers={
-                    "session-id": session_id,
+                    "session-id": ccure_api.get_session_id(),
                     "Access-Control-Expose-Headers": "session-id"
                 },
                 timeout=5000

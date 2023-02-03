@@ -2,7 +2,6 @@
 Model for Clearances.
 """
 
-import os
 from typing import Union, Optional
 import requests
 from plugins.database.clearance import ClearanceDB
@@ -14,6 +13,7 @@ class Clearance:
     A collection of assets and permissions for when access to them
     is granted.
     """
+    ccure_api = CcureApi()
 
     def __init__(self, _id: str, name: Optional[str] = None) -> None:
         """
@@ -24,10 +24,10 @@ class Clearance:
         if name:
             self.name = name
         else:
-            self.name = CcureApi.get_clearance_name(_id)
+            self.name = self.ccure_api.get_clearance_name(_id)
 
     @classmethod
-    def get(cls, query: str = "") -> list["Clearance"]:
+    def get(cls, query: str | None = "") -> list["Clearance"]:
         """
         Queries a list of clearances.
 
@@ -38,10 +38,8 @@ class Clearance:
         Returns:
             A list of clearance objects.
         """
-        session_id = CcureApi.get_session_id()
-        base_url = os.getenv("CCURE_BASE_URL")
         route = "/victorwebservice/api/v2/Personnel/ClearancesForAssignment"
-        url = base_url + route
+        url = cls.ccure_api.base_url + route
         request_json = {
             "partitionList": [],
             "whereClause": f"Name LIKE '%{query or ''}%'",
@@ -56,7 +54,7 @@ class Clearance:
             url,
             json=request_json,
             headers={
-                "session-id": session_id,
+                "session-id": cls.ccure_api.get_session_id(),
                 "Access-Control-Expose-Headers": "session-id"
             },
             timeout=5000
@@ -88,7 +86,7 @@ class Clearance:
         list of clearances.
         """
         if campus_id is None and email is not None:
-            campus_id = CcureApi.get_campus_id_by_email(email)
+            campus_id = cls.ccure_api.get_campus_id_by_email(email)
         if campus_id:
             clearance_ids = ClearanceDB.get_clearance_permissions_by_campus_id(
                 campus_id)

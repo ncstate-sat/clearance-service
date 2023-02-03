@@ -1,49 +1,52 @@
 """Handle common interactions with the CCURE api"""
 
 import os
+from datetime import datetime, timedelta
 import requests
+from util.singleton import Singleton
 
 
-class CcureApi:
+class CcureApi(Singleton):
     """Class for managing interactions with the CCURE api"""
 
-    @staticmethod
-    def get_session_id():
+    session_id = None
+    session_id_expiration_time = None
+
+    base_url = os.getenv("CCURE_BASE_URL")
+
+    @classmethod
+    def get_session_id(cls):
         """
         Get a session_id for a ccure api session
         :return str: the session_id
         """
-        base_url = os.getenv("CCURE_BASE_URL")
-        ccure_username = os.getenv("CCURE_USERNAME")
-        ccure_password = os.getenv("CCURE_PASSWORD")
-        ccure_client_name = os.getenv("CCURE_CLIENT_NAME")
-        ccure_client_version = os.getenv("CCURE_CLIENT_VERSION")
+        now = datetime.now()
+        if cls.session_id is None or cls.session_id_expiration_time <= now:
+            login_route = "/victorwebservice/api/Authenticate/Login"
+            response = requests.post(
+                cls.base_url + login_route,
+                data={
+                    "UserName": os.getenv("CCURE_USERNAME"),
+                    "Password": os.getenv("CCURE_PASSWORD"),
+                    "ClientName": os.getenv("CCURE_CLIENT_NAME"),
+                    "ClientVersion": os.getenv("CCURE_CLIENT_VERSION"),
+                    "ClientID": os.getenv("CCURE_CLIENT_ID")
+                },
+                timeout=5000
+            )
+            cls.session_id = response.headers["session-id"]
+            cls.session_id_expiration_time = now + timedelta(seconds=899)
+        return cls.session_id
 
-        login_route = "/victorwebservice/api/Authenticate/Login"
-        response = requests.post(
-            base_url + login_route,
-            data={
-                "UserName": ccure_username,
-                "Password": ccure_password,
-                "ClientName": ccure_client_name,
-                "ClientVersion": ccure_client_version,
-                "ClientID": ""
-            },
+    @classmethod
+    def logout(cls):
+        """Log out of the CCURE session"""
+        logout_route = "/victorwebservice/api/Authenticate/Logout"
+        return requests.post(
+            cls.base_url + logout_route,
+            headers={"session-id": cls.get_session_id()},
             timeout=5000
         )
-        login_session_id = response.headers["session-id"]
-        login_response = requests.post(
-            base_url + login_route,
-            data={
-                "UserName": ccure_username,
-                "Password": ccure_password,
-                "ClientName": ccure_client_name,
-                "ClientVersion": ccure_client_version,
-                "ClientID": login_session_id
-            },
-            timeout=5000
-        )
-        return login_response.headers["session-id"]
 
     @classmethod
     def get_campus_id_by_email(cls, email):
@@ -52,10 +55,9 @@ class CcureApi:
         :param str email: The user's email address
         :return str: The user's campus_id
         """
-        base_url = os.getenv("CCURE_BASE_URL")
         session_id = cls.get_session_id()
         route = "/victorwebservice/api/Objects/FindObjsWithCriteriaFilter"
-        url = base_url + route
+        url = cls.base_url + route
         request_json = {
             "TypeFullName": "Personnel",
             "WhereClause": f"Text14 = '{email}'"
@@ -80,10 +82,9 @@ class CcureApi:
         :param str campus_id: The user's campus ID
         :return str: The user's ccure ObjectID
         """
-        base_url = os.getenv("CCURE_BASE_URL")
         session_id = cls.get_session_id()
         route = "/victorwebservice/api/Objects/FindObjsWithCriteriaFilter"
-        url = base_url + route
+        url = cls.base_url + route
         request_json = {
             "TypeFullName": "Personnel",
             "WhereClause": f"Text1 = '{campus_id}'"
@@ -107,10 +108,9 @@ class CcureApi:
         Get a clearance object from CCURE matching the given clearance_guid
         :param str clearance_guid: the GUID value of the clearance object
         """
-        base_url = os.getenv("CCURE_BASE_URL")
         session_id = cls.get_session_id()
         route = "/victorwebservice/api/v2/Personnel/ClearancesForAssignment"
-        url = base_url + route
+        url = cls.base_url + route
         request_json = {
             "partitionList": [],
             "whereClause": f"GUID = '{clearance_guid}'",
@@ -170,7 +170,7 @@ class CcureApi:
                     if prefix:
                         entries.append(f"{prefix}[{key}]={val}")
                     else:
-                        entries.append(f"{prefix}{key}={val}")
+                        entries.append(f"{key}={val}")
                 elif isinstance(val, list):
                     for i, list_item in enumerate(val):
                         if isinstance(list_item, dict):
@@ -178,8 +178,10 @@ class CcureApi:
                                 data=list_item,
                                 prefix=prefix + f"{key}[{i}]"
                             ))
-                        else:
+                        elif prefix:
                             entries.append(f"{prefix}[{key}][]={list_item}")
+                        else:
+                            entries.append(f"{key}[]={list_item}")
             return entries
         return "&".join(get_form_entries(data))
 
@@ -189,8 +191,7 @@ class CcureApi:
         Assign clearances to users in CCURE
         :param list config: dicts with the data needed to assign the clearance
         """
-        base_url = os.getenv("CCURE_BASE_URL")
-        session_id = cls.get_session_id()
+        route = "/victorwebservice/api/Objects/PersistToContainer"
 
         # group assignments requests by assignee
         person_assignments = {assg['assignee_id']: [] for assg in config}
@@ -216,10 +217,10 @@ class CcureApi:
                 } for clearance_id in clearance_ids]
             }
             response = requests.post(
-                base_url + "/victorwebservice/api/Objects/PersistToContainer",
+                cls.base_url + route,
                 data=cls.encode(data),
                 headers={
-                    "session-id": session_id,
+                    "session-id": cls.get_session_id(),
                     "Access-Control-Expose-Headers": "session-id",
                     "Content-Type": "application/x-www-form-urlencoded"
                 },
@@ -235,9 +236,6 @@ class CcureApi:
         Revoke clearances from users in CCURE
         :param list config: dicts with the data needed to revoke the clearance
         """
-        base_url = os.getenv("CCURE_BASE_URL")
-        session_id = cls.get_session_id()
-
         # group revoke requests by assignee
         revocations = {item["assignee_id"]: [] for item in config}
         for revocation in config:
@@ -252,8 +250,10 @@ class CcureApi:
             # get object IDs of the assignee's PersonnelClearancePair objects
             clearance_query = " OR ".join(f"ClearanceID = {clearance_id}"
                                           for clearance_id in clearance_ids)
+
+            route = "/victorwebservice/api/Objects/GetAllWithCriteria"
             response = requests.post(
-                base_url + "/victorwebservice/api/Objects/GetAllWithCriteria",
+                cls.base_url + route,
                 json={
                     "TypeFullName": ("SoftwareHouse.NextGen.Common"
                                      ".SecurityObjects.PersonnelClearancePair"),
@@ -261,7 +261,7 @@ class CcureApi:
                                     f"AND ({clearance_query})")
                 },
                 headers={
-                    "session-id": session_id,
+                    "session-id": cls.get_session_id(),
                     "Access-Control-Expose-Headers": "session-id"
                 },
                 timeout=5000
@@ -289,11 +289,12 @@ class CcureApi:
                     "ID": assignment_id
                 } for assignment_id in assignment_ids]
             }
+            route = "/victorwebservice/api/Objects/RemoveFromContainer"
             response = requests.post(
-                base_url + "/victorwebservice/api/Objects/RemoveFromContainer",
+                cls.base_url + route,
                 data=cls.encode(data),
                 headers={
-                    "session-id": session_id,
+                    "session-id": cls.get_session_id(),
                     "Access-Control-Expose-Headers": "session-id",
                     "Content-Type": "application/x-www-form-urlencoded"
                 },
