@@ -49,7 +49,7 @@ class AuthChecker:
                 algorithms=["HS256"]
             )
         except jwt.exceptions.ExpiredSignatureError:
-            raise HTTPException(400, detail="Token is expired")
+            raise HTTPException(401, detail="Token is expired")
 
         user_authorizations = payload.get("authorizations", {})
         if "root" in user_authorizations:
