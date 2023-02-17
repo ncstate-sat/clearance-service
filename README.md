@@ -14,7 +14,7 @@ Backend service for Clearance Assignment functionality.
 | CCURE_CLIENT_NAME\*           | The title for the CCURE client.                                         | University CCURE Client                          |
 | CCURE_CLIENT_ID\*             | The ID for the CCURE client.                                            | 607736e2-b854-594d-bf4a-2c747ded7385             |
 | CCURE_CLIENT_VERSION\*        | The CCURE api version.                                                  | 2.0                                              |
-| RUN_SCHEDULER                 | Configure whether the scheduler transfers data from MongoDB to CCURE    | True                                             |
+| RUN_SCHEDULER\*               | Configure whether the scheduler transfers data from MongoDB to CCURE    | True                                             |
 
 
 ## Minimum Database Config
