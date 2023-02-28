@@ -85,7 +85,7 @@ def assign_clearances(response: Response,
 
     response.status_code = status.HTTP_200_OK
     return {
-        'changes': len(results)
+        'changes': results
     }
 
 

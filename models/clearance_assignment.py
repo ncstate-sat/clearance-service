@@ -125,34 +125,49 @@ class ClearanceAssignment:
         return [ClearanceAssignment(clearance_id=_id) for _id in assignment_ids]
 
     @staticmethod
-    def assign(campus_ids: list[str],
+    def assign(assignee_ids: list[str],
                assigner_id: str,
                clearance_ids: list[str],
                start_time: Optional[date] = None,
                end_time: Optional[date] = None) -> list:
         """Assigns a list of clearances to a list of individuals."""
-        new_assignments = []
-        for campus_id in campus_ids:
-            for clearance_id in clearance_ids:
-                new_assignments.append({
-                    "assignee_id": campus_id,
-                    "assigner_id": assigner_id,
-                    "clearance_id": clearance_id,
-                    "state": "assign-pending",
-                    "start_time": start_time,
-                    "end_time": end_time,
-                    "submitted_time": datetime.utcnow()
-                })
-        assignment_collection = get_clearance_collection(
-            "clearance_assignment")
-        result = assignment_collection.insert_many(new_assignments)
-        return [str(_id) for _id in result.inserted_ids]
+        now = datetime.utcnow()
+        if start_time or end_time:  # then it's going to mongo
+            new_assignments = []
+            for assignee_id in assignee_ids:
+                for clearance_id in clearance_ids:
+                    new_assignments.append({
+                        "assignee_id": assignee_id,
+                        "assigner_id": assigner_id,
+                        "clearance_id": clearance_id,
+                        "state": "assign-pending" if start_time else "active",
+                        "start_time": start_time,
+                        "end_time": end_time,
+                        "submitted_time": now
+                    })
+            assignment_collection = get_clearance_collection(
+                "clearance_assignment")
+            assignment_collection.insert_many(new_assignments)
+
+        if start_time is None:  # then it's going to ccure
+            new_assignments = []
+            for assignee_id in assignee_ids:
+                for clearance_id in clearance_ids:
+                    new_assignments.append({
+                        "assignee_id": assignee_id,
+                        "assigner_id": assigner_id,
+                        "clearance_guid": clearance_id
+                    })
+            ccure_api = CcureApi()
+            ccure_api.assign_clearances(new_assignments)
+        return len(assignee_ids) * len(clearance_ids)
 
     @staticmethod
     def revoke(assigner_id: str,
                campus_ids: list[str],
                clearance_ids: list[str]):
         """Revokes a list of clearances from a list of individuals."""
+        now = datetime.utcnow()
         new_assignments = []
         for campus_id in campus_ids:
             for clearance_id in clearance_ids:
@@ -163,7 +178,7 @@ class ClearanceAssignment:
                     "state": "revoke-pending",
                     "start_time": None,
                     "end_time": None,
-                    "submitted_time": datetime.utcnow()
+                    "submitted_time": now
                 })
         assignment_collection = get_clearance_collection(
             "clearance_assignment")

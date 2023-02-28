@@ -4,6 +4,7 @@ import os
 from datetime import datetime, timedelta
 import requests
 from util.singleton import Singleton
+from . import types
 
 
 class CcureApi(Singleton):
@@ -186,7 +187,7 @@ class CcureApi(Singleton):
         return "&".join(get_form_entries(data))
 
     @classmethod
-    def assign_clearances(cls, config: list[dict]):
+    def assign_clearances(cls, config: list[types.AssignRevokeConfig]):
         """
         Assign clearances to users in CCURE
         :param list config: dicts with the data needed to assign the clearance
@@ -229,9 +230,11 @@ class CcureApi(Singleton):
             if response.status_code != 200:
                 print(f"Unable to assign clearances to user {assignee}.")
                 print(f"{response.status_code}: {response.text}")
+            else:
+                print(f"!!!!!!!!!! Assigned {len(config)} clearances)")
 
     @classmethod
-    def revoke_clearances(cls, config: list[dict]):
+    def revoke_clearances(cls, config: list[types.AssignRevokeConfig]):
         """
         Revoke clearances from users in CCURE
         :param list config: dicts with the data needed to revoke the clearance
