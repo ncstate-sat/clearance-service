@@ -79,7 +79,7 @@ class ClearanceAssignment:
                 "session-id": ccure_api.get_session_id(),
                 "Access-Control-Expose-Headers": "session-id"
             },
-            timeout=5000
+            timeout=1
         )
         if response.status_code == 404:
             return []
@@ -106,7 +106,7 @@ class ClearanceAssignment:
                     "session-id": ccure_api.get_session_id(),
                     "Access-Control-Expose-Headers": "session-id"
                 },
-                timeout=5000
+                timeout=1
             )
             assignment_ids = {item.get("GUID") for item in response.json()[1:]}
 

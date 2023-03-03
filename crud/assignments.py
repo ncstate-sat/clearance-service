@@ -5,6 +5,7 @@ Controller functions for clearance assignment operations.
 from typing import Union
 from datetime import datetime
 from fastapi import APIRouter, Response, Depends, status
+import requests
 from pydantic import BaseModel
 from middleware.get_authorization import get_authorization
 from util.auth_checker import AuthChecker
@@ -55,7 +56,15 @@ def get_assignments(response: Response, campus_id: str) -> dict:
         campus_id: The campus ID of the person for which to query
         clearance assignments.
     """
-    assignments = ClearanceAssignment.get_assignments_by_assignee(campus_id)
+    try:
+        assignments = ClearanceAssignment.get_assignments_by_assignee(campus_id)
+    except requests.ConnectTimeout:
+        response.status_code = 408
+        print(f"Ccure timeout. Could not get assignments for {campus_id}")
+        return {
+            'assignments': [],
+            'allowed': []
+        }
 
     res = []
     for assignment in assignments:

@@ -10,6 +10,7 @@ class CcureApi(Singleton):
 
     base_url = os.getenv("CCURE_BASE_URL")
     session_id = None
+    REQUEST_TIMEOUT = 1
 
     @classmethod
     def get_session_id(cls):
@@ -28,7 +29,7 @@ class CcureApi(Singleton):
                     "ClientVersion": os.getenv("CCURE_CLIENT_VERSION"),
                     "ClientID": os.getenv("CCURE_CLIENT_ID")
                 },
-                timeout=5000
+                timeout=1
             )
             cls.session_id = response.headers["session-id"]
         return cls.session_id
@@ -59,7 +60,7 @@ class CcureApi(Singleton):
         return requests.post(
             cls.base_url + logout_route,
             headers={"session-id": cls.get_session_id()},
-            timeout=5000
+            timeout=1
         )
 
     @classmethod
@@ -83,7 +84,7 @@ class CcureApi(Singleton):
                 "session-id": session_id,
                 "Access-Control-Expose-Headers": "session-id"
             },
-            timeout=5000
+            timeout=1
         )
         if response.status_code == 200:
             return response.json()[0].get("Text1", "")
@@ -110,7 +111,7 @@ class CcureApi(Singleton):
                 "session-id": session_id,
                 "Access-Control-Expose-Headers": "session-id"
             },
-            timeout=5000
+            timeout=1
         )
         if response.status_code == 200:
             return response.json()[0].get("ObjectID", "")
@@ -142,7 +143,7 @@ class CcureApi(Singleton):
                 "session-id": session_id,
                 "Access-Control-Expose-Headers": "session-id"
             },
-            timeout=5000
+            timeout=1
         )
         if response.status_code == 200 and response.json():
             return response.json()[1]
@@ -238,7 +239,7 @@ class CcureApi(Singleton):
                     "Access-Control-Expose-Headers": "session-id",
                     "Content-Type": "application/x-www-form-urlencoded"
                 },
-                timeout=5000
+                timeout=1
             )
             if response.status_code != 200:
                 print(f"Unable to assign clearances to user {assignee}.")
@@ -278,7 +279,7 @@ class CcureApi(Singleton):
                     "session-id": cls.get_session_id(),
                     "Access-Control-Expose-Headers": "session-id"
                 },
-                timeout=5000
+                timeout=1
             )
             if response.status_code == 404:
                 print(f"Can't revoke clearances from user {assignee}.")
@@ -312,7 +313,7 @@ class CcureApi(Singleton):
                     "Access-Control-Expose-Headers": "session-id",
                     "Content-Type": "application/x-www-form-urlencoded"
                 },
-                timeout=5000
+                timeout=1
             )
             if response.status_code != 200:
                 print(f"Unable to revoke clearances from user {assignee}.")

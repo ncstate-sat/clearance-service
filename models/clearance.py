@@ -57,7 +57,7 @@ class Clearance:
                 "session-id": cls.ccure_api.get_session_id(),
                 "Access-Control-Expose-Headers": "session-id"
             },
-            timeout=5000
+            timeout=1
         )
         if response.status_code == 200:
             clearances = response.json()[1:]
