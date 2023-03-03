@@ -35,6 +35,7 @@ class ServiceScheduler:
     def one_minute_jobs(self):
         """Add calls to jobs you want to run every minute"""
         SchedulerService.push_to_ccure()
+        SchedulerService.ccure_keepalive()
 
     def start_scheduler(self):
         """Schedule the jobs defined above"""

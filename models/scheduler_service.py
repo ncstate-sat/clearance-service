@@ -189,6 +189,11 @@ class SchedulerService:
                 {"$set": {"state": "assign-pushed"}}
             )
 
+    @staticmethod
+    def ccure_keepalive():
+        """Keep the Ccure api session active"""
+        CcureApi.session_keepalive()
+
     @classmethod
     def delete_old_assignments(cls):
         """
