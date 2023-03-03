@@ -10,7 +10,6 @@ class CcureApi(Singleton):
 
     base_url = os.getenv("CCURE_BASE_URL")
     session_id = None
-    REQUEST_TIMEOUT = 1
 
     @classmethod
     def get_session_id(cls):
