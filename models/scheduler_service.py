@@ -1,6 +1,7 @@
 """Module containing SchedulerService, handling scheduled tasks"""
 
 from datetime import datetime
+import requests
 from util.db_connect import get_clearance_collection
 from util.ccure_api import CcureApi
 from .audit import Audit
@@ -191,7 +192,10 @@ class SchedulerService:
     @staticmethod
     def ccure_keepalive():
         """Keep the Ccure api session active"""
-        CcureApi.session_keepalive()
+        try:
+            CcureApi.session_keepalive()
+        except requests.ConnectTimeout:
+            print("CCure timeout: Session keepalive call was not successful.")
 
     @classmethod
     def delete_old_assignments(cls):

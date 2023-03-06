@@ -5,6 +5,7 @@ Controller functions for clearance assignment operations.
 from typing import Union
 from datetime import datetime
 from fastapi import APIRouter, Response, Depends, status
+import requests
 from pydantic import BaseModel
 from middleware.get_authorization import get_authorization
 from util.auth_checker import AuthChecker
@@ -38,13 +39,6 @@ class ClearanceAssignRevokeRequestBody(BaseModel):
     clearance_ids: list[str]
 
 
-class ClearanceUpdateRequestBody(BaseModel):
-    """
-    Model for the body of a clearance assignment request.
-    """
-    updates: list[dict]
-
-
 @router.get('/{campus_id}', tags=['Assignments'], dependencies=[Depends(AuthChecker('clearance_assignment_read'))])
 def get_assignments(response: Response, campus_id: str) -> dict:
     """
@@ -55,7 +49,15 @@ def get_assignments(response: Response, campus_id: str) -> dict:
         campus_id: The campus ID of the person for which to query
         clearance assignments.
     """
-    assignments = ClearanceAssignment.get_assignments_by_assignee(campus_id)
+    try:
+        assignments = ClearanceAssignment.get_assignments_by_assignee(campus_id)
+    except requests.ConnectTimeout:
+        response.status_code = 408
+        print(f"Ccure timeout. Could not get assignments for {campus_id}")
+        return {
+            'assignments': [],
+            'allowed': []
+        }
 
     res = []
     for assignment in assignments:
@@ -104,18 +106,4 @@ def revoke_assignments(response: Response,
     response.status_code = status.HTTP_200_OK
     return {
         'changes': len(results)
-    }
-
-
-# @router.post('/update', tags=['Assignments'], dependencies=[Depends(AuthChecker('clearance_assignment_write'))])
-def update_assignments(response: Response,
-                       body: ClearanceUpdateRequestBody) -> dict:
-    """
-    Makes specific clearance changes to individuals.
-    """
-    print(body.updates)
-    response.status_code = status.HTTP_200_OK
-    return {
-        'successful': [],
-        'failed': []
     }
