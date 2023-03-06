@@ -1,7 +1,6 @@
 """Handle common interactions with the CCURE api"""
 
 import os
-from datetime import datetime, timedelta
 import requests
 from util.singleton import Singleton
 from . import types
@@ -10,10 +9,8 @@ from . import types
 class CcureApi(Singleton):
     """Class for managing interactions with the CCURE api"""
 
-    session_id = None
-    session_id_expiration_time = None
-
     base_url = os.getenv("CCURE_BASE_URL")
+    session_id = None
 
     @classmethod
     def get_session_id(cls):
@@ -21,8 +18,7 @@ class CcureApi(Singleton):
         Get a session_id for a ccure api session
         :return str: the session_id
         """
-        now = datetime.now()
-        if cls.session_id is None or cls.session_id_expiration_time <= now:
+        if cls.session_id is None:
             login_route = "/victorwebservice/api/Authenticate/Login"
             response = requests.post(
                 cls.base_url + login_route,
@@ -36,8 +32,26 @@ class CcureApi(Singleton):
                 timeout=5000
             )
             cls.session_id = response.headers["session-id"]
-            cls.session_id_expiration_time = now + timedelta(seconds=899)
         return cls.session_id
+
+    @classmethod
+    def session_keepalive(cls):
+        """
+        Prevent the Ccure api session from expiring from inactivity.
+        Runs every minute in the scheduler.
+        """
+        keepalive_route = "/victorwebservice/api/v2/session/keepalive"
+        response = requests.post(
+            cls.base_url + keepalive_route,
+            headers={
+                "session-id": cls.get_session_id(),
+                "Access-Control-Expose-Headers": "session-id"
+            },
+            timeout=5000
+        )
+        if response.status_code != 200:
+            print("keepalive:", response.status_code, response.text)
+            CcureApi.session_id = None
 
     @classmethod
     def logout(cls):

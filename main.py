@@ -2,7 +2,6 @@
 Backend service for Clearance Assignment functionality.
 """
 
-from os import getenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from crud.clearances import router as clearances_router
@@ -51,10 +50,9 @@ def startup_db_client():
     """
     Start the scheduler
     """
-    if getenv("RUN_SCHEDULER") == "True":
-        scheduler = ServiceScheduler()
-        scheduler.start_scheduler()
-        print("Started scheduler")
+    scheduler = ServiceScheduler()
+    scheduler.start_scheduler()
+    print("Started scheduler")
 
 
 @app.on_event("shutdown")
