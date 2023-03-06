@@ -39,13 +39,6 @@ class ClearanceAssignRevokeRequestBody(BaseModel):
     clearance_ids: list[str]
 
 
-class ClearanceUpdateRequestBody(BaseModel):
-    """
-    Model for the body of a clearance assignment request.
-    """
-    updates: list[dict]
-
-
 @router.get('/{campus_id}', tags=['Assignments'], dependencies=[Depends(AuthChecker('clearance_assignment_read'))])
 def get_assignments(response: Response, campus_id: str) -> dict:
     """
@@ -113,18 +106,4 @@ def revoke_assignments(response: Response,
     response.status_code = status.HTTP_200_OK
     return {
         'changes': len(results)
-    }
-
-
-# @router.post('/update', tags=['Assignments'], dependencies=[Depends(AuthChecker('clearance_assignment_write'))])
-def update_assignments(response: Response,
-                       body: ClearanceUpdateRequestBody) -> dict:
-    """
-    Makes specific clearance changes to individuals.
-    """
-    print(body.updates)
-    response.status_code = status.HTTP_200_OK
-    return {
-        'successful': [],
-        'failed': []
     }

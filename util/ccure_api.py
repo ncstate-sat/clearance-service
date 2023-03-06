@@ -49,8 +49,9 @@ class CcureApi(Singleton):
             timeout=1
         )
         if response.status_code != 200:
-            print("keepalive:", response.status_code, response.text)
-            CcureApi.session_id = None
+            print("CCure keepalive error:", response.status_code, response.text)
+            cls.logout()
+            cls.session_id = None
 
     @classmethod
     def logout(cls):

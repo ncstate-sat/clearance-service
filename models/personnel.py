@@ -167,7 +167,7 @@ class Personnel:
     def search(search_terms) -> list["Personnel"]:
         """
         Use the CCURE api to search personnel.
-        Searches first name, last name, campus_id, and email,
+        Searches campus_id and email,
         then returns users who match each search term
         :param str search_terms: terms to search by, separated by whitespace
         :returns list[Personnel]: the people who match the search
