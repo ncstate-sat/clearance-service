@@ -202,7 +202,7 @@ class CcureApi(Singleton):
         return "&".join(get_form_entries(data))
 
     @classmethod
-    def assign_clearances(cls, config: list[types.AssignRevokeConfig]):
+    def assign_clearances(cls, config: list[types.AssignRevokeConfig]) -> requests.Response:
         """
         Assign clearances to users in CCURE
         :param list config: dicts with the data needed to assign the clearance
@@ -242,14 +242,15 @@ class CcureApi(Singleton):
                 },
                 timeout=1
             )
-            if response.status_code != 200:
+            if response.status_code != 200:  # TODO clean this bit up
                 print(f"Unable to assign clearances to user {assignee}.")
                 print(f"{response.status_code}: {response.text}")
             else:
                 print(f"!!!!!!!!!! Assigned {len(config)} clearances)")
+            return response
 
     @classmethod
-    def revoke_clearances(cls, config: list[types.AssignRevokeConfig]):
+    def revoke_clearances(cls, config: list[types.AssignRevokeConfig]) -> requests.Response:
         """
         Revoke clearances from users in CCURE
         :param list config: dicts with the data needed to revoke the clearance
@@ -288,11 +289,11 @@ class CcureApi(Singleton):
                 print(f"Can't revoke clearances from user {assignee}.")
                 print(("User does not have clearance(s) "
                        f"{', '.join(map(str, clearance_ids))}."))
-                return
+                return response
             elif response.status_code != 200:
                 print(f"Unable to revoke clearances from user {assignee}.")
                 print(f"{response.status_code}: {response.text}")
-                return
+                return response
 
             assignment_ids = [pair["ObjectID"] for pair in response.json()]
 
@@ -321,3 +322,4 @@ class CcureApi(Singleton):
             if response.status_code != 200:
                 print(f"Unable to revoke clearances from user {assignee}.")
                 print(f"{response.status_code}: {response.text}")
+            return response
