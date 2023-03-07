@@ -44,25 +44,6 @@ class ClearanceAssignment:
             who was assigned the clearances.
         :return list[ClearanceAssignment]: the individual's clearances
         """
-        clearance_assignment = get_clearance_collection("clearance_assignment")
-        clearance_assignment_data = clearance_assignment.aggregate([
-            # get all assign and revoke requests
-            {
-                "$match": {"assignee_id": assignee_id}
-            },
-            # sort the requests oldest to newest
-            {
-                "$sort": {"submitted_time": 1}
-            },
-            {
-                "$project": {
-                    "_id": 0,
-                    "clearance_id": 1,
-                    "state": 1
-                }
-            }
-        ])
-
         # first get object ids for clearances assigned to assignee_id
         ccure_api = CcureApi()
         assignee_object_id = ccure_api.get_object_id(assignee_id)
@@ -110,18 +91,6 @@ class ClearanceAssignment:
                 timeout=1
             )
             assignment_ids = {item.get("GUID") for item in response.json()[1:]}
-
-        # then go over the new requests to get all current clearances:
-        for assignment in clearance_assignment_data:
-            if assignment["state"] in ("active",
-                                       "assign-pending",
-                                       "assign-pushed"):
-                assignment_ids.add(assignment["clearance_id"])
-            else:  # if state is "revoke-pending" or "revoke-pushed"
-                try:
-                    assignment_ids.remove(assignment["clearance_id"])
-                except KeyError:
-                    continue
 
         return [ClearanceAssignment(clearance_id=_id) for _id in assignment_ids]
 
