@@ -259,7 +259,7 @@ class CcureApi(Singleton):
         revocations = {item["assignee_id"]: [] for item in config}
         for revocation in config:
             clearances = revocations[revocation["assignee_id"]]
-            ccure_id = cls.get_clearance_id(revocation["clearance_guid"])
+            ccure_id = cls.get_clearance_id(revocation["clearance_id"])
             if ccure_id:
                 clearances.append(ccure_id)
 

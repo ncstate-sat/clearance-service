@@ -165,9 +165,9 @@ class ClearanceAssignment:
         Audit.add_many(audit_configs=[{
             "assigner_id": new_assignment["assigner_id"],
             "assignee_id": new_assignment["assignee_id"],
-            "clearance_id": new_assignment["clearance_guid"],
+            "clearance_id": new_assignment["clearance_id"],
             "clearance_name": CcureApi.get_clearance_name(
-                new_assignment["clearance_guid"]),
+                new_assignment["clearance_id"]),
             "timestamp": now,
             "message": "Revoking clearance"
         } for new_assignment in new_assignments])
