@@ -81,9 +81,8 @@ def assign_clearances(response: Response,
     Assigns one or more clearances to one or more people.
     """
     assigner_campus_id = authorization.get('campus_id', '')
-
     results = ClearanceAssignment.assign(
-        body.assignees, assigner_campus_id, body.clearance_ids)
+        assigner_campus_id, body.assignees, body.clearance_ids)
 
     response.status_code = status.HTTP_200_OK
     return {
