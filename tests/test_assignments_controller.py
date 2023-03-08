@@ -83,6 +83,19 @@ def mock_get_clearance_name(_, clearance_guid):
     return ''
 
 
+def mock_assign(_,
+                assignee_ids: list[str],
+                clearance_ids: list[str]):
+    """Mocks assigning a clearance"""
+    return len(assignee_ids) * len(clearance_ids)
+
+
+def mock_revoke(_,
+                assignee_ids: list[str],
+                clearance_ids: list[str]):
+    """Mocks reovking a clearance"""
+    return len(assignee_ids) * len(clearance_ids)
+
 def test_get_assignments(monkeypatch):
     """
     It should be able to get all active assignments for an individual.
@@ -114,6 +127,9 @@ def test_assign_clearances(monkeypatch):
         db_connect, 'get_clearance_collection', mock_mongo_client('clearance_assignment'))
     monkeypatch.setattr(AuthChecker, 'check_authorization',
                         mock_check_authorization)
+    monkeypatch.setattr(
+        ClearanceAssignment, 'assign', mock_assign
+    )
 
     raw_assignees = [
         '200103374',
@@ -163,6 +179,7 @@ def test_revoke_clearances(monkeypatch):
         db_connect, 'get_clearance_collection', mock_mongo_client('clearance_assignment'))
     monkeypatch.setattr(AuthChecker, 'check_authorization',
                         mock_check_authorization)
+    monkeypatch.setattr(ClearanceAssignment, 'revoke', mock_revoke)
 
     raw_assignees = [
         '200103374',

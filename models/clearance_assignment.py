@@ -94,8 +94,9 @@ class ClearanceAssignment:
 
         return [ClearanceAssignment(clearance_id=_id) for _id in assignment_ids]
 
-    @staticmethod
-    def assign(assigner_id: str,
+    @classmethod
+    def assign(cls,
+               assigner_id: str,
                assignee_ids: list[str],
                clearance_ids: list[str],
                start_time: Optional[date] = None,
@@ -122,12 +123,15 @@ class ClearanceAssignment:
         if start_time is None:  # then it's going to ccure
             new_assignments = []
             for assignee_id in assignee_ids:
+                # TODO this is really inefficient. find a way to do this without creating a whole CA object.
+                current_clearances = map(lambda ca: ca.clearance.id, cls.get_assignments_by_assignee(assignee_id))
                 for clearance_id in clearance_ids:
-                    new_assignments.append({
-                        "assignee_id": assignee_id,
-                        "assigner_id": assigner_id,
-                        "clearance_guid": clearance_id
-                    })
+                    if clearance_id not in current_clearances:
+                        new_assignments.append({
+                            "assignee_id": assignee_id,
+                            "assigner_id": assigner_id,
+                            "clearance_guid": clearance_id
+                        })
             ccure_api = CcureApi()
             ccure_api.assign_clearances(new_assignments)
 
