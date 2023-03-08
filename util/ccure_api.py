@@ -202,13 +202,11 @@ class CcureApi(Singleton):
         return "&".join(get_form_entries(data))
 
     @classmethod
-    def assign_clearances(cls, config: list[types.AssignRevokeConfig]) -> requests.Response:
+    def assign_clearances(cls, config: list[types.AssignRevokeConfig]):
         """
         Assign clearances to users in CCURE
         :param list config: dicts with the data needed to assign the clearance
         """
-        route = "/victorwebservice/api/Objects/PersistToContainer"
-
         # group assignments requests by assignee
         person_assignments = {assg['assignee_id']: [] for assg in config}
         for assignment in config:
@@ -232,6 +230,7 @@ class CcureApi(Singleton):
                     "PropertyValues": [assignee, clearance_id]
                 } for clearance_id in clearance_ids]
             }
+            route = "/victorwebservice/api/Objects/PersistToContainer"
             response = requests.post(
                 cls.base_url + route,
                 data=cls.encode(data),
@@ -242,15 +241,12 @@ class CcureApi(Singleton):
                 },
                 timeout=1
             )
-            if response.status_code != 200:  # TODO clean this bit up
+            if response.status_code != 200:
                 print(f"Unable to assign clearances to user {assignee}.")
                 print(f"{response.status_code}: {response.text}")
-            else:
-                print(f"!!!!!!!!!! Assigned {len(config)} clearances)")
-            return response
 
     @classmethod
-    def revoke_clearances(cls, config: list[types.AssignRevokeConfig]) -> requests.Response:
+    def revoke_clearances(cls, config: list[types.AssignRevokeConfig]):
         """
         Revoke clearances from users in CCURE
         :param list config: dicts with the data needed to revoke the clearance
@@ -322,4 +318,3 @@ class CcureApi(Singleton):
             if response.status_code != 200:
                 print(f"Unable to revoke clearances from user {assignee}.")
                 print(f"{response.status_code}: {response.text}")
-            return response

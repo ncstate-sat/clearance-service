@@ -34,15 +34,11 @@ class ClearanceAssignment:
         self.submitted_time = submitted_time
 
     @staticmethod
-    def get_assignments_by_assignee(
-        assignee_id: str
-    ) -> list["ClearanceAssignment"]:
+    def get_clearance_ids_by_assignee(assignee_id: str) -> set[str]:
         """
-        Fetch an individual's current clearances
-
-        :param str assignee_id: The Campus ID of the individual
-            who was assigned the clearances.
-        :return list[ClearanceAssignment]: the individual's clearances
+        Fetch the GUIDs of an indiviual's clearances
+        :param str assignee_id: the individual's campus id
+        :returns set[str]: the clearance GUIDs
         """
         # first get object ids for clearances assigned to assignee_id
         ccure_api = CcureApi()
@@ -90,9 +86,23 @@ class ClearanceAssignment:
                 },
                 timeout=1
             )
-            assignment_ids = {item.get("GUID") for item in response.json()[1:]}
+            return {item.get("GUID") for item in response.json()[1:]}
+        return set()
 
-        return [ClearanceAssignment(clearance_id=_id) for _id in assignment_ids]
+    @classmethod
+    def get_assignments_by_assignee(
+        cls,
+        assignee_id: str
+    ) -> list["ClearanceAssignment"]:
+        """
+        Fetch an individual's current clearances
+
+        :param str assignee_id: The Campus ID of the individual
+            who was assigned the clearances.
+        :return list[ClearanceAssignment]: the individual's clearances
+        """
+        clearance_ids = cls.get_clearance_ids_by_assignee(assignee_id)
+        return [ClearanceAssignment(clearance_id=_id) for _id in clearance_ids]
 
     @classmethod
     def assign(cls,
@@ -103,7 +113,7 @@ class ClearanceAssignment:
                end_time: Optional[date] = None) -> list:
         """Assigns a list of clearances to a list of individuals."""
         now = datetime.utcnow()
-        if start_time or end_time:  # then it's going to mongo
+        if start_time or end_time:  # then add it to mongo
             new_assignments = []
             for assignee_id in assignee_ids:
                 for clearance_id in clearance_ids:
@@ -120,11 +130,11 @@ class ClearanceAssignment:
                 "clearance_assignment")
             assignment_collection.insert_many(new_assignments)
 
-        if start_time is None:  # then it's going to ccure
+        if start_time is None:  # then add it in ccure
             new_assignments = []
             for assignee_id in assignee_ids:
-                # TODO this is really inefficient. find a way to do this without creating a whole CA object.
-                current_clearances = map(lambda ca: ca.clearance.id, cls.get_assignments_by_assignee(assignee_id))
+                current_clearances = cls.get_clearance_ids_by_assignee(
+                    assignee_id)
                 for clearance_id in clearance_ids:
                     if clearance_id not in current_clearances:
                         new_assignments.append({
