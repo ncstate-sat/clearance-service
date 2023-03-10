@@ -110,8 +110,11 @@ class ClearanceAssignment:
                assignee_ids: list[str],
                clearance_ids: list[str],
                start_time: Optional[date] = None,
-               end_time: Optional[date] = None) -> list:
-        """Assigns a list of clearances to a list of individuals."""
+               end_time: Optional[date] = None) -> int:
+        """
+        Assign a list of clearances to a list of individuals.
+        :returns int: the number of changes made
+        """
         now = datetime.utcnow()
         if start_time or end_time:  # then add it to mongo
             new_assignments = []
@@ -161,8 +164,11 @@ class ClearanceAssignment:
     @staticmethod
     def revoke(assigner_id: str,
                assignee_ids: list[str],
-               clearance_ids: list[str]):
-        """Revokes a list of clearances from a list of individuals."""
+               clearance_ids: list[str]) -> int:
+        """
+        Revoke a list of clearances from a list of individuals.
+        :returns int: the number of changes made
+        """
         new_assignments = []
         for campus_id in assignee_ids:
             for clearance_id in clearance_ids:
