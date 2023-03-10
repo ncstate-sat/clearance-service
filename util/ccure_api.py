@@ -1,4 +1,4 @@
-"""Handle common interactions with the CCURE api"""
+"""Handle common interactions with the CCure api"""
 
 import os
 from typing import Optional
@@ -8,16 +8,17 @@ from util.singleton import Singleton
 
 
 class CcureApi(Singleton):
-    """Class for managing interactions with the CCURE api"""
+    """Class for managing interactions with the CCure api"""
 
     base_url = os.getenv("CCURE_BASE_URL")
     session_id = None
 
     @classmethod
-    def get_session_id(cls):
+    def get_session_id(cls) -> str:
         """
-        Get a session_id for a ccure api session
-        :return str: the session_id
+        Get a session_id for a CCure api session
+
+        Returns: the session_id
         """
         if cls.session_id is None:
             login_route = "/victorwebservice/api/Authenticate/Login"
@@ -38,7 +39,7 @@ class CcureApi(Singleton):
     @classmethod
     def session_keepalive(cls):
         """
-        Prevent the Ccure api session from expiring from inactivity.
+        Prevent the CCure api session from expiring from inactivity.
         Runs every minute in the scheduler.
         """
         keepalive_route = "/victorwebservice/api/v2/session/keepalive"
@@ -57,7 +58,7 @@ class CcureApi(Singleton):
 
     @classmethod
     def logout(cls):
-        """Log out of the CCURE session"""
+        """Log out of the CCure session"""
         logout_route = "/victorwebservice/api/Authenticate/Logout"
         return requests.post(
             cls.base_url + logout_route,
@@ -66,11 +67,12 @@ class CcureApi(Singleton):
         )
 
     @classmethod
-    def get_campus_id_by_email(cls, email):
+    def get_campus_id_by_email(cls, email) -> str:
         """
-        With a user's email address, get their campus_id
-        :param str email: The user's email address
-        :return str: The user's campus_id
+        With an individual's email address, get their campus_id
+
+        Parameters:
+            email: The individual's email address
         """
         session_id = cls.get_session_id()
         route = "/victorwebservice/api/Objects/FindObjsWithCriteriaFilter"
@@ -93,11 +95,12 @@ class CcureApi(Singleton):
         return ""
 
     @classmethod
-    def get_object_id(cls, campus_id):
+    def get_object_id(cls, campus_id) -> int:
         """
-        With a user's campus_id, get their ccure ObjectID
-        :param str campus_id: The user's campus ID
-        :return str: The user's ccure ObjectID
+        With a user's campus_id, get their CCure ObjectID
+
+        Parameters:
+            campus_id: The user's campus ID
         """
         session_id = cls.get_session_id()
         route = "/victorwebservice/api/Objects/FindObjsWithCriteriaFilter"
@@ -116,14 +119,16 @@ class CcureApi(Singleton):
             timeout=1
         )
         if response.status_code == 200:
-            return response.json()[0].get("ObjectID", "")
-        return ""
+            return response.json()[0].get("ObjectID", 0)
+        return 0
 
     @classmethod
     def get_clearance(cls, clearance_guid: str) -> dict:
         """
-        Get a clearance object from CCURE matching the given clearance_guid
-        :param str clearance_guid: the GUID value of the clearance object
+        Get a clearance object from CCure matching the given clearance_guid
+
+        Parameters:
+            clearance_guid: the GUID value of the clearance object
         """
         session_id = cls.get_session_id()
         route = "/victorwebservice/api/v2/Personnel/ClearancesForAssignment"
@@ -154,8 +159,10 @@ class CcureApi(Singleton):
     @classmethod
     def get_clearance_id(cls, clearance_guid: str) -> int:
         """
-        With a clearance's guid, get its ccure ObjectID
-        :returns int: ccure ObjectID
+        With a clearance's guid, get its CCure ObjectID
+
+        Parameters:
+            clearance_guid: the clearance's GUID value in CCure
         """
         clearance = cls.get_clearance(clearance_guid)
         return clearance.get("ObjectID", 0)
@@ -163,7 +170,7 @@ class CcureApi(Singleton):
     @classmethod
     def get_clearance_name(cls, clearance_guid: str) -> str:
         """
-        With a clearance's guid, get its Name in ccure
+        With a clearance's guid, get its name in CCure
         """
         clearance = cls.get_clearance(clearance_guid)
         return clearance.get("Name", "")
@@ -203,7 +210,7 @@ class CcureApi(Singleton):
         return "&".join(get_form_entries(data))
 
     class AssignRevokeConfig(BaseModel):
-        """For Ccure assign_clearances and revoke_clearances methods"""
+        """For CCure assign_clearances and revoke_clearances methods"""
         assignee_id: str
         assigner_id: str
         clearance_guid: str
@@ -213,11 +220,13 @@ class CcureApi(Singleton):
     @classmethod
     def assign_clearances(cls, config: list[AssignRevokeConfig]):
         """
-        Assign clearances to users in CCURE
-        :param list config: dicts with the data needed to assign the clearance
+        Assign clearances to users in CCure
+
+        Parameters:
+            config: list of dicts with the data needed to assign the clearance
         """
         # group assignments requests by assignee
-        person_assignments = {assg['assignee_id']: [] for assg in config}
+        person_assignments = {assg["assignee_id"]: [] for assg in config}
         for assignment in config:
             clearances = person_assignments[assignment["assignee_id"]]
             ccure_id = cls.get_clearance_id(assignment["clearance_guid"])
@@ -257,8 +266,10 @@ class CcureApi(Singleton):
     @classmethod
     def revoke_clearances(cls, config: list[AssignRevokeConfig]):
         """
-        Revoke clearances from users in CCURE
-        :param list config: dicts with the data needed to revoke the clearance
+        Revoke clearances from users in CCure
+
+        Parameters:
+            config: list of dicts with the data needed to revoke the clearance
         """
         # group revoke requests by assignee
         revocations = {item["assignee_id"]: [] for item in config}

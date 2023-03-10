@@ -1,6 +1,4 @@
-"""
-Controller functions for auditing and record endpoints.
-"""
+"""Controller functions for auditing and record endpoints"""
 
 from typing import Optional
 from dateutil import parser
@@ -33,7 +31,6 @@ def search_actions(
     if to_time is not None:
         to_time = parser.parse(to_time)
 
-    #pylint: disable=too-many-function-args
     assignment_history = Audit.get_audit_log(
         assignee_id=assignee_id,
         assigner_id=assigner_id,

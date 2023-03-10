@@ -8,12 +8,12 @@ Backend service for Clearance Assignment functionality.
 | ----------------------------- | ----------------------------------------------------------------------- | ------------------------------------------------ |
 | JWT_SECRET\*                  | The secret used to decode JWTs for auth.                                | khMSpZkNsjwr                                     |
 | CLEARANCE_DB_URL\*            | The full MongoDB URL.                                                   | mongodb://username:password@university.edu       |
-| CCURE_BASE_URL\*              | The host name of the CCURE api.                                         | http://c9k.university.edu                        |
-| CCURE_USERNAME\*              | The username for the CCURE api.                                         | username                                         |
-| CCURE_PASSWORD\*              | The password for the CCURE api.                                         | secure_password123                               |
-| CCURE_CLIENT_NAME\*           | The title for the CCURE client.                                         | University CCURE Client                          |
-| CCURE_CLIENT_ID\*             | The ID for the CCURE client.                                            | 607736e2-b854-594d-bf4a-2c747ded7385             |
-| CCURE_CLIENT_VERSION\*        | The CCURE api version.                                                  | 2.0                                              |
+| CCURE_BASE_URL\*              | The host name of the CCure api.                                         | http://c9k.university.edu                        |
+| CCURE_USERNAME\*              | The username for the CCure api.                                         | username                                         |
+| CCURE_PASSWORD\*              | The password for the CCure api.                                         | secure_password123                               |
+| CCURE_CLIENT_NAME\*           | The title for the CCure client.                                         | University CCure Client                          |
+| CCURE_CLIENT_ID\*             | The ID for the CCure client.                                            | 607736e2-b854-594d-bf4a-2c747ded7385             |
+| CCURE_CLIENT_VERSION\*        | The CCure api version.                                                  | 2.0                                              |
 
 
 ## Minimum Database Config
@@ -66,11 +66,11 @@ You'll need a database called <code>clearance_service</code> and the following c
 
 ## Other Requirements
 
-For this application to run, the machine on which it's running must be able to reach the CCURE server. A VPN connection might be required.
+For this application to run, the machine on which it's running must be able to reach the CCure server. A VPN connection might be required.
 
 Access to the following is required for all endpoints to work properly:
 
--   CCURE server
+-   CCure server
 
 These are all configured with the environment variables.
 

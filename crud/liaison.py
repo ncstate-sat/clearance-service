@@ -1,6 +1,4 @@
-"""
-Controller functions for liaison-related operations.
-"""
+"""Controller functions for liaison-related operations"""
 
 from pydantic import BaseModel
 from fastapi import APIRouter, Response, Depends, status
@@ -16,53 +14,55 @@ class ChangePermissionRequestBody(BaseModel):
     clearance_ids: list[str] = []
 
 
-@router.get('', tags=['Liaison'],
-            dependencies=[Depends(AuthChecker('liaison_read'))])
-def get_liaison_permissions(response: Response, campus_id: str):
+@router.get("", tags=["Liaison"],
+            dependencies=[Depends(AuthChecker("liaison_read"))])
+def get_liaison_permissions(response: Response, campus_id: str) -> dict:
     """
-    Fetches clearances which liaisons are allowed to assign.
+    Fetch all clearances a liaison is allowed to assign
 
     Parameters:
-        campus_id: The Campus ID of the liaison to query.
+        campus_id: The campus ID of the liaison to query
+
+    Returns: A dict whose value is a list of clearance GUIDs
     """
     liaison = Personnel(campus_id=campus_id)
     permissions = liaison.get_liaison_permissions()
 
     response.status_code = status.HTTP_200_OK
-    return {
-        'clearances': permissions
-    }
+    return {"clearances": permissions}
 
 
-@router.post('/assign', tags=['Liaison'],
-             dependencies=[Depends(AuthChecker('liaison_read'))])
+@router.post("/assign", tags=["Liaison"],
+             dependencies=[Depends(AuthChecker("liaison_read"))])
 def assign_liaison_permissions(response: Response,
-                               body: ChangePermissionRequestBody):
+                               body: ChangePermissionRequestBody) -> dict:
     """
-    Assigns clearance assignment permissions to a liaison.
+    Assign clearance assignment permissions to a liaison
+
+    Parameters:
+        body: data on campus ids and clearances to assign
     """
     liaison = Personnel(campus_id=body.campus_id)
     record = liaison.assign_liaison_permissions(body.clearance_ids)
 
-    del record['_id']
+    del record["_id"]
     response.status_code = status.HTTP_200_OK
-    return {
-        'record': record
-    }
+    return {"record": record}
 
 
-@router.post('/revoke', tags=['Liaison'],
-             dependencies=[Depends(AuthChecker('liaison_read'))])
+@router.post("/revoke", tags=["Liaison"],
+             dependencies=[Depends(AuthChecker("liaison_read"))])
 def revoke_liaison_permissions(response: Response,
                                body: ChangePermissionRequestBody):
     """
-    Revokes clearance assignment permissions from a liaison.
+    Revoke clearance assignment permissions from a liaison
+
+    Parameters:
+        body: data on campus ids and clearances to revoke
     """
     liaison = Personnel(campus_id=body.campus_id)
     record = liaison.revoke_liaison_permissions(body.clearance_ids)
 
-    del record['_id']
+    del record["_id"]
     response.status_code = status.HTTP_200_OK
-    return {
-        'record': record
-    }
+    return {"record": record}
