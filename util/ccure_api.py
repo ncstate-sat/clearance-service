@@ -1,6 +1,8 @@
 """Handle common interactions with the CCURE api"""
 
 import os
+from typing import Optional
+from pydantic import BaseModel
 import requests
 from util.singleton import Singleton
 
@@ -28,7 +30,7 @@ class CcureApi(Singleton):
                     "ClientVersion": os.getenv("CCURE_CLIENT_VERSION"),
                     "ClientID": os.getenv("CCURE_CLIENT_ID")
                 },
-                timeout=5000
+                timeout=1
             )
             cls.session_id = response.headers["session-id"]
         return cls.session_id
@@ -46,11 +48,12 @@ class CcureApi(Singleton):
                 "session-id": cls.get_session_id(),
                 "Access-Control-Expose-Headers": "session-id"
             },
-            timeout=5000
+            timeout=1
         )
         if response.status_code != 200:
-            print("keepalive:", response.status_code, response.text)
-            CcureApi.session_id = None
+            print("CCure keepalive error:", response.status_code, response.text)
+            cls.logout()
+            cls.session_id = None
 
     @classmethod
     def logout(cls):
@@ -59,7 +62,7 @@ class CcureApi(Singleton):
         return requests.post(
             cls.base_url + logout_route,
             headers={"session-id": cls.get_session_id()},
-            timeout=5000
+            timeout=1
         )
 
     @classmethod
@@ -83,7 +86,7 @@ class CcureApi(Singleton):
                 "session-id": session_id,
                 "Access-Control-Expose-Headers": "session-id"
             },
-            timeout=5000
+            timeout=1
         )
         if response.status_code == 200:
             return response.json()[0].get("Text1", "")
@@ -110,7 +113,7 @@ class CcureApi(Singleton):
                 "session-id": session_id,
                 "Access-Control-Expose-Headers": "session-id"
             },
-            timeout=5000
+            timeout=1
         )
         if response.status_code == 200:
             return response.json()[0].get("ObjectID", "")
@@ -142,7 +145,7 @@ class CcureApi(Singleton):
                 "session-id": session_id,
                 "Access-Control-Expose-Headers": "session-id"
             },
-            timeout=5000
+            timeout=1
         )
         if response.status_code == 200 and response.json():
             return response.json()[1]
@@ -199,14 +202,20 @@ class CcureApi(Singleton):
             return entries
         return "&".join(get_form_entries(data))
 
+    class AssignRevokeConfig(BaseModel):
+        """For Ccure assign_clearances and revoke_clearances methods"""
+        assignee_id: str
+        assigner_id: str
+        clearance_guid: str
+        message: Optional[str]
+        activate: Optional[str]
+
     @classmethod
-    def assign_clearances(cls, config: list[dict]):
+    def assign_clearances(cls, config: list[AssignRevokeConfig]):
         """
         Assign clearances to users in CCURE
         :param list config: dicts with the data needed to assign the clearance
         """
-        route = "/victorwebservice/api/Objects/PersistToContainer"
-
         # group assignments requests by assignee
         person_assignments = {assg['assignee_id']: [] for assg in config}
         for assignment in config:
@@ -230,6 +239,7 @@ class CcureApi(Singleton):
                     "PropertyValues": [assignee, clearance_id]
                 } for clearance_id in clearance_ids]
             }
+            route = "/victorwebservice/api/Objects/PersistToContainer"
             response = requests.post(
                 cls.base_url + route,
                 data=cls.encode(data),
@@ -238,14 +248,14 @@ class CcureApi(Singleton):
                     "Access-Control-Expose-Headers": "session-id",
                     "Content-Type": "application/x-www-form-urlencoded"
                 },
-                timeout=5000
+                timeout=1
             )
             if response.status_code != 200:
                 print(f"Unable to assign clearances to user {assignee}.")
                 print(f"{response.status_code}: {response.text}")
 
     @classmethod
-    def revoke_clearances(cls, config: list[dict]):
+    def revoke_clearances(cls, config: list[AssignRevokeConfig]):
         """
         Revoke clearances from users in CCURE
         :param list config: dicts with the data needed to revoke the clearance
@@ -254,7 +264,7 @@ class CcureApi(Singleton):
         revocations = {item["assignee_id"]: [] for item in config}
         for revocation in config:
             clearances = revocations[revocation["assignee_id"]]
-            ccure_id = cls.get_clearance_id(revocation["clearance_guid"])
+            ccure_id = cls.get_clearance_id(revocation["clearance_id"])
             if ccure_id:
                 clearances.append(ccure_id)
 
@@ -278,17 +288,17 @@ class CcureApi(Singleton):
                     "session-id": cls.get_session_id(),
                     "Access-Control-Expose-Headers": "session-id"
                 },
-                timeout=5000
+                timeout=1
             )
             if response.status_code == 404:
                 print(f"Can't revoke clearances from user {assignee}.")
                 print(("User does not have clearance(s) "
                        f"{', '.join(map(str, clearance_ids))}."))
-                return
+                return response
             elif response.status_code != 200:
                 print(f"Unable to revoke clearances from user {assignee}.")
                 print(f"{response.status_code}: {response.text}")
-                return
+                return response
 
             assignment_ids = [pair["ObjectID"] for pair in response.json()]
 
@@ -312,7 +322,7 @@ class CcureApi(Singleton):
                     "Access-Control-Expose-Headers": "session-id",
                     "Content-Type": "application/x-www-form-urlencoded"
                 },
-                timeout=5000
+                timeout=1
             )
             if response.status_code != 200:
                 print(f"Unable to revoke clearances from user {assignee}.")

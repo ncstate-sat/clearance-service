@@ -167,7 +167,7 @@ class Personnel:
     def search(search_terms) -> list["Personnel"]:
         """
         Use the CCURE api to search personnel.
-        Searches first name, last name, campus_id, and email,
+        Searches campus_id and email,
         then returns users who match each search term
         :param str search_terms: terms to search by, separated by whitespace
         :returns list[Personnel]: the people who match the search
@@ -178,9 +178,7 @@ class Personnel:
         search_terms = search_terms or ""
 
         term_queries = [
-            (f"(FirstName LIKE '%{term}%' OR "
-             f"LastName LIKE '%{term}%' OR "
-             f"Text1 LIKE '%{term}%' OR "  # campus_id
+            (f"(Text1 LIKE '%{term}%' OR "  # campus_id
              f"Text14 LIKE '%{term}%')")  # email
             for term in search_terms.split()
         ]
@@ -195,7 +193,7 @@ class Personnel:
                 "session-id": ccure_api.get_session_id(),
                 "Access-Control-Expose-Headers": "session-id"
             },
-            timeout=5000
+            timeout=1
         )
         if response.status_code == 200:
             return [Personnel(
