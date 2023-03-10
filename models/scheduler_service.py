@@ -139,7 +139,6 @@ class SchedulerService:
                     "assignee_id": assignment["assignee_id"],
                     "assigner_id": assignment["assigner_id"],
                     "clearance_guid": assignment["clearance_id"],
-                    "assignment_id": assignment["_id"],
                     "message": assignment["message"],
                     "activate": assignment["activate"]
                 })

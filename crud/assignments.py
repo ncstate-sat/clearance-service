@@ -81,13 +81,12 @@ def assign_clearances(response: Response,
     Assigns one or more clearances to one or more people.
     """
     assigner_campus_id = authorization.get('campus_id', '')
-
-    results = ClearanceAssignment.assign(
-        body.assignees, assigner_campus_id, body.clearance_ids)
+    assignment_count = ClearanceAssignment.assign(
+        assigner_campus_id, body.assignees, body.clearance_ids)
 
     response.status_code = status.HTTP_200_OK
     return {
-        'changes': len(results)
+        'changes': assignment_count
     }
 
 
@@ -100,10 +99,10 @@ def revoke_assignments(response: Response,
     """
     assigner_campus_id = authorization.get('campus_id', '')
 
-    results = ClearanceAssignment.revoke(
+    revoke_count = ClearanceAssignment.revoke(
         assigner_campus_id, body.assignees, body.clearance_ids)
 
     response.status_code = status.HTTP_200_OK
     return {
-        'changes': len(results)
+        'changes': revoke_count
     }
