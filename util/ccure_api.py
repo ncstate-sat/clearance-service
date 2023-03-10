@@ -1,9 +1,10 @@
 """Handle common interactions with the CCURE api"""
 
 import os
+from typing import Optional
+from pydantic import BaseModel
 import requests
 from util.singleton import Singleton
-from . import types
 
 
 class CcureApi(Singleton):
@@ -201,8 +202,16 @@ class CcureApi(Singleton):
             return entries
         return "&".join(get_form_entries(data))
 
+    class AssignRevokeConfig(BaseModel):
+        """For Ccure assign_clearances and revoke_clearances methods"""
+        assignee_id: str
+        assigner_id: str
+        clearance_guid: str
+        message: Optional[str]
+        activate: Optional[str]
+
     @classmethod
-    def assign_clearances(cls, config: list[types.AssignRevokeConfig]):
+    def assign_clearances(cls, config: list[AssignRevokeConfig]):
         """
         Assign clearances to users in CCURE
         :param list config: dicts with the data needed to assign the clearance
@@ -246,7 +255,7 @@ class CcureApi(Singleton):
                 print(f"{response.status_code}: {response.text}")
 
     @classmethod
-    def revoke_clearances(cls, config: list[types.AssignRevokeConfig]):
+    def revoke_clearances(cls, config: list[AssignRevokeConfig]):
         """
         Revoke clearances from users in CCURE
         :param list config: dicts with the data needed to revoke the clearance
