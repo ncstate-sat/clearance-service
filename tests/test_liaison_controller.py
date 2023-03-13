@@ -17,7 +17,7 @@ def mock_check_authorization(*_, **__):
     return None
 
 
-def mock_get_clearance_name(_, clearance_id):
+def mock_get_clearance_name(clearance_id):
     """Mock getting a clearance name by ID"""
     return f"Mocked Clearance ({clearance_id})"
 

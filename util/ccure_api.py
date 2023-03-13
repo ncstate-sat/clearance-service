@@ -33,7 +33,6 @@ class CcureApi:
                 timeout=1
             )
             cls.session_id = response.headers["session-id"]
-        print(cls.session_id)
         return cls.session_id
 
     @classmethod

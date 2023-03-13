@@ -76,7 +76,7 @@ def mock_get_assignments_by_assignee(*_, **__):
     ]
 
 
-def mock_get_clearance_name(_, clearance_guid):
+def mock_get_clearance_name(clearance_guid):
     """Mock getting a clearance name from a clearance ID"""
     for clearance in clearances:
         if clearance["id"] == clearance_guid:
