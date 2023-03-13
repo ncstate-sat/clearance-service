@@ -41,8 +41,10 @@ class Audit:
     @classmethod
     def add_many(cls, audit_configs: list[AuditData]):
         """Add multiple audit entries"""
-        result = cls.collection.insert_many(audit_configs)
-        return result.inserted_ids
+        if audit_configs:
+            result = cls.collection.insert_many(audit_configs)
+            return result.inserted_ids
+        return []
 
     @classmethod
     def get_audit_log(
