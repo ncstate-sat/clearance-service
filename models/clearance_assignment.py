@@ -40,10 +40,9 @@ class ClearanceAssignment:
         Returns: A set of clearance GUIDs
         """
         # first get object ids for clearances assigned to assignee_id
-        ccure_api = CcureApi()
-        assignee_object_id = ccure_api.get_object_id(assignee_id)
+        assignee_object_id = CcureApi.get_object_id(assignee_id)
         route = "/victorwebservice/api/Objects/GetAllWithCriteria"
-        url = ccure_api.base_url + route
+        url = CcureApi.base_url + route
         request_json = {
             "TypeFullName": ("SoftwareHouse.NextGen.Common.SecurityObjects."
                              "PersonnelClearancePairTimed"),
@@ -53,7 +52,7 @@ class ClearanceAssignment:
             url,
             json=request_json,
             headers={
-                "session-id": ccure_api.get_session_id(),
+                "session-id": CcureApi.get_session_id(),
                 "Access-Control-Expose-Headers": "session-id"
             },
             timeout=1
@@ -77,10 +76,10 @@ class ClearanceAssignment:
                 "explicitPropertyList": []
             }
             response = requests.post(
-                ccure_api.base_url + route,
+                CcureApi.base_url + route,
                 json=request_json,
                 headers={
-                    "session-id": ccure_api.get_session_id(),
+                    "session-id": CcureApi.get_session_id(),
                     "Access-Control-Expose-Headers": "session-id"
                 },
                 timeout=1
@@ -154,8 +153,7 @@ class ClearanceAssignment:
                             "assigner_id": assigner_id,
                             "clearance_guid": clearance_id
                         })
-            ccure_api = CcureApi()
-            ccure_api.assign_clearances(new_assignments)
+            CcureApi.assign_clearances(new_assignments)
 
             # audit the new assignment
             Audit.add_many(audit_configs=[{
@@ -192,8 +190,7 @@ class ClearanceAssignment:
                     "assigner_id": assigner_id,
                     "clearance_id": clearance_id
                 })
-        ccure_api = CcureApi()
-        ccure_api.revoke_clearances(new_assignments)
+        CcureApi.revoke_clearances(new_assignments)
 
         # audit the new revocation
         now = datetime.utcnow()

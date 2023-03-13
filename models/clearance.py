@@ -11,7 +11,6 @@ class Clearance:
     A collection of assets and permissions for when access to them
     is granted
     """
-    ccure_api = CcureApi()
 
     def __init__(self, _id: str, name: Optional[str] = None) -> None:
         """
@@ -23,10 +22,10 @@ class Clearance:
         if name:
             self.name = name
         else:
-            self.name = self.ccure_api.get_clearance_name(_id)
+            self.name = CcureApi.get_clearance_name(_id)
 
-    @classmethod
-    def get(cls, query: Optional[str] = "") -> list["Clearance"]:
+    @staticmethod
+    def get(query: Optional[str] = "") -> list["Clearance"]:
         """
         Query a list of clearances
 
@@ -37,7 +36,7 @@ class Clearance:
         Returns: A list of clearance objects
         """
         route = "/victorwebservice/api/v2/Personnel/ClearancesForAssignment"
-        url = cls.ccure_api.base_url + route
+        url = CcureApi.base_url + route
         request_json = {
             "partitionList": [],
             "whereClause": f"Name LIKE '%{query or ''}%'",
@@ -52,7 +51,7 @@ class Clearance:
             url,
             json=request_json,
             headers={
-                "session-id": cls.ccure_api.get_session_id(),
+                "session-id": CcureApi.get_session_id(),
                 "Access-Control-Expose-Headers": "session-id"
             },
             timeout=1
@@ -73,9 +72,8 @@ class Clearance:
         """
         return cls.get()
 
-    @classmethod
-    def filter_allowed(cls,
-                       clearances: list["Clearance"],
+    @staticmethod
+    def filter_allowed(clearances: list["Clearance"],
                        campus_id: Optional[str] = None,
                        email: Optional[str] = None) -> list["Clearance"]:
         """
@@ -91,7 +89,7 @@ class Clearance:
         Returns: A list of allowed Clearance objects
         """
         if campus_id is None and email is not None:
-            campus_id = cls.ccure_api.get_campus_id_by_email(email)
+            campus_id = CcureApi.get_campus_id_by_email(email)
         if campus_id:
             clearance_ids = ClearanceDB.get_clearance_permissions_by_campus_id(
                 campus_id)

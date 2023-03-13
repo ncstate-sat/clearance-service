@@ -172,9 +172,8 @@ class Personnel:
 
         Returns: list of Personnel objects that match the search
         """
-        ccure_api = CcureApi()
         query_route = "/victorwebservice/api/Objects/FindObjsWithCriteriaFilter"
-        url = ccure_api.base_url + query_route
+        url = CcureApi.base_url + query_route
         search_terms = search_terms or ""
 
         term_queries = [
@@ -190,7 +189,7 @@ class Personnel:
             url,
             json=request_json,
             headers={
-                "session-id": ccure_api.get_session_id(),
+                "session-id": CcureApi.get_session_id(),
                 "Access-Control-Expose-Headers": "session-id"
             },
             timeout=1

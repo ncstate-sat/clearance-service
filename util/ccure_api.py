@@ -4,10 +4,9 @@ import os
 from typing import Optional
 from pydantic import BaseModel
 import requests
-from util.singleton import Singleton
 
 
-class CcureApi(Singleton):
+class CcureApi:
     """Class for managing interactions with the CCure api"""
 
     base_url = os.getenv("CCURE_BASE_URL")
@@ -34,6 +33,7 @@ class CcureApi(Singleton):
                 timeout=1
             )
             cls.session_id = response.headers["session-id"]
+        print(cls.session_id)
         return cls.session_id
 
     @classmethod

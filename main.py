@@ -53,7 +53,6 @@ def startup_db_client():
 @app.on_event("shutdown")
 def logout_ccure_session():
     """Log out of the CCure session"""
-    ccure_api = CcureApi()
-    response = ccure_api.logout()
+    response = CcureApi.logout()
     if response.status_code == 200:
         print("Ending CCure session")
