@@ -3,7 +3,7 @@
 import bson
 from fastapi.testclient import TestClient
 from pymongo import MongoClient
-from util.auth_checker import AuthChecker
+from auth_checker import AuthChecker
 from util import db_connect
 from main import app
 from middleware.get_authorization import get_authorization

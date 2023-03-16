@@ -1,10 +1,10 @@
 """Tests for the liaison endpoints"""
 
 from fastapi.testclient import TestClient
+from auth_checker import AuthChecker
 from middleware.get_authorization import get_authorization
 from tests.override_get_authorization import override_get_authorization
 from main import app
-from util.auth_checker import AuthChecker
 from util.ccure_api import CcureApi
 
 

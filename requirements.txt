@@ -7,3 +7,4 @@ requests~=2.26.0
 uvicorn
 httpx
 itsdangerous
+auth-checker

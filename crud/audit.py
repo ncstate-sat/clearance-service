@@ -3,7 +3,7 @@
 from typing import Optional
 from dateutil import parser
 from fastapi import APIRouter, Response, Depends, status
-from util.auth_checker import AuthChecker
+from auth_checker import AuthChecker
 from models.audit import Audit
 
 router = APIRouter()

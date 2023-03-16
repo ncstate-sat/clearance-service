@@ -3,7 +3,7 @@
 from typing import Optional
 from fastapi import APIRouter, Response, status, Depends
 import requests
-from util.auth_checker import AuthChecker
+from auth_checker import AuthChecker
 from models.personnel import Personnel
 
 router = APIRouter()
