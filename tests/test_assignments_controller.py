@@ -16,9 +16,9 @@ from util.ccure_api import CcureApi
 from middleware.get_authorization import get_authorization
 from tests.override_get_authorization import override_get_authorization
 
+
 client = TestClient(app)
 app.dependency_overrides[get_authorization] = override_get_authorization
-
 
 clearances = [
     {
