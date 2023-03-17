@@ -2,7 +2,7 @@
 
 from pydantic import BaseModel
 from fastapi import APIRouter, Response, Depends, status
-from util.auth_checker import AuthChecker
+from auth_checker import AuthChecker
 from models.personnel import Personnel
 
 router = APIRouter()

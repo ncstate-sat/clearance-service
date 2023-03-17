@@ -3,7 +3,7 @@
 from typing import Optional
 from fastapi import APIRouter, Response, Depends, status
 import requests
-from util.auth_checker import AuthChecker
+from auth_checker import AuthChecker
 from middleware.get_authorization import get_authorization
 from models.clearance import Clearance
 

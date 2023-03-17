@@ -5,8 +5,8 @@ from datetime import datetime
 from fastapi import APIRouter, Response, Depends, status
 import requests
 from pydantic import BaseModel
+from auth_checker import AuthChecker
 from middleware.get_authorization import get_authorization
-from util.auth_checker import AuthChecker
 from models.clearance_assignment import ClearanceAssignment
 
 router = APIRouter()

@@ -1,11 +1,11 @@
 """Tests for the personnel endpoints"""
 
 from fastapi.testclient import TestClient
+from auth_checker import AuthChecker
 from middleware.get_authorization import get_authorization
 from tests.override_get_authorization import override_get_authorization
 from models.personnel import Personnel
 from main import app
-from util.auth_checker import AuthChecker
 
 
 app.dependency_overrides[get_authorization] = override_get_authorization

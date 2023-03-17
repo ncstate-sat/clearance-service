@@ -8,10 +8,10 @@ from fastapi.testclient import TestClient
 import requests
 from pymongo import MongoClient
 from deepdiff import DeepDiff
+from auth_checker import AuthChecker
 from main import app
 from models.clearance_assignment import ClearanceAssignment
 from util import db_connect
-from util.auth_checker import AuthChecker
 from util.ccure_api import CcureApi
 from middleware.get_authorization import get_authorization
 from tests.override_get_authorization import override_get_authorization
