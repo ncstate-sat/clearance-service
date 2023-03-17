@@ -23,7 +23,8 @@ class SchedulerService:
             - expired_active_assignments: active assignments whose
                 end dates have passed
             - revoked_assignments: documents revoking a clearance assignment
-        :returns: dict, mapping document categories to lists of documents
+
+        Returns: a dict mapping document categories to lists of documents
         """
         now = datetime.utcnow()
         all_assignments = cls.clearance_assignment.aggregate([
@@ -114,8 +115,7 @@ class SchedulerService:
     @classmethod
     def push_to_ccure(cls):
         """
-        An automated job that pushes new clearance assignments to CCURE
-        :returns None:
+        An automated job that pushes new clearance assignments to CCure
         """
         assignments_by_category = cls.get_clearance_assignments()
 
@@ -143,11 +143,11 @@ class SchedulerService:
                     "activate": assignment["activate"]
                 })
 
-        # temporary active and indefinite active get pushed to ccure
+        # temporary active and indefinite active get pushed to CCure
         CcureApi.assign_clearances(
             [assg for assg in new_assignments if assg["activate"] == "Y"]
         )
-        # expired and revoked get pulled from ccure
+        # expired and revoked get pulled from CCure
         CcureApi.revoke_clearances(
             [assg for assg in new_assignments if assg["activate"] == "N"]
         )
@@ -191,7 +191,7 @@ class SchedulerService:
 
     @staticmethod
     def ccure_keepalive():
-        """Keep the Ccure api session active"""
+        """Keep the CCure api session active"""
         try:
             CcureApi.session_keepalive()
         except requests.ConnectTimeout:
@@ -201,7 +201,7 @@ class SchedulerService:
     def delete_old_assignments(cls):
         """
         A daily automated job that deletes old clearance assignments after
-        the assignment has been pushed to CCURE
+        the assignment has been pushed to CCure
         :returns None:
         """
         cls.clearance_assignment.delete_many({

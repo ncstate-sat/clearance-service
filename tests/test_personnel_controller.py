@@ -1,6 +1,4 @@
-"""
-Tests for the personnel endpoints.
-"""
+"""Tests for the personnel endpoints"""
 
 from fastapi.testclient import TestClient
 from middleware.get_authorization import get_authorization
@@ -15,14 +13,12 @@ client = TestClient(app)
 
 
 def mock_check_authorization(*_, **__):
-    """"Mock AuthChecker response."""
+    """"Mock AuthChecker response"""
     return None
 
 
 def test_search_personnel(monkeypatch):
-    """
-    It should be able to search for personnel.
-    """
+    """It should be able to search for personnel."""
     def mock_search(*_):
         return [
             Personnel(
@@ -41,12 +37,12 @@ def test_search_personnel(monkeypatch):
             ),
         ]
     monkeypatch.setattr(Personnel, "search", mock_search)
-    monkeypatch.setattr(AuthChecker, 'check_authorization',
+    monkeypatch.setattr(AuthChecker, "check_authorization",
                         mock_check_authorization)
 
-    response = client.get('/personnel?search=marina',
-                          headers={'Authorization': 'Bearer token'})
+    response = client.get("/personnel?search=marina",
+                          headers={"Authorization": "Bearer token"})
     assert response.status_code == 200
     json = response.json()
-    assert 'personnel' in json
+    assert "personnel" in json
     assert isinstance(json["personnel"], list)

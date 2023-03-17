@@ -1,8 +1,6 @@
-"""
-Controller functions for clearance assignment operations.
-"""
+"""Controller functions for clearance assignment operations."""
 
-from typing import Union
+from typing import Optional
 from datetime import datetime
 from fastapi import APIRouter, Response, Depends, status
 import requests
@@ -15,94 +13,95 @@ router = APIRouter()
 
 
 class ClearanceAssetRequestBody(BaseModel):
-    """
-    Model for the body of a request to get clearance assets.
-    """
+    """Model for the body of a request to get clearance assets."""
     clearance_ids: list[str]
 
 
 class ClearanceAssignRequestBody(BaseModel):
-    """
-    Model for the body of a request to assign clearances.
-    """
+    """Model for the body of a request to assign clearances."""
     assignees: list[str]
     clearance_ids: list[str]
-    start_time: Union[datetime, None]
-    end_time: Union[datetime, None]
+    start_time: Optional[datetime]
+    end_time: Optional[datetime]
 
 
 class ClearanceAssignRevokeRequestBody(BaseModel):
-    """
-    Model for the body of a request to revoke clearance assignments.
-    """
+    """Model for the body of a request to revoke clearance assignments."""
     assignees: list[str]
     clearance_ids: list[str]
 
 
-@router.get('/{campus_id}', tags=['Assignments'], dependencies=[Depends(AuthChecker('clearance_assignment_read'))])
+@router.get("/{campus_id}", tags=["Assignments"],
+            dependencies=[Depends(AuthChecker("clearance_assignment_read"))])
 def get_assignments(response: Response, campus_id: str) -> dict:
     """
-    Returns all active clearance assignments for an individual given a
+    Return all active clearance assignments for an individual given a
     campus ID.
 
     Parameters:
         campus_id: The campus ID of the person for which to query
-        clearance assignments.
+            clearance assignments
+
+    Returns:
+        A dict with the individual's own assignments and those they can assign
     """
     try:
         assignments = ClearanceAssignment.get_assignments_by_assignee(campus_id)
     except requests.ConnectTimeout:
         response.status_code = 408
-        print(f"Ccure timeout. Could not get assignments for {campus_id}")
+        print(f"CCure timeout. Could not get assignments for {campus_id}")
         return {
-            'assignments': [],
-            'allowed': []
+            "assignments": [],
+            "allowed": []
         }
 
     res = []
     for assignment in assignments:
         res.append({
-            'id': assignment.clearance.__dict__['id'],
-            'name': assignment.clearance.__dict__['name']
+            "id": assignment.clearance.__dict__["id"],
+            "name": assignment.clearance.__dict__["name"]
         })
 
     response.status_code = status.HTTP_200_OK
     return {
-        'assignments': res,
-        'allowed': res
+        "assignments": res,
+        "allowed": res
     }
 
 
-@router.post('/assign', tags=['Assignments'], dependencies=[Depends(AuthChecker('clearance_assignment_write'))])
+@router.post("/assign", tags=["Assignments"],
+             dependencies=[Depends(AuthChecker("clearance_assignment_write"))])
 def assign_clearances(response: Response,
                       body: ClearanceAssignRevokeRequestBody,
                       authorization: dict = Depends(get_authorization)) -> dict:
     """
-    Assigns one or more clearances to one or more people.
+    Assign one or more clearances to one or more people
+
+    Parameters
+        body: data on the assignees and clearances to be assigned
     """
-    assigner_campus_id = authorization.get('campus_id', '')
+    assigner_campus_id = authorization.get("campus_id", "")
     assignment_count = ClearanceAssignment.assign(
         assigner_campus_id, body.assignees, body.clearance_ids)
 
     response.status_code = status.HTTP_200_OK
-    return {
-        'changes': assignment_count
-    }
+    return {"changes": assignment_count}
 
 
-@router.post('/revoke', tags=['Assignments'], dependencies=[Depends(AuthChecker('clearance_assignment_write'))])
-def revoke_assignments(response: Response,
-                       body: ClearanceAssignRevokeRequestBody,
-                       authorization: dict = Depends(get_authorization)) -> dict:
+@router.post("/revoke", tags=["Assignments"],
+             dependencies=[Depends(AuthChecker("clearance_assignment_write"))])
+def revoke_clearances(response: Response,
+                      body: ClearanceAssignRevokeRequestBody,
+                      authorization: dict = Depends(get_authorization)) -> dict:
     """
-    Revokes one or more clearances to one or more people.
-    """
-    assigner_campus_id = authorization.get('campus_id', '')
+    Revoke one or more clearances to one or more people
 
+    Parameters
+        body: data on the assignees and clearances to be revoked
+    """
+    assigner_campus_id = authorization.get("campus_id", "")
     revoke_count = ClearanceAssignment.revoke(
         assigner_campus_id, body.assignees, body.clearance_ids)
 
     response.status_code = status.HTTP_200_OK
-    return {
-        'changes': revoke_count
-    }
+    return {"changes": revoke_count}

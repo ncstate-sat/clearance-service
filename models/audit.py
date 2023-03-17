@@ -1,6 +1,4 @@
-"""
-Model for clearance assignment audit
-"""
+"""Model for clearance assignment audit"""
 
 import datetime
 from typing import Optional
@@ -43,8 +41,10 @@ class Audit:
     @classmethod
     def add_many(cls, audit_configs: list[AuditData]):
         """Add multiple audit entries"""
-        result = cls.collection.insert_many(audit_configs)
-        return result.inserted_ids
+        if audit_configs:
+            result = cls.collection.insert_many(audit_configs)
+            return result.inserted_ids
+        return []
 
     @classmethod
     def get_audit_log(
@@ -60,17 +60,20 @@ class Audit:
         message: Optional[str] = None
     ) -> list["Audit"]:
         """
-        Get records from the audit collection with optional filters.
-        :param str assignee_id: the campus ID of the assignee
-        :param str assigner_id: the campus ID of the assigner
-        :param str clearance_id: the clearance's GUID
-        :param str clearance_name: the clearance's title
-        :param datetime from_time: the minimum timestamp for returned audits
-        :param datetime to_time: the maximum timestamp for returned audits
-        :param str message: a regex to search audit messages
-        :param int page: which page of paginated results to return
-        :param int limit: maximum number of results to return
-        :returns list: list of Audit objects
+        Get records from the audit collection with optional filters
+
+        Parameters:
+            assignee_id: the campus ID of the assignee
+            assigner_id: the campus ID of the assigner
+            clearance_id: the clearance's GUID
+            clearance_name: the clearance's title
+            from_time: the minimum timestamp for returned audits
+            to_time: the maximum timestamp for returned audits
+            message: a regex to search audit messages
+            page: which page of paginated results to return
+            limit: maximum number of results to return
+
+        Returns: A list of Audit objects
         """
         match = {}
         if assignee_id is not None:

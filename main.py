@@ -1,6 +1,4 @@
-"""
-Backend service for Clearance Assignment functionality.
-"""
+"""Backend service for Clearance Assignment functionality"""
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -12,13 +10,12 @@ from crud.liaison import router as liaison_router
 from models.scheduler_framework import ServiceScheduler
 from util.ccure_api import CcureApi
 
-DESCRIPTION = """
-Backend service for Clearance Assignment functionality.
-"""
+
+DESCRIPTION = """Backend service for Clearance Assignment functionality"""
 
 
 def create_app():
-    """Sets up a FastAPI application instance."""
+    """Set up a FastAPI application instance"""
     fastapi_app = FastAPI(
         title="Clearance Service",
         description=DESCRIPTION,
@@ -47,9 +44,7 @@ app.include_router(audit_router, prefix='/audit')
 
 @app.on_event("startup")
 def startup_db_client():
-    """
-    Start the scheduler
-    """
+    """Start the scheduler"""
     scheduler = ServiceScheduler()
     scheduler.start_scheduler()
     print("Started scheduler")
@@ -57,8 +52,7 @@ def startup_db_client():
 
 @app.on_event("shutdown")
 def logout_ccure_session():
-    """Log out of the CCURE session"""
-    ccure_api = CcureApi()
-    response = ccure_api.logout()
+    """Log out of the CCure session"""
+    response = CcureApi.logout()
     if response.status_code == 200:
-        print("Ending CCURE session...")
+        print("Ending CCure session")

@@ -12,7 +12,7 @@ from models.scheduler_service import SchedulerService
 class ServiceScheduler:
     """
     The scheduler keeps our datasources in sync by periodically pushing
-    pending data to the CCURE api.
+    pending data to the CCure api.
     The schedular also deletes stale data daily.
     """
 

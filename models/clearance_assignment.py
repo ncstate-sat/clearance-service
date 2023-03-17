@@ -1,6 +1,4 @@
-"""
-Model for Clearance Assignments.
-"""
+"""Model for Clearance Assignments"""
 
 from typing import Optional
 from datetime import datetime, date
@@ -12,9 +10,7 @@ from .clearance import Clearance
 
 
 class ClearanceAssignment:
-    """
-    A record of a clearance being assigned to an individual.
-    """
+    """A record of a clearance being assigned to an individual"""
 
     def __init__(self,
                  assigner_id: str = None,
@@ -37,14 +33,16 @@ class ClearanceAssignment:
     def get_clearance_ids_by_assignee(assignee_id: str) -> set[str]:
         """
         Fetch the GUIDs of an indiviual's clearances
-        :param str assignee_id: the individual's campus id
-        :returns set[str]: the clearance GUIDs
+
+        Parameters:
+            assignee_id: the individual's campus id
+
+        Returns: A set of clearance GUIDs
         """
         # first get object ids for clearances assigned to assignee_id
-        ccure_api = CcureApi()
-        assignee_object_id = ccure_api.get_object_id(assignee_id)
+        assignee_object_id = CcureApi.get_object_id(assignee_id)
         route = "/victorwebservice/api/Objects/GetAllWithCriteria"
-        url = ccure_api.base_url + route
+        url = CcureApi.base_url + route
         request_json = {
             "TypeFullName": ("SoftwareHouse.NextGen.Common.SecurityObjects."
                              "PersonnelClearancePairTimed"),
@@ -54,7 +52,7 @@ class ClearanceAssignment:
             url,
             json=request_json,
             headers={
-                "session-id": ccure_api.get_session_id(),
+                "session-id": CcureApi.get_session_id(),
                 "Access-Control-Expose-Headers": "session-id"
             },
             timeout=1
@@ -78,10 +76,10 @@ class ClearanceAssignment:
                 "explicitPropertyList": []
             }
             response = requests.post(
-                ccure_api.base_url + route,
+                CcureApi.base_url + route,
                 json=request_json,
                 headers={
-                    "session-id": ccure_api.get_session_id(),
+                    "session-id": CcureApi.get_session_id(),
                     "Access-Control-Expose-Headers": "session-id"
                 },
                 timeout=1
@@ -97,9 +95,11 @@ class ClearanceAssignment:
         """
         Fetch an individual's current clearances
 
-        :param str assignee_id: The Campus ID of the individual
-            who was assigned the clearances.
-        :return list[ClearanceAssignment]: the individual's clearances
+        Parameters:
+            assignee_id: The Campus ID of the individual
+                who was assigned the clearances.
+
+        Returns: A list of the individual's clearances
         """
         clearance_ids = cls.get_clearance_ids_by_assignee(assignee_id)
         return [ClearanceAssignment(clearance_id=_id) for _id in clearance_ids]
@@ -112,8 +112,16 @@ class ClearanceAssignment:
                start_time: Optional[date] = None,
                end_time: Optional[date] = None) -> int:
         """
-        Assign a list of clearances to a list of individuals.
-        :returns int: the number of changes made
+        Assign a list of clearances to a list of individuals
+
+        Parameters:
+            assigner_id: the campus ID of the person assigning clearances
+            assignee_ids: list of campus IDs for people getting clearances
+            clearance_ids: list of clearance GUIDs to be assigned
+            start_time: the time the assignment should go into effect
+            end_time: the time the assignment should expire
+
+        Returns: the number of changes made
         """
         now = datetime.utcnow()
         if start_time or end_time:  # then add it to mongo
@@ -133,7 +141,7 @@ class ClearanceAssignment:
                 "clearance_assignment")
             assignment_collection.insert_many(new_assignments)
 
-        if start_time is None:  # then add it in ccure
+        if start_time is None:  # then add it in CCure
             new_assignments = []
             for assignee_id in assignee_ids:
                 current_clearances = cls.get_clearance_ids_by_assignee(
@@ -145,8 +153,7 @@ class ClearanceAssignment:
                             "assigner_id": assigner_id,
                             "clearance_guid": clearance_id
                         })
-            ccure_api = CcureApi()
-            ccure_api.assign_clearances(new_assignments)
+            CcureApi.assign_clearances(new_assignments)
 
             # audit the new assignment
             Audit.add_many(audit_configs=[{
@@ -166,8 +173,14 @@ class ClearanceAssignment:
                assignee_ids: list[str],
                clearance_ids: list[str]) -> int:
         """
-        Revoke a list of clearances from a list of individuals.
-        :returns int: the number of changes made
+        Revoke a list of clearances from a list of individuals
+
+        Parameters:
+            assigner_id: the campus ID of the person revoking clearances
+            assignee_ids: list of campus IDs for people losing clearances
+            clearance_ids: list of clearance GUIDs to be revoked
+
+        Returns: the number of changes made
         """
         new_assignments = []
         for campus_id in assignee_ids:
@@ -177,8 +190,7 @@ class ClearanceAssignment:
                     "assigner_id": assigner_id,
                     "clearance_id": clearance_id
                 })
-        ccure_api = CcureApi()
-        ccure_api.revoke_clearances(new_assignments)
+        CcureApi.revoke_clearances(new_assignments)
 
         # audit the new revocation
         now = datetime.utcnow()
