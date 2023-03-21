@@ -64,7 +64,7 @@ class ClearanceAssignment:
         # then get the guids for those clearances
         if clearance_ids:
             route = "/victorwebservice/api/v2/Personnel/ClearancesForAssignment"
-            query = " OR ".join(f"ObjectID = {_id}"for _id in clearance_ids)
+            query = " OR ".join(f"ObjectID = {_id}" for _id in clearance_ids)
             request_json = {
                 "partitionList": [],
                 "whereClause": query,

@@ -92,7 +92,7 @@ class Personnel:
             clearances
         )
 
-    def assign_liaison_permissions(self, clearance_ids: list[str]) -> dict:
+    def assign_liaison_permissions(self, clearances: list[dict]) -> dict:
         """
         Assign permission to assign certain clearances
 
@@ -100,27 +100,28 @@ class Personnel:
             clearance_ids: GUIDs for clearances this person can assign
         """
         liaison_permissions_collection = get_clearance_collection(
-            "liaison-clearance-permissions")
+            "liaison-clearance-permissions-new")
         record = liaison_permissions_collection.find_one({
             "campus_id": self.campus_id})
         if record is not None:
-            allowed_clearance_ids = record["clearance_ids"] or []
-            for clearance_id in clearance_ids:
-                if clearance_id not in allowed_clearance_ids:
-                    allowed_clearance_ids.append(clearance_id)
-            record["clearance_ids"] = allowed_clearance_ids
+            allowed_clearances = record.get("clearances")
+            for new_clearance in clearances:
+                if new_clearance not in allowed_clearances:
+                    allowed_clearances.append(new_clearance)
             liaison_permissions_collection.update_one(
                 {"campus_id": self.campus_id},
-                {"$set": {"clearance_ids": record["clearance_ids"]}})
+                {"$set": {"clearance_ids": allowed_clearances}})
         else:
             record = {
                 "campus_id": self.campus_id,
-                "clearance_ids": clearance_ids
+                "unity_id": self.email.split("@")[0],
+                "email": self.email,
+                "clearances": clearances
             }
             liaison_permissions_collection.insert_one(record)
         return record
 
-    def revoke_liaison_permissions(self, clearance_ids: list[str]) -> dict:
+    def revoke_liaison_permissions(self, clearance_guids: list[str]) -> dict:
         """
         Revoke permissions to assign certain clearances
 
@@ -129,22 +130,26 @@ class Personnel:
                 no longer be able to assign
         """
         liaison_permissions_collection = get_clearance_collection(
-            "liaison-clearance-permissions")
+            "liaison-clearance-permissions-new")
         record = liaison_permissions_collection.find_one({
             "campus_id": self.campus_id})
 
         if record is not None:
-            allowed_clearance_ids = record["clearance_ids"] or []
-            for cl_id in clearance_ids:
-                if cl_id in allowed_clearance_ids:
-                    allowed_clearance_ids.remove(cl_id)
-            record["clearance_ids"] = allowed_clearance_ids
+            items_to_remove = []
+            allowed_clearances = record["clearances"] or []
+            for current_clearance in allowed_clearances:
+                if current_clearance["guid"] in clearance_guids:
+                    items_to_remove.append(current_clearance)
+            for item in items_to_remove:
+                allowed_clearances.remove(item)
             liaison_permissions_collection.update_one(
                 {"campus_id": self.campus_id},
-                {"$set": {"clearance_ids": record["clearance_ids"]}})
+                {"$set": {"clearances": allowed_clearances}})
         else:
             record = {
                 "campus_id": self.campus_id,
+                "unity_id": self.email.split("@")[0],
+                "email": self.email,
                 "clearance_ids": []
             }
             liaison_permissions_collection.insert_one(record)
@@ -154,12 +159,51 @@ class Personnel:
     def get_liaison_permissions(self) -> list["Clearance"]:
         """Fetch a list of clearances this person can assign"""
         liaison_permissions_collection = get_clearance_collection(
-            "liaison-clearance-permissions")
+            "liaison-clearance-permissions-new")
         record = liaison_permissions_collection.find_one({
             "campus_id": self.campus_id})
         if record is None:
             return []
-        return [Clearance(guid) for guid in record["clearance_ids"]]
+        return [Clearance(clearance.get("guid"),
+                          clearance.get("name"))
+                for clearance in record["clearances"]]
+
+    @staticmethod
+    def find_one(campus_id: str) -> "Personnel":
+        """
+        Use the CCure api to find one person by campus ID
+
+        Parameters:
+            campus_id: the person's campus ID
+
+        Returns: one Personnel object or None
+        """
+        query_route = "/victorwebservice/api/Objects/FindObjsWithCriteriaFilter"
+        url = CcureApi.base_url + query_route
+
+        request_json = {
+            "TypeFullName": "Personnel",
+            "WhereClause": f"Text1 = '{campus_id}'"
+        }
+        response = requests.post(
+            url,
+            json=request_json,
+            headers={
+                "session-id": CcureApi.get_session_id(),
+                "Access-Control-Expose-Headers": "session-id"
+            },
+            timeout=1
+        )
+        if response.status_code == 200:
+            json = response.json()
+            return Personnel(
+                json["FirstName"],
+                json["MiddleName"],
+                json["LastName"],
+                json["Text14"],  # email
+                json["Text1"]  # campus_id
+            )
+        print(response.text)
 
     @staticmethod
     def search(search_terms) -> list["Personnel"]:
