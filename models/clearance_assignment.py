@@ -16,6 +16,7 @@ class ClearanceAssignment:
                  assigner_id: str = None,
                  assignee_id: str = None,
                  clearance_id: str = None,
+                 clearance_name: str = None,
                  state: str = None,
                  start_time: datetime = None,
                  end_time: datetime = None,
@@ -23,21 +24,21 @@ class ClearanceAssignment:
         """Initialize a ClearanceAssignment object"""
         self.assigner_id = assigner_id
         self.assignee_id = assignee_id
-        self.clearance = Clearance(clearance_id)
+        self.clearance = Clearance(clearance_id, clearance_name)
         self.state = state
         self.start_time = start_time
         self.end_time = end_time
         self.submitted_time = submitted_time
 
     @staticmethod
-    def get_clearance_ids_by_assignee(assignee_id: str) -> set[str]:
+    def get_clearances_by_assignee(assignee_id: str) -> list["Clearance"]:
         """
-        Fetch the GUIDs of an indiviual's clearances
+        Fetch an indiviual's clearances
 
         Parameters:
             assignee_id: the individual's campus id
 
-        Returns: A set of clearance GUIDs
+        Returns: A list of clearances
         """
         # first get object ids for clearances assigned to assignee_id
         assignee_object_id = CcureApi.get_object_id(assignee_id)
@@ -84,8 +85,8 @@ class ClearanceAssignment:
                 },
                 timeout=1
             )
-            return {item.get("GUID") for item in response.json()[1:]}
-        return set()
+            return [Clearance(item.get("GUID"), item.get("Name")) for item in response.json()[1:]]
+        return []
 
     @classmethod
     def get_assignments_by_assignee(
@@ -101,8 +102,10 @@ class ClearanceAssignment:
 
         Returns: A list of the individual's clearances
         """
-        clearance_ids = cls.get_clearance_ids_by_assignee(assignee_id)
-        return [ClearanceAssignment(clearance_id=_id) for _id in clearance_ids]
+        clearances = cls.get_clearances_by_assignee(assignee_id)
+        return [ClearanceAssignment(clearance_id=clearance.id,
+                                    clearance_name=clearance.name)
+                for clearance in clearances]
 
     @classmethod
     def assign(cls,
@@ -144,10 +147,10 @@ class ClearanceAssignment:
         if start_time is None:  # then add it in CCure
             new_assignments = []
             for assignee_id in assignee_ids:
-                current_clearances = cls.get_clearance_ids_by_assignee(
-                    assignee_id)
+                current_clearances = cls.get_clearances_by_assignee(assignee_id)
+                current_clearance_guids = [clearance.id for clearance in current_clearances]
                 for clearance_id in clearance_ids:
-                    if clearance_id not in current_clearances:
+                    if clearance_id not in current_clearance_guids:
                         new_assignments.append({
                             "assignee_id": assignee_id,
                             "assigner_id": assigner_id,
