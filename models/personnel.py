@@ -195,7 +195,7 @@ class Personnel:
             timeout=1
         )
         if response.status_code == 200:
-            json = response.json()
+            json = response.json()[0]
             return Personnel(
                 json["FirstName"],
                 json["MiddleName"],

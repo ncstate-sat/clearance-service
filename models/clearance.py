@@ -58,7 +58,8 @@ class Clearance:
         )
         if response.status_code == 200:
             clearances = response.json()[1:]
-            return [Clearance(_id=clearance.get("GUID", ""))
+            return [Clearance(_id=clearance.get("GUID", ""),
+                              name=clearance.get("Name", ""))
                     for clearance in clearances]
         print(response.text)
         return []
@@ -74,7 +75,16 @@ class Clearance:
 
     @staticmethod
     def get_by_guids(guids: list[str]) -> list[dict]:
-        """"""
+        """
+        Get a list of clearance records for use in the
+        liaison-clearance-permissions collection
+
+        Parameters:
+            guids: list of clearance guids to get data for
+
+        Returns: list of dicts including the guid, id, and name
+            of the given clearances
+        """
         route = "/victorwebservice/api/v2/Personnel/ClearancesForAssignment"
         url = CcureApi.base_url + route
         request_json = {

@@ -33,6 +33,7 @@ class CcureApi:
                 timeout=1
             )
             cls.session_id = response.headers["session-id"]
+        print(cls.session_id)
         return cls.session_id
 
     @classmethod
@@ -175,17 +176,23 @@ class CcureApi:
         return clearance.get("Name", "")
 
     @staticmethod
-    def encode(data: dict):
+    def encode(data: dict) -> str:
         """
         Encode a dict of form data as a string
-        :param dict data: data about the new clearanace assignment
-        :returns str: the encoded data
+
+        Parameters:
+            data: data about the new clearanace assignment
+
+        Returns: the string of encoded data
         """
-        def get_form_entries(data: dict, prefix: str = ""):
+        def get_form_entries(data: dict, prefix: str = "") -> list[str]:
             """
             Convert the data dict into a list of form entries
-            :param dict data: data about the new clearance assignment
-            :returns list: a list of strings representing key/value pairs
+
+            Parameters:
+                data: data about the new clearance assignment
+
+            Returns: list of strings representing key/value pairs
             """
             entries = []
             for key, val in data.items():
@@ -206,6 +213,7 @@ class CcureApi:
                         else:
                             entries.append(f"{key}[]={list_item}")
             return entries
+
         return "&".join(get_form_entries(data))
 
     class AssignRevokeConfig(BaseModel):
