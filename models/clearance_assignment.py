@@ -85,7 +85,7 @@ class ClearanceAssignment:
                 },
                 timeout=1
             )
-            return [Clearance(item.get("GUID"), item.get("Name")) for item in response.json()[1:]]
+            return [Clearance(item.get("GUID"), item.get("ObjectID"), item.get("Name")) for item in response.json()[1:]]
         return []
 
     @classmethod
@@ -111,7 +111,7 @@ class ClearanceAssignment:
     def assign(cls,
                assigner_id: str,
                assignee_ids: list[str],
-               clearance_ids: list[str],
+               clearance_guids: list[str],
                start_time: Optional[date] = None,
                end_time: Optional[date] = None) -> int:
         """
@@ -120,7 +120,7 @@ class ClearanceAssignment:
         Parameters:
             assigner_id: the campus ID of the person assigning clearances
             assignee_ids: list of campus IDs for people getting clearances
-            clearance_ids: list of clearance GUIDs to be assigned
+            clearance_guids: list of clearance GUIDs to be assigned
             start_time: the time the assignment should go into effect
             end_time: the time the assignment should expire
 
@@ -130,7 +130,7 @@ class ClearanceAssignment:
         if start_time or end_time:  # then add it to mongo
             new_assignments = []
             for assignee_id in assignee_ids:
-                for clearance_id in clearance_ids:
+                for clearance_id in clearance_guids:
                     new_assignments.append({
                         "assignee_id": assignee_id,
                         "assigner_id": assigner_id,
@@ -149,27 +149,26 @@ class ClearanceAssignment:
             for assignee_id in assignee_ids:
                 current_clearances = cls.get_clearances_by_assignee(assignee_id)
                 current_clearance_guids = [clearance.id for clearance in current_clearances]
-                for clearance_id in clearance_ids:
+                for clearance_id in clearance_guids:
                     if clearance_id not in current_clearance_guids:
                         new_assignments.append({
                             "assignee_id": assignee_id,
                             "assigner_id": assigner_id,
                             "clearance_guid": clearance_id
                         })
-            CcureApi.assign_clearances(new_assignments)
+            clearances_data = CcureApi.assign_clearances(new_assignments)
 
             # audit the new assignment
             Audit.add_many(audit_configs=[{
                 "assigner_id": new_assignment["assigner_id"],
                 "assignee_id": new_assignment["assignee_id"],
                 "clearance_id": new_assignment["clearance_guid"],
-                "clearance_name": CcureApi.get_clearance_name(
-                    new_assignment["clearance_guid"]),
+                "clearance_name": clearances_data[new_assignment["clearance_guid"]]["name"],
                 "timestamp": now,
                 "message": "Activating clearance"
             } for new_assignment in new_assignments])
 
-        return len(assignee_ids) * len(clearance_ids)
+        return len(assignee_ids) * len(clearance_guids)
 
     @staticmethod
     def revoke(assigner_id: str,

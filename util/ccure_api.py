@@ -95,14 +95,13 @@ class CcureApi:
         return ""
 
     @classmethod
-    def get_object_id(cls, campus_id) -> int:
+    def get_object_id(cls, campus_id: str) -> int:
         """
         With a user's campus_id, get their CCure ObjectID
 
         Parameters:
             campus_id: The user's campus ID
         """
-        session_id = cls.get_session_id()
         route = "/victorwebservice/api/Objects/FindObjsWithCriteriaFilter"
         url = cls.base_url + route
         request_json = {
@@ -113,7 +112,7 @@ class CcureApi:
             url,
             json=request_json,
             headers={
-                "session-id": session_id,
+                "session-id": cls.get_session_id(),
                 "Access-Control-Expose-Headers": "session-id"
             },
             timeout=1
@@ -121,6 +120,31 @@ class CcureApi:
         if response.status_code == 200:
             return response.json()[0].get("ObjectID", 0)
         return 0
+
+    @classmethod
+    def get_object_ids(cls, campus_ids: set[str]) -> dict:
+        """
+        """
+        if not campus_ids:
+            return {}
+        route = "/victorwebservice/api/Objects/FindObjsWithCriteriaFilter"
+        url = cls.base_url + route
+        request_json = {
+            "TypeFullName": "Personnel",
+            "WhereClause": " OR ".join(f"Text1 = '{campus_id}'" for campus_id in campus_ids)
+        }
+        response = requests.post(
+            url,
+            json=request_json,
+            headers={
+                "session-id": cls.get_session_id(),
+                "Access-Control-Expose-Headers": "session-id"
+            },
+            timeout=1
+        )
+        if response.status_code == 200:
+            return {person["Text1"]: person["ObjectID"] for person in response.json()}
+        return {}
 
     @classmethod
     def get_clearance(cls, clearance_guid: str) -> dict:
@@ -166,6 +190,35 @@ class CcureApi:
         """
         clearance = cls.get_clearance(clearance_guid)
         return clearance.get("ObjectID", 0)
+
+    @classmethod
+    def get_clearance_ids(cls, clearance_guids: set[str]) -> dict:
+        """
+        """
+        route = "/victorwebservice/api/v2/Personnel/ClearancesForAssignment"
+        url = cls.base_url + route
+        request_json = {
+            "partitionList": [],
+            "whereClause": " OR ".join(f"GUID = '{clearance_guid}'" for clearance_guid in clearance_guids),
+            "pageSize": 0,
+            "pageNumber": 1,
+            "sortColumnName": "",
+            "whereArgList": [],
+            "propertyList": ["Name"],
+            "explicitPropertyList": []
+        }
+        response = requests.post(
+            url,
+            json=request_json,
+            headers={
+                "session-id": cls.get_session_id(),
+                "Access-Control-Expose-Headers": "session-id"
+            },
+            timeout=1
+        )
+        if response.status_code == 200 and response.json():
+            return {clearance["GUID"]: {"id": clearance["ObjectID"], "name": clearance["Name"]} for clearance in response.json()[1:]}
+        return {}
 
     @classmethod
     def get_clearance_name(cls, clearance_guid: str) -> str:
@@ -232,17 +285,25 @@ class CcureApi:
         Parameters:
             config: list of dicts with the data needed to assign the clearance
         """
+        # TODO take clearance data as an argument. don't do it here. (?)
+        campus_ids = set()
+        clearance_guids = set()
+        for item in config:
+            campus_ids.add(item.get("assignee_id"))
+            clearance_guids.add(item.get("clearance_guid"))
+        # then get ccure ids for assignee_ids and clearance_guids
+        assignee_ids = cls.get_object_ids(campus_ids)
+        clearances_data = cls.get_clearance_ids(clearance_guids)  # TODO clean. rename. whatever.
         # group assignments requests by assignee
-        person_assignments = {assg["assignee_id"]: [] for assg in config}
+        person_assignments = {assignee_id: [] for assignee_id in assignee_ids.values()}
         for assignment in config:
-            clearances = person_assignments[assignment["assignee_id"]]
-            ccure_id = cls.get_clearance_id(assignment["clearance_guid"])
+            assignee_id = assignee_ids[assignment["assignee_id"]]
+            clearances = person_assignments[assignee_id]
+            ccure_id = clearances_data[assignment["clearance_guid"]]
             if ccure_id:
                 clearances.append(ccure_id)
-        person_assignments = {cls.get_object_id(k): v
-                              for k, v in person_assignments.items()}
 
-        for assignee, clearance_ids in person_assignments.items():
+        for assignee, clearances in person_assignments.items():
             # assign the assignee their new clearances
             data = {
                 "type": ("SoftwareHouse.NextGen.Common"
@@ -252,8 +313,8 @@ class CcureApi:
                     "Type": ("SoftwareHouse.NextGen.Common"
                              ".SecurityObjects.PersonnelClearancePair"),
                     "PropertyNames": ["PersonnelID", "ClearanceID"],
-                    "PropertyValues": [assignee, clearance_id]
-                } for clearance_id in clearance_ids]
+                    "PropertyValues": [assignee, clearance["id"]]
+                } for clearance in clearances]
             }
             route = "/victorwebservice/api/Objects/PersistToContainer"
             response = requests.post(
@@ -269,6 +330,7 @@ class CcureApi:
             if response.status_code != 200:
                 print(f"Unable to assign clearances to user {assignee}.")
                 print(f"{response.status_code}: {response.text}")
+        return clearances_data
 
     @classmethod
     def revoke_clearances(cls, config: list[AssignRevokeConfig]):
