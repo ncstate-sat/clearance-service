@@ -20,22 +20,27 @@ client = TestClient(app)
 clearances_response = [
     {
         "_id": "00BC9D72-F88C-4763-92B4-C41B946827A4",
+        "ccure_id": 5000,
         "clearance_name": "VRB-SAT-Module 1 B140 Software Developer-C2"
     },
     {
         "_id": "2C124A2A-5C4E-4B96-B0B2-D688CCB8CA6B",
+        "ccure_id": 5001,
         "clearance_name": "VRB - Module 2 Student Suite"
     },
     {
         "_id": "3CD319E4-4718-4605-8505-C7E3848AE01F",
+        "ccure_id": 5002,
         "clearance_name": "VRB - Module 2 - 1007 Wet Lab"
     },
     {
         "_id": "41C69822-9E33-4F8C-AE0B-DD77272A5867",
+        "ccure_id": 5003,
         "clearance_name": "VRB - Module 6 & 7 All Common Doors"
     },
     {
         "_id": "44BD86BC-A075-4E65-B66C-7F680DABBBDA",
+        "ccure_id": 5004,
         "clearance_name": "VRB - Module 6 - 1543 Lab"
     }
 ]
@@ -51,6 +56,7 @@ clean_clearances_partial = []   # Clearances for liaisons
 for clearance in clearances_response:
     new_clearance = {
         "id": clearance["_id"],
+        "ccure_id": clearance["ccure_id"],
         "name": clearance["clearance_name"]
     }
     clean_clearances_full.append(new_clearance)
@@ -75,7 +81,7 @@ def mock_get_clearances(*_, **__):
 
 def mock_clearance_get(*_, **__):
     """Mock the Clearance.get method"""
-    return [Clearance(item["_id"]) for item in clearances_response]
+    return [Clearance(item["_id"], item["ccure_id"], item["clearance_name"]) for item in clearances_response]
 
 
 def mock_get_clearance_permissions(*_, **__):
@@ -99,10 +105,12 @@ def mock_filter_allowed(*_, **__):
     return [
         {
             "id": "00BC9D72-F88C-4763-92B4-C41B946827A4",
+            "ccure_id": 5000,
             "name": "VRB-SAT-Module 1 B140 Software Developer-C2"
         },
         {
             "id": "2C124A2A-5C4E-4B96-B0B2-D688CCB8CA6B",
+            "ccure_id": 5001,
             "name": "VRB - Module 2 Student Suite"
         },
     ]

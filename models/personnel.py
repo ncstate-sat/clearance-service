@@ -114,7 +114,6 @@ class Personnel:
         else:
             record = {
                 "campus_id": self.campus_id,
-                "unity_id": self.email.split("@")[0],
                 "email": self.email,
                 "clearances": clearances
             }
@@ -136,7 +135,7 @@ class Personnel:
 
         if record is not None:
             items_to_remove = []
-            allowed_clearances = record["clearances"] or []
+            allowed_clearances = record["clearance_ids"] or []
             for current_clearance in allowed_clearances:
                 if current_clearance["guid"] in clearance_guids:
                     items_to_remove.append(current_clearance)
@@ -148,7 +147,6 @@ class Personnel:
         else:
             record = {
                 "campus_id": self.campus_id,
-                "unity_id": self.email.split("@")[0],
                 "email": self.email,
                 "clearance_ids": []
             }
@@ -165,6 +163,7 @@ class Personnel:
         if record is None:
             return []
         return [Clearance(clearance.get("guid"),
+                          clearance.get("id"),  # the ccure_id.
                           clearance.get("name"))
                 for clearance in record["clearances"]]
 
