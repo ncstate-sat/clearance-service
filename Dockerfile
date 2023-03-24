@@ -17,4 +17,4 @@ ENV UVICORN_HOST=$HOST
 
 EXPOSE $UVICORN_PORT
 
-CMD ["uvicorn", "main:app", "--reload"]
+CMD ["uvicorn", "main:app"]
