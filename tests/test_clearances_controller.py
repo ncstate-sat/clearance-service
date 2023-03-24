@@ -81,7 +81,11 @@ def mock_get_clearances(*_, **__):
 
 def mock_clearance_get(*_, **__):
     """Mock the Clearance.get method"""
-    return [Clearance(item["_id"], item["ccure_id"], item["clearance_name"]) for item in clearances_response]
+    return [Clearance(
+        item["_id"],
+        item["ccure_id"],
+        item["clearance_name"]
+    ) for item in clearances_response]
 
 
 def mock_get_clearance_permissions(*_, **__):

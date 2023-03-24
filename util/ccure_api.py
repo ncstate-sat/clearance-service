@@ -124,6 +124,12 @@ class CcureApi:
     @classmethod
     def get_object_ids(cls, campus_ids: set[str]) -> dict:
         """
+        Map people's campus IDs to their CCure IDs
+
+        Parameters:
+            campus_ids: the IDs of the people to include
+
+        Returns: dict in the format {campus_id: ccure_id}
         """
         if not campus_ids:
             return {}
@@ -131,7 +137,8 @@ class CcureApi:
         url = cls.base_url + route
         request_json = {
             "TypeFullName": "Personnel",
-            "WhereClause": " OR ".join(f"Text1 = '{campus_id}'" for campus_id in campus_ids)
+            "WhereClause": " OR ".join(f"Text1 = '{campus_id}'"
+                                       for campus_id in campus_ids)
         }
         response = requests.post(
             url,
@@ -143,7 +150,8 @@ class CcureApi:
             timeout=1
         )
         if response.status_code == 200:
-            return {person["Text1"]: person["ObjectID"] for person in response.json()}
+            return {person["Text1"]: person["ObjectID"]
+                    for person in response.json()}
         return {}
 
     @classmethod
@@ -192,14 +200,22 @@ class CcureApi:
         return clearance.get("ObjectID", 0)
 
     @classmethod
-    def get_clearance_ids(cls, clearance_guids: set[str]) -> dict:
+    def get_clearance_data(cls, clearance_guids: set[str]) -> dict:
         """
+        Map clearance guids to their corresponding CCure IDs
+        and clearance names
+
+        Parameters:
+            clearance_guids: the guids of the clearances to get data for
+
+        Returns: dict with clearance guids as keys
         """
         route = "/victorwebservice/api/v2/Personnel/ClearancesForAssignment"
         url = cls.base_url + route
         request_json = {
             "partitionList": [],
-            "whereClause": " OR ".join(f"GUID = '{clearance_guid}'" for clearance_guid in clearance_guids),
+            "whereClause": " OR ".join(f"GUID = '{clearance_guid}'"
+                                       for clearance_guid in clearance_guids),
             "pageSize": 0,
             "pageNumber": 1,
             "sortColumnName": "",
@@ -217,7 +233,12 @@ class CcureApi:
             timeout=1
         )
         if response.status_code == 200 and response.json():
-            return {clearance["GUID"]: {"id": clearance["ObjectID"], "name": clearance["Name"]} for clearance in response.json()[1:]}
+            return {
+                clearance["GUID"]: {
+                    "id": clearance["ObjectID"],
+                    "name": clearance["Name"]
+                } for clearance in response.json()[1:]
+            }
         return {}
 
     @classmethod
@@ -285,7 +306,6 @@ class CcureApi:
         Parameters:
             config: list of dicts with the data needed to assign the clearance
         """
-        # TODO take clearance data as an argument. don't do it here. (?)
         campus_ids = set()
         clearance_guids = set()
         for item in config:
@@ -293,9 +313,10 @@ class CcureApi:
             clearance_guids.add(item.get("clearance_guid"))
         # then get ccure ids for assignee_ids and clearance_guids
         assignee_ids = cls.get_object_ids(campus_ids)
-        clearances_data = cls.get_clearance_ids(clearance_guids)  # TODO clean. rename. whatever.
+        clearances_data = cls.get_clearance_data(clearance_guids)
         # group assignments requests by assignee
-        person_assignments = {assignee_id: [] for assignee_id in assignee_ids.values()}
+        person_assignments = {assignee_id: []
+                              for assignee_id in assignee_ids.values()}
         for assignment in config:
             assignee_id = assignee_ids[assignment["assignee_id"]]
             clearances = person_assignments[assignee_id]

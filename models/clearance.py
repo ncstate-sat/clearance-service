@@ -21,7 +21,7 @@ class Clearance:
             _id: the GUID of the clearance as it is in CCure
             ccure_id: the ObjectID of the clearance in CCure
             name: the name of the clearance in CCure
-        """  # TODO change these variable names. fix 'id'
+        """
         self.id = _id
         self.ccure_id = ccure_id
         if name:
