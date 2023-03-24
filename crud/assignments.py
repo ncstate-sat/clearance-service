@@ -58,8 +58,8 @@ def get_assignments(response: Response, campus_id: str) -> dict:
     res = []
     for assignment in assignments:
         res.append({
-            "id": assignment.clearance.__dict__["id"],
-            "name": assignment.clearance.__dict__["name"]
+            "id": assignment.clearance.id,
+            "name": assignment.clearance.name
         })
 
     response.status_code = status.HTTP_200_OK

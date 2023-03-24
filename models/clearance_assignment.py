@@ -24,7 +24,7 @@ class ClearanceAssignment:
         """Initialize a ClearanceAssignment object"""
         self.assigner_id = assigner_id
         self.assignee_id = assignee_id
-        self.clearance = Clearance(clearance_id, clearance_name)
+        self.clearance = Clearance(_id=clearance_id, name=clearance_name)
         self.state = state
         self.start_time = start_time
         self.end_time = end_time
@@ -85,7 +85,11 @@ class ClearanceAssignment:
                 },
                 timeout=1
             )
-            return [Clearance(item.get("GUID"), item.get("ObjectID"), item.get("Name")) for item in response.json()[1:]]
+            return [Clearance(
+                item.get("GUID"),
+                item.get("ObjectID"),
+                item.get("Name")
+            ) for item in response.json()[1:]]
         return []
 
     @classmethod
@@ -148,7 +152,8 @@ class ClearanceAssignment:
             new_assignments = []
             for assignee_id in assignee_ids:
                 current_clearances = cls.get_clearances_by_assignee(assignee_id)
-                current_clearance_guids = [clearance.id for clearance in current_clearances]
+                current_clearance_guids = [clearance.id
+                                           for clearance in current_clearances]
                 for clearance_id in clearance_guids:
                     if clearance_id not in current_clearance_guids:
                         new_assignments.append({
@@ -163,7 +168,8 @@ class ClearanceAssignment:
                 "assigner_id": new_assignment["assigner_id"],
                 "assignee_id": new_assignment["assignee_id"],
                 "clearance_id": new_assignment["clearance_guid"],
-                "clearance_name": clearances_data[new_assignment["clearance_guid"]]["name"],
+                "clearance_name": clearances_data[
+                    new_assignment["clearance_guid"]]["name"],
                 "timestamp": now,
                 "message": "Activating clearance"
             } for new_assignment in new_assignments])

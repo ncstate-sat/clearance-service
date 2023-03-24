@@ -50,7 +50,9 @@ class Personnel:
 
     def clearances(self) -> list[str]:
         """Return a list of the clearance GUIDs assigned to this person"""
-        return [clearance.id for clearance in ClearanceAssignment.get_clearances_by_assignee(self.campus_id)]
+        clearances = ClearanceAssignment.get_clearances_by_assignee(
+            self.campus_id)
+        return [clearance.id for clearance in clearances]
 
     def assign(self,
                assigner_id: str,
