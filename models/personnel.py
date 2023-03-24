@@ -102,7 +102,7 @@ class Personnel:
             clearance_ids: GUIDs for clearances this person can assign
         """
         liaison_permissions_collection = get_clearance_collection(
-            "liaison-clearance-permissions-new")
+            "liaison-clearance-permissions")
         record = liaison_permissions_collection.find_one({
             "campus_id": self.campus_id})
         if record is not None:
@@ -112,7 +112,7 @@ class Personnel:
                     allowed_clearances.append(new_clearance)
             liaison_permissions_collection.update_one(
                 {"campus_id": self.campus_id},
-                {"$set": {"clearance_ids": allowed_clearances}})
+                {"$set": {"clearances": allowed_clearances}})
         else:
             record = {
                 "campus_id": self.campus_id,
@@ -131,7 +131,7 @@ class Personnel:
                 no longer be able to assign
         """
         liaison_permissions_collection = get_clearance_collection(
-            "liaison-clearance-permissions-new")
+            "liaison-clearance-permissions")
         record = liaison_permissions_collection.find_one({
             "campus_id": self.campus_id})
 
@@ -150,7 +150,7 @@ class Personnel:
             record = {
                 "campus_id": self.campus_id,
                 "email": self.email,
-                "clearance_ids": []
+                "clearances": []
             }
             liaison_permissions_collection.insert_one(record)
 
@@ -159,7 +159,7 @@ class Personnel:
     def get_liaison_permissions(self) -> list["Clearance"]:
         """Fetch a list of clearances this person can assign"""
         liaison_permissions_collection = get_clearance_collection(
-            "liaison-clearance-permissions-new")
+            "liaison-clearance-permissions")
         record = liaison_permissions_collection.find_one({
             "campus_id": self.campus_id})
         if record is None:

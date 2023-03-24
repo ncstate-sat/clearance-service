@@ -20,7 +20,7 @@ class ClearanceDB:
             assigned by this individual.
         """
         record: list[dict] = get_clearance_collection(
-            "liaison-clearance-permissions-new"
+            "liaison-clearance-permissions"
         ).find_one({"campus_id": campus_id})
         if record is None:
             return []
