@@ -196,18 +196,18 @@ class ClearanceAssignment:
                 new_assignments.append({
                     "assignee_id": campus_id,
                     "assigner_id": assigner_id,
-                    "clearance_id": clearance_id
+                    "clearance_guid": clearance_id
                 })
-        CcureApi.revoke_clearances(new_assignments)
+        clearances_data = CcureApi.revoke_clearances(new_assignments)
 
         # audit the new revocation
         now = datetime.utcnow()
         Audit.add_many(audit_configs=[{
             "assigner_id": new_assignment["assigner_id"],
             "assignee_id": new_assignment["assignee_id"],
-            "clearance_id": new_assignment["clearance_id"],
-            "clearance_name": CcureApi.get_clearance_name(
-                new_assignment["clearance_id"]),
+            "clearance_id": new_assignment["clearance_guid"],
+            "clearance_name": clearances_data[
+                new_assignment["clearance_guid"]]["name"],
             "timestamp": now,
             "message": "Revoking clearance"
         } for new_assignment in new_assignments])

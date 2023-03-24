@@ -361,15 +361,23 @@ class CcureApi:
         Parameters:
             config: list of dicts with the data needed to revoke the clearance
         """
+        campus_ids = set()
+        clearance_guids = set()
+        for item in config:
+            campus_ids.add(item.get("assignee_id"))
+            clearance_guids.add(item.get("clearance_guid"))
+        # then get ccure ids for assignee_ids and clearance_guids
+        assignee_ids = cls.get_object_ids(campus_ids)
+        clearances_data = cls.get_clearance_data(clearance_guids)
+
         # group revoke requests by assignee
         revocations = {item["assignee_id"]: [] for item in config}
         for revocation in config:
             clearances = revocations[revocation["assignee_id"]]
-            ccure_id = cls.get_clearance_id(revocation["clearance_id"])
+            ccure_id = clearances_data[revocation["clearance_guid"]]["id"]
             if ccure_id:
                 clearances.append(ccure_id)
-
-        revocations = {cls.get_object_id(k): v for k, v in revocations.items()}
+        revocations = {assignee_ids[k]: v for k, v in revocations.items()}
 
         for assignee, clearance_ids in revocations.items():
             # get object IDs of the assignee's PersonnelClearancePair objects
@@ -428,3 +436,5 @@ class CcureApi:
             if response.status_code != 200:
                 print(f"Unable to revoke clearances from user {assignee}.")
                 print(f"{response.status_code}: {response.text}")
+
+        return clearances_data
