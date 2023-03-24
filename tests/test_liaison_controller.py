@@ -95,7 +95,7 @@ def test_revoke_liaison_permissions(monkeypatch):
     expected_json = {
         "record": {
             "campus_id": "000101234",
-            "clearance_ids": [],
+            "clearances": [],
             "email": "test@email.com"
         }
     }

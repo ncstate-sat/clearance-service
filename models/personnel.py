@@ -137,7 +137,7 @@ class Personnel:
 
         if record is not None:
             items_to_remove = []
-            allowed_clearances = record["clearance_ids"] or []
+            allowed_clearances = record["clearances"] or []
             for current_clearance in allowed_clearances:
                 if current_clearance["guid"] in clearance_guids:
                     items_to_remove.append(current_clearance)
