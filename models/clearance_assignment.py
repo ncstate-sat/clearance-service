@@ -16,6 +16,7 @@ class ClearanceAssignment:
                  assigner_id: str = None,
                  assignee_id: str = None,
                  clearance_id: str = None,
+                 clearance_name: str = None,
                  state: str = None,
                  start_time: datetime = None,
                  end_time: datetime = None,
@@ -23,21 +24,21 @@ class ClearanceAssignment:
         """Initialize a ClearanceAssignment object"""
         self.assigner_id = assigner_id
         self.assignee_id = assignee_id
-        self.clearance = Clearance(clearance_id)
+        self.clearance = Clearance(_id=clearance_id, name=clearance_name)
         self.state = state
         self.start_time = start_time
         self.end_time = end_time
         self.submitted_time = submitted_time
 
     @staticmethod
-    def get_clearance_ids_by_assignee(assignee_id: str) -> set[str]:
+    def get_clearances_by_assignee(assignee_id: str) -> list["Clearance"]:
         """
-        Fetch the GUIDs of an indiviual's clearances
+        Fetch an indiviual's clearances
 
         Parameters:
             assignee_id: the individual's campus id
 
-        Returns: A set of clearance GUIDs
+        Returns: A list of clearances
         """
         # first get object ids for clearances assigned to assignee_id
         assignee_object_id = CcureApi.get_object_id(assignee_id)
@@ -64,7 +65,7 @@ class ClearanceAssignment:
         # then get the guids for those clearances
         if clearance_ids:
             route = "/victorwebservice/api/v2/Personnel/ClearancesForAssignment"
-            query = " OR ".join(f"ObjectID = {_id}"for _id in clearance_ids)
+            query = " OR ".join(f"ObjectID = {_id}" for _id in clearance_ids)
             request_json = {
                 "partitionList": [],
                 "whereClause": query,
@@ -84,8 +85,12 @@ class ClearanceAssignment:
                 },
                 timeout=1
             )
-            return {item.get("GUID") for item in response.json()[1:]}
-        return set()
+            return [Clearance(
+                item.get("GUID"),
+                item.get("ObjectID"),
+                item.get("Name")
+            ) for item in response.json()[1:]]
+        return []
 
     @classmethod
     def get_assignments_by_assignee(
@@ -101,14 +106,16 @@ class ClearanceAssignment:
 
         Returns: A list of the individual's clearances
         """
-        clearance_ids = cls.get_clearance_ids_by_assignee(assignee_id)
-        return [ClearanceAssignment(clearance_id=_id) for _id in clearance_ids]
+        clearances = cls.get_clearances_by_assignee(assignee_id)
+        return [ClearanceAssignment(clearance_id=clearance.id,
+                                    clearance_name=clearance.name)
+                for clearance in clearances]
 
     @classmethod
     def assign(cls,
                assigner_id: str,
                assignee_ids: list[str],
-               clearance_ids: list[str],
+               clearance_guids: list[str],
                start_time: Optional[date] = None,
                end_time: Optional[date] = None) -> int:
         """
@@ -117,7 +124,7 @@ class ClearanceAssignment:
         Parameters:
             assigner_id: the campus ID of the person assigning clearances
             assignee_ids: list of campus IDs for people getting clearances
-            clearance_ids: list of clearance GUIDs to be assigned
+            clearance_guids: list of clearance GUIDs to be assigned
             start_time: the time the assignment should go into effect
             end_time: the time the assignment should expire
 
@@ -127,7 +134,7 @@ class ClearanceAssignment:
         if start_time or end_time:  # then add it to mongo
             new_assignments = []
             for assignee_id in assignee_ids:
-                for clearance_id in clearance_ids:
+                for clearance_id in clearance_guids:
                     new_assignments.append({
                         "assignee_id": assignee_id,
                         "assigner_id": assigner_id,
@@ -144,29 +151,30 @@ class ClearanceAssignment:
         if start_time is None:  # then add it in CCure
             new_assignments = []
             for assignee_id in assignee_ids:
-                current_clearances = cls.get_clearance_ids_by_assignee(
-                    assignee_id)
-                for clearance_id in clearance_ids:
-                    if clearance_id not in current_clearances:
+                current_clearances = cls.get_clearances_by_assignee(assignee_id)
+                current_clearance_guids = [clearance.id
+                                           for clearance in current_clearances]
+                for clearance_id in clearance_guids:
+                    if clearance_id not in current_clearance_guids:
                         new_assignments.append({
                             "assignee_id": assignee_id,
                             "assigner_id": assigner_id,
                             "clearance_guid": clearance_id
                         })
-            CcureApi.assign_clearances(new_assignments)
+            clearances_data = CcureApi.assign_clearances(new_assignments)
 
             # audit the new assignment
             Audit.add_many(audit_configs=[{
                 "assigner_id": new_assignment["assigner_id"],
                 "assignee_id": new_assignment["assignee_id"],
                 "clearance_id": new_assignment["clearance_guid"],
-                "clearance_name": CcureApi.get_clearance_name(
-                    new_assignment["clearance_guid"]),
+                "clearance_name": clearances_data[
+                    new_assignment["clearance_guid"]]["name"],
                 "timestamp": now,
                 "message": "Activating clearance"
             } for new_assignment in new_assignments])
 
-        return len(assignee_ids) * len(clearance_ids)
+        return len(assignee_ids) * len(clearance_guids)
 
     @staticmethod
     def revoke(assigner_id: str,
@@ -188,18 +196,18 @@ class ClearanceAssignment:
                 new_assignments.append({
                     "assignee_id": campus_id,
                     "assigner_id": assigner_id,
-                    "clearance_id": clearance_id
+                    "clearance_guid": clearance_id
                 })
-        CcureApi.revoke_clearances(new_assignments)
+        clearances_data = CcureApi.revoke_clearances(new_assignments)
 
         # audit the new revocation
         now = datetime.utcnow()
         Audit.add_many(audit_configs=[{
             "assigner_id": new_assignment["assigner_id"],
             "assignee_id": new_assignment["assignee_id"],
-            "clearance_id": new_assignment["clearance_id"],
-            "clearance_name": CcureApi.get_clearance_name(
-                new_assignment["clearance_id"]),
+            "clearance_id": new_assignment["clearance_guid"],
+            "clearance_name": clearances_data[
+                new_assignment["clearance_guid"]]["name"],
             "timestamp": now,
             "message": "Revoking clearance"
         } for new_assignment in new_assignments])

@@ -4,6 +4,8 @@ from pydantic import BaseModel
 from fastapi import APIRouter, Response, Depends, status
 from auth_checker import AuthChecker
 from models.personnel import Personnel
+from models.clearance import Clearance
+
 
 router = APIRouter()
 
@@ -42,8 +44,9 @@ def assign_liaison_permissions(response: Response,
     Parameters:
         body: data on campus ids and clearances to assign
     """
-    liaison = Personnel(campus_id=body.campus_id)
-    record = liaison.assign_liaison_permissions(body.clearance_ids)
+    clearances = Clearance.get_by_guids(body.clearance_ids)
+    liaison = Personnel.find_one(campus_id=body.campus_id)
+    record = liaison.assign_liaison_permissions(clearances)
 
     del record["_id"]
     response.status_code = status.HTTP_200_OK
@@ -60,7 +63,7 @@ def revoke_liaison_permissions(response: Response,
     Parameters:
         body: data on campus ids and clearances to revoke
     """
-    liaison = Personnel(campus_id=body.campus_id)
+    liaison = Personnel.find_one(campus_id=body.campus_id)
     record = liaison.revoke_liaison_permissions(body.clearance_ids)
 
     del record["_id"]
