@@ -44,7 +44,7 @@ class Clearance:
         url = CcureApi.base_url + route
         request_json = {
             "partitionList": [],
-            "whereClause": f"Name LIKE '%{query or ''}%'",
+            "whereClause": f"Name LIKE '%{(query or '').strip()}%'",
             "pageSize": 0,
             "pageNumber": 1,
             "sortColumnName": "",

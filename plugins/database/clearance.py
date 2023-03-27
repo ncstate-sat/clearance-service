@@ -24,4 +24,4 @@ class ClearanceDB:
         ).find_one({"campus_id": campus_id})
         if record is None:
             return []
-        return record.get("clearance_ids", [])
+        return record.get("clearances", [])
