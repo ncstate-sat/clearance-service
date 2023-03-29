@@ -81,8 +81,15 @@ def assign_clearances(response: Response,
         body: data on the assignees and clearances to be assigned
     """
     assigner_campus_id = authorization.get("campus_id", "")
-    assignment_count = ClearanceAssignment.assign(
-        assigner_campus_id, body.assignees, body.clearance_ids)
+    try:
+        assignment_count = ClearanceAssignment.assign(
+            assigner_campus_id, body.assignees, body.clearance_ids)
+    except KeyError as e:
+        response.status_code = 400
+        return {
+            "changes": 0,
+            "details": f"Could not find clearance {e} in CCure."
+        }
 
     response.status_code = status.HTTP_200_OK
     return {"changes": assignment_count}

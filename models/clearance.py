@@ -155,7 +155,7 @@ class Clearance:
                 "$match": {
                     "name": {
                         "$regex": search,
-                        "$options": "i"
+                        "$options": "i"  # case insensitive
                     }
                 }
             }
