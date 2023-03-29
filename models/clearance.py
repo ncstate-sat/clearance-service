@@ -2,8 +2,8 @@
 
 from typing import Optional
 import requests
-from plugins.database.clearance import ClearanceDB
 from util.ccure_api import CcureApi
+from util.db_connect import get_clearance_collection
 
 
 class Clearance:
@@ -122,50 +122,51 @@ class Clearance:
         return []
 
     @staticmethod
-    def filter_allowed(clearances: list["Clearance"],
-                       campus_id: Optional[str] = None,
-                       email: Optional[str] = None) -> list["Clearance"]:
+    def get_allowed(campus_id: Optional[str] = None,
+                    search: str = "") -> list["Clearance"]:
         """
-        Filter out clearances which a person cannot assign from a given
-        list of clearances
+        Get all clearances a liaison can assign
 
         Parameters:
-            clearances: list of clearances to be filtered
-            campus_id: the person whose permissions are to be checked
-            email: alternate ID for the person whose permissions
-                are to be checked
+            campus_id: the liaison whose permissions are to be checked
+            search: only return clearances whose names include this substring
 
         Returns: A list of allowed Clearance objects
         """
-        if campus_id is None and email is not None:
-            campus_id = CcureApi.get_campus_id_by_email(email)
-        if campus_id:
-            get_permissions = ClearanceDB.get_clearance_permissions_by_campus_id
-            allowed_clearances = get_permissions(campus_id)
-        else:
-            raise RuntimeError("A campus_id or email address is required.")
+        if not campus_id:
+            raise RuntimeError("A campus_id is required.")
 
-        allowed_clearance_guids = [clearance["guid"]
-                                   for clearance in allowed_clearances]
-        return [clearance for clearance in clearances
-                if clearance.id in allowed_clearance_guids]
+        collection = get_clearance_collection("liaison-clearance-permissions")
+        allowed_clearances = collection.aggregate([
+            {
+                "$match": {"campus_id": campus_id}
+            },
+            {
+                "$unwind": "$clearances"
+            },
+            {
+                "$project": {
+                    "_id": "$clearances.guid",
+                    "name": "$clearances.name",
+                    "ccure_id": "$clearances.id"
+                }
+            },
+            {
+                "$match": {
+                    "name": {
+                        "$regex": search,
+                        "$options": "i"
+                    }
+                }
+            }
+        ])
+
+        return [Clearance(**clearance) for clearance in allowed_clearances]
 
     @classmethod
-    def get_allowed(cls,
-                    campus_id: Optional[str] = None) -> list["Clearance"]:
-        """
-        Get a list of clearances allowed to be assigned by an individual
-
-        Parameters:
-            campus_id: the individual's campus id
-
-        Returns: A list of Clearance objects
-        """
-        return cls.filter_allowed(cls.get_all(), campus_id=campus_id)
-
-    @staticmethod
-    def verify_permission(clearance_id: str,
-                          campus_id: Optional[str] = None) -> bool:
+    def verify_permission(cls,
+                          clearance_id: str,
+                          campus_id: str) -> bool:
         """
         Return whether or not a clearance can be assigned by an individual
 
@@ -173,11 +174,8 @@ class Clearance:
             clearance_id: the clearance's GUID
             campus_id: the individual's campus ID
         """
-        if campus_id:
-            clearance_ids = ClearanceDB.get_clearance_permissions_by_campus_id(
-                campus_id)
-        else:
-            raise RuntimeError("A campus_id is required.")
-
-        allowed_guids = [clearance["guid"] for clearance in clearance_ids]
+        allowed_guids = map(
+            lambda clearance: clearance.id,
+            cls.get_allowed(campus_id)
+        )
         return clearance_id in allowed_guids
