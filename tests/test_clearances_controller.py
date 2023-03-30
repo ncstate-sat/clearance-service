@@ -9,7 +9,6 @@ from models.clearance import Clearance
 from middleware.get_authorization import get_authorization
 from tests.override_get_authorization import (
     override_get_authorization, override_get_authorization_liaison)
-from plugins.database.clearance import ClearanceDB
 from util import db_connect
 from util.ccure_api import CcureApi
 
@@ -75,7 +74,7 @@ def mock_check_authorization(*_, **__):
 
 
 def mock_get_clearances(*_, **__):
-    """Mocks the CCure endpoint to get clearances"""
+    """Mock the CCure endpoint to get clearances"""
     return clearances_response
 
 
@@ -88,24 +87,16 @@ def mock_clearance_get(*_, **__):
     ) for item in clearances_response]
 
 
-def mock_get_clearance_permissions(*_, **__):
-    """Mocks the fetch of clearances which are allowed to be assigned"""
-    return [
-        "00BC9D72-F88C-4763-92B4-C41B946827A4",
-        "2C124A2A-5C4E-4B96-B0B2-D688CCB8CA6B"
-    ]
-
-
 def mock_get_clearance_name(clearance_guid):
-    """Mocks getting a clearance name from a clearance ID"""
+    """Mock getting a clearance name from a clearance ID"""
     for clnce in clean_clearances_full:
         if clnce["id"] == clearance_guid:
             return clnce["name"]
     return ""
 
 
-def mock_filter_allowed(*_, **__):
-    """Mocks filtering clearances for liaisons"""
+def mock_get_allowed(*_, **__):
+    """Mock getting clearances for liaisons"""
     return [
         {
             "id": "00BC9D72-F88C-4763-92B4-C41B946827A4",
@@ -133,9 +124,6 @@ def test_get_clearances_as_admin(monkeypatch):
     monkeypatch.setattr(db_connect,
                         "get_clearance_collection",
                         mock_mongo_client)
-    monkeypatch.setattr(ClearanceDB,
-                        "get_clearance_permissions_by_campus_id",
-                        mock_get_clearance_permissions)
     monkeypatch.setattr(CcureApi,
                         "get_clearance_name",
                         mock_get_clearance_name)
@@ -164,9 +152,6 @@ def test_get_clearances_as_liaison(monkeypatch):
     monkeypatch.setattr(db_connect,
                         "get_clearance_collection",
                         mock_mongo_client)
-    monkeypatch.setattr(ClearanceDB,
-                        "get_clearance_permissions_by_campus_id",
-                        mock_get_clearance_permissions)
     monkeypatch.setattr(CcureApi,
                         "get_clearance_name",
                         mock_get_clearance_name)
@@ -174,8 +159,8 @@ def test_get_clearances_as_liaison(monkeypatch):
                         "get",
                         mock_clearance_get)
     monkeypatch.setattr(Clearance,
-                        "filter_allowed",
-                        mock_filter_allowed)
+                        "get_allowed",
+                        mock_get_allowed)
 
     search_query = "VRB"
     response = client.get(f"/clearances?search={search_query}",
