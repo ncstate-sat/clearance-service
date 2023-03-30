@@ -84,11 +84,12 @@ def assign_clearances(response: Response,
     try:
         assignment_count = ClearanceAssignment.assign(
             assigner_campus_id, body.assignees, body.clearance_ids)
-    except KeyError as e:
+    except KeyError:
         response.status_code = 400
         return {
             "changes": 0,
-            "details": f"Could not find clearance {e} in CCure."
+            "details": ("At least one of these clearances "
+                        "does not exist in Ccure.")
         }
 
     response.status_code = status.HTTP_200_OK
