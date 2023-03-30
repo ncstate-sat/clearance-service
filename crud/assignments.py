@@ -88,8 +88,7 @@ def assign_clearances(response: Response,
         response.status_code = 400
         return {
             "changes": 0,
-            "details": ("At least one of these clearances "
-                        "does not exist in Ccure.")
+            "detail": "At least one of these clearances does not exist."
         }
 
     response.status_code = status.HTTP_200_OK
