@@ -22,7 +22,7 @@ class Audit:
         self.assignee_id = assignee_id
         self.timestamp = timestamp.isoformat() + "Z"
         self.message = message
-        self.clearance = Clearance(clearance_id, clearance_name)
+        self.clearance = Clearance(clearance_id, name=clearance_name)
 
     class AuditData(BaseModel):
         """Model for audit data"""
