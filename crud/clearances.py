@@ -25,17 +25,17 @@ def get_clearances(response: Response,
     Returns: A list of Clearance objects matching the search
     """
     if authorization.get("authorizations", {}).get("root", False) is False:
-        campus_id = authorization.get("campus_id", None)
-        if campus_id is None:
-            response.status_code = 400
-            return {"detail": "There must be a campus ID in this token."}
-        clearances = Clearance.get_allowed(campus_id, search)
+        email = authorization.get("email", None)
+        if email is None:
+            response.status_code = status.HTTP_400_BAD_REQUEST
+            return {"detail": "There must be an email address in this token."}
+        clearances = Clearance.get_allowed(email, search)
 
     else:  # if the user is root
         try:
             clearances = Clearance.get(search)
         except requests.ConnectTimeout:
-            response.status_code = 408
+            response.status_code = status.HTTP_408_REQUEST_TIMEOUT
             print(("CCure timeout. "
                    f"Could not get clearances with search {search}"))
             return {"clearance_names": []}
