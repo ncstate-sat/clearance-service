@@ -28,7 +28,7 @@ def get_clearances(response: Response,
         campus_id = authorization.get("campus_id", None)
         if campus_id is None:
             response.status_code = 400
-            raise RuntimeError("There must be a campus ID in this token.")
+            return {"detail": "There must be a campus ID in this token."}
         clearances = Clearance.get_allowed(campus_id, search)
 
     else:  # if the user is root

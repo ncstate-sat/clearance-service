@@ -1,6 +1,7 @@
 """Backend service for Clearance Assignment functionality"""
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
 from crud.clearances import router as clearances_router
 from crud.assignments import router as assignments_router
@@ -12,6 +13,7 @@ from util.ccure_api import CcureApi
 
 
 DESCRIPTION = """Backend service for Clearance Assignment functionality"""
+VERSION = "2023-03-31"
 
 
 def create_app():
@@ -19,7 +21,7 @@ def create_app():
     fastapi_app = FastAPI(
         title="Clearance Service",
         description=DESCRIPTION,
-        version="1.0.0"
+        version=VERSION
     )
 
     fastapi_app.add_middleware(
@@ -40,6 +42,18 @@ app.include_router(clearances_router, prefix='/clearances')
 app.include_router(assignments_router, prefix='/assignments')
 app.include_router(liaison_router, prefix='/liaison')
 app.include_router(audit_router, prefix='/audit')
+
+
+@app.get("/", response_class=HTMLResponse)
+def default(request: Request):
+    """Default landing page, link to documentation"""
+    base_url = str(request.url)
+    docs_url = base_url + "docs"
+    return f"""
+    <h3>Clearance Service</h3>
+    Go to <a href={docs_url}><code>/docs</code></a> in your browser
+    to see the documentation.
+    """
 
 
 @app.on_event("startup")

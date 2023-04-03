@@ -9,7 +9,7 @@ from models.audit import Audit
 router = APIRouter()
 
 
-@router.get("/", tags=["Audit"],
+@router.get("", tags=["Audit"],
             dependencies=[Depends(AuthChecker("audit_read"))])
 def search_actions(
     response: Response,

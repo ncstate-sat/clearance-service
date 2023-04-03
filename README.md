@@ -1,6 +1,6 @@
-# Clearance Assignment Service
+# Clearance Service
 
-Backend service for Clearance Assignment functionality.
+Backend service for Clearance-app functionality.
 
 ## Required Environment Variables
 
@@ -76,7 +76,7 @@ These are all configured with the environment variables.
 
 ### Install Requirements
 
-The requirements.txt contains all of the dependencies required to run the Clearance Assignment Service. Developer Dependencies
+The requirements.txt contains all of the dependencies required to run the Clearance Service. Developer Dependencies
 are separated into the `requirements.dev.txt` file. The packages in `requirements.dev.txt` are not required to run the service
 but is required for code-coverage, pytests, etc.
 
