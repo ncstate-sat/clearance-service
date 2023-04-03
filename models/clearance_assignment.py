@@ -1,5 +1,6 @@
 """Model for Clearance Assignments"""
 
+from fastapi import status
 from typing import Optional
 from datetime import datetime, date
 import requests
@@ -58,7 +59,7 @@ class ClearanceAssignment:
             },
             timeout=1
         )
-        if response.status_code == 404:
+        if response.status_code == status.HTTP_404_NOT_FOUND:
             return []
         clearance_ids = [pair.get("ClearanceID") for pair in response.json()]
 

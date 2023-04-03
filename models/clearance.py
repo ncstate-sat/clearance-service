@@ -1,5 +1,6 @@
 """Model for Clearances"""
 
+from fastapi import status
 from typing import Optional
 import requests
 from util.ccure_api import CcureApi
@@ -61,7 +62,7 @@ class Clearance:
             },
             timeout=1
         )
-        if response.status_code == 200:
+        if response.status_code == status.HTTP_200_OK:
             clearances = response.json()[1:]
             return [Clearance(_id=clearance.get("GUID", ""),
                               name=clearance.get("Name", ""))
@@ -111,7 +112,7 @@ class Clearance:
             },
             timeout=1
         )
-        if response.status_code == 200:
+        if response.status_code == status.HTTP_200_OK:
             clearances = response.json()[1:]
             return [{
                 "guid": clearance["GUID"],

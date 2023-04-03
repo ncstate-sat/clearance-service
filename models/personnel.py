@@ -1,5 +1,6 @@
 """Model for Personnel"""
 
+from fastapi import status
 from typing import Optional
 import datetime
 import requests
@@ -195,7 +196,7 @@ class Personnel:
             },
             timeout=1
         )
-        if response.status_code == 200:
+        if response.status_code == status.HTTP_200_OK:
             json = response.json()[0]
             return Personnel(
                 json["FirstName"],
@@ -239,7 +240,7 @@ class Personnel:
             },
             timeout=1
         )
-        if response.status_code == 200:
+        if response.status_code == status.HTTP_200_OK:
             return [Personnel(
                 person["FirstName"],
                 person["MiddleName"],
