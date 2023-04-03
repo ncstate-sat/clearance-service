@@ -55,7 +55,7 @@ class Audit:
         clearance_name: str,
         from_time: Optional[datetime.date],
         to_time: Optional[datetime.date],
-        page: int,
+        skip: int,
         limit: int,
         message: Optional[str] = None
     ) -> list["Audit"]:
@@ -103,7 +103,7 @@ class Audit:
             {"$match": match},
             {"$project": {"_id": 0}},
             {"$sort": {"timestamp": -1}},
-            {"$skip": page * limit},
+            {"$skip": skip},
             {"$limit": limit}
         ])
 
