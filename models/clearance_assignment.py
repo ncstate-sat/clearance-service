@@ -113,7 +113,7 @@ class ClearanceAssignment:
 
     @classmethod
     def assign(cls,
-               assigner_id: str,
+               assigner_email: str,
                assignee_ids: list[str],
                clearance_guids: list[str],
                start_time: Optional[date] = None,
@@ -122,7 +122,7 @@ class ClearanceAssignment:
         Assign a list of clearances to a list of individuals
 
         Parameters:
-            assigner_id: the campus ID of the person assigning clearances
+            assigner_email: the email address of the person assigning clearances
             assignee_ids: list of campus IDs for people getting clearances
             clearance_guids: list of clearance GUIDs to be assigned
             start_time: the time the assignment should go into effect
@@ -131,6 +131,7 @@ class ClearanceAssignment:
         Returns: the number of changes made
         """
         now = datetime.utcnow()
+        assigner_id = CcureApi.get_campus_id_by_email(assigner_email)
         if start_time or end_time:  # then add it to mongo
             new_assignments = []
             for assignee_id in assignee_ids:
@@ -177,19 +178,20 @@ class ClearanceAssignment:
         return len(assignee_ids) * len(clearance_guids)
 
     @staticmethod
-    def revoke(assigner_id: str,
+    def revoke(assigner_email: str,
                assignee_ids: list[str],
                clearance_ids: list[str]) -> int:
         """
         Revoke a list of clearances from a list of individuals
 
         Parameters:
-            assigner_id: the campus ID of the person revoking clearances
+            assigner_email: the email address of the person revoking clearances
             assignee_ids: list of campus IDs for people losing clearances
             clearance_ids: list of clearance GUIDs to be revoked
 
         Returns: the number of changes made
         """
+        assigner_id = CcureApi.get_campus_id_by_email(assigner_email)
         new_assignments = []
         for campus_id in assignee_ids:
             for clearance_id in clearance_ids:

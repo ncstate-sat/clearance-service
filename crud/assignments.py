@@ -80,10 +80,10 @@ def assign_clearances(response: Response,
     Parameters
         body: data on the assignees and clearances to be assigned
     """
-    assigner_campus_id = authorization.get("campus_id", "")
+    assigner_email = authorization.get("email", "")
     try:
         assignment_count = ClearanceAssignment.assign(
-            assigner_campus_id, body.assignees, body.clearance_ids)
+            assigner_email, body.assignees, body.clearance_ids)
     except KeyError:
         response.status_code = 400
         return {
@@ -106,9 +106,9 @@ def revoke_clearances(response: Response,
     Parameters
         body: data on the assignees and clearances to be revoked
     """
-    assigner_campus_id = authorization.get("campus_id", "")
+    assigner_email = authorization.get("email", "")
     revoke_count = ClearanceAssignment.revoke(
-        assigner_campus_id, body.assignees, body.clearance_ids)
+        assigner_email, body.assignees, body.clearance_ids)
 
     response.status_code = status.HTTP_200_OK
     return {"changes": revoke_count}

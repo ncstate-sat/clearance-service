@@ -55,7 +55,7 @@ class Personnel:
         return [clearance.id for clearance in clearances]
 
     def assign(self,
-               assigner_id: str,
+               assigner_email: str,
                clearances: list[str],
                start_time: Optional[datetime.datetime] = None,
                end_time: Optional[datetime.datetime] = None) -> int:
@@ -63,7 +63,7 @@ class Personnel:
         Assign clearances to this person
 
         Parameters:
-            assigner_id: the campus ID of the person assigning clearances
+            assigner_email: the email address of the person assigning clearances
             clearances: list of clearance GUIDs to be assigned
             start_time: the time the assignment should go into effect
             end_time: the time the assignment should expire
@@ -71,7 +71,7 @@ class Personnel:
         Returns: the number of changes made
         """
         return ClearanceAssignment.assign(
-            assigner_id,
+            assigner_email,
             [self.campus_id],
             clearances,
             start_time,
