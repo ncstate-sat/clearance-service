@@ -91,7 +91,8 @@ class CcureApi:
             timeout=1
         )
         if response.status_code == status.HTTP_200_OK:
-            return response.json()[0].get("Text1", "")
+            if (json := response.json()):
+                return json[0].get("Text1", "")
         return ""
 
     @classmethod
