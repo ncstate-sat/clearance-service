@@ -348,7 +348,7 @@ class CcureApi:
                 },
                 timeout=1
             )
-            if response.status_code != 200:
+            if response.status_code != status.HTTP_200_OK:
                 print(f"Unable to assign clearances to user {assignee}.")
                 print(f"{response.status_code}: {response.text}")
         return clearances_data
@@ -404,7 +404,7 @@ class CcureApi:
                 print(("User does not have clearance(s) "
                        f"{', '.join(map(str, clearance_ids))}."))
                 return response
-            elif response.status_code != 200:
+            elif response.status_code != status.HTTP_200_OK:
                 print(f"Unable to revoke clearances from user {assignee}.")
                 print(f"{response.status_code}: {response.text}")
                 return response
@@ -433,7 +433,7 @@ class CcureApi:
                 },
                 timeout=1
             )
-            if response.status_code != 200:
+            if response.status_code != status.HTTP_200_OK:
                 print(f"Unable to revoke clearances from user {assignee}.")
                 print(f"{response.status_code}: {response.text}")
 
