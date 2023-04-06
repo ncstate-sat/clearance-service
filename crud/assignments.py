@@ -87,8 +87,14 @@ def assign_clearances(response: Response,
             response.status_code = status.HTTP_400_BAD_REQUEST
             return {"detail": "There must be an email address in this token."}
         allowed_clearances = Clearance.get_allowed(assigner_email)
-        allowed_clearance_ids = [clearance.id for clearance in allowed_clearances]
-        assign_ids = [_id for _id in body.clearance_ids if _id in allowed_clearance_ids]
+        allowed_ids = [clearance.id for clearance in allowed_clearances]
+        assign_ids = [_id for _id in body.clearance_ids if _id in allowed_ids]
+        if len(assign_ids) != len(body.clearance_ids):
+            response.status_code = status.HTTP_403_FORBIDDEN
+            return {
+                "changes": 0,
+                "detail": "Not authorized to assign all selected clearances"
+            }
     else:
         assign_ids = body.clearance_ids
 
@@ -118,8 +124,25 @@ def revoke_clearances(response: Response,
         body: data on the assignees and clearances to be revoked
     """
     assigner_email = authorization.get("email", "")
+
+    if authorization.get("authorizations", {}).get("root", False) is False:
+        if assigner_email is None:
+            response.status_code = status.HTTP_400_BAD_REQUEST
+            return {"detail": "There must be an email address in this token."}
+        allowed_clearances = Clearance.get_allowed(assigner_email)
+        allowed_ids = [clearance.id for clearance in allowed_clearances]
+        revoke_ids = [_id for _id in body.clearance_ids if _id in allowed_ids]
+        if len(revoke_ids) != len(body.clearance_ids):
+            response.status_code = status.HTTP_403_FORBIDDEN
+            return {
+                "changes": 0,
+                "detail": "Not authorized to revoke all selected clearances"
+            }
+    else:
+        revoke_ids = body.clearance_ids
+
     revoke_count = ClearanceAssignment.revoke(
-        assigner_email, body.assignees, body.clearance_ids)
+        assigner_email, body.assignees, revoke_ids)
 
     response.status_code = status.HTTP_200_OK
     return {"changes": revoke_count}
