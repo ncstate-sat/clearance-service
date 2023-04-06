@@ -60,7 +60,7 @@ def default(request: Request):
 def startup_db_client():
     """Start the scheduler"""
     scheduler = ServiceScheduler()
-    scheduler.start_scheduler()
+    # scheduler.start_scheduler()
     print("Started scheduler")
 
 

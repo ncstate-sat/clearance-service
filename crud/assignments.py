@@ -8,6 +8,7 @@ from pydantic import BaseModel
 from auth_checker import AuthChecker
 from middleware.get_authorization import get_authorization
 from models.clearance_assignment import ClearanceAssignment
+from models.clearance import Clearance
 
 router = APIRouter()
 
@@ -81,9 +82,19 @@ def assign_clearances(response: Response,
         body: data on the assignees and clearances to be assigned
     """
     assigner_email = authorization.get("email", "")
+    if authorization.get("authorizations", {}).get("root", False) is False:
+        if assigner_email is None:
+            response.status_code = status.HTTP_400_BAD_REQUEST
+            return {"detail": "There must be an email address in this token."}
+        allowed_clearances = Clearance.get_allowed(assigner_email)
+        allowed_clearance_ids = [clearance.id for clearance in allowed_clearances]
+        assign_ids = [_id for _id in body.clearance_ids if _id in allowed_clearance_ids]
+    else:
+        assign_ids = body.clearance_ids
+
     try:
         assignment_count = ClearanceAssignment.assign(
-            assigner_email, body.assignees, body.clearance_ids)
+            assigner_email, body.assignees, assign_ids)
     except KeyError:
         response.status_code = status.HTTP_400_BAD_REQUEST
         return {
