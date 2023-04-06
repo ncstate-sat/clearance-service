@@ -82,10 +82,10 @@ def assign_clearances(response: Response,
         body: data on the assignees and clearances to be assigned
     """
     assigner_email = authorization.get("email", "")
+    if assigner_email is None:
+        response.status_code = status.HTTP_400_BAD_REQUEST
+        return {"detail": "There must be an email address in this token."}
     if authorization.get("authorizations", {}).get("root", False) is False:
-        if assigner_email is None:
-            response.status_code = status.HTTP_400_BAD_REQUEST
-            return {"detail": "There must be an email address in this token."}
         allowed_clearances = Clearance.get_allowed(assigner_email)
         allowed_ids = [clearance.id for clearance in allowed_clearances]
         assign_ids = [_id for _id in body.clearance_ids if _id in allowed_ids]
@@ -124,11 +124,11 @@ def revoke_clearances(response: Response,
         body: data on the assignees and clearances to be revoked
     """
     assigner_email = authorization.get("email", "")
+    if assigner_email is None:
+        response.status_code = status.HTTP_400_BAD_REQUEST
+        return {"detail": "There must be an email address in this token."}
 
     if authorization.get("authorizations", {}).get("root", False) is False:
-        if assigner_email is None:
-            response.status_code = status.HTTP_400_BAD_REQUEST
-            return {"detail": "There must be an email address in this token."}
         allowed_clearances = Clearance.get_allowed(assigner_email)
         allowed_ids = [clearance.id for clearance in allowed_clearances]
         revoke_ids = [_id for _id in body.clearance_ids if _id in allowed_ids]
