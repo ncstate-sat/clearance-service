@@ -50,6 +50,7 @@ def get_assignments(response: Response, campus_id: str) -> dict:
         assignments = ClearanceAssignment.get_assignments_by_assignee(campus_id)
     except requests.ConnectTimeout:
         response.status_code = status.HTTP_408_REQUEST_TIMEOUT
+        response.status_code = status.HTTP_408_REQUEST_TIMEOUT
         print(f"CCure timeout. Could not get assignments for {campus_id}")
         return {
             "assignments": [],
@@ -102,6 +103,7 @@ def assign_clearances(response: Response,
         assignment_count = ClearanceAssignment.assign(
             assigner_email, body.assignees, assign_ids)
     except KeyError:
+        response.status_code = status.HTTP_400_BAD_REQUEST
         response.status_code = status.HTTP_400_BAD_REQUEST
         return {
             "changes": 0,
