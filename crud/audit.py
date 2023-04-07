@@ -9,7 +9,7 @@ from models.audit import Audit
 router = APIRouter()
 
 
-@router.get("/", tags=["Audit"],
+@router.get("", tags=["Audit"],
             dependencies=[Depends(AuthChecker("audit_read"))])
 def search_actions(
     response: Response,
@@ -19,7 +19,7 @@ def search_actions(
     clearance_name: str = "",
     from_time: Optional[str] = None,
     to_time: Optional[str] = None,
-    page: int = 0,
+    skip: int = 0,
     limit: int = 50
 ) -> dict:
     """
@@ -38,7 +38,7 @@ def search_actions(
         clearance_name=clearance_name,
         from_time=from_time,
         to_time=to_time,
-        page=page,
+        skip=skip,
         limit=limit
     )
 

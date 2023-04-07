@@ -1,5 +1,6 @@
 """Handle common interactions with the CCure api"""
 
+from fastapi import status
 import os
 from typing import Optional
 from pydantic import BaseModel
@@ -50,7 +51,7 @@ class CcureApi:
             },
             timeout=1
         )
-        if response.status_code != 200:
+        if response.status_code != status.HTTP_200_OK:
             print("CCure keepalive error:", response.status_code, response.text)
             cls.logout()
             cls.session_id = None
@@ -89,8 +90,9 @@ class CcureApi:
             },
             timeout=1
         )
-        if response.status_code == 200:
-            return response.json()[0].get("Text1", "")
+        if response.status_code == status.HTTP_200_OK:
+            if (json := response.json()):
+                return json[0].get("Text1", "")
         return ""
 
     @classmethod
@@ -116,7 +118,7 @@ class CcureApi:
             },
             timeout=1
         )
-        if response.status_code == 200:
+        if response.status_code == status.HTTP_200_OK:
             return response.json()[0].get("ObjectID", 0)
         return 0
 
@@ -148,7 +150,7 @@ class CcureApi:
             },
             timeout=1
         )
-        if response.status_code == 200:
+        if response.status_code == status.HTTP_200_OK:
             return {person["Text1"]: person["ObjectID"]
                     for person in response.json()}
         return {}
@@ -183,7 +185,7 @@ class CcureApi:
             },
             timeout=1
         )
-        if response.status_code == 200 and response.json():
+        if response.status_code == status.HTTP_200_OK and response.json():
             return response.json()[1]
         return {}
 
@@ -231,7 +233,7 @@ class CcureApi:
             },
             timeout=1
         )
-        if response.status_code == 200 and response.json():
+        if response.status_code == status.HTTP_200_OK and response.json():
             return {
                 clearance["GUID"]: {
                     "id": clearance["ObjectID"],
@@ -347,7 +349,7 @@ class CcureApi:
                 },
                 timeout=1
             )
-            if response.status_code != 200:
+            if response.status_code != status.HTTP_200_OK:
                 print(f"Unable to assign clearances to user {assignee}.")
                 print(f"{response.status_code}: {response.text}")
         return clearances_data
@@ -398,12 +400,12 @@ class CcureApi:
                 },
                 timeout=1
             )
-            if response.status_code == 404:
+            if response.status_code == status.HTTP_404_NOT_FOUND:
                 print(f"Can't revoke clearances from user {assignee}.")
                 print(("User does not have clearance(s) "
                        f"{', '.join(map(str, clearance_ids))}."))
                 return response
-            elif response.status_code != 200:
+            elif response.status_code != status.HTTP_200_OK:
                 print(f"Unable to revoke clearances from user {assignee}.")
                 print(f"{response.status_code}: {response.text}")
                 return response
@@ -432,7 +434,7 @@ class CcureApi:
                 },
                 timeout=1
             )
-            if response.status_code != 200:
+            if response.status_code != status.HTTP_200_OK:
                 print(f"Unable to revoke clearances from user {assignee}.")
                 print(f"{response.status_code}: {response.text}")
 
