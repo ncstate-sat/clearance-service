@@ -286,7 +286,6 @@ def test_assign_clearances_as_liaison(monkeypatch):
     assert response.json().get("changes") == 2
 
 
-
 def test_revoke_clearances_as_liaison(monkeypatch):
     """
     It should revoke clearances if the liaison has permission for all
