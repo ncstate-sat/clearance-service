@@ -137,7 +137,7 @@ def test_get_assignments(monkeypatch):
     }, ignore_order=True) == {}
 
 
-def test_assign_clearances(monkeypatch):
+def test_assign_clearances_as_admin(monkeypatch):
     """It should be able to assign clearances to an individual."""
     def mock_request_post(*_, **__):
         response = Response()
@@ -180,7 +180,7 @@ def test_assign_clearances(monkeypatch):
     assert response.json() == {"changes": 8}
 
 
-def test_revoke_clearances(monkeypatch):
+def test_revoke_clearances_as_admin(monkeypatch):
     """It should be able to revoke clearances from an individual."""
     def mock_request_post(*_, **__):
         response = Response()
