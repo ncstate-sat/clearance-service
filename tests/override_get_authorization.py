@@ -24,8 +24,6 @@ def override_get_authorization_liaison():
         "campus_id": "000101234",
         "roles": ["Admin"],
         "authorizations": {
-            "fmi_read": True,
-            "asset-mgmt_read": True,
             "clearance_read": True,
             "clearance_write": True,
             "audit_read": True,
