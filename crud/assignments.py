@@ -34,7 +34,9 @@ class ClearanceAssignRevokeRequestBody(BaseModel):
 
 @router.get("/{campus_id}", tags=["Assignments"],
             dependencies=[Depends(AuthChecker("clearance_assignment_read"))])
-def get_assignments(response: Response, campus_id: str) -> dict:
+def get_assignments(response: Response,
+                    campus_id: str,
+                    authorization: dict = Depends(get_authorization)) -> dict:
     """
     Return all active clearance assignments for an individual given a
     campus ID.
@@ -56,18 +58,20 @@ def get_assignments(response: Response, campus_id: str) -> dict:
             "allowed": []
         }
 
-    res = []
+    assigner_email = authorization.get("email", "")
+    allowed_clearances = Clearance.get_allowed(assigner_email)
+    allowed_clearance_ids = [clearance.id for clearance in allowed_clearances]
+
+    assignments = []
     for assignment in assignments:
-        res.append({
+        assignments.append({
             "id": assignment.clearance.id,
-            "name": assignment.clearance.name
+            "name": assignment.clearance.name,
+            "is_allowed": assignment.clearance.id in allowed_clearance_ids
         })
 
     response.status_code = status.HTTP_200_OK
-    return {
-        "assignments": res,
-        "allowed": res
-    }
+    return {"assignments": assignments}
 
 
 @router.post("/assign", tags=["Assignments"],

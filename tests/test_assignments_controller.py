@@ -48,11 +48,13 @@ clearances = [
 assigned_clearances = [
     {
         "id": "DECBB54E-4B22-4671-9FA7-F8F370D66A97",
-        "name": "Hunt - Turnstiles"
+        "name": "Hunt - Turnstiles",
+        "is_allowed": True
     },
     {
         "id": "E00D2258-4449-4ACD-B640-8163A4D6CAA2",
-        "name": "Library - Faculty Commons"
+        "name": "Library - Faculty Commons",
+        "is_allowed": False
     }
 ]
 
@@ -131,10 +133,11 @@ def test_get_assignments(monkeypatch):
                           headers={"Authorization": "Bearer token"})
     assert response.status_code == 200
 
-    assert DeepDiff(response.json(), {
-        "allowed": assigned_clearances,
-        "assignments": assigned_clearances
-    }, ignore_order=True) == {}
+    assert DeepDiff(
+        response.json(),
+        {"assignments": assigned_clearances},
+        ignore_order=True
+    ) == {}
 
 
 def test_assign_clearances_as_admin(monkeypatch):
