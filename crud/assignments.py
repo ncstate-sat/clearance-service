@@ -53,10 +53,7 @@ def get_assignments(response: Response,
     except requests.ConnectTimeout:
         response.status_code = status.HTTP_408_REQUEST_TIMEOUT
         print(f"CCure timeout. Could not get assignments for {campus_id}")
-        return {
-            "assignments": [],
-            "allowed": []
-        }
+        return {"assignments": []}
 
     assigner_email = authorization.get("email", "")
     allowed_clearances = Clearance.get_allowed(assigner_email)
