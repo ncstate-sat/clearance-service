@@ -46,7 +46,8 @@ def get_assignments(response: Response,
             clearance assignments
 
     Returns:
-        A dict with the individual's own assignments and those they can assign
+        list of the individual's assignments, each with name, guid, and
+            whether the user is authorized to revoke it
     """
     try:
         assignments = ClearanceAssignment.get_assignments_by_assignee(campus_id)
@@ -55,20 +56,28 @@ def get_assignments(response: Response,
         print(f"CCure timeout. Could not get assignments for {campus_id}")
         return {"assignments": []}
 
-    assigner_email = authorization.get("email", "")
-    allowed_clearances = Clearance.get_allowed(assigner_email)
-    allowed_clearance_ids = [clearance.id for clearance in allowed_clearances]
+    all_assignments = []
+    if authorization.get("authorizations", {}).get("root", False) is False:
+        assigner_email = authorization.get("email", "")
+        allowed_clearances = Clearance.get_allowed(assigner_email)
+        allowed_ids = [clearance.id for clearance in allowed_clearances]
 
-    assignments = []
-    for assignment in assignments:
-        assignments.append({
-            "id": assignment.clearance.id,
-            "name": assignment.clearance.name,
-            "is_allowed": assignment.clearance.id in allowed_clearance_ids
-        })
+        for assignment in assignments:
+            all_assignments.append({
+                "id": assignment.clearance.id,
+                "name": assignment.clearance.name,
+                "can_revoke": assignment.clearance.id in allowed_ids
+            })
+    else:
+        for assignment in assignments:
+            all_assignments.append({
+                "id": assignment.clearance.id,
+                "name": assignment.clearance.name,
+                "can_revoke": True
+            })
 
     response.status_code = status.HTTP_200_OK
-    return {"assignments": assignments}
+    return {"assignments": all_assignments}
 
 
 @router.post("/assign", tags=["Assignments"],
