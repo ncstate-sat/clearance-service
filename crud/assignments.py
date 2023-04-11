@@ -81,8 +81,15 @@ def assign_clearances(response: Response,
         body: data on the assignees and clearances to be assigned
     """
     assigner_campus_id = authorization.get("campus_id", "")
-    assignment_count = ClearanceAssignment.assign(
-        assigner_campus_id, body.assignees, body.clearance_ids)
+    try:
+        assignment_count = ClearanceAssignment.assign(
+            assigner_campus_id, body.assignees, body.clearance_ids)
+    except KeyError:
+        response.status_code = 400
+        return {
+            "changes": 0,
+            "detail": "At least one of these clearances does not exist."
+        }
 
     response.status_code = status.HTTP_200_OK
     return {"changes": assignment_count}
