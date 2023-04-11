@@ -253,7 +253,6 @@ def test_get_assignments_as_liaison(monkeypatch):
     response = client.get("/assignments/200103374",
                           headers={"Authorization": "Bearer token"})
     assert response.status_code == 200
-    print(response.json())
     assert response.json() == {"assignments": assigned_clearances}
 
 
