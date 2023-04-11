@@ -13,7 +13,7 @@ from util.ccure_api import CcureApi
 
 
 DESCRIPTION = """Backend service for Clearance Assignment functionality"""
-VERSION = "2023-03-31"
+VERSION = "2023-04-21"
 
 
 def create_app():
