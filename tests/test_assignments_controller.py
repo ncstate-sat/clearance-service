@@ -13,7 +13,7 @@ from models.clearance_assignment import ClearanceAssignment
 from models.clearance import Clearance
 from util import db_connect
 from util.ccure_api import CcureApi
-from middleware.get_authorization import get_authorization
+from util.authorization import get_authorization
 from tests.override_get_authorization import (
     override_get_authorization, override_get_authorization_liaison)
 
