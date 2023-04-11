@@ -80,6 +80,12 @@ The requirements.txt contains all of the dependencies required to run the Cleara
 are separated into the `requirements.dev.txt` file. The packages in `requirements.dev.txt` are not required to run the service
 but is required for code-coverage, pytests, etc.
 
+### Running Locally
+
+```shell
+  $> uvicorn main:app --reload
+```
+
 ### Running in a Docker Container
 
 First, build the image. Optionally, add build arguments for PORT and HOST. By default, these will be 8000 and 0.0.0.0, respectively.

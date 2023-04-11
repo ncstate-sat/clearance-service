@@ -5,8 +5,11 @@ db.createUser(
         roles: [
             {
                 role: "readWrite",
-                db: "clearancedb"
+                db: "clearance_service"
             }
         ]
     }
 );
+
+db = new Mongo().getDB("clearance_service");
+db.createCollection("clearance");

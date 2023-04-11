@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Mongo backup files
+remotedb.dump/
+
 # C extensions
 *.so
 
