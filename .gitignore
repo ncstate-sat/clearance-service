@@ -141,10 +141,10 @@ dmypy.json
 
 .DS_Store
 
-# GitHub Action files
-.secrets
-*.yml
-*.yaml
+## GitHub Action files
+#.secrets
+#*.yml
+#*.yaml
 
 # Dev specific files
 .envrc
