@@ -55,7 +55,7 @@ class Audit:
         clearance_name: str,
         from_time: Optional[datetime.date],
         to_time: Optional[datetime.date],
-        page: int,
+        skip: int,
         limit: int,
         message: Optional[str] = None
     ) -> list["Audit"]:
@@ -70,7 +70,7 @@ class Audit:
             from_time: the minimum timestamp for returned audits
             to_time: the maximum timestamp for returned audits
             message: a regex to search audit messages
-            page: which page of paginated results to return
+            skip: the number of documents to skip
             limit: maximum number of results to return
 
         Returns: A list of Audit objects
@@ -103,7 +103,7 @@ class Audit:
             {"$match": match},
             {"$project": {"_id": 0}},
             {"$sort": {"timestamp": -1}},
-            {"$skip": page * limit},
+            {"$skip": skip},
             {"$limit": limit}
         ])
 

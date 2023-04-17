@@ -8,6 +8,7 @@ from pydantic import BaseModel
 from auth_checker import AuthChecker
 from middleware.get_authorization import get_authorization
 from models.clearance_assignment import ClearanceAssignment
+from models.clearance import Clearance
 
 router = APIRouter()
 
@@ -48,7 +49,8 @@ def get_assignments(response: Response, campus_id: str) -> dict:
     try:
         assignments = ClearanceAssignment.get_assignments_by_assignee(campus_id)
     except requests.ConnectTimeout:
-        response.status_code = 408
+        response.status_code = status.HTTP_408_REQUEST_TIMEOUT
+        response.status_code = status.HTTP_408_REQUEST_TIMEOUT
         print(f"CCure timeout. Could not get assignments for {campus_id}")
         return {
             "assignments": [],
@@ -80,12 +82,29 @@ def assign_clearances(response: Response,
     Parameters
         body: data on the assignees and clearances to be assigned
     """
-    assigner_campus_id = authorization.get("campus_id", "")
+    assigner_email = authorization.get("email", "")
+    if assigner_email is None:
+        response.status_code = status.HTTP_400_BAD_REQUEST
+        return {"detail": "There must be an email address in this token."}
+    if authorization.get("authorizations", {}).get("root", False) is False:
+        allowed_clearances = Clearance.get_allowed(assigner_email)
+        allowed_ids = [clearance.id for clearance in allowed_clearances]
+        assign_ids = [_id for _id in body.clearance_ids if _id in allowed_ids]
+        if len(assign_ids) != len(body.clearance_ids):
+            response.status_code = status.HTTP_403_FORBIDDEN
+            return {
+                "changes": 0,
+                "detail": "Not authorized to assign all selected clearances"
+            }
+    else:
+        assign_ids = body.clearance_ids
+
     try:
         assignment_count = ClearanceAssignment.assign(
-            assigner_campus_id, body.assignees, body.clearance_ids)
+            assigner_email, body.assignees, assign_ids)
     except KeyError:
-        response.status_code = 400
+        response.status_code = status.HTTP_400_BAD_REQUEST
+        response.status_code = status.HTTP_400_BAD_REQUEST
         return {
             "changes": 0,
             "detail": "At least one of these clearances does not exist."
@@ -106,9 +125,26 @@ def revoke_clearances(response: Response,
     Parameters
         body: data on the assignees and clearances to be revoked
     """
-    assigner_campus_id = authorization.get("campus_id", "")
+    assigner_email = authorization.get("email", "")
+    if assigner_email is None:
+        response.status_code = status.HTTP_400_BAD_REQUEST
+        return {"detail": "There must be an email address in this token."}
+
+    if authorization.get("authorizations", {}).get("root", False) is False:
+        allowed_clearances = Clearance.get_allowed(assigner_email)
+        allowed_ids = [clearance.id for clearance in allowed_clearances]
+        revoke_ids = [_id for _id in body.clearance_ids if _id in allowed_ids]
+        if len(revoke_ids) != len(body.clearance_ids):
+            response.status_code = status.HTTP_403_FORBIDDEN
+            return {
+                "changes": 0,
+                "detail": "Not authorized to revoke all selected clearances"
+            }
+    else:
+        revoke_ids = body.clearance_ids
+
     revoke_count = ClearanceAssignment.revoke(
-        assigner_campus_id, body.assignees, body.clearance_ids)
+        assigner_email, body.assignees, revoke_ids)
 
     response.status_code = status.HTTP_200_OK
     return {"changes": revoke_count}

@@ -23,7 +23,7 @@ def search_personnel(response: Response,
         personnel = Personnel.search(search)
     except requests.ConnectTimeout:
         print(f"CCure timeout: Could not find personnel with search {search}")
-        response.status_code = 408
+        response.status_code = status.HTTP_408_REQUEST_TIMEOUT
         return {"personnel": []}
 
     results = []
