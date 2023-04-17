@@ -1,0 +1,4 @@
+.direnv/
+.github/
+.idea/
+remotedb.dump/
