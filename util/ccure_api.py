@@ -1,10 +1,11 @@
 """Handle common interactions with the CCure api"""
 
-from fastapi import status
 import os
 from typing import Optional
+from fastapi import status
 from pydantic import BaseModel
 import requests
+from .encode_form_data import encode
 
 
 class CcureApi:
@@ -54,17 +55,20 @@ class CcureApi:
         if response.status_code != status.HTTP_200_OK:
             print("CCure keepalive error:", response.status_code, response.text)
             cls.logout()
-            cls.session_id = None
 
     @classmethod
     def logout(cls):
         """Log out of the CCure session"""
         logout_route = "/victorwebservice/api/Authenticate/Logout"
-        return requests.post(
+        response = requests.post(
             cls.base_url + logout_route,
             headers={"session-id": cls.get_session_id()},
             timeout=1
         )
+        cls.session_id = None
+        if response.status_code == 200:
+            return {"success": True}
+        return {"success": False}
 
     @classmethod
     def get_campus_id_by_email(cls, email) -> str:
@@ -74,7 +78,6 @@ class CcureApi:
         Parameters:
             email: The individual's email address
         """
-        session_id = cls.get_session_id()
         route = "/victorwebservice/api/Objects/FindObjsWithCriteriaFilter"
         url = cls.base_url + route
         request_json = {
@@ -85,7 +88,7 @@ class CcureApi:
             url,
             json=request_json,
             headers={
-                "session-id": session_id,
+                "session-id": cls.get_session_id(),
                 "Access-Control-Expose-Headers": "session-id"
             },
             timeout=1
@@ -96,12 +99,12 @@ class CcureApi:
         return ""
 
     @classmethod
-    def get_object_id(cls, campus_id: str) -> int:
+    def get_person_object_id(cls, campus_id: str) -> int:
         """
-        With a user's campus_id, get their CCure ObjectID
+        With a person's campus_id, get their CCure ObjectID
 
         Parameters:
-            campus_id: The user's campus ID
+            campus_id: The person's campus ID
         """
         route = "/victorwebservice/api/Objects/FindObjsWithCriteriaFilter"
         url = cls.base_url + route
@@ -123,7 +126,7 @@ class CcureApi:
         return 0
 
     @classmethod
-    def get_object_ids(cls, campus_ids: set[str]) -> dict:
+    def get_person_object_ids(cls, campus_ids: set[str]) -> dict:
         """
         Map people's campus IDs to their CCure IDs
 
@@ -156,14 +159,144 @@ class CcureApi:
         return {}
 
     @classmethod
-    def get_clearance(cls, clearance_guid: str) -> dict:
+    def get_person_by_campus_id(cls, campus_id: str) -> dict:
+        """
+        Find one person by their campus ID
+
+        Parameters:
+            campus_id: the person's campus ID
+
+        Returns: a dict with the person's details in CCure
+        """
+        query_route = "/victorwebservice/api/Objects/FindObjsWithCriteriaFilter"
+        url = cls.base_url + query_route
+
+        request_json = {
+            "TypeFullName": "Personnel",
+            "WhereClause": f"Text1 = '{campus_id}'"
+        }
+        response = requests.post(
+            url,
+            json=request_json,
+            headers={
+                "session-id": cls.get_session_id(),
+                "Access-Control-Expose-Headers": "session-id"
+            },
+            timeout=1
+        )
+        if response.status_code == status.HTTP_200_OK:
+            return response.json()[0]
+        print(response.text)
+        return {}
+
+    @classmethod
+    def search_people(cls, search: str) -> list[dict]:
+        """
+        Get data on people matching all search terms
+        Search by campus ID and email
+
+        Parameters:
+            search: the term or terms to search by
+
+        Returns: list of dicts with person records
+        """
+        query_route = "/victorwebservice/api/Objects/FindObjsWithCriteriaFilter"
+        url = cls.base_url + query_route
+        search_terms = search.split()
+
+        term_queries = [
+            (f"(Text1 LIKE '%{term}%' OR "  # campus_id
+             f"Text14 LIKE '%{term}%')")  # email
+            for term in search_terms
+        ]
+        request_json = {
+            "TypeFullName": "Personnel",
+            "WhereClause": " AND ".join(term_queries)
+        }
+        response = requests.post(
+            url,
+            json=request_json,
+            headers={
+                "session-id": CcureApi.get_session_id(),
+                "Access-Control-Expose-Headers": "session-id"
+            },
+            timeout=1
+        )
+        if response.status_code == status.HTTP_200_OK:
+            return response.json()
+        print(response.text)
+        return []
+
+
+    @classmethod
+    def search_clearances(cls, query: str) -> list[dict]:
+        """
+        Find all clearances whose names match the query string
+
+        Parameters:
+            query: the string to search clearance names by
+
+        Returns: list of dicts with data from all matching clearances
+        """
+        route = "/victorwebservice/api/v2/Personnel/ClearancesForAssignment"
+        url = cls.base_url + route
+        request_json = {
+            "partitionList": [],
+            "whereClause": f"Name LIKE '%{query}%'",
+            "pageSize": 0,
+            "pageNumber": 1,
+            "sortColumnName": "",
+            "whereArgList": [],
+            "propertyList": ["Name"],
+            "explicitPropertyList": []
+        }
+        response = requests.post(
+            url,
+            json=request_json,
+            headers={
+                "session-id": cls.get_session_id(),
+                "Access-Control-Expose-Headers": "session-id"
+            },
+            timeout=1
+        )
+        if response.status_code == status.HTTP_200_OK:
+            return response.json()[1:]
+        print(response.text)
+        return []
+
+    @classmethod
+    def get_assigned_clearances(cls, assignee_id: int) -> int:
+        """
+        With a person's CCure ObjectID, get the clearances assigned to them
+
+        Parameters:
+            assignee_id: the person's ID in CCure
+        """
+        route = "/victorwebservice/api/Objects/GetAllWithCriteria"
+        url = cls.base_url + route
+        request_json = {
+            "TypeFullName": ("SoftwareHouse.NextGen.Common.SecurityObjects."
+                             "PersonnelClearancePairTimed"),
+            "WhereClause": f"PersonnelID = {assignee_id}"
+        }
+        return requests.post(
+            url,
+            json=request_json,
+            headers={
+                "session-id": cls.get_session_id(),
+                "Access-Control-Expose-Headers": "session-id"
+            },
+            timeout=1
+        )
+
+    @classmethod
+    def get_clearance_by_guid(cls, clearance_guid: str) -> dict:
         """
         Get a clearance object from CCure matching the given clearance_guid
 
         Parameters:
             clearance_guid: the GUID value of the clearance object
         """
-        session_id = cls.get_session_id()
         route = "/victorwebservice/api/v2/Personnel/ClearancesForAssignment"
         url = cls.base_url + route
         request_json = {
@@ -180,7 +313,7 @@ class CcureApi:
             url,
             json=request_json,
             headers={
-                "session-id": session_id,
+                "session-id": cls.get_session_id(),
                 "Access-Control-Expose-Headers": "session-id"
             },
             timeout=1
@@ -190,6 +323,71 @@ class CcureApi:
         return {}
 
     @classmethod
+    def get_clearances_by_guid(cls, clearance_guids: list[str]) -> list[dict]:
+        """
+        Get clearance objects from CCure matching the given clearance_guids
+
+        Parameters:
+            clearance_guids: the GUID values of the clearance objects
+        """
+        route = "/victorwebservice/api/v2/Personnel/ClearancesForAssignment"
+        url = cls.base_url + route
+        request_json = {
+            "partitionList": [],
+            "whereClause": " OR ".join(f"GUID = '{guid}'" for guid in clearance_guids),
+            "pageSize": 0,
+            "pageNumber": 1,
+            "sortColumnName": "",
+            "whereArgList": [],
+            "propertyList": ["Name"],
+            "explicitPropertyList": []
+        }
+        response = requests.post(
+            url,
+            json=request_json,
+            headers={
+                "session-id": cls.get_session_id(),
+                "Access-Control-Expose-Headers": "session-id"
+            },
+            timeout=1
+        )
+        if response.status_code == status.HTTP_200_OK and response.json():
+            return response.json()[1:]
+        print(response.text)
+        return []
+
+    @classmethod
+    def get_clearances_by_id(cls, clearance_ids: list[int]) -> list[dict]:
+        """
+        Get clearance objects matching a list of CCure clearance ObjectIDs
+
+        Parameters:
+            clearance_ids: IDs for all the clearances to retrieve
+        """
+        route = "/victorwebservice/api/v2/Personnel/ClearancesForAssignment"
+        query = " OR ".join(f"ObjectID = {_id}" for _id in clearance_ids)
+        request_json = {
+            "partitionList": [],
+            "whereClause": query,
+            "pageSize": 0,
+            "pageNumber": 1,
+            "sortColumnName": "",
+            "whereArgList": [],
+            "propertyList": ["Name"],
+            "explicitPropertyList": []
+        }
+        response = requests.post(
+            cls.base_url + route,
+            json=request_json,
+            headers={
+                "session-id": cls.get_session_id(),
+                "Access-Control-Expose-Headers": "session-id"
+            },
+            timeout=1
+        )
+        return response.json()[1:]
+
+    @classmethod
     def get_clearance_id(cls, clearance_guid: str) -> int:
         """
         With a clearance's guid, get its CCure ObjectID
@@ -197,7 +395,7 @@ class CcureApi:
         Parameters:
             clearance_guid: the clearance's GUID value in CCure
         """
-        clearance = cls.get_clearance(clearance_guid)
+        clearance = cls.get_clearance_by_guid(clearance_guid)
         return clearance.get("ObjectID", 0)
 
     @classmethod
@@ -247,49 +445,8 @@ class CcureApi:
         """
         With a clearance's guid, get its name in CCure
         """
-        clearance = cls.get_clearance(clearance_guid)
+        clearance = cls.get_clearance_by_guid(clearance_guid)
         return clearance.get("Name", "")
-
-    @staticmethod
-    def encode(data: dict) -> str:
-        """
-        Encode a dict of form data as a string
-
-        Parameters:
-            data: data about the new clearanace assignment
-
-        Returns: the string of encoded data
-        """
-        def get_form_entries(data: dict, prefix: str = "") -> list[str]:
-            """
-            Convert the data dict into a list of form entries
-
-            Parameters:
-                data: data about the new clearance assignment
-
-            Returns: list of strings representing key/value pairs
-            """
-            entries = []
-            for key, val in data.items():
-                if isinstance(val, (int, str)):
-                    if prefix:
-                        entries.append(f"{prefix}[{key}]={val}")
-                    else:
-                        entries.append(f"{key}={val}")
-                elif isinstance(val, list):
-                    for i, list_item in enumerate(val):
-                        if isinstance(list_item, dict):
-                            entries.extend(get_form_entries(
-                                data=list_item,
-                                prefix=prefix + f"{key}[{i}]"
-                            ))
-                        elif prefix:
-                            entries.append(f"{prefix}[{key}][]={list_item}")
-                        else:
-                            entries.append(f"{key}[]={list_item}")
-            return entries
-
-        return "&".join(get_form_entries(data))
 
     class AssignRevokeConfig(BaseModel):
         """For CCure assign_clearances and revoke_clearances methods"""
@@ -302,7 +459,7 @@ class CcureApi:
     @classmethod
     def assign_clearances(cls, config: list[AssignRevokeConfig]):
         """
-        Assign clearances to users in CCure
+        Assign clearances to people in CCure
 
         Parameters:
             config: list of dicts with the data needed to assign the clearance
@@ -313,7 +470,7 @@ class CcureApi:
             campus_ids.add(item.get("assignee_id"))
             clearance_guids.add(item.get("clearance_guid"))
         # then get ccure ids for assignee_ids and clearance_guids
-        assignee_ids = cls.get_object_ids(campus_ids)
+        assignee_ids = cls.get_person_object_ids(campus_ids)
         clearances_data = cls.get_clearance_data(clearance_guids)
         # group assignments requests by assignee
         person_assignments = {assignee_id: []
@@ -341,7 +498,7 @@ class CcureApi:
             route = "/victorwebservice/api/Objects/PersistToContainer"
             response = requests.post(
                 cls.base_url + route,
-                data=cls.encode(data),
+                data=encode(data),
                 headers={
                     "session-id": cls.get_session_id(),
                     "Access-Control-Expose-Headers": "session-id",
@@ -350,14 +507,14 @@ class CcureApi:
                 timeout=1
             )
             if response.status_code != status.HTTP_200_OK:
-                print(f"Unable to assign clearances to user {assignee}.")
+                print(f"Unable to assign clearances to person {assignee}.")
                 print(f"{response.status_code}: {response.text}")
         return clearances_data
 
     @classmethod
     def revoke_clearances(cls, config: list[AssignRevokeConfig]):
         """
-        Revoke clearances from users in CCure
+        Revoke clearances from people in CCure
 
         Parameters:
             config: list of dicts with the data needed to revoke the clearance
@@ -368,7 +525,7 @@ class CcureApi:
             campus_ids.add(item.get("assignee_id"))
             clearance_guids.add(item.get("clearance_guid"))
         # then get ccure ids for assignee_ids and clearance_guids
-        assignee_ids = cls.get_object_ids(campus_ids)
+        assignee_ids = cls.get_person_object_ids(campus_ids)
         clearances_data = cls.get_clearance_data(clearance_guids)
 
         # group revoke requests by assignee
@@ -400,13 +557,8 @@ class CcureApi:
                 },
                 timeout=1
             )
-            if response.status_code == status.HTTP_404_NOT_FOUND:
-                print(f"Can't revoke clearances from user {assignee}.")
-                print(("User does not have clearance(s) "
-                       f"{', '.join(map(str, clearance_ids))}."))
-                return response
-            elif response.status_code != status.HTTP_200_OK:
-                print(f"Unable to revoke clearances from user {assignee}.")
+            if response.status_code != status.HTTP_200_OK:
+                print(f"Unable to revoke clearances from {assignee}.")
                 print(f"{response.status_code}: {response.text}")
                 return response
 
@@ -426,7 +578,7 @@ class CcureApi:
             route = "/victorwebservice/api/Objects/RemoveFromContainer"
             response = requests.post(
                 cls.base_url + route,
-                data=cls.encode(data),
+                data=encode(data),
                 headers={
                     "session-id": cls.get_session_id(),
                     "Access-Control-Expose-Headers": "session-id",
@@ -435,7 +587,7 @@ class CcureApi:
                 timeout=1
             )
             if response.status_code != status.HTTP_200_OK:
-                print(f"Unable to revoke clearances from user {assignee}.")
+                print(f"Unable to revoke clearances from {assignee}.")
                 print(f"{response.status_code}: {response.text}")
 
         return clearances_data

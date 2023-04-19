@@ -1,8 +1,6 @@
 """Model for Clearances"""
 
-from fastapi import status
 from typing import Optional
-import requests
 from util.ccure_api import CcureApi
 from util.db_connect import get_clearance_collection
 
@@ -41,34 +39,11 @@ class Clearance:
 
         Returns: A list of clearance objects
         """
-        route = "/victorwebservice/api/v2/Personnel/ClearancesForAssignment"
-        url = CcureApi.base_url + route
-        request_json = {
-            "partitionList": [],
-            "whereClause": f"Name LIKE '%{(query or '').strip()}%'",
-            "pageSize": 0,
-            "pageNumber": 1,
-            "sortColumnName": "",
-            "whereArgList": [],
-            "propertyList": ["Name"],
-            "explicitPropertyList": []
-        }
-        response = requests.post(
-            url,
-            json=request_json,
-            headers={
-                "session-id": CcureApi.get_session_id(),
-                "Access-Control-Expose-Headers": "session-id"
-            },
-            timeout=1
-        )
-        if response.status_code == status.HTTP_200_OK:
-            clearances = response.json()[1:]
-            return [Clearance(_id=clearance.get("GUID", ""),
-                              name=clearance.get("Name", ""))
-                    for clearance in clearances]
-        print(response.text)
-        return []
+        query_str = (query or "").strip()
+        clearances = CcureApi.search_clearances(query_str)
+        return [Clearance(_id=clearance.get("GUID", ""),
+                          name=clearance.get("Name", ""))
+                for clearance in clearances]
 
     @classmethod
     def get_all(cls) -> list["Clearance"]:
@@ -91,36 +66,12 @@ class Clearance:
         Returns: list of dicts including the guid, id, and name
             of the given clearances
         """
-        route = "/victorwebservice/api/v2/Personnel/ClearancesForAssignment"
-        url = CcureApi.base_url + route
-        request_json = {
-            "partitionList": [],
-            "whereClause": " OR ".join(f"GUID = '{guid}'" for guid in guids),
-            "pageSize": 0,
-            "pageNumber": 1,
-            "sortColumnName": "",
-            "whereArgList": [],
-            "propertyList": ["Name"],
-            "explicitPropertyList": []
-        }
-        response = requests.post(
-            url,
-            json=request_json,
-            headers={
-                "session-id": CcureApi.get_session_id(),
-                "Access-Control-Expose-Headers": "session-id"
-            },
-            timeout=1
-        )
-        if response.status_code == status.HTTP_200_OK:
-            clearances = response.json()[1:]
-            return [{
-                "guid": clearance["GUID"],
-                "id": clearance["ObjectID"],
-                "name": clearance["Name"]
-            } for clearance in clearances]
-        print(response.text)
-        return []
+        clearances = CcureApi.get_clearances_by_guid(guids)
+        return [{
+            "guid": clearance["GUID"],
+            "id": clearance["ObjectID"],
+            "name": clearance["Name"]
+        } for clearance in clearances]
 
     @staticmethod
     def get_allowed(email: Optional[str] = None,

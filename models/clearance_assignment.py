@@ -1,9 +1,8 @@
 """Model for Clearance Assignments"""
 
-from fastapi import status
 from typing import Optional
 from datetime import datetime, date
-import requests
+from fastapi import status
 from util.db_connect import get_clearance_collection
 from util.ccure_api import CcureApi
 from .audit import Audit
@@ -42,56 +41,21 @@ class ClearanceAssignment:
         Returns: A list of clearances
         """
         # first get object ids for clearances assigned to assignee_id
-        assignee_object_id = CcureApi.get_object_id(assignee_id)
-        route = "/victorwebservice/api/Objects/GetAllWithCriteria"
-        url = CcureApi.base_url + route
-        request_json = {
-            "TypeFullName": ("SoftwareHouse.NextGen.Common.SecurityObjects."
-                             "PersonnelClearancePairTimed"),
-            "WhereClause": f"PersonnelID = {assignee_object_id}"
-        }
-        response = requests.post(
-            url,
-            json=request_json,
-            headers={
-                "session-id": CcureApi.get_session_id(),
-                "Access-Control-Expose-Headers": "session-id"
-            },
-            timeout=1
-        )
-        if response.status_code == status.HTTP_404_NOT_FOUND:
+        assignee_object_id = CcureApi.get_person_object_id(assignee_id)
+        assigned_clearances = CcureApi.get_assigned_clearances(assignee_object_id)
+        if assigned_clearances.status_code == status.HTTP_404_NOT_FOUND:
             return []
-        clearance_ids = [pair.get("ClearanceID") for pair in response.json()]
+        clearance_ids = [pair.get("ClearanceID") for pair in assigned_clearances.json()]
+        if not clearance_ids:
+            return []
 
         # then get the guids for those clearances
-        if clearance_ids:
-            route = "/victorwebservice/api/v2/Personnel/ClearancesForAssignment"
-            query = " OR ".join(f"ObjectID = {_id}" for _id in clearance_ids)
-            request_json = {
-                "partitionList": [],
-                "whereClause": query,
-                "pageSize": 0,
-                "pageNumber": 1,
-                "sortColumnName": "",
-                "whereArgList": [],
-                "propertyList": ["Name"],
-                "explicitPropertyList": []
-            }
-            response = requests.post(
-                CcureApi.base_url + route,
-                json=request_json,
-                headers={
-                    "session-id": CcureApi.get_session_id(),
-                    "Access-Control-Expose-Headers": "session-id"
-                },
-                timeout=1
-            )
-            return [Clearance(
-                item.get("GUID"),
-                item.get("ObjectID"),
-                item.get("Name")
-            ) for item in response.json()[1:]]
-        return []
+        assigned_clearances = CcureApi.get_clearances_by_id(clearance_ids)
+        return [Clearance(
+            clearance.get("GUID"),
+            clearance.get("ObjectID"),
+            clearance.get("Name")
+        ) for clearance in assigned_clearances]
 
     @classmethod
     def get_assignments_by_assignee(

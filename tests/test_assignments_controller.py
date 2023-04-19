@@ -229,7 +229,8 @@ def test_revoke_clearances_as_admin(monkeypatch):
                            json={
                                "assignees": raw_assignees,
                                "clearance_ids": raw_clearance_ids
-                           })
+                           }
+    )
     assert response.status_code == 200
     assert response.json() == {"changes": 8}
 
