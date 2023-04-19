@@ -7,14 +7,13 @@ from fastapi import Response
 from fastapi.testclient import TestClient
 import requests
 from pymongo import MongoClient
-from deepdiff import DeepDiff
 from auth_checker import AuthChecker
 from main import app
 from models.clearance_assignment import ClearanceAssignment
 from models.clearance import Clearance
 from util import db_connect
 from util.ccure_api import CcureApi
-from middleware.get_authorization import get_authorization
+from util.authorization import get_authorization
 from tests.override_get_authorization import (
     override_get_authorization, override_get_authorization_liaison)
 
@@ -48,11 +47,13 @@ clearances = [
 assigned_clearances = [
     {
         "id": "DECBB54E-4B22-4671-9FA7-F8F370D66A97",
-        "name": "Hunt - Turnstiles"
+        "name": "Hunt - Turnstiles",
+        "can_revoke": True
     },
     {
         "id": "E00D2258-4449-4ACD-B640-8163A4D6CAA2",
-        "name": "Library - Faculty Commons"
+        "name": "Library - Faculty Commons",
+        "can_revoke": False
     }
 ]
 
@@ -114,7 +115,7 @@ def mock_get_allowed(*_, **__):
     ]
 
 
-def test_get_assignments(monkeypatch):
+def test_get_assignments_as_admin(monkeypatch):
     """
     It should be able to get all active assignments for an individual.
     """
@@ -131,10 +132,20 @@ def test_get_assignments(monkeypatch):
                           headers={"Authorization": "Bearer token"})
     assert response.status_code == 200
 
-    assert DeepDiff(response.json(), {
-        "allowed": assigned_clearances,
-        "assignments": assigned_clearances
-    }, ignore_order=True) == {}
+    assert response.json() == {
+        "assignments": [
+            {
+                "id": "DECBB54E-4B22-4671-9FA7-F8F370D66A97",
+                "name": "Hunt - Turnstiles",
+                "can_revoke": True
+            },
+            {
+                "id": "E00D2258-4449-4ACD-B640-8163A4D6CAA2",
+                "name": "Library - Faculty Commons",
+                "can_revoke": True
+            }
+        ]
+    }
 
 
 def test_assign_clearances_as_admin(monkeypatch):
@@ -221,6 +232,28 @@ def test_revoke_clearances_as_admin(monkeypatch):
                            })
     assert response.status_code == 200
     assert response.json() == {"changes": 8}
+
+
+def test_get_assignments_as_liaison(monkeypatch):
+    """
+    It should be able to get all active assignments for an individual.
+    """
+    monkeypatch.setattr(db_connect, "get_clearance_collection",
+                        mock_mongo_client("clearance_assignment"))
+    monkeypatch.setattr(AuthChecker, "check_authorization",
+                        mock_check_authorization)
+    monkeypatch.setattr(CcureApi, "get_clearance_name",
+                        mock_get_clearance_name)
+    monkeypatch.setattr(ClearanceAssignment, "get_assignments_by_assignee",
+                        mock_get_assignments_by_assignee)
+    monkeypatch.setattr(Clearance, "get_allowed", mock_get_allowed)
+    app.dependency_overrides[get_authorization] = (
+        override_get_authorization_liaison)
+
+    response = client.get("/assignments/200103374",
+                          headers={"Authorization": "Bearer token"})
+    assert response.status_code == 200
+    assert response.json() == {"assignments": assigned_clearances}
 
 
 def test_assign_clearances_as_liaison(monkeypatch):

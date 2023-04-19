@@ -2,7 +2,7 @@
 
 from fastapi.testclient import TestClient
 from auth_checker import AuthChecker
-from middleware.get_authorization import get_authorization
+from util.authorization import get_authorization
 from tests.override_get_authorization import override_get_authorization
 from models.personnel import Personnel
 from main import app
