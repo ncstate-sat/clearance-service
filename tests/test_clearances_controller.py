@@ -6,7 +6,7 @@ from pymongo import MongoClient
 from auth_checker import AuthChecker
 from main import app
 from models.clearance import Clearance
-from middleware.get_authorization import get_authorization
+from util.authorization import get_authorization
 from tests.override_get_authorization import (
     override_get_authorization, override_get_authorization_liaison)
 from util import db_connect

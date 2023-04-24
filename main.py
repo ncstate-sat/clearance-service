@@ -1,6 +1,6 @@
 """Backend service for Clearance Assignment functionality"""
 
-from fastapi import FastAPI, Request, status
+from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
 from crud.clearances import router as clearances_router
@@ -13,7 +13,7 @@ from util.ccure_api import CcureApi
 
 
 DESCRIPTION = """Backend service for Clearance Assignment functionality"""
-VERSION = "2023-03-31"
+VERSION = "2023-04-21"
 
 
 def create_app():
@@ -68,5 +68,5 @@ def startup_db_client():
 def logout_ccure_session():
     """Log out of the CCure session"""
     response = CcureApi.logout()
-    if response.status_code == status.HTTP_200_OK:
+    if response.get("success"):
         print("Ending CCure session")

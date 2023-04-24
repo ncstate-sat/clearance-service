@@ -1,9 +1,7 @@
 """Model for Personnel"""
 
-from fastapi import status
 from typing import Optional
 import datetime
-import requests
 from util.db_connect import get_clearance_collection
 from util.ccure_api import CcureApi
 from .clearance_assignment import ClearanceAssignment
@@ -171,7 +169,7 @@ class Personnel:
                 for clearance in record["clearances"]]
 
     @staticmethod
-    def find_one(campus_id: str) -> "Personnel":
+    def find_one(campus_id: str) -> Optional["Personnel"]:
         """
         Use the CCure api to find one person by campus ID
 
@@ -180,73 +178,33 @@ class Personnel:
 
         Returns: one Personnel object or None
         """
-        query_route = "/victorwebservice/api/Objects/FindObjsWithCriteriaFilter"
-        url = CcureApi.base_url + query_route
-
-        request_json = {
-            "TypeFullName": "Personnel",
-            "WhereClause": f"Text1 = '{campus_id}'"
-        }
-        response = requests.post(
-            url,
-            json=request_json,
-            headers={
-                "session-id": CcureApi.get_session_id(),
-                "Access-Control-Expose-Headers": "session-id"
-            },
-            timeout=1
-        )
-        if response.status_code == status.HTTP_200_OK:
-            json = response.json()[0]
+        person_record = CcureApi.get_person_by_campus_id(campus_id)
+        if person_record:
             return Personnel(
-                json["FirstName"],
-                json["MiddleName"],
-                json["LastName"],
-                json["Text14"],  # email
-                json["Text1"]  # campus_id
+                person_record["FirstName"],
+                person_record["MiddleName"],
+                person_record["LastName"],
+                person_record["Text14"],  # email
+                person_record["Text1"]  # campus_id
             )
-        print(response.text)
+
 
     @staticmethod
-    def search(search_terms) -> list["Personnel"]:
+    def search(search: str) -> list["Personnel"]:
         """
         Use the CCure api to search personnel by campus ID and email,
         then return users who match each search term
 
         Parameters:
-            search_terms: terms to search by, separated by whitespace
+            search: terms to search by, separated by whitespace
 
         Returns: list of Personnel objects that match the search
         """
-        query_route = "/victorwebservice/api/Objects/FindObjsWithCriteriaFilter"
-        url = CcureApi.base_url + query_route
-        search_terms = search_terms or ""
-
-        term_queries = [
-            (f"(Text1 LIKE '%{term}%' OR "  # campus_id
-             f"Text14 LIKE '%{term}%')")  # email
-            for term in search_terms.split()
-        ]
-        request_json = {
-            "TypeFullName": "Personnel",
-            "WhereClause": " AND ".join(term_queries)
-        }
-        response = requests.post(
-            url,
-            json=request_json,
-            headers={
-                "session-id": CcureApi.get_session_id(),
-                "Access-Control-Expose-Headers": "session-id"
-            },
-            timeout=1
-        )
-        if response.status_code == status.HTTP_200_OK:
-            return [Personnel(
-                person["FirstName"],
-                person["MiddleName"],
-                person["LastName"],
-                person["Text14"],  # email
-                person["Text1"]  # campus_id
-            ) for person in response.json()]
-        print(response.text)
-        return []
+        person_dicts = CcureApi.search_people(search)
+        return [Personnel(
+            person["FirstName"],
+            person["MiddleName"],
+            person["LastName"],
+            person["Text14"],  # email
+            person["Text1"]  # campus_id
+        ) for person in person_dicts]
