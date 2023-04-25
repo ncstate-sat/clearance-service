@@ -1,0 +1,10 @@
+.direnv
+.gitignore
+.github
+.idea
+.pytest_cache
+.env
+.envrc
+shell.nix
+requirements.dev.txt
+remotedb.dump
