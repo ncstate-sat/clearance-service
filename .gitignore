@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 
 # Mongo backup files
-remotedb.dump/
+remotedb.dump/*
 
 # C extensions
 *.so
