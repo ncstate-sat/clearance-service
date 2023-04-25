@@ -8,3 +8,4 @@
 shell.nix
 requirements.dev.txt
 remotedb.dump
+venv
