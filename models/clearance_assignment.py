@@ -2,7 +2,7 @@
 
 from typing import Optional
 from datetime import datetime, date
-import requests
+from fastapi import status
 from util.db_connect import get_clearance_collection
 from util.ccure_api import CcureApi
 from .audit import Audit
@@ -41,56 +41,21 @@ class ClearanceAssignment:
         Returns: A list of clearances
         """
         # first get object ids for clearances assigned to assignee_id
-        assignee_object_id = CcureApi.get_object_id(assignee_id)
-        route = "/victorwebservice/api/Objects/GetAllWithCriteria"
-        url = CcureApi.base_url + route
-        request_json = {
-            "TypeFullName": ("SoftwareHouse.NextGen.Common.SecurityObjects."
-                             "PersonnelClearancePairTimed"),
-            "WhereClause": f"PersonnelID = {assignee_object_id}"
-        }
-        response = requests.post(
-            url,
-            json=request_json,
-            headers={
-                "session-id": CcureApi.get_session_id(),
-                "Access-Control-Expose-Headers": "session-id"
-            },
-            timeout=1
-        )
-        if response.status_code == 404:
+        assignee_object_id = CcureApi.get_person_object_id(assignee_id)
+        assigned_clearances = CcureApi.get_assigned_clearances(assignee_object_id)
+        if assigned_clearances.status_code == status.HTTP_404_NOT_FOUND:
             return []
-        clearance_ids = [pair.get("ClearanceID") for pair in response.json()]
+        clearance_ids = [pair.get("ClearanceID") for pair in assigned_clearances.json()]
+        if not clearance_ids:
+            return []
 
         # then get the guids for those clearances
-        if clearance_ids:
-            route = "/victorwebservice/api/v2/Personnel/ClearancesForAssignment"
-            query = " OR ".join(f"ObjectID = {_id}" for _id in clearance_ids)
-            request_json = {
-                "partitionList": [],
-                "whereClause": query,
-                "pageSize": 0,
-                "pageNumber": 1,
-                "sortColumnName": "",
-                "whereArgList": [],
-                "propertyList": ["Name"],
-                "explicitPropertyList": []
-            }
-            response = requests.post(
-                CcureApi.base_url + route,
-                json=request_json,
-                headers={
-                    "session-id": CcureApi.get_session_id(),
-                    "Access-Control-Expose-Headers": "session-id"
-                },
-                timeout=1
-            )
-            return [Clearance(
-                item.get("GUID"),
-                item.get("ObjectID"),
-                item.get("Name")
-            ) for item in response.json()[1:]]
-        return []
+        assigned_clearances = CcureApi.get_clearances_by_id(clearance_ids)
+        return [Clearance(
+            clearance.get("GUID"),
+            clearance.get("ObjectID"),
+            clearance.get("Name")
+        ) for clearance in assigned_clearances]
 
     @classmethod
     def get_assignments_by_assignee(
@@ -113,7 +78,7 @@ class ClearanceAssignment:
 
     @classmethod
     def assign(cls,
-               assigner_id: str,
+               assigner_email: str,
                assignee_ids: list[str],
                clearance_guids: list[str],
                start_time: Optional[date] = None,
@@ -122,7 +87,7 @@ class ClearanceAssignment:
         Assign a list of clearances to a list of individuals
 
         Parameters:
-            assigner_id: the campus ID of the person assigning clearances
+            assigner_email: the email address of the person assigning clearances
             assignee_ids: list of campus IDs for people getting clearances
             clearance_guids: list of clearance GUIDs to be assigned
             start_time: the time the assignment should go into effect
@@ -131,6 +96,7 @@ class ClearanceAssignment:
         Returns: the number of changes made
         """
         now = datetime.utcnow()
+        assigner_id = CcureApi.get_campus_id_by_email(assigner_email)
         if start_time or end_time:  # then add it to mongo
             new_assignments = []
             for assignee_id in assignee_ids:
@@ -177,19 +143,20 @@ class ClearanceAssignment:
         return len(assignee_ids) * len(clearance_guids)
 
     @staticmethod
-    def revoke(assigner_id: str,
+    def revoke(assigner_email: str,
                assignee_ids: list[str],
                clearance_ids: list[str]) -> int:
         """
         Revoke a list of clearances from a list of individuals
 
         Parameters:
-            assigner_id: the campus ID of the person revoking clearances
+            assigner_email: the email address of the person revoking clearances
             assignee_ids: list of campus IDs for people losing clearances
             clearance_ids: list of clearance GUIDs to be revoked
 
         Returns: the number of changes made
         """
+        assigner_id = CcureApi.get_campus_id_by_email(assigner_email)
         new_assignments = []
         for campus_id in assignee_ids:
             for clearance_id in clearance_ids:

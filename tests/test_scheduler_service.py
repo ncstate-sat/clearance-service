@@ -251,7 +251,10 @@ class TestSchedulerService:
                             "revoke_clearances",
                             lambda *_, **__: None)
         monkeypatch.setattr(CcureApi,
-                            "get_clearance",
+                            "get_person_by_campus_id",
+                            lambda *_, **__: {})
+        monkeypatch.setattr(CcureApi,
+                            "get_clearance_by_guid",
                             lambda *_, **__: {})
 
         assignment = {
