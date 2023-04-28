@@ -8,4 +8,6 @@ connect-remote:
 	mongosh -u ${REMOTE_MONGO_USER} -p ${REMOTE_MONGO_PASSWORD} --authenticationDatabase=clearance_service "mongodb://vm-vrb-mdb-01.ehps.ncsu.edu/clearance_service?authSource=clearance_service"
 
 run-dev:
+	docker-compose stop
+	docker-compose up -d --remove-orphans
 	uvicorn main:app --reload
