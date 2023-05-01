@@ -1,0 +1,29 @@
+layout pyenv 3.10.4
+use nix
+dotenv_if_exists
+
+export REMOTE_DB_URL=mongodb://<>
+export CLEARANCE_DB_URL=mongodb://dev-user:dev-password@localhost:27021/clearance_service
+export TEST_DB_URL=mongodb://dev-user:dev-password@localhost:27022/clearance_service
+
+export JWT_SECRET=<>
+export CCURE_USERNAME=<>
+export CCURE_PASSWORD=<>
+export CCURE_BASE_URL=<>
+export CCURE_CLIENT_NAME="NCSU - Security Portal - Integration"
+export CCURE_CLIENT_VERSION=2.9
+export CCURE_CLIENT_ID=<>
+
+# These are here to support the restore and backup Make commands
+export REMOTE_MONGO_USER=<>
+export REMOTE_MONGO_PASSWORD=<>
+export REMOTE_MONGO_HOST=<>
+export REMOTE_MONGO_PORT=27017
+export REMOTE_MONGO_DB=clearance_service
+
+export LOCAL_MONGO_USER=dev-user
+export LOCAL_MONGO_PASSWORD=dev-password
+export LOCAL_MONGO_HOST=localhost
+export LOCAL_MONGO_PORT=27021
+export LOCAL_MONGO_DB=clearance_service
+export DEBUG=True

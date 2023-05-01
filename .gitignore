@@ -150,4 +150,3 @@ dmypy.json
 .envrc
 .direnv/
 dbbackup
-shell.nix

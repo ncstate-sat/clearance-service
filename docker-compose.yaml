@@ -2,6 +2,7 @@ version: "3.7"
 
 volumes:
   mongo: {}
+  mongo-test: {}
 
 services:
   db:
@@ -15,3 +16,14 @@ services:
       - ./init-scripts/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
     ports:
       - "27021:27017"
+  test-db:
+    image: mongo:4.4.18
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=devpass
+      - MONGO_INITDB_DATABASE=clearance_service
+    volumes:
+      - mongo-test:/data/db
+      - ./init-scripts/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+    ports:
+      - "27022:27017"

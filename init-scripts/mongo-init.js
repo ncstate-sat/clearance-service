@@ -3,11 +3,8 @@ db.createUser({
   pwd: "dev-password",
   roles: [
     {
-      role: "readWrite",
+      role: "dbOwner",
       db: "clearance_service",
     },
   ],
 });
-
-db = new Mongo().getDB("clearance_service");
-db.createCollection("clearance");
