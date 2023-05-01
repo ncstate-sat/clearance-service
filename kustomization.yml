@@ -1,7 +1,0 @@
-namespace: clearance
-secretGenerator:
-    - name: clearance-service-secrets
-      envs:
-          - .env
-generatorOptions:
-    disableNameSuffixHash: true

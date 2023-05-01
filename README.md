@@ -4,17 +4,16 @@ Backend service for Clearance-app functionality.
 
 ## Required Environment Variables
 
-| Name (Required \*)            | Description                                                             | Example                                          |
-| ----------------------------- | ----------------------------------------------------------------------- | ------------------------------------------------ |
-| JWT_SECRET\*                  | The secret used to decode JWTs for auth.                                | khMSpZkNsjwr                                     |
-| CLEARANCE_DB_URL\*            | The full MongoDB URL.                                                   | mongodb://username:password@university.edu       |
-| CCURE_BASE_URL\*              | The host name of the CCure api.                                         | http://c9k.university.edu                        |
-| CCURE_USERNAME\*              | The username for the CCure api.                                         | username                                         |
-| CCURE_PASSWORD\*              | The password for the CCure api.                                         | secure_password123                               |
-| CCURE_CLIENT_NAME\*           | The title for the CCure client.                                         | University CCure Client                          |
-| CCURE_CLIENT_ID\*             | The ID for the CCure client.                                            | 607736e2-b854-594d-bf4a-2c747ded7385             |
-| CCURE_CLIENT_VERSION\*        | The CCure api version.                                                  | 2.0                                              |
-
+| Name (Required \*)     | Description                              | Example                                    |
+| ---------------------- | ---------------------------------------- | ------------------------------------------ |
+| JWT_SECRET\*           | The secret used to decode JWTs for auth. | khMSpZkNsjwr                               |
+| CLEARANCE_DB_URL\*     | The full MongoDB URL.                    | mongodb://username:password@university.edu |
+| CCURE_BASE_URL\*       | The host name of the CCure api.          | http://c9k.university.edu                  |
+| CCURE_USERNAME\*       | The username for the CCure api.          | username                                   |
+| CCURE_PASSWORD\*       | The password for the CCure api.          | secure_password123                         |
+| CCURE_CLIENT_NAME\*    | The title for the CCure client.          | University CCure Client                    |
+| CCURE_CLIENT_ID\*      | The ID for the CCure client.             | 607736e2-b854-594d-bf4a-2c747ded7385       |
+| CCURE_CLIENT_VERSION\* | The CCure api version.                   | 2.0                                        |
 
 ## Minimum Database Config
 
@@ -70,15 +69,17 @@ For this application to run, the machine on which it's running must be able to r
 
 Access to the following is required for all endpoints to work properly:
 
--   CCure server
+- CCure server
 
 These are all configured with the environment variables.
 
 ### Install Requirements
 
-The requirements.txt contains all of the dependencies required to run the Clearance Service. Developer Dependencies
-are separated into the `requirements.dev.txt` file. The packages in `requirements.dev.txt` are not required to run the service
-but is required for code-coverage, pytests, etc.
+If this is the first time you have setup this project in a virtual environment, run the following command to install the requirements:
+
+```shell
+  $> make setup
+```
 
 ### Running Locally
 
