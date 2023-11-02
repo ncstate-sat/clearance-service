@@ -1,0 +1,674 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="liaison/">
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
+    
+    
+      
+        <title>Clearance Tool</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ded33207.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#clearance-tool" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Clearance Tool" class="md-header__button md-logo" aria-label="Clearance Tool" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Clearance Tool
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Admin
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Clearance Tool" class="md-nav__button md-logo" aria-label="Clearance Tool" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Clearance Tool
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Admin
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        Admin
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#admin" class="md-nav__link">
+    Admin
+  </a>
+  
+    <nav class="md-nav" aria-label="Admin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assign-and-manage-clearances" class="md-nav__link">
+    Assign and Manage Clearances
+  </a>
+  
+    <nav class="md-nav" aria-label="Assign and Manage Clearances">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assign-clearance" class="md-nav__link">
+    Assign Clearance:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bulk-assign-clearances" class="md-nav__link">
+    Bulk Assign Clearances:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revoke-clearance" class="md-nav__link">
+    Revoke Clearance:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reports" class="md-nav__link">
+    Reports
+  </a>
+  
+    <nav class="md-nav" aria-label="Reports">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#door-clearances" class="md-nav__link">
+    Door Clearances
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#people-clearances" class="md-nav__link">
+    People Clearances
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transactions" class="md-nav__link">
+    Transactions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#liaison-permissions" class="md-nav__link">
+    Liaison Permissions
+  </a>
+  
+    <nav class="md-nav" aria-label="Liaison Permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assigning-liaison-user-a-permission" class="md-nav__link">
+    Assigning Liaison User a Permission:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audit-logs" class="md-nav__link">
+    Audit Logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#admin-manage-users" class="md-nav__link">
+    Admin - Manage Users
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="liaison/" class="md-nav__link">
+        Liaison
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#admin" class="md-nav__link">
+    Admin
+  </a>
+  
+    <nav class="md-nav" aria-label="Admin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assign-and-manage-clearances" class="md-nav__link">
+    Assign and Manage Clearances
+  </a>
+  
+    <nav class="md-nav" aria-label="Assign and Manage Clearances">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assign-clearance" class="md-nav__link">
+    Assign Clearance:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bulk-assign-clearances" class="md-nav__link">
+    Bulk Assign Clearances:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revoke-clearance" class="md-nav__link">
+    Revoke Clearance:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reports" class="md-nav__link">
+    Reports
+  </a>
+  
+    <nav class="md-nav" aria-label="Reports">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#door-clearances" class="md-nav__link">
+    Door Clearances
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#people-clearances" class="md-nav__link">
+    People Clearances
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transactions" class="md-nav__link">
+    Transactions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#liaison-permissions" class="md-nav__link">
+    Liaison Permissions
+  </a>
+  
+    <nav class="md-nav" aria-label="Liaison Permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assigning-liaison-user-a-permission" class="md-nav__link">
+    Assigning Liaison User a Permission:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audit-logs" class="md-nav__link">
+    Audit Logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#admin-manage-users" class="md-nav__link">
+    Admin - Manage Users
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="clearance-tool">Clearance Tool<a class="headerlink" href="#clearance-tool" title="Permanent link">&para;</a></h1>
+<p>This application serves as a centralized platform for assigning and managing clearances, specifically door accesses. Users can be assigned one of two roles: "<strong>Liaison</strong>" or "<strong>Admin</strong>."</p>
+<h2 id="admin">Admin<a class="headerlink" href="#admin" title="Permanent link">&para;</a></h2>
+<p>A user with the Admin role is granted administrative privileges and is authorized to perform the following activities:</p>
+<ul>
+<li>View, assign, or revoke clearances for users.</li>
+<li>View and update the list of clearances that a Liaison user is authorized to assign to other users.</li>
+<li>View chronological sequence of activities performed by all users through the clearance UI.</li>
+<li>View, add or remove "Liaison" and "Admin" users.</li>
+</ul>
+<p>&nbsp;</p>
+<p><img alt="Admin Role" src="assets/admin_role.png" /></p>
+<p><br/></p>
+<h3 id="assign-and-manage-clearances">Assign and Manage Clearances<a class="headerlink" href="#assign-and-manage-clearances" title="Permanent link">&para;</a></h3>
+<!-- <span style="font-size:12px">***Visible to Liaison and Admin users***</span> -->
+
+<h4 id="assign-clearance">Assign Clearance:<a class="headerlink" href="#assign-clearance" title="Permanent link">&para;</a></h4>
+<p><strong>Step 1</strong>: Type the UnityID or email address into the "Select Person" field and choose the desired person from the dropdown menu below. Once you have selected a "Person", a "Select Clearance" field will appear below it, followed by a list of the clearances that are available to the user. Please note that you have the option to select multiple users at this step.</p>
+<p><img alt="Admin Role" src="assets/search_user.png" /></p>
+<p>&nbsp;</p>
+<p><strong>Step 2</strong>: Enter the desired clearance in the "Select Clearance" field, and then click on the appropriate option from the filtered list of available clearances. Please keep in mind that you can select multiple clearances, and all of them will be applied to the users selected in the previous step.</p>
+<p><img alt="Admin Role" src="assets/search_clearance.png" /></p>
+<p>&nbsp;</p>
+<p><strong>Step 3</strong>: To complete the clearance assignment for the user/users, simply click on the "Assign" button. Once the clearance has been successfully assigned, it will appear in the list with a success message. Please note that if any of the selections made above are incorrect, the "Assign" button may not be activated.</p>
+<p><img alt="Admin Role" src="assets/assign_clearance.png" /></p>
+<h4 id="bulk-assign-clearances">Bulk Assign Clearances:<a class="headerlink" href="#bulk-assign-clearances" title="Permanent link">&para;</a></h4>
+<p><strong>Step 1</strong>: Click the <code>Choose CSV</code> button to upload a csv file with up to 20 campus IDs to assign clearances to multiple users at once. Click the <code>Download Template CSV</code> button to see an example of a valid csv file.</p>
+<p>&nbsp;</p>
+<p><strong>Step 2</strong>: Once your file is uploaded and people are selected, continue assigning clearances starting with <strong>Step 2</strong> in the "Assign Clearance" section above.</p>
+<p>&nbsp;
+&nbsp;</p>
+<h4 id="revoke-clearance">Revoke Clearance:<a class="headerlink" href="#revoke-clearance" title="Permanent link">&para;</a></h4>
+<p><strong>Step 1</strong>: Type the UnityID or email address into the "Select Person" field and choose the desired person from the dropdown menu below. Once you have selected a "Person", a "Select Clearance" field will appear below it, followed by a list of the clearances that are available to the user.</p>
+<p><img alt="Admin Role" src="assets/Revoke_Button.png" /></p>
+<p>&nbsp;</p>
+<p><strong>Step 2</strong>: Use the filter located in the header of the list if you are unable to locate the clearance you wish to remove in the list. Then, click on the "Revoke" button located next to the corresponding clearance. Upon successful revocation, the clearance will be removed from the list and a success message, as shown below, will be displayed.</p>
+<p><img alt="Admin Role" src="assets/Revoke_Clearance.png" /></p>
+<p>&nbsp;</p>
+<h3 id="reports">Reports<a class="headerlink" href="#reports" title="Permanent link">&para;</a></h3>
+<p>Reports are clear lists of information about the assignable clearances. Reports include doors for each clearance, persons assigned to each clearance, and a history of badge swipes for each person.</p>
+<p>The total assignments from all liaisons by month can be downloaded as a CSV by clicking the button on the far right labeled "Liaison Assignments".</p>
+<p><img alt="Liaison Assignments Button" src="assets/report_liaison_assignments.png" /></p>
+<h4 id="door-clearances">Door Clearances<a class="headerlink" href="#door-clearances" title="Permanent link">&para;</a></h4>
+<p>Door Clearances include a list of all assignable clearances and the doors tied to those clearances. A list of all clearances is shown, paginated. Under each clearance, three or less doors will be shown. To view all doors, expand the clearance, and all doors will be shown for that clearance. Each door record includes the name of the door, whether or not it is a door or an elevator, and the schedule of the door.</p>
+<h4 id="people-clearances">People Clearances<a class="headerlink" href="#people-clearances" title="Permanent link">&para;</a></h4>
+<p>All persons who have each clearance will be displayed for each clearance that is allowed to be assigned. Much like Door Clearances, a paginated list of all clearances is shown, and under each clearance, three or less persons will be displayed. Expand the clearance to view everyone who has that clearance. Each person includes a first name, last name, campus ID, department, and status. The report can optionally be filtered by person to view each clearance that person has.</p>
+<h4 id="transactions">Transactions<a class="headerlink" href="#transactions" title="Permanent link">&para;</a></h4>
+<p>This feature is not yet implemented.</p>
+<p>&nbsp;</p>
+<h3 id="liaison-permissions">Liaison Permissions<a class="headerlink" href="#liaison-permissions" title="Permanent link">&para;</a></h3>
+<!-- ***Visible to only Admin users*** -->
+
+<h4 id="assigning-liaison-user-a-permission">Assigning Liaison User a Permission:<a class="headerlink" href="#assigning-liaison-user-a-permission" title="Permanent link">&para;</a></h4>
+<p>An Admin user can grant a Liaison user permission to assign a clearance to a student or an individual through the following steps:</p>
+<p><strong>Step 1</strong>: Type the UnityID or email address into the "Select Person" field and choose the desired person from the dropdown menu below. Once you have selected a "Person", a list of the clearances available to that user will be displayed below. Please note that only one user can be selected at a time in this section.</p>
+<p><img alt="Admin Role" src="assets/search_liaison_user.png" /></p>
+<p>&nbsp;</p>
+<p><img alt="Admin Role" src="assets/view_liaison_clearance.png" /></p>
+<p>&nbsp;</p>
+<p><strong>Step 2</strong>: Enter the desired clearance in the "Select Clearance" field, and then click on the appropriate clearance from the filtered list in the dropdown menu below. Please keep in mind that you can select multiple clearances, and all of them will be applied to the user selected in the previous step.</p>
+<p><img alt="Admin Role" src="assets/search_clearance_liaison.png" /></p>
+<p>&nbsp;</p>
+<p><strong>Step 3</strong>: To complete the clearance assignment for the Liaison user, click on the "Give Permission" button. Once the clearance has been successfully assigned, it will appear in the list with a success message. Please note that if any of the selections made above are incorrect, the "Assign" button may not be activated.</p>
+<p><img alt="Admin Role" src="assets/assign_clearance_liaison.png" /></p>
+<p><br></br></p>
+<h3 id="audit-logs">Audit Logs<a class="headerlink" href="#audit-logs" title="Permanent link">&para;</a></h3>
+<p>&nbsp;</p>
+<p>The "Audit Log" screen serves as a comprehensive record of all clearance assignments performed by any Admin user. It maintains a detailed log of every instance where clearances have been assigned or revoked. This screen allows users to track and review the history of clearance assignments and revokations made within the system. Every record includes the following information:</p>
+<p>"<strong>DATE ASSIGNED</strong>": This column displays the date and time when the assignment or revocation took place.</p>
+<p>"<strong>ACTION</strong>": In this column, you will find the name of the clearance followed by the verb "assigned" or "revoked", indicating the action that occurred.</p>
+<p>"<strong>ASSIGNED TO</strong>": This column contains the name of the individual to whom the clearance was either assigned or revoked.</p>
+<p>"<strong>DONE BY</strong>": The user who performed the operation is identified in this column by their name.</p>
+<p>&nbsp;</p>
+<p><img alt="Admin Role" src="assets/audit_logs.png" /></p>
+<p><span style="color:red">[1]</span> The refresh button at top right retrieves the latest entries.
+<span style="color:red">[2]</span> The filter button enables the user to apply predefined filters for refining the logs based on specific criteria.</p>
+<p>To retrieve the next set of logs, scroll to the bottom of the screen and click the "load more" button.</p>
+<p><img alt="Admin Role" src="assets/load_more.png" /></p>
+<p>There are four types of filters available for refining the logs. The filters are listed as follows:</p>
+<p><img alt="Admin Role" src="assets/filters.png" style="height:250px;width:250px;  display: block ;margin-left:auto;margin-right: auto;" /></p>
+<p>&nbsp;</p>
+<p>"<strong>Filter by Person</strong>": To filter by the name of the individual receiving the assignment, select "Filter by Person" and enter the UnityID or email address in the "Select Person" field. From the drop-down menu below, select the desired person. This will refine the displayed results based on the selected individual's involvement in the assignments.</p>
+<p><img alt="Admin Role" src="assets/filterbyperson.png" /></p>
+<p>&nbsp;</p>
+<p>"<strong>Filter by Assigner</strong>": To filter by the user/Liaison who performed the operation, select "Filter by Assigner" and enter the UnityID or email address in the "Select Person" field and select the desired person from the list.</p>
+<p><img alt="Admin Role" src="assets/filterbyassigner.png" /></p>
+<p>&nbsp;</p>
+<p>"<strong>Filter by Clearance Name</strong>": To apply the "Filter by Clearance Name" option, start by entering a clearance name in the search clearance field. Next, select the desired clearance from the list. By performing these steps, all the logs associated with the chosen clearance will be shown in the resulting view.</p>
+<p><img alt="Admin Role" src="assets/filterbyclearance.png" /></p>
+<p>&nbsp;</p>
+<p>"<strong>Filter by Timeframe</strong>": The "Filter by Timeframe" option allows you to refine the displayed logs based on a specific time range. By selecting this filter, you can define a starting and ending time to narrow down the logs within that timeframe.</p>
+<p>By default, the "Start" and "End" are not selected, resulting in the display of all logs in the list. To specify a "Start" date and time, click on the first circle. A calendar view will appear, allowing you to choose the desired date. Scroll vertically in the time column to select the desired time. Repeat the same process for the "End" date and time by clicking on the second circle.</p>
+<p>This feature is useful for focusing on a particular period of interest, such as logs generated within the last day, week, month, or any custom timeframe.</p>
+<p><img alt="Admin Role" src="assets/filterbytime.png" /></p>
+<p>&nbsp;</p>
+<p>It is possible to apply more than one filter simultaneously to obtain further refined results. However, please note that a maximum of three filters can be applied, with the limitation that you can choose either "<strong>Filter by Person</strong>" or "<strong>Filter by Assigner</strong>", not both at the same time.</p>
+<p><img alt="Admin Role" src="assets/multiple.png" /></p>
+<p><br></br></p>
+<h3 id="admin-manage-users">Admin - Manage Users<a class="headerlink" href="#admin-manage-users" title="Permanent link">&para;</a></h3>
+<p>&nbsp;</p>
+<p>The "Manage Users" page allows authorized users to add or remove accounts with administrative rights. With this feature, authorized users can efficiently manage the list of Admin and Liaison users.</p>
+<p><img alt="Admin Role" src="assets/manage_user.png" /></p>
+<p>&nbsp;</p>
+<p>To <span style='font-weight:505'>remove an admin user</span>, locate them in the list using the filter in the header of the list, and then click on the "Revoke" button next to the user.</p>
+<p><img alt="Admin Role" src="assets/manage_admin.png" /></p>
+<p>&nbsp;</p>
+<p>To <span style='font-weight:505'>remove a Liaison user</span>, locate them in the list using the filter in the header of the list, and then click on the "Revoke" button next to the user.</p>
+<p><img alt="Admin Role" src="assets/manage_liaison.png" /></p>
+<p><br></br>
+<br></br></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.51198bba.min.js"></script>
+      
+    
+  </body>
+</html>
