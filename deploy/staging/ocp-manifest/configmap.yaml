@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: clearance-service-config
+  namespace: clearance
+data:
+  ACS_SYSTEM: ccure
+  CCURE_BASE_URL: https://c9k.dev.ehps.ncsu.edu
+  CCURE_CLIENT_NAME: NCSU - Security Portal - Integration
+  CCURE_CLIENT_VERSION: "2.9"
+  CCURE_CLIENT_ID: d2a1f285-2d28-4147-8652-ba5ea211f1c1
+  SCHEDULE_CLEARANCES: "true"
+  LIAISON_ACKNOWLEDGEMENT_DAYS: "60"
+  SCHEDULER_LIMIT: "40"

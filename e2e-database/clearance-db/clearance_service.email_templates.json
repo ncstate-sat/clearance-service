@@ -1,0 +1,7 @@
+[{
+  "_id": {
+    "$oid": "619062bd7dd64b88fbcd390e"
+  },
+  "template_name": "EMAIL_TEST",
+  "template_content": "This is a basic email template that will only be used for testing purposes. It does not have any formatting, or any placeholders to add values and data from the application. This is a hardcoded string and is not subject to change or denote and convey any substantial information whatsoever, other than the fact that the 'Insert Document' functionality in Mongo Compass works, that the Flask-Mail module is able to send messages, and that the developer has not yet (completely) lost his sanity. Thanks."
+}]

@@ -1,0 +1,4217 @@
+[{
+  "_id": "kiresten_smith",
+  "old_id": {
+    "$oid": "61525b669721525e269dd0ce"
+  },
+  "department": "Jenkins School of Management",
+  "campus_id": "001018323",
+  "OUC": "200111",
+  "OUC_name": "College Business Services-PCOM",
+  "supervisor_id": "001118993",
+  "liaison_name": "Kiresten Smith Branch",
+  "first_name": "Kiresten",
+  "middle_name": "Chakeria Smith",
+  "last_name": "Branch",
+  "email": "kiresten_smith@ncsu.edu",
+  "office_phone": "919-513-2126 ",
+  "title": "MBA Program-Poole COM\nAdministrative Support Specialist"
+},
+{
+  "_id": "dallgood",
+  "old_id": {
+    "$oid": "61525b669721525e269dd0d6"
+  },
+  "department": "Fitts Department of Industrial and Scientific Engineering",
+  "campus_id": "000002339",
+  "OUC": "140601",
+  "OUC_name": "Fitts Dept Indust & Syst Engr",
+  "supervisor_id": "001119182",
+  "liaison_name": "Debra Allgood-Staton",
+  "first_name": "Debra",
+  "middle_name": "Allgood",
+  "last_name": "Staton",
+  "email": "dallgood@ncsu.edu",
+  "office_phone": "919-515-6401"
+},
+{
+  "_id": "elizabeth_james",
+  "old_id": {
+    "$oid": "61525b669721525e269dd0de"
+  },
+  "department": "Int'l Group - Office of International Services",
+  "campus_id": "001108606",
+  "OUC": "390201",
+  "OUC_name": "Office of International Svcs",
+  "supervisor_id": "000143168",
+  "liaison_name": "Elizabeth James",
+  "first_name": "Elizabeth",
+  "middle_name": "Anne",
+  "last_name": "James",
+  "email": "elizabeth_james@ncsu.edu",
+  "office_phone": "919-515-2961"
+},
+{
+  "_id": "tabirkla",
+  "old_id": {
+    "$oid": "61525b669721525e269dd0e5"
+  },
+  "department": "CHASS-Dean's Office",
+  "campus_id": "000406666",
+  "OUC": "160150",
+  "OUC_name": "CHASS Research & Engagement",
+  "supervisor_id": "000323988",
+  "liaison_name": "Thomas Birkland",
+  "first_name": "Thomas",
+  "middle_name": "A",
+  "last_name": "Birkland",
+  "email": "tabirkla@ncsu.edu",
+  "office_phone": "919-513-1834",
+  "title": "Assoc. Dean for Research and Engagement"
+},
+{
+  "_id": "rich_hassard",
+  "old_id": {
+    "$oid": "61525b669721525e269dd10c"
+  },
+  "department": "G&BS-Trade Shops",
+  "campus_id": "000935584",
+  "OUC": "443401",
+  "OUC_name": "G&BS-Trade Shops",
+  "supervisor_id": "000316694",
+  "liaison_name": "Richard Hassard",
+  "first_name": "Richard",
+  "middle_name": "J",
+  "last_name": "Hassard",
+  "email": "rich_hassard@ncsu.edu",
+  "office_phone": "919-515-9901",
+  "title": "R&R, Gen. Mgr/Trade Shops"
+},
+{
+  "_id": "jenna_cobb",
+  "old_id": {
+    "$oid": "61525b669721525e269dd10e"
+  },
+  "department": "Alumni Relations",
+  "campus_id": "000127032",
+  "OUC": "083001",
+  "OUC_name": "Alumni Relations",
+  "supervisor_id": "001016041",
+  "liaison_name": "Jenna Cobb",
+  "first_name": "Jenna",
+  "middle_name": "Brayboy",
+  "last_name": "Cobb",
+  "email": "Jenna_Cobb@ncsu.edu",
+  "office_phone": "(919) 515-0518",
+  "title": "Alumni Relations, Assoc. Exec. Dir."
+},
+{
+  "_id": "cdgoodw2",
+  "old_id": {
+    "$oid": "61525b669721525e269dd129"
+  },
+  "department": "College of Natural Resources",
+  "campus_id": "001112070",
+  "OUC": "444401",
+  "OUC_name": "U&E-Central Utility Plant - Zo",
+  "supervisor_id": "000321047",
+  "liaison_name": "David Goodwin",
+  "first_name": "David",
+  "middle_name": "Robert",
+  "last_name": "Goodwin",
+  "email": "cdgoodw2@ncsu.edu",
+  "office_phone": "919.515.8829",
+  "title": "Technology Support Analyst"
+},
+{
+  "_id": "yplee",
+  "old_id": {
+    "$oid": "61525b669721525e269dd232"
+  },
+  "department": "College of Natural Resources",
+  "campus_id": "000004436",
+  "OUC": "150101",
+  "OUC_name": "College of Natural Resources",
+  "supervisor_id": "000401828",
+  "liaison_name": "Yvonne Lee",
+  "first_name": "Yvonne",
+  "middle_name": "Pattee",
+  "last_name": "Lee",
+  "email": "yplee@ncsu.edu",
+  "office_phone": "919-515-5741"
+},
+{
+  "_id": "pmallen",
+  "old_id": {
+    "$oid": "61525b669721525e269dd135"
+  },
+  "department": "Biological Resources Facility",
+  "campus_id": "000000782",
+  "OUC": "170522",
+  "OUC_name": "Biological Resources Facility",
+  "supervisor_id": "000122307",
+  "liaison_name": "Patrice McCalla-Debnam",
+  "first_name": "Patrice",
+  "middle_name": "Maria",
+  "last_name": "McCalla-Debnam",
+  "email": "pmallen@ncsu.edu",
+  "office_phone": "919-515-9985",
+  "title": "Admin Support Specialist"
+},
+{
+  "_id": "jfdraper",
+  "old_id": {
+    "$oid": "61525b669721525e269dd14d"
+  },
+  "department": "CALS, Agricultural & Human Sciences",
+  "campus_id": "000640172",
+  "OUC": "111401",
+  "OUC_name": "Agricultural & Human Sciences",
+  "supervisor_id": "000002761",
+  "liaison_name": "James Draper",
+  "first_name": "James",
+  "middle_name": "F",
+  "last_name": "Draper",
+  "email": "jfdraper@ncsu.edu",
+  "office_phone": "919-515-8470",
+  "title": "Business Services Coordinator"
+},
+{
+  "_id": "chughes5",
+  "old_id": {
+    "$oid": "61525b669721525e269dd156"
+  },
+  "department": "DASA, University Fellowships Office (UFO)",
+  "campus_id": "001122661",
+  "OUC": "246161",
+  "OUC_name": "Fellowship Advising Office",
+  "supervisor_id": "001123782",
+  "liaison_name": "Courtney Hughes",
+  "first_name": "Courtney",
+  "middle_name": " ",
+  "last_name": "Hughes",
+  "email": "chughes5@ncsu.edu",
+  "office_phone": "919-515-2237",
+  "cell_phone": "717-649-2608",
+  "title": "UFO Director"
+},
+{
+  "_id": "alpaine",
+  "old_id": {
+    "$oid": "61525b669721525e269dd15f"
+  },
+  "department": "University Advancement, Call Center",
+  "campus_id": "001023046",
+  "OUC": "082050",
+  "OUC_name": "The NC State Annual Fund",
+  "supervisor_id": "000213005",
+  "liaison_name": "Amanda Pesicek",
+  "first_name": "Amanda",
+  "middle_name": "Louise",
+  "last_name": "Pesicek",
+  "email": "alpaine@ncsu.edu",
+  "office_phone": "919-515-0533",
+  "title": "The NC State Annual Fund Associate Director"
+},
+{
+  "_id": "mlbranch",
+  "old_id": {
+    "$oid": "61525b669721525e269dd3bb"
+  },
+  "department": "CHASS",
+  "campus_id": "000920891",
+  "OUC": "160125",
+  "OUC_name": "CHASS Academic Affairs",
+  "supervisor_id": "000402291",
+  "liaison_name": "Michelle Branch",
+  "first_name": "Michelle",
+  "middle_name": "Lee",
+  "last_name": "Branch",
+  "email": "mlbranch@ncsu.edu",
+  "office_phone": "919-515-2468",
+  "title": "Administrative Associate"
+},
+{
+  "_id": "mstidha",
+  "old_id": {
+    "$oid": "61525b669721525e269dd198"
+  },
+  "department": "College Of Education",
+  "campus_id": "001125284",
+  "OUC": "130101",
+  "OUC_name": "College Of Education",
+  "supervisor_id": "001127984",
+  "liaison_name": "Melissa Stidham",
+  "first_name": "Melissa",
+  "middle_name": " ",
+  "last_name": "Stidham",
+  "email": "mstidha@ncsu.edu",
+  "office_phone": "919-515-2205",
+  "title": "Student Information Data Manager"
+},
+{
+  "_id": "jgianco",
+  "old_id": {
+    "$oid": "61525b669721525e269dd199"
+  },
+  "department": "College Of Education",
+  "campus_id": "001128269",
+  "OUC": "130101",
+  "OUC_name": "College Of Education",
+  "supervisor_id": "001127984",
+  "liaison_name": "Jennifer Giancola",
+  "first_name": "Jennifer",
+  "middle_name": " ",
+  "last_name": "Giancola",
+  "email": "jgianco@ncsu.edu",
+  "office_phone": "919-515-2284",
+  "title": "secretary"
+},
+{
+  "_id": "amdatino",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1a1"
+  },
+  "department": "DELTA",
+  "campus_id": "001020273",
+  "OUC": "339001",
+  "OUC_name": "DELTA",
+  "supervisor_id": "000149736",
+  "liaison_name": "Angela Hallman",
+  "first_name": "Angela",
+  "middle_name": "Marie",
+  "last_name": "Hallman",
+  "email": "amdatino@ncsu.edu",
+  "office_phone": "919-513-1281",
+  "title": "Finance & Business Operations Specialist"
+},
+{
+  "_id": "kelly_vanderlaske",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1b6"
+  },
+  "department": "CVM Teaching Hospital",
+  "campus_id": "000318062",
+  "OUC": "192001",
+  "OUC_name": "CVM Teaching Hospital",
+  "supervisor_id": "001123928",
+  "liaison_name": "Kelly VanDerlaske",
+  "first_name": "Kelly",
+  "middle_name": "Jean",
+  "last_name": "VanDerlaske",
+  "email": "kelly_vanderlaske@ncsu.edu",
+  "office_phone": "919-513-8558",
+  "title": "Director of Small Animal Clinical Services"
+},
+{
+  "_id": "aborders",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1ce"
+  },
+  "department": "Enviromental Health & Safety",
+  "campus_id": "000006094",
+  "OUC": "426301",
+  "OUC_name": "Environmental Health & Safety",
+  "supervisor_id": "000150099",
+  "liaison_name": "Amy Orders",
+  "first_name": "Amy",
+  "middle_name": "Buchanan",
+  "last_name": "Orders",
+  "email": "aborders@ncsu.edu",
+  "office_phone": "919-515-5208",
+  "cell_phone": "919-795-1129",
+  "title": "Dir, Emergency Mgmt and Mission Continuity"
+},
+{
+  "_id": "pjonesg",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1d1"
+  },
+  "department": "Enviromental Health & Safety",
+  "campus_id": "001117587",
+  "OUC": "426001",
+  "OUC_name": "EH & SC - Health And Safety",
+  "supervisor_id": "000939909",
+  "liaison_name": "Phyllis Jones-Graham",
+  "first_name": "Phyllis",
+  "middle_name": " ",
+  "last_name": "Jones-Graham",
+  "email": "pjonesg@ncsu.edu",
+  "office_phone": "919-513-7349",
+  "title": "Division Payroll Coordinator"
+},
+{
+  "_id": "lpmarun2",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1e1"
+  },
+  "department": "Friday Institute",
+  "campus_id": "000310657",
+  "OUC": "139001",
+  "OUC_name": "Friday Institute",
+  "supervisor_id": "000326409",
+  "liaison_name": "Lynn Maruna",
+  "first_name": "Lynn",
+  "middle_name": "Perez",
+  "last_name": "Maruna",
+  "email": "lpmarun2@ncsu.edu",
+  "office_phone": "919-513-8500",
+  "cell_phone": "919-753-5224",
+  "title": "Friday Inst. Adm Support"
+},
+{
+  "_id": "thelma_rhone",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1ed"
+  },
+  "department": "Chemistry",
+  "campus_id": "000321961",
+  "OUC": "170701",
+  "OUC_name": "Chemistry",
+  "supervisor_id": "000002426",
+  "liaison_name": "Thelma Rhone",
+  "first_name": "Thelma",
+  "middle_name": "P",
+  "last_name": "Rhone",
+  "email": "thelma_rhone@ncsu.edu",
+  "office_phone": "(919) 515-9370",
+  "title": "Personnel Coordinator"
+},
+{
+  "_id": "cmfreem2",
+  "old_id": {
+    "$oid": "61525b669721525e269dd35b"
+  },
+  "department": "Plant & Microbial Biology",
+  "campus_id": "000130000",
+  "OUC": "110801",
+  "OUC_name": "Plant and Microbial Biology",
+  "supervisor_id": "000326862",
+  "liaison_name": "Catherine Freeman",
+  "first_name": "Catherine",
+  "middle_name": "Marie",
+  "last_name": "Freeman",
+  "email": "cmfreem2@ncsu.edu",
+  "office_phone": "513-3809",
+  "cell_phone": "919-621-3539",
+  "title": "Executive Assistant"
+},
+{
+  "_id": "dabarnes",
+  "old_id": {
+    "$oid": "61525b669721525e269dd35d"
+  },
+  "department": "Plant & Microbial Biology",
+  "campus_id": "000006516",
+  "OUC": "110801",
+  "OUC_name": "Plant and Microbial Biology",
+  "supervisor_id": "000323664",
+  "liaison_name": "Dwayne Barnes",
+  "first_name": "Dwayne",
+  "middle_name": "Alan",
+  "last_name": "Barnes",
+  "email": "dabarnes@ncsu.edu",
+  "office_phone": "513-3806",
+  "title": "Graduate Services Coordinator"
+},
+{
+  "_id": "lpierso",
+  "old_id": {
+    "$oid": "61525b669721525e269dd209"
+  },
+  "department": "Chancellor's Office And Staff",
+  "campus_id": "000329219",
+  "OUC": "010101",
+  "OUC_name": "Chancellor's Office And Staff",
+  "supervisor_id": "001127995",
+  "liaison_name": "Lisa Pierson",
+  "first_name": "Lisa",
+  "middle_name": " ",
+  "last_name": "Pierson",
+  "email": "lpierso@ncsu.edu",
+  "office_phone": "919-515-1148",
+  "title": "Business Officer, Chancellor's Ofc"
+},
+{
+  "_id": "lntran",
+  "old_id": {
+    "$oid": "61525b669721525e269dd212"
+  },
+  "department": "Exploratory Studies",
+  "campus_id": "001114492",
+  "OUC": "248201",
+  "OUC_name": "Exploratory Studies",
+  "supervisor_id": "001119717",
+  "liaison_name": "Loi Tran",
+  "first_name": "Loi",
+  "middle_name": " ",
+  "last_name": "Tran",
+  "email": "lntran@ncsu.edu",
+  "office_phone": "919-515-7053",
+  "title": "Administrative Support Spec"
+},
+{
+  "_id": "kimberly_cole",
+  "old_id": {
+    "$oid": "61525b669721525e269dd215"
+  },
+  "department": "Exploratory Studies",
+  "campus_id": "000301711",
+  "OUC": "248201",
+  "OUC_name": "Exploratory Studies",
+  "supervisor_id": "001119717",
+  "liaison_name": "Kimberly Cole",
+  "first_name": "Kimberly",
+  "middle_name": "Franklin",
+  "last_name": "Cole",
+  "email": "kimberly_cole@ncsu.edu",
+  "office_phone": "919-513-3539",
+  "title": "Assoc Dir, First Year Advising Svcs"
+},
+{
+  "_id": "lnhollan",
+  "old_id": {
+    "$oid": "61525b669721525e269dd22f"
+  },
+  "department": "Marine Earth And Atmospheric Sciences",
+  "campus_id": "000402217",
+  "OUC": "178601",
+  "OUC_name": "Marine, Earth And Atmospheric",
+  "supervisor_id": "000660831",
+  "liaison_name": "Laura Holland",
+  "first_name": "Laura",
+  "middle_name": "Nesbit",
+  "last_name": "Holland",
+  "email": "lnhollan@ncsu.edu",
+  "office_phone": "919-515-7779",
+  "title": "Admin Support Specialist"
+},
+{
+  "_id": "stsease",
+  "old_id": {
+    "$oid": "61525b669721525e269dd237"
+  },
+  "department": "Advancement Services",
+  "campus_id": "001126767",
+  "OUC": "085001",
+  "OUC_name": "Advancement Services",
+  "supervisor_id": "000138769",
+  "liaison_name": "Shannon Sease",
+  "first_name": "Shannon",
+  "middle_name": "T",
+  "last_name": "Sease",
+  "email": "stsease@ncsu.edu",
+  "office_phone": "919-515-1098",
+  "title": "Administrative Support Specialist"
+},
+{
+  "_id": "adgrubbs",
+  "old_id": {
+    "$oid": "61525b669721525e269dd23a"
+  },
+  "department": "Onboarding Center",
+  "campus_id": "000011705",
+  "OUC": "484001",
+  "OUC_name": "Onboarding Center",
+  "supervisor_id": "001033870",
+  "liaison_name": "Amy Grubbs",
+  "first_name": "Amy",
+  "middle_name": "Davis",
+  "last_name": "Grubbs",
+  "email": "adgrubbs@ncsu.edu",
+  "office_phone": "919-513-1353",
+  "title": "Onboarding Manager"
+},
+{
+  "_id": "amccoy",
+  "old_id": {
+    "$oid": "61525b669721525e269dd246"
+  },
+  "department": "Statisitics",
+  "campus_id": "000405963",
+  "OUC": "178501",
+  "OUC_name": "Statistics",
+  "supervisor_id": "000171103",
+  "liaison_name": "Alison McCoy",
+  "first_name": "Alison",
+  "middle_name": " ",
+  "last_name": "McCoy",
+  "email": "amccoy@ncsu.edu",
+  "office_phone": "919-515-2528",
+  "title": "Admin Support Associate"
+},
+{
+  "_id": "katie.nelson",
+  "old_id": {
+    "$oid": "61525b669721525e269dd3a7"
+  },
+  "department": "Lincoln Harris",
+  "campus_id": "100034418",
+  "OUC_name": "Lincoln Harris",
+  "liaison_name": "Katie Nelson",
+  "first_name": "Katie",
+  "middle_name": "",
+  "last_name": "Nelson",
+  "email": "katie.nelson@lincolnharris.com"
+},
+{
+  "_id": "courtney.saunders",
+  "old_id": {
+    "$oid": "61525b669721525e269dd383"
+  },
+  "department": "Lincoln Harris",
+  "campus_id": "100031486",
+  "OUC_name": "Lincoln Harris",
+  "liaison_name": "Courtney Saunders",
+  "first_name": "Courtney",
+  "middle_name": "J",
+  "last_name": "Saunders",
+  "email": "Courtney.Saunders@lincolnharris.com",
+  "office_phone": "919-645-6960",
+  "title": "Assistant Property Manager"
+},
+{
+  "_id": "donna_barrett",
+  "old_id": {
+    "$oid": "61525b669721525e269dd266"
+  },
+  "department": "Computing Services-Poole COM",
+  "campus_id": "000006884",
+  "OUC": "205001",
+  "OUC_name": "Computing Services-Poole COM",
+  "supervisor_id": "000007056",
+  "liaison_name": "Donna Barrett",
+  "first_name": "Donna",
+  "middle_name": "F",
+  "last_name": "Barrett",
+  "email": "donna_Barrett@ncsu.edu",
+  "office_phone": "919 515 6176",
+  "title": "Computing Consultant"
+},
+{
+  "_id": "jnroyal",
+  "old_id": {
+    "$oid": "61525b669721525e269dd26d"
+  },
+  "department": "COE - Dean's Office",
+  "campus_id": "000317176",
+  "OUC": "144401",
+  "OUC_name": "Egrc",
+  "supervisor_id": "000009017",
+  "liaison_name": "John Royal",
+  "first_name": "John",
+  "middle_name": "N.",
+  "last_name": "Royal",
+  "email": "jnroyal@ncsu.edu",
+  "cell_phone": "919-741-7248"
+},
+{
+  "_id": "bbwindom",
+  "old_id": {
+    "$oid": "61525b669721525e269dd275"
+  },
+  "department": "Undergraduate Tutorial Center",
+  "campus_id": "000005803",
+  "OUC": "240403",
+  "OUC_name": "Academic Success Center",
+  "supervisor_id": "000002530",
+  "liaison_name": "Barbara Bernhard Windom",
+  "first_name": "Barbara",
+  "middle_name": "Bernhard",
+  "last_name": "Windom",
+  "email": "bbwindom@ncsu.edu",
+  "office_phone": "919-515-8496"
+},
+{
+  "_id": "eecummin",
+  "old_id": {
+    "$oid": "61525b669721525e269dd27e"
+  },
+  "department": "Univ Real Estate & Development",
+  "campus_id": "000181014",
+  "OUC": "430101",
+  "OUC_name": "Univ Real Estate & Development",
+  "supervisor_id": "001127821",
+  "liaison_name": "Emily Cummings",
+  "first_name": "Emily",
+  "middle_name": "Elizabeth",
+  "last_name": "Cummings",
+  "email": "eecummin@ncsu.edu"
+},
+{
+  "_id": "tprhone",
+  "old_id": {
+    "$oid": "61525b669721525e269dd29a"
+  },
+  "department": "Chemistry",
+  "campus_id": "000321961",
+  "OUC": "170701",
+  "OUC_name": "Chemistry",
+  "supervisor_id": "000002426",
+  "liaison_name": "Thelma Rhone",
+  "first_name": "Thelma",
+  "middle_name": "P",
+  "last_name": "Rhone",
+  "email": "tprhone@ncsu.edu",
+  "office_phone": "919-515-9370",
+  "title": "Personnel Coordinator"
+},
+{
+  "_id": "eadyer",
+  "old_id": {
+    "$oid": "61525b669721525e269dd2fd"
+  },
+  "department": "Physics",
+  "campus_id": "001118012",
+  "OUC": "170601",
+  "OUC_name": "Physics",
+  "supervisor_id": "001127428",
+  "liaison_name": "Elizabeth Ashley Dyer",
+  "first_name": "Elizabeth",
+  "middle_name": "Ashley",
+  "last_name": "Dyer",
+  "email": "eadyer@ncsu.edu",
+  "office_phone": "919-515-2512",
+  "title": "Accounting Technician"
+},
+{
+  "_id": "mllink",
+  "old_id": {
+    "$oid": "61525b669721525e269dd2a2"
+  },
+  "department": "Admissions",
+  "campus_id": "000900994",
+  "OUC": "320101",
+  "OUC_name": "Admissions",
+  "supervisor_id": "001077113",
+  "liaison_name": "Marty Link",
+  "first_name": "Marty",
+  "middle_name": "Lee",
+  "last_name": "Link",
+  "email": "mllink@ncsu.edu",
+  "office_phone": "919-513-2144",
+  "cell_phone": "704-754-2604",
+  "title": "Business & Technology Applications Analyst"
+},
+{
+  "_id": "bmatthe",
+  "old_id": {
+    "$oid": "61525b669721525e269dd2c2"
+  },
+  "department": "Assistant Professor & Facilities Manager",
+  "campus_id": "000011335",
+  "OUC": "131301",
+  "OUC_name": "Sci, Tech, Engr & Math (STEM)",
+  "supervisor_id": "000002511",
+  "liaison_name": "Brian Matthews",
+  "first_name": "Brian",
+  "middle_name": " ",
+  "last_name": "Matthews",
+  "email": "bmatthe@ncsu.edu",
+  "office_phone": "919-515-1751",
+  "cell_phone": "919-272-1613",
+  "title": "Assistant Professor & Facilities Manager"
+},
+{
+  "_id": "kenya.spivey",
+  "old_id": {
+    "$oid": "61525b669721525e269dd303"
+  },
+  "department": "Lincoln Harris",
+  "campus_id": "100023784",
+  "OUC_name": "Lincoln Harris",
+  "liaison_name": "Kenya Spivey",
+  "first_name": "Kenya",
+  "middle_name": "",
+  "last_name": "Spivey",
+  "email": "Kenya.Spivey@lincolnharris.com"
+},
+{
+  "_id": "ron_bradley",
+  "old_id": {
+    "$oid": "61525b669721525e269dd310"
+  },
+  "department": "Technology Support Services",
+  "campus_id": "000206262",
+  "OUC": "513001",
+  "OUC_name": "Technology Support Services",
+  "supervisor_id": "000008549",
+  "liaison_name": "Ronald Bradley",
+  "first_name": "Ronald",
+  "middle_name": "W.",
+  "last_name": "Bradley",
+  "email": "ron_bradley@ncsu.edu",
+  "office_phone": "919-513-4093",
+  "cell_phone": "984-344-3969",
+  "title": "ClassTech Manager"
+},
+{
+  "_id": "karl_hedrick",
+  "old_id": {
+    "$oid": "61525b669721525e269dd318"
+  },
+  "department": "Food Sciences",
+  "campus_id": "000002951",
+  "OUC": "110701",
+  "OUC_name": "Animal Science",
+  "supervisor_id": " ",
+  "liaison_name": "Karl Hedrick",
+  "first_name": "Karl",
+  "middle_name": "H",
+  "last_name": "Hedrick",
+  "email": "karl_hedrick@ncsu.edu",
+  "office_phone": "919-513-2091",
+  "cell_phone": "919-795-9111",
+  "title": "Research Operations Manager"
+},
+{
+  "_id": "pscook",
+  "old_id": {
+    "$oid": "61525b669721525e269dd341"
+  },
+  "department": "Passport Services",
+  "campus_id": "001125036",
+  "OUC": "390801",
+  "OUC_name": "Passport Services",
+  "supervisor_id": "000000309",
+  "liaison_name": "Paula Cook",
+  "first_name": "Paula",
+  "middle_name": "Simone",
+  "last_name": "Cook",
+  "email": "pscook@ncsu.edu"
+},
+{
+  "_id": "sgdunnin",
+  "old_id": {
+    "$oid": "61525b669721525e269dd346"
+  },
+  "department": "Textiles",
+  "campus_id": "000005602",
+  "OUC": "180101",
+  "OUC_name": "College Of Textiles-dean's Off",
+  "supervisor_id": "000006202",
+  "liaison_name": "Shawn Dunning",
+  "first_name": "Shawn",
+  "middle_name": "Gregory",
+  "last_name": "Dunning",
+  "email": "sgdunnin@ncsu.edu",
+  "office_phone": "919-515-6600",
+  "title": "Assistant Dean for Finance and Operations"
+},
+{
+  "_id": "ssharm43",
+  "old_id": {
+    "$oid": "61525b669721525e269dd34c"
+  },
+  "department": "Graduate School-Dean's Office",
+  "campus_id": "001126821",
+  "OUC": "040101",
+  "OUC_name": "Graduate School-Dean's Office",
+  "supervisor_id": "001114152",
+  "liaison_name": "Savita Sharma",
+  "first_name": "Savita",
+  "middle_name": " ",
+  "last_name": "Sharma",
+  "email": "ssharm43@ncsu.edu",
+  "title": "Assistant Dean for Finance and Operations"
+},
+{
+  "_id": "alkorhon",
+  "old_id": {
+    "$oid": "61525b669721525e269dd369"
+  },
+  "department": "University Theatre",
+  "campus_id": "000148538",
+  "OUC": "248901",
+  "OUC_name": "University Theatre",
+  "supervisor_id": "001060985",
+  "liaison_name": "Andrew Korhonen",
+  "first_name": "Andrew",
+  "middle_name": "L.",
+  "last_name": "Korhonen",
+  "email": "alkorhon@ncsu.edu",
+  "office_phone": "919-513-8318",
+  "cell_phone": "828-406-9302",
+  "title": "Operations and Events Manager"
+},
+{
+  "_id": "jhwestmo",
+  "old_id": {
+    "$oid": "61525b669721525e269dd36e"
+  },
+  "department": "Crafts Center",
+  "campus_id": "000715613",
+  "OUC": "243030",
+  "OUC_name": "Crafts Center",
+  "supervisor_id": "000546972",
+  "liaison_name": "Jo Ellen H. Westmoreland",
+  "first_name": "Jo Ellen",
+  "middle_name": "Higley",
+  "last_name": "Westmoreland",
+  "email": "jhwestmo@ncsu.edu",
+  "office_phone": "919-513-3477",
+  "title": "Assistant Director"
+},
+{
+  "_id": "linda_hester",
+  "old_id": {
+    "$oid": "61525b669721525e269dd374"
+  },
+  "department": "Biological Resources Facility",
+  "campus_id": "000005270",
+  "OUC": "170522",
+  "OUC_name": "Biological Resources Facility",
+  "supervisor_id": "001103842",
+  "liaison_name": "Linda Hester",
+  "first_name": "Linda",
+  "middle_name": "Griffin",
+  "last_name": "Hester",
+  "email": "linda_hester@ncsu.edu",
+  "office_phone": "(919) 515-2921"
+},
+{
+  "_id": "lparris",
+  "old_id": {
+    "$oid": "61525b669721525e269dd3aa"
+  },
+  "department": "Biological & Agricultural Engineering",
+  "campus_id": "000337741",
+  "OUC": "118101",
+  "OUC_name": "Biological And Agricultural En",
+  "supervisor_id": "001117725",
+  "liaison_name": "Lacy Parrish",
+  "first_name": "Lacy",
+  "middle_name": "Elizabeth",
+  "last_name": "Parrish",
+  "email": "lparris@ncsu.edu",
+  "office_phone": "919.515.6701",
+  "cell_phone": "919.720.5440",
+  "title": "Business Services Coordinator"
+},
+{
+  "_id": "nhbain",
+  "old_id": {
+    "$oid": "61525b669721525e269dd3ab"
+  },
+  "department": "Biological & Agricultural Engineering",
+  "campus_id": "000635008",
+  "OUC": "118101",
+  "OUC_name": "Biological And Agricultural En",
+  "supervisor_id": "001117725",
+  "liaison_name": "Neil Bain",
+  "first_name": "Neil",
+  "middle_name": "H",
+  "last_name": "Bain",
+  "email": "nhbain@ncsu.edu",
+  "office_phone": "919.515.6734",
+  "cell_phone": "919.862.4053",
+  "title": "Specialty Trades Technician"
+},
+{
+  "_id": "kathy_kelly",
+  "old_id": {
+    "$oid": "61525b669721525e269dd3b1"
+  },
+  "department": "Crop & Soil Sciences",
+  "campus_id": "000005842",
+  "OUC": "110901",
+  "OUC_name": "Crop & Soil Sciences",
+  "supervisor_id": "000511823",
+  "liaison_name": "Kathy Kelly",
+  "first_name": "Kathy",
+  "middle_name": "P",
+  "last_name": "Kelly",
+  "email": "kathy_kelly@ncsu.edu",
+  "office_phone": "919-515-2647",
+  "cell_phone": "919-539-0121",
+  "title": "Executive Assistant"
+},
+{
+  "_id": "susan_wassmer",
+  "old_id": {
+    "$oid": "61525b669721525e269dd3b2"
+  },
+  "department": "Crop & Soil Sciences",
+  "campus_id": "000326176",
+  "OUC": "110901",
+  "OUC_name": "Crop & Soil Sciences",
+  "supervisor_id": "000511823",
+  "liaison_name": "Susan Wassmer",
+  "first_name": "Susan",
+  "middle_name": "A.",
+  "last_name": "Wassmer",
+  "email": "susan_wassmer@ncsu.edu",
+  "office_phone": "919-515-2648",
+  "cell_phone": "919-621-9259",
+  "title": "Business Service Coordinator"
+},
+{
+  "_id": "penny_el-bay",
+  "old_id": {
+    "$oid": "61525b669721525e269dd3d5"
+  },
+  "department": "Dining and Catering Operations",
+  "campus_id": "000323864",
+  "OUC": "471501",
+  "OUC_name": "Dining and Catering Operations",
+  "supervisor_id": "001018717",
+  "liaison_name": "Penny El-Bay",
+  "first_name": "Penny",
+  "middle_name": "Lynn",
+  "last_name": "El-Bay",
+  "email": "penny_el-bay@ncsu.edu",
+  "office_phone": "919-515-3965"
+},
+{
+  "_id": "jelanca2",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1da"
+  },
+  "department": "ISE Department",
+  "campus_id": "000110406",
+  "OUC": "140601",
+  "OUC_name": "Fitts Dept Indust & Syst Engr",
+  "supervisor_id": "001119182",
+  "liaison_name": "Justin Lancaster",
+  "first_name": "Justin",
+  "middle_name": "E",
+  "last_name": "Lancaster",
+  "email": "jelanca2@ncsu.edu"
+},
+{
+  "_id": "jcdixon",
+  "old_id": {
+    "$oid": "61525b669721525e269dd0dc"
+  },
+  "department": "DELTA",
+  "campus_id": "001102931",
+  "OUC": "339001",
+  "OUC_name": "DELTA",
+  "supervisor_id": "000008029",
+  "liaison_name": "Jiakaira Dixon",
+  "first_name": "Jiakaira",
+  "middle_name": "Christine",
+  "last_name": "Dixon",
+  "email": "jcdixon@ncsu.edu",
+  "office_phone": "919-515-3246",
+  "cell_phone": "919-480-5860",
+  "title": "Classroom Support and Learning Spaces Coordinator"
+},
+{
+  "_id": "smorear",
+  "old_id": {
+    "$oid": "61525b669721525e269dd0df"
+  },
+  "department": "Int'l Group - Office of International Services",
+  "campus_id": "001113728",
+  "OUC": " ",
+  "OUC_name": "Office of International Svcs",
+  "supervisor_id": " ",
+  "liaison_name": "Sheila O'Rear",
+  "first_name": "Sheila",
+  "middle_name": "Margaret",
+  "last_name": "O'Rear",
+  "email": "smorear@ncsu.edu"
+},
+{
+  "_id": "fgharris",
+  "old_id": {
+    "$oid": "61525b669721525e269dd0e0"
+  },
+  "department": "Int'l Group - Office of International Services",
+  "campus_id": "000402015",
+  "OUC": "190101",
+  "OUC_name": "College Of Veterinary Medicine",
+  "supervisor_id": "000307741",
+  "liaison_name": "Felicia Harris",
+  "first_name": "Felicia",
+  "middle_name": " ",
+  "last_name": "Harris",
+  "email": "fgharris@ncsu.edu"
+},
+{
+  "_id": "nathan_snodgrass",
+  "old_id": {
+    "$oid": "61525b669721525e269dd0ef"
+  },
+  "department": "Extension Information Tech",
+  "campus_id": "000303403",
+  "OUC": "116105",
+  "OUC_name": "Extension Information Tech",
+  "supervisor_id": "000305498",
+  "liaison_name": "Nathan Snodgrass",
+  "first_name": "Nathan",
+  "middle_name": "Stuart",
+  "last_name": "Snodgrass",
+  "email": "nathan_snodgrass@ncsu.edu",
+  "office_phone": "919-513-7000",
+  "title": "Technology Support Specialist"
+},
+{
+  "_id": "sharon_loosman",
+  "old_id": {
+    "$oid": "61525b669721525e269dd0f5"
+  },
+  "department": "Purchasing Dept.",
+  "campus_id": "000176016",
+  "OUC": "493401",
+  "OUC_name": "Procurement Services",
+  "supervisor_id": "001101859",
+  "liaison_name": "Sharon Loosman",
+  "first_name": "Sharon",
+  "middle_name": "Daley",
+  "last_name": "Loosman",
+  "email": "sharon_loosman@ncsu.edu",
+  "office_phone": "919-513-4206",
+  "cell_phone": "919.740.8374",
+  "title": "Director"
+},
+{
+  "_id": "rnbowen",
+  "old_id": {
+    "$oid": "61525b669721525e269dd0f8"
+  },
+  "department": "Transportation",
+  "campus_id": "000004991",
+  "OUC": "424001",
+  "OUC_name": "Transportation",
+  "supervisor_id": "001124781",
+  "liaison_name": "Ronnie Bowen",
+  "first_name": "Ronnie",
+  "middle_name": "N",
+  "last_name": "Bowen",
+  "email": "rnbowen@ncsu.edu",
+  "office_phone": "919-515-1150",
+  "title": "Computer Sys Mgr"
+},
+{
+  "_id": "ccmitche",
+  "old_id": {
+    "$oid": "61525b669721525e269dd0fb"
+  },
+  "department": "Dining/Campus Enterprises",
+  "campus_id": "000402345",
+  "OUC": "470101",
+  "OUC_name": "Campus Enterprises",
+  "supervisor_id": "001122127",
+  "liaison_name": "Candice Jicha",
+  "first_name": "Candice",
+  "middle_name": "Mitchell",
+  "last_name": "Jicha",
+  "email": "ccmitche@ncsu.edu",
+  "office_phone": "919-515-3197",
+  "title": "CE Accounting Manager"
+},
+{
+  "_id": "lbosborn",
+  "old_id": {
+    "$oid": "61525b669721525e269dd106"
+  },
+  "department": "Acccounting",
+  "campus_id": "000005457",
+  "OUC": "462001",
+  "OUC_name": "Budget Office",
+  "supervisor_id": "001033689",
+  "liaison_name": "Lisa Osborne",
+  "first_name": "Lisa",
+  "middle_name": "Brew",
+  "last_name": "Osborne",
+  "email": "lbosborn@ncsu.edu",
+  "office_phone": "919-515-7466"
+},
+{
+  "_id": "chefrixx",
+  "old_id": {
+    "$oid": "61525b669721525e269dd10f"
+  },
+  "department": "STATE CLUB",
+  "campus_id": "100010733",
+  "OUC_name": "STATE CLUB",
+  "liaison_name": "Rick Sederholt",
+  "first_name": "RICK",
+  "middle_name": "",
+  "last_name": "SEDERHOLT",
+  "email": "chefrixx@yahoo.com",
+  "office_phone": "(919) 515-0500"
+},
+{
+  "_id": "cljohns6",
+  "old_id": {
+    "$oid": "61525b669721525e269dd149"
+  },
+  "department": "Office of the University Architect",
+  "campus_id": "100015561",
+  "OUC_name": "ImmunoReagents",
+  "liaison_name": "Chris Johnson",
+  "first_name": "Chris",
+  "middle_name": "D",
+  "last_name": "Johnson",
+  "email": "cljohns6@ncsu.edu",
+  "office_phone": "919-513-0271",
+  "cell_phone": "919-349-6068",
+  "title": "Facility Planner"
+},
+{
+  "_id": "mhblanke",
+  "old_id": {
+    "$oid": "61525b669721525e269dd14e"
+  },
+  "department": "CALS, Future Farmers of America",
+  "campus_id": "001081252",
+  "OUC": "111403",
+  "OUC_name": "Future Farmers of America",
+  "supervisor_id": "000173902",
+  "liaison_name": "Megan Blanke",
+  "first_name": "Megan",
+  "middle_name": "Hoyle",
+  "last_name": "Blanke",
+  "email": "mhblanke@ncsu.edu",
+  "office_phone": "919-515-4206",
+  "cell_phone": "704-530-3236",
+  "title": "Administrative Support Specialist"
+},
+{
+  "_id": "lacastel",
+  "old_id": {
+    "$oid": "61525b669721525e269dd150"
+  },
+  "department": "COE, Civil, Construction, and Environmental Engineering (CCEE) - Research Lab ",
+  "campus_id": "001110879",
+  "OUC": "140301",
+  "OUC_name": "Civil Const & Environ Engineer",
+  "supervisor_id": "000001279",
+  "liaison_name": "Lisa Castellano",
+  "first_name": "Lisa",
+  "middle_name": "Anna",
+  "last_name": "Castellano",
+  "email": "lacastel@ncsu.edu",
+  "office_phone": "lacastel@ncsu.edu",
+  "cell_phone": "419-409-1610",
+  "title": "CCEE Research Assoc"
+},
+{
+  "_id": "bjreich",
+  "old_id": {
+    "$oid": "61525b669721525e269dd152"
+  },
+  "department": "COS, Statistics",
+  "campus_id": "000336395",
+  "OUC": "178501",
+  "OUC_name": "Statistics",
+  "supervisor_id": "000000369",
+  "liaison_name": "Brian Reich",
+  "first_name": "Brian",
+  "middle_name": "J",
+  "last_name": "Reich",
+  "email": "bjreich@ncsu.edu",
+  "office_phone": "919-513-7686",
+  "title": "Statistics Distinguished Professor"
+},
+{
+  "_id": "jawalder",
+  "old_id": {
+    "$oid": "61525b669721525e269dd15b"
+  },
+  "department": "Facilities, Lock Shop - Satellite",
+  "campus_id": "001107144",
+  "OUC": "443401",
+  "OUC_name": "G&BS-Trade Shops",
+  "supervisor_id": "000935584",
+  "liaison_name": "Jack Walder",
+  "first_name": "Jack",
+  "middle_name": "Allan",
+  "last_name": "Walder",
+  "email": "jawalder@ncsu.edu",
+  "office_phone": "919-513-8103",
+  "cell_phone": "919-218-8877",
+  "title": "G&BS Lock Shop Supervisor"
+},
+{
+  "_id": "katrimbe",
+  "old_id": {
+    "$oid": "61525b669721525e269dd165"
+  },
+  "department": "EH&S",
+  "campus_id": "001019391",
+  "OUC": "426301",
+  "OUC_name": "Environmental Health & Safety",
+  "supervisor_id": "000150099",
+  "liaison_name": "Karen Trimberger",
+  "first_name": "Karen",
+  "middle_name": "Ann",
+  "last_name": "Trimberger",
+  "email": "katrimbe@ncsu.edu",
+  "office_phone": "919.515.6859",
+  "title": "Environmental Affairs Manager (or all things waste)"
+},
+{
+  "_id": "eahawkes",
+  "old_id": {
+    "$oid": "61525b669721525e269dd16b"
+  },
+  "department": "Wellness and Recreation",
+  "campus_id": "001071640",
+  "OUC": "244040",
+  "OUC_name": "Wellness and Recreation",
+  "supervisor_id": "001128655",
+  "liaison_name": "Eric Hawkes",
+  "first_name": "Eric",
+  "middle_name": "Albin",
+  "last_name": "Hawkes",
+  "email": "eahawkes@ncsu.edu",
+  "office_phone": "919-513-3895",
+  "title": "Executive Director"
+},
+{
+  "_id": "bmwatso2",
+  "old_id": {
+    "$oid": "61525b669721525e269dd186"
+  },
+  "department": "ClassTech",
+  "campus_id": "000404397",
+  "OUC": "513001",
+  "OUC_name": "Technology Support Services",
+  "supervisor_id": "000206262",
+  "liaison_name": "Brennan Watson",
+  "first_name": "Brennan",
+  "middle_name": "Michael",
+  "last_name": "Watson",
+  "email": "bmwatso2@ncsu.edu",
+  "office_phone": "919-515-8448",
+  "title": "Classtech Design Analyst"
+},
+{
+  "_id": "jtdenton",
+  "old_id": {
+    "$oid": "61525b669721525e269dd187"
+  },
+  "department": "ClassTech",
+  "campus_id": "001121875",
+  "OUC": "513001",
+  "OUC_name": "Technology Support Services",
+  "supervisor_id": "000835458",
+  "liaison_name": "Julian Denton",
+  "first_name": "Julian",
+  "middle_name": "Thomas",
+  "last_name": "Denton",
+  "email": "jtdenton@ncsu.edu",
+  "office_phone": "919-515-0076",
+  "title": "Technology Support Analyst"
+},
+{
+  "_id": "jwang41",
+  "old_id": {
+    "$oid": "61525b669721525e269dd283"
+  },
+  "department": "Nonwovens Institute",
+  "campus_id": "001108725",
+  "OUC": "183501",
+  "OUC_name": "Nonwovens Institute",
+  "supervisor_id": "000002824",
+  "liaison_name": "Jimei Wang",
+  "first_name": "Jimei",
+  "middle_name": " ",
+  "last_name": "Wang",
+  "email": "jwang41@ncsu.edu",
+  "office_phone": "919-515-6582",
+  "title": "Executive Assistant"
+},
+{
+  "_id": "dane_johnston",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1b2"
+  },
+  "department": "College Of Veterinary Medicine",
+  "campus_id": "000938468",
+  "OUC": "190101",
+  "OUC_name": "College Of Veterinary Medicine",
+  "supervisor_id": "000334900",
+  "liaison_name": "Dane Johnston",
+  "first_name": "Dane",
+  "middle_name": "M",
+  "last_name": "Johnston",
+  "email": "dane_johnston@ncsu.edu",
+  "office_phone": "919-513-6366",
+  "title": "Director of Continuing Education"
+},
+{
+  "_id": "kenuss",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1b1"
+  },
+  "department": "College Of Veterinary Medicine",
+  "campus_id": "000731454",
+  "OUC": "190101",
+  "OUC_name": "College Of Veterinary Medicine",
+  "supervisor_id": "001112681",
+  "liaison_name": "Kirk Nuss",
+  "first_name": "Kirk",
+  "middle_name": "Emery",
+  "last_name": "Nuss",
+  "email": "kenuss@ncsu.edu",
+  "office_phone": "919-515-6038",
+  "title": "Scheduling Coordinator"
+},
+{
+  "_id": "elsorah",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1b9"
+  },
+  "department": "CVM Teaching Hospital",
+  "campus_id": "001112231",
+  "OUC": "192001",
+  "OUC_name": "CVM Teaching Hospital",
+  "supervisor_id": "000335557",
+  "liaison_name": "Emily Sorah",
+  "first_name": "Emily",
+  "middle_name": "Lyn",
+  "last_name": "Sorah",
+  "email": "elsorah@ncsu.edu",
+  "office_phone": "919-513-6575",
+  "title": "Pharmacy Director"
+},
+{
+  "_id": "david_provost",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1bc"
+  },
+  "department": "NCSU Libraries",
+  "campus_id": "001009751",
+  "OUC": "250101",
+  "OUC_name": "Libraries",
+  "supervisor_id": "001124119",
+  "liaison_name": "David Provost",
+  "first_name": "David",
+  "middle_name": "Collins",
+  "last_name": "Provost",
+  "email": "david_provost@ncsu.edu",
+  "office_phone": "919-513-6218",
+  "title": "University Library Technician"
+},
+{
+  "_id": "reposey",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1bd"
+  },
+  "department": "Dept of Clinical Sciences",
+  "campus_id": "001119932",
+  "OUC": "195001",
+  "OUC_name": "Dept of Clinical Sciences",
+  "supervisor_id": "000001202",
+  "liaison_name": "Rachael Posey",
+  "first_name": "Rachael",
+  "middle_name": "Elizabeth",
+  "last_name": "Posey",
+  "email": "reposey@ncsu.edu",
+  "title": "Interim Director"
+},
+{
+  "_id": "hsmarr",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1c0"
+  },
+  "department": "Dept of Clinical Sciences",
+  "campus_id": "000651401",
+  "OUC": "195001",
+  "OUC_name": "Dept of Clinical Sciences",
+  "supervisor_id": "000011302",
+  "liaison_name": "Henry Marr",
+  "first_name": "Henry",
+  "middle_name": "Stuart",
+  "last_name": "Marr",
+  "email": "hsmarr@ncsu.edu",
+  "office_phone": "919-513-0778",
+  "title": "Research Specialist-Nonexempt"
+},
+{
+  "_id": "cbaum",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1c4"
+  },
+  "department": "Applied Ecology",
+  "campus_id": "000167818",
+  "OUC": "112101",
+  "OUC_name": "Applied Ecology",
+  "supervisor_id": "000337052",
+  "liaison_name": "Carrie Baum-Lane",
+  "first_name": "Carrie",
+  "middle_name": " ",
+  "last_name": "Baum-Lane",
+  "email": "cbaum@ncsu.edu",
+  "office_phone": "919-515-4662",
+  "title": "Executive Assistant"
+},
+{
+  "_id": "aksmith",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1e8"
+  },
+  "department": "Dining and Catering Operations",
+  "campus_id": "000005398",
+  "OUC": "471501",
+  "OUC_name": "Dining and Catering Operations",
+  "supervisor_id": "001060426",
+  "liaison_name": "Alvin \"Keith\" Smith",
+  "first_name": "Alvin",
+  "middle_name": "K",
+  "last_name": "Smith",
+  "email": "aksmith@ncsu.edu",
+  "office_phone": "919-513-2343",
+  "cell_phone": "919.539.8776",
+  "title": "Food Service Manager"
+},
+{
+  "_id": "mehauser",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1fa"
+  },
+  "department": "Gregg Museum",
+  "campus_id": "000117891",
+  "OUC": "243050",
+  "OUC_name": "Gregg Museum",
+  "supervisor_id": "000016530",
+  "liaison_name": "Mary Hauser",
+  "first_name": "Mary",
+  "middle_name": "Elizabeth",
+  "last_name": "Hauser",
+  "email": "mehauser@ncsu.edu",
+  "office_phone": "919-515-3102",
+  "cell_phone": "919-758-9764",
+  "title": "Museum Registrar & Associate Director"
+},
+{
+  "_id": "mcgay2",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1fb"
+  },
+  "department": "Gregg Museum",
+  "campus_id": "000197994",
+  "OUC": "243050",
+  "OUC_name": "Gregg Museum",
+  "supervisor_id": "000016530",
+  "liaison_name": "Matthew Gay",
+  "first_name": "Matthew",
+  "middle_name": "C",
+  "last_name": "Gay",
+  "email": "mcgay2@ncsu.edu",
+  "office_phone": "919-515-5337",
+  "cell_phone": "919-610-2215",
+  "title": "Art Preparator"
+},
+{
+  "_id": "sldavey",
+  "old_id": {
+    "$oid": "61525b669721525e269dd202"
+  },
+  "department": "Registration and Records",
+  "campus_id": "001113495",
+  "OUC": "320201",
+  "OUC_name": "Registration And Records",
+  "supervisor_id": "000002726",
+  "liaison_name": "Stacey Davey",
+  "first_name": "Stacey",
+  "middle_name": "Lynn",
+  "last_name": "Davey",
+  "email": "sldavey@ncsu.edu",
+  "title": "Executive Ass't"
+},
+{
+  "_id": "mlbrown3",
+  "old_id": {
+    "$oid": "61525b669721525e269dd203"
+  },
+  "department": "Cashier's Office",
+  "campus_id": "000314589",
+  "OUC": "491501",
+  "OUC_name": "University Cashier's Office",
+  "supervisor_id": "001101859",
+  "liaison_name": "Maria Brown",
+  "first_name": "Maria",
+  "middle_name": "Louise",
+  "last_name": "Brown",
+  "email": "mlbrown3@ncsu.edu",
+  "office_phone": "919-515-9762",
+  "cell_phone": "919-801-5195",
+  "title": "Director "
+},
+{
+  "_id": "manewmil",
+  "old_id": {
+    "$oid": "61525b669721525e269dd219"
+  },
+  "department": "Disability Resource Office (DRO)",
+  "campus_id": "000321536",
+  "OUC": "240404",
+  "OUC_name": "Disability Resource Office",
+  "supervisor_id": "000002530",
+  "liaison_name": "Mark Newmiller",
+  "first_name": "Mark",
+  "middle_name": "A",
+  "last_name": "Newmiller",
+  "email": "manewmil@ncsu.edu"
+},
+{
+  "_id": "thomas_martin",
+  "old_id": {
+    "$oid": "61525b669721525e269dd21a"
+  },
+  "department": "Disability Resource Office (DRO)",
+  "campus_id": "000305742",
+  "OUC": "240404",
+  "OUC_name": "Disability Resource Office",
+  "supervisor_id": "000321536",
+  "liaison_name": "Thomas Martin",
+  "first_name": "Thomas",
+  "middle_name": "Carlyle",
+  "last_name": "Martin",
+  "email": "thomas_martin@ncsu.edu"
+},
+{
+  "_id": "huck",
+  "old_id": {
+    "$oid": "61525b669721525e269dd21f"
+  },
+  "department": "ITECS/Engineering Information Technology",
+  "campus_id": "000004410",
+  "OUC": "143401",
+  "OUC_name": "Info Tech & Eng Computer Svcs",
+  "supervisor_id": "000003212",
+  "liaison_name": "Margaret E H Hudacko",
+  "first_name": "Margaret",
+  "middle_name": "Esther-Haney",
+  "last_name": "Hudacko",
+  "email": "huck@ncsu.edu",
+  "office_phone": "919-513-1642",
+  "title": "ITEC Applications Manager"
+},
+{
+  "_id": "esforte",
+  "old_id": {
+    "$oid": "61525b669721525e269dd238"
+  },
+  "department": "Foundations Acctg/Investments",
+  "campus_id": "001110603",
+  "OUC": "492001",
+  "OUC_name": "Foundations Accounting & Inves",
+  "supervisor_id": "001108952",
+  "liaison_name": "Earlica Moore",
+  "first_name": "Earlica",
+  "middle_name": " ",
+  "last_name": "Moore",
+  "email": "esforte@ncsu.edu",
+  "office_phone": "919-513-4305",
+  "title": "Business Officer"
+},
+{
+  "_id": "mplee2",
+  "old_id": {
+    "$oid": "61525b669721525e269dd239"
+  },
+  "department": "Foundations Acctg/Investments",
+  "campus_id": "000403506",
+  "OUC": "492001",
+  "OUC_name": "Foundations Accounting & Inves",
+  "supervisor_id": "001096425",
+  "liaison_name": "Marly Lee",
+  "first_name": "Marly",
+  "middle_name": "P",
+  "last_name": "Lee",
+  "email": "mplee2@ncsu.edu",
+  "office_phone": "919-513-7147",
+  "title": "Office Assistant"
+},
+{
+  "_id": "tbyron",
+  "old_id": {
+    "$oid": "61525b669721525e269dd30f"
+  },
+  "department": "College of Sciences / Statistics",
+  "campus_id": "000171084",
+  "OUC": "178501",
+  "OUC_name": "Statistics",
+  "supervisor_id": "000000369",
+  "liaison_name": "Terry Byron",
+  "first_name": "Terry",
+  "middle_name": "T",
+  "last_name": "Byron",
+  "email": "tbyron@ncsu.edu",
+  "office_phone": "919-515-3630",
+  "title": "IT Manager"
+},
+{
+  "_id": "jrhennes",
+  "old_id": {
+    "$oid": "61525b669721525e269dd263"
+  },
+  "department": "Dean's Office-Poole College of Management",
+  "campus_id": "001118993",
+  "OUC": "200111",
+  "OUC_name": "College Business Services-PCOM",
+  "supervisor_id": "000179610",
+  "liaison_name": "Jonathan Hennessy",
+  "first_name": "Jonathan",
+  "middle_name": "Robert",
+  "last_name": "Hennessy",
+  "email": "jrhennes@ncsu.edu",
+  "cell_phone": "205-382-2413",
+  "title": "Operations Manager"
+},
+{
+  "_id": "kmwhitfi",
+  "old_id": {
+    "$oid": "61525b669721525e269dd264"
+  },
+  "department": "Dean's Office-Poole College of Management",
+  "campus_id": "000836114",
+  "OUC_name": "",
+  "liaison_name": "Kimberly Whitfield",
+  "first_name": "KIMBERLY",
+  "middle_name": "DENISE",
+  "last_name": "WHITFIELD",
+  "email": "kmwhitfi@ncsu.edu",
+  "office_phone": "919-515-5219",
+  "title": "Executive Assistant"
+},
+{
+  "_id": "sfcarter",
+  "old_id": {
+    "$oid": "61525b669721525e269dd272"
+  },
+  "department": "Academic and Student Affairs",
+  "campus_id": "000004953",
+  "OUC": "240130",
+  "OUC_name": "Acad Stu Aff-Business Adm",
+  "supervisor_id": "000178205",
+  "liaison_name": "Signa Carter",
+  "first_name": "Signa",
+  "middle_name": "F",
+  "last_name": "Carter",
+  "email": "sfcarter@ncsu.edu",
+  "office_phone": "919-515-4392",
+  "title": "Executive Assistant"
+},
+{
+  "_id": "eva_feucht",
+  "old_id": {
+    "$oid": "61525b669721525e269dd2a5"
+  },
+  "department": "Park Scholars",
+  "campus_id": "000104721",
+  "OUC": "012101",
+  "OUC_name": "Park Scholars",
+  "supervisor_id": "001004400",
+  "liaison_name": "Eva Maria Feucht",
+  "first_name": "Eva",
+  "middle_name": "Maria",
+  "last_name": "Feucht",
+  "email": "eva_feucht@ncsu.edu",
+  "office_phone": "919-515-3794",
+  "title": "Park Scholars Dir. 6/27/12"
+},
+{
+  "_id": "pmthomps",
+  "old_id": {
+    "$oid": "61525b669721525e269dd2d4"
+  },
+  "department": "METRIC",
+  "campus_id": "000727461",
+  "OUC": "210203",
+  "OUC_name": "METRIC Magnetic Resonance",
+  "supervisor_id": "001118491",
+  "liaison_name": "Peter Thompson",
+  "first_name": "Peter",
+  "middle_name": "Matthew",
+  "last_name": "Thompson",
+  "email": "pmthomps@ncsu.edu"
+},
+{
+  "_id": "dbhawley",
+  "old_id": {
+    "$oid": "61525b669721525e269dd342"
+  },
+  "department": "Office of Global Engagement",
+  "campus_id": "000752028",
+  "OUC": "390101",
+  "OUC_name": "Office of Global Engagement",
+  "supervisor_id": "000143168",
+  "liaison_name": "David Hawley",
+  "first_name": "David",
+  "middle_name": "Bref",
+  "last_name": "Hawley",
+  "email": "dbhawley@ncsu.edu"
+},
+{
+  "_id": "cbaltim",
+  "old_id": {
+    "$oid": "61525b669721525e269dd2de"
+  },
+  "department": "Public Safety",
+  "campus_id": "001121298",
+  "OUC": "425001",
+  "OUC_name": "Public Safety",
+  "supervisor_id": "000176552",
+  "liaison_name": "Christine Baltimore",
+  "first_name": "Christine",
+  "middle_name": " ",
+  "last_name": "Baltimore",
+  "email": "cbaltim@ncsu.edu"
+},
+{
+  "_id": "adina_stock",
+  "old_id": {
+    "$oid": "61525b669721525e269dd2f0"
+  },
+  "department": "Athletics",
+  "campus_id": "000102523",
+  "OUC": "107005",
+  "OUC_name": "Athletics-Game Operations",
+  "supervisor_id": "001114150",
+  "liaison_name": "Adina Stock",
+  "first_name": "Adina",
+  "middle_name": "Zager",
+  "last_name": "Stock",
+  "email": "adina_stock@ncsu.edu",
+  "office_phone": "919-513-1362",
+  "title": "Assistant AD for Operations"
+},
+{
+  "_id": "aazsido",
+  "old_id": {
+    "$oid": "61525b669721525e269dd2f4"
+  },
+  "department": "ROTC",
+  "campus_id": "001115108",
+  "OUC": "248701",
+  "OUC_name": "Naval ROTC",
+  "supervisor_id": "000818045",
+  "liaison_name": "Alyssa Zsido",
+  "first_name": "Alyssa",
+  "middle_name": "Ashley",
+  "last_name": "Zsido",
+  "email": "aazsido@ncsu.edu",
+  "title": "Navy/Marine ROTC"
+},
+{
+  "_id": "ttwadfor",
+  "old_id": {
+    "$oid": "61525b669721525e269dd2f5"
+  },
+  "department": "ROTC",
+  "campus_id": "000400734",
+  "OUC": "248501",
+  "OUC_name": "Air Force ROTC",
+  "supervisor_id": "001122071",
+  "liaison_name": "Teresa Wadford",
+  "first_name": "Teresa",
+  "middle_name": "Tilley",
+  "last_name": "Wadford",
+  "email": "ttwadfor@ncsu.edu",
+  "title": "Air Force ROTC"
+},
+{
+  "_id": "rvcumbie",
+  "old_id": {
+    "$oid": "61525b669721525e269dd308"
+  },
+  "department": "NC Climate Office",
+  "campus_id": "000808205",
+  "OUC": "179501",
+  "OUC_name": "Sciences-State Climate Office",
+  "supervisor_id": "001125145",
+  "liaison_name": "Rebecca Ward",
+  "first_name": "Rebecca",
+  "middle_name": "Vee",
+  "last_name": "Ward",
+  "email": "rvcumbie@ncsu.edu",
+  "office_phone": "919-513-2444",
+  "title": "Systems Programmer/Analyst"
+},
+{
+  "_id": "joan_davis",
+  "old_id": {
+    "$oid": "61525b669721525e269dd31c"
+  },
+  "department": "Prestage Department of Poultry Science",
+  "campus_id": "000304268",
+  "OUC": "111901",
+  "OUC_name": "Prestage Poultry Science",
+  "supervisor_id": "000010230",
+  "liaison_name": "Joan Davis",
+  "first_name": "Joan",
+  "middle_name": "M",
+  "last_name": "Davis",
+  "email": "joan_davis@ncsu.edu",
+  "office_phone": "919-515-2626",
+  "cell_phone": "910-2371685",
+  "title": "Executive Asst."
+},
+{
+  "_id": "lcstroth",
+  "old_id": {
+    "$oid": "61525b669721525e269dd31d"
+  },
+  "department": "Prestage Department of Poultry Science",
+  "campus_id": "000004383",
+  "OUC": "111901",
+  "OUC_name": "Prestage Poultry Science",
+  "supervisor_id": "000008013",
+  "liaison_name": "Lynn Strother",
+  "first_name": "Lynn",
+  "middle_name": "C",
+  "last_name": "Strother",
+  "email": "lcstroth@ncsu.edu",
+  "office_phone": "919-515-2621",
+  "cell_phone": "919-247-6712",
+  "title": "Admin Support"
+},
+{
+  "_id": "feeaker",
+  "old_id": {
+    "$oid": "61525b669721525e269dd327"
+  },
+  "department": "DASA Technology Services",
+  "campus_id": "000407744",
+  "OUC": "240110",
+  "OUC_name": "Acad Stu Aff-Tech Services",
+  "supervisor_id": "001127278",
+  "liaison_name": "Fred Eaker",
+  "first_name": "Fred",
+  "middle_name": "Edward",
+  "last_name": "Eaker",
+  "email": "feeaker@ncsu.edu",
+  "office_phone": "919-513-3896"
+},
+{
+  "_id": "cmblanch",
+  "old_id": {
+    "$oid": "61525b669721525e269dd333"
+  },
+  "department": "Grounds & Building Services",
+  "campus_id": "000335210",
+  "OUC": "443401",
+  "OUC_name": "G&BS-Trade Shops",
+  "supervisor_id": "000316694",
+  "liaison_name": "Cathy Blanchard",
+  "first_name": "Cathy",
+  "middle_name": "Morton",
+  "last_name": "Blanchard",
+  "email": "cmblanch@ncsu.edu",
+  "office_phone": "919-513-3253",
+  "cell_phone": "919-210-8246",
+  "title": "Interim Program Administrator"
+},
+{
+  "_id": "recastil",
+  "old_id": {
+    "$oid": "61525b669721525e269dd334"
+  },
+  "department": "Grounds & Building Services",
+  "campus_id": "001130145",
+  "OUC_name": "G&BS-Grounds",
+  "liaison_name": "Ruth Castillo",
+  "first_name": "Ruth",
+  "middle_name": "Esther",
+  "last_name": "Castillo",
+  "email": "recastil@ncsu.edu"
+},
+{
+  "_id": "ncbarnes",
+  "old_id": {
+    "$oid": "61525b669721525e269dd33d"
+  },
+  "department": "NC State Bookstores",
+  "campus_id": "001113402",
+  "OUC": "471001",
+  "OUC_name": "NC State Bookstores",
+  "supervisor_id": "001118024",
+  "liaison_name": "Nathanael C Barnes",
+  "first_name": "Nathanael",
+  "middle_name": " ",
+  "last_name": "Barnes",
+  "email": "ncbarnes@ncsu.edu",
+  "office_phone": "919-515-5588",
+  "title": "Asst Director - General Manager"
+},
+{
+  "_id": "jhewitt",
+  "old_id": {
+    "$oid": "61525b669721525e269dd33e"
+  },
+  "department": "Dining and Catering Operations",
+  "campus_id": "001122884",
+  "OUC": "471501",
+  "OUC_name": "Dining and Catering Operations",
+  "supervisor_id": "000978390",
+  "liaison_name": "James Hewitt",
+  "first_name": "James",
+  "middle_name": " ",
+  "last_name": "Hewitt",
+  "email": "jhewitt@ncsu.edu",
+  "title": "Food Service Manager-Shift"
+},
+{
+  "_id": "gmmorgan",
+  "old_id": {
+    "$oid": "61525b669721525e269dd340"
+  },
+  "department": "Office of Global Engagement",
+  "campus_id": "000187093",
+  "OUC": "390801",
+  "OUC_name": "Passport Services",
+  "supervisor_id": "001125036",
+  "liaison_name": "Grace Kavanagh",
+  "first_name": "Grace",
+  "middle_name": "Morgan",
+  "last_name": "Kavanagh",
+  "email": "gmmorgan@ncsu.edu"
+},
+{
+  "_id": "acmeyers3",
+  "old_id": {
+    "$oid": "61525b669721525e269dd350"
+  },
+  "department": "Textile Engineering, Chemistry",
+  "campus_id": "000910350",
+  "OUC": "186401",
+  "OUC_name": "Textile Engineering, Chemistry",
+  "supervisor_id": "000732229",
+  "liaison_name": "Amanda Mills",
+  "first_name": "Amanda",
+  "middle_name": "Caton",
+  "last_name": "Mills",
+  "email": "acmeyers3@ncsu.edu",
+  "title": "Senior Design Project Coordinator"
+},
+{
+  "_id": "jeff_gillikin",
+  "old_id": {
+    "$oid": "61525b669721525e269dd35c"
+  },
+  "department": "Plant & Microbial Biology",
+  "campus_id": "000002294",
+  "OUC": "110801",
+  "OUC_name": "Plant and Microbial Biology",
+  "supervisor_id": "000326862",
+  "liaison_name": "Jeffrey Gillikin",
+  "first_name": "Jeffrey",
+  "middle_name": "W",
+  "last_name": "Gillikin",
+  "email": "jeff_gillikin@ncsu.edu",
+  "office_phone": "515-2228",
+  "cell_phone": "919-889-8046",
+  "title": "Research Analysis-Lab Coordinator"
+},
+{
+  "_id": "caspenc3",
+  "old_id": {
+    "$oid": "61525b669721525e269dd38f"
+  },
+  "department": "Center for Integrated Pest Management",
+  "campus_id": "001108553",
+  "OUC": "113810",
+  "OUC_name": "Integrated Pest Mgmt-Research",
+  "supervisor_id": "000189111",
+  "liaison_name": "Clarissa Spencer",
+  "first_name": "Clarissa",
+  "middle_name": "A",
+  "last_name": "Spencer",
+  "email": "caspenc3@ncsu.edu"
+},
+{
+  "_id": "jere_confrey",
+  "old_id": {
+    "$oid": "61525b669721525e269dd390"
+  },
+  "department": "STEM",
+  "campus_id": "000407474",
+  "OUC": "131301",
+  "OUC_name": "Sci, Tech, Engr & Math (STEM)",
+  "supervisor_id": "000002511",
+  "liaison_name": "Jere Confrey",
+  "first_name": "Jere",
+  "middle_name": " ",
+  "last_name": "Confrey",
+  "email": "jere_confrey@ncsu.edu",
+  "office_phone": "919-513-8523"
+},
+{
+  "_id": "acvanden",
+  "old_id": {
+    "$oid": "61525b669721525e269dd3c5"
+  },
+  "department": "Student Centers",
+  "campus_id": "001102364",
+  "OUC": "477001",
+  "OUC_name": "Student Centers",
+  "supervisor_id": "200018040",
+  "liaison_name": "Allison van den Berg",
+  "first_name": "Allison",
+  "middle_name": "Christina",
+  "last_name": "van den Berg",
+  "email": "acvanden@ncsu.edu",
+  "office_phone": "none",
+  "cell_phone": "919-602-3778",
+  "title": "NC State Student Centers, Operations Coordinator"
+},
+{
+  "_id": "karuppe",
+  "old_id": {
+    "$oid": "61525b669721525e269dd3db"
+  },
+  "department": "DASA Housing",
+  "campus_id": "000323787",
+  "OUC": "242201",
+  "OUC_name": "University Housing",
+  "supervisor_id": "000678735",
+  "liaison_name": "Kathleen Ruppe",
+  "first_name": "Kathleen",
+  "middle_name": "A",
+  "last_name": "Ruppe",
+  "email": "karuppe@ncsu.edu",
+  "office_phone": "919-515-2408",
+  "title": "Director of Operations"
+},
+{
+  "_id": "srsharp",
+  "old_id": {
+    "$oid": "61525b669721525e269dd0d2"
+  },
+  "department": "COE",
+  "campus_id": "000194938",
+  "OUC_name": "Egrc",
+  "liaison_name": "Stephen Sharp",
+  "first_name": "Stephen",
+  "middle_name": "Roger",
+  "last_name": "Sharp",
+  "email": "srsharp@ncsu.edu",
+  "office_phone": "919-513-3285",
+  "title": "COE Dir of Operations and Facilities"
+},
+{
+  "_id": "dkmcnei2",
+  "old_id": {
+    "$oid": "61525b669721525e269dd0dd"
+  },
+  "department": "Int'l Group - Global Training Initiative",
+  "campus_id": "000404760",
+  "OUC": "390701",
+  "OUC_name": "Global Training Initiative",
+  "supervisor_id": "000008482",
+  "liaison_name": "David McNeill",
+  "first_name": "David",
+  "middle_name": "K.",
+  "last_name": "McNeill",
+  "email": "dkmcnei2@ncsu.edu",
+  "office_phone": "919-513-0105"
+},
+{
+  "_id": "bamoses",
+  "old_id": {
+    "$oid": "61525b669721525e269dd101"
+  },
+  "department": "Budget & Resource Management",
+  "campus_id": "000322102",
+  "OUC": "460101",
+  "OUC_name": "Budget & Resource Management",
+  "supervisor_id": "001125724",
+  "liaison_name": "Barbara Ann Moses",
+  "first_name": "Barbara",
+  "middle_name": "Ann",
+  "last_name": "Moses",
+  "email": "bamoses@gw.ncsu.edu",
+  "office_phone": "919-513-1263",
+  "title": "Associate Vice Chancellor, Budget and Resource Management"
+},
+{
+  "_id": "jtcarter",
+  "old_id": {
+    "$oid": "61525b669721525e269dd104"
+  },
+  "department": "Human Resources",
+  "campus_id": "000316414",
+  "OUC": "480101",
+  "OUC_name": "UHR Administration",
+  "supervisor_id": "000003258",
+  "liaison_name": "Joanna Carter",
+  "first_name": "Joanna",
+  "middle_name": "Trent",
+  "last_name": "Carter",
+  "email": "jtcarter@ncsu.edu",
+  "office_phone": "919-515-4286"
+},
+{
+  "_id": "cjcelent",
+  "old_id": {
+    "$oid": "61525b669721525e269dd290"
+  },
+  "department": "College of Natural Resources",
+  "campus_id": "000804331",
+  "OUC": "150101",
+  "OUC_name": "College of Natural Resources",
+  "supervisor_id": "000189232",
+  "liaison_name": "Connor Celentano",
+  "first_name": "Connor",
+  "middle_name": "James",
+  "last_name": "Celentano",
+  "email": "cjcelent@ncsu.edu",
+  "title": "Ofc Support Staff"
+},
+{
+  "_id": "bawhite2",
+  "old_id": {
+    "$oid": "61525b669721525e269dd12c"
+  },
+  "department": "Forest Biomaterials",
+  "campus_id": "000333877",
+  "OUC": "150301",
+  "OUC_name": "Forest Biomaterials",
+  "supervisor_id": "001115892",
+  "liaison_name": "Barbara White",
+  "first_name": "Barbara",
+  "middle_name": "Ann",
+  "last_name": "White",
+  "email": "bawhite2@ncsu.edu",
+  "office_phone": "919.513.0298",
+  "title": "Research Operations Manager"
+},
+{
+  "_id": "joel_pawlak",
+  "old_id": {
+    "$oid": "61525b669721525e269dd12d"
+  },
+  "department": "Forest Biomaterials",
+  "campus_id": "000313701",
+  "OUC": "150301",
+  "OUC_name": "Forest Biomaterials",
+  "supervisor_id": "001115892",
+  "liaison_name": "Joel Pawlak",
+  "first_name": "Joel",
+  "middle_name": "Justin",
+  "last_name": "Pawlak",
+  "email": "joel_pawlak@ncsu.edu",
+  "office_phone": "919-513-0511",
+  "title": "Assoc. Professor"
+},
+{
+  "_id": "leung",
+  "old_id": {
+    "$oid": "61525b669721525e269dd12f"
+  },
+  "department": "Parks, Recreation & Tourism Mg",
+  "campus_id": "000017671",
+  "OUC": "150201",
+  "OUC_name": "Parks, Recreation & Tourism Mg",
+  "supervisor_id": "000009056",
+  "liaison_name": "Yu-Fai Leung",
+  "first_name": "Yu-Fai",
+  "middle_name": " ",
+  "last_name": "Leung",
+  "email": "Leung@ncsu.edu",
+  "office_phone": "919-513-3489",
+  "title": "Professor & Grad Prog Director"
+},
+{
+  "_id": "rwwatso2",
+  "old_id": {
+    "$oid": "61525b669721525e269dd23e"
+  },
+  "department": "College of Design",
+  "campus_id": "001113513",
+  "OUC": "120101",
+  "OUC_name": "College of Design",
+  "supervisor_id": "000003896",
+  "liaison_name": "Robert Watson",
+  "first_name": "Robert",
+  "middle_name": "Wade",
+  "last_name": "Watson",
+  "email": "rwwatso2@ncsu.edu",
+  "office_phone": "919-515-0708",
+  "cell_phone": "919-412-6468",
+  "title": "Facilities Maintenance Supervisor"
+},
+{
+  "_id": "jonas_mccoy",
+  "old_id": {
+    "$oid": "61525b669721525e269dd142"
+  },
+  "department": "College of Design",
+  "campus_id": "000003896",
+  "OUC": "120101",
+  "OUC_name": "College of Design",
+  "supervisor_id": "000006091",
+  "liaison_name": "Jonas M. McCoy",
+  "first_name": "Jonas",
+  "middle_name": "M",
+  "last_name": "McCoy",
+  "email": "jonas_mccoy@ncsu.edu"
+},
+{
+  "_id": "jdvrabel",
+  "old_id": {
+    "$oid": "61525b669721525e269dd151"
+  },
+  "department": "COS, Dean's Office",
+  "campus_id": "000934924",
+  "OUC": "170101",
+  "OUC_name": "College of Sciences - Dean",
+  "supervisor_id": "000000636",
+  "liaison_name": "Jamie Barber",
+  "first_name": "Jamie",
+  "middle_name": "Dee",
+  "last_name": "Vrabel Barber",
+  "email": "jdvrabel@ncsu.edu",
+  "office_phone": "919-515-2501",
+  "cell_phone": "919-795-3870",
+  "title": "Exec Asst to COSDean "
+},
+{
+  "_id": "ctmoore4",
+  "old_id": {
+    "$oid": "61525b669721525e269dd2d8"
+  },
+  "department": "Music",
+  "campus_id": "001122546",
+  "OUC": "248401",
+  "OUC_name": "Music",
+  "supervisor_id": "001116664",
+  "liaison_name": "Colin Moore",
+  "first_name": "Colin",
+  "middle_name": "Thomas",
+  "last_name": "Moore",
+  "email": "ctmoore4@ncsu.edu",
+  "office_phone": "919-515-2982",
+  "title": "Operations Manager"
+},
+{
+  "_id": "tmnelso3",
+  "old_id": {
+    "$oid": "61525b669721525e269dd157"
+  },
+  "department": "EH&S, Dept of Risk Assessment",
+  "campus_id": "000937875",
+  "OUC": "426301",
+  "OUC_name": "Environmental Health & Safety",
+  "supervisor_id": "000001019",
+  "liaison_name": "Tina Nelson-Moss",
+  "first_name": "Tina",
+  "middle_name": "M",
+  "last_name": "Nelson-Moss",
+  "email": "tmnelso3@ncsu.edu",
+  "office_phone": "(919) 513-4224 ",
+  "title": "Risk Assessment Director"
+},
+{
+  "_id": "mrbunch",
+  "old_id": {
+    "$oid": "61525b669721525e269dd15a"
+  },
+  "department": "Facilities, Housekeeping",
+  "campus_id": "000004304",
+  "OUC": "443501",
+  "OUC_name": "Housekeeping Svcs-Reg3",
+  "supervisor_id": "001113828",
+  "liaison_name": "Myrtle Bunch",
+  "first_name": "Myrtle",
+  "middle_name": "R",
+  "last_name": "Bunch",
+  "email": "mrbunch@ncsu.edu",
+  "office_phone": "919-513-0498",
+  "title": "Housekeeping Supervisor I"
+},
+{
+  "_id": "welynch",
+  "old_id": {
+    "$oid": "61525b669721525e269dd15d"
+  },
+  "department": "Facilities, Zone Shop 2",
+  "campus_id": "001115166",
+  "OUC": "443801",
+  "OUC_name": "BM&O-Orig Campus",
+  "supervisor_id": "000006692",
+  "liaison_name": "William Lynch",
+  "first_name": "William",
+  "middle_name": "Earl",
+  "last_name": "Lynch",
+  "email": "welynch@ncsu.edu",
+  "office_phone": "919-515-8510",
+  "cell_phone": "984-222-4168",
+  "title": "BM&O Facilities Maint Supervisor"
+},
+{
+  "_id": "jlstucke",
+  "old_id": {
+    "$oid": "61525b669721525e269dd164"
+  },
+  "department": "Prestage Poultry Science",
+  "campus_id": "000642546",
+  "OUC": "111901",
+  "OUC_name": "Prestage Poultry Science",
+  "supervisor_id": "000010230",
+  "liaison_name": "Joseph Stuckey",
+  "first_name": "Joseph",
+  "middle_name": "Lee",
+  "last_name": "Stuckey",
+  "email": "jlstucke@ncsu.edu",
+  "cell_phone": "919-921-1245",
+  "title": "Research Operation Manager"
+},
+{
+  "_id": "jpspivey",
+  "old_id": {
+    "$oid": "61525b669721525e269dd16e"
+  },
+  "department": "Wellness and Recreation",
+  "campus_id": "000324659",
+  "OUC": "244040",
+  "OUC_name": "Wellness and Recreation",
+  "supervisor_id": "001071640",
+  "liaison_name": "Jason Spivey",
+  "first_name": "Jason",
+  "middle_name": "P",
+  "last_name": "Spivey",
+  "email": "jpspivey@ncsu.edu",
+  "office_phone": "919-513-3892",
+  "title": "Associate Director"
+},
+{
+  "_id": "jmcentire",
+  "old_id": {
+    "$oid": "61525b669721525e269dd18b"
+  },
+  "department": "Civil Const & Environ Engineer",
+  "campus_id": "000118652",
+  "OUC": "140301",
+  "OUC_name": "Civil Const & Environ Engineer",
+  "supervisor_id": "000100647",
+  "liaison_name": "Johnathan McEntire",
+  "first_name": "Johnathan",
+  "middle_name": " ",
+  "last_name": "McEntire",
+  "email": "jmcentire@ncsu.edu",
+  "office_phone": "919-513-7322",
+  "title": "Engineering Technician"
+},
+{
+  "_id": "mrussel",
+  "old_id": {
+    "$oid": "61525b669721525e269dd19c"
+  },
+  "department": "University Honors and Scholars Programs",
+  "campus_id": "000401323",
+  "OUC": "247001",
+  "OUC_name": "University Honors Program",
+  "supervisor_id": "000008948",
+  "liaison_name": "Marquette Russell",
+  "first_name": "Marquette",
+  "middle_name": "Davis",
+  "last_name": "Russell",
+  "email": "mrussel@ncsu.edu",
+  "office_phone": "919-513-7305; 919-513-4078; and 919-515-2353",
+  "cell_phone": "919-798-7437",
+  "title": "University Program Associate"
+},
+{
+  "_id": "jmcongdo",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1ba"
+  },
+  "department": "CVM Teaching Hospital",
+  "campus_id": "001121019",
+  "OUC": "192001",
+  "OUC_name": "CVM Teaching Hospital",
+  "supervisor_id": "000335557",
+  "liaison_name": "Jonathan Congdon",
+  "first_name": "Jonathan",
+  "middle_name": "Micheal",
+  "last_name": "Congdon",
+  "email": "jmcongdo@ncsu.edu",
+  "office_phone": "919-513-6284",
+  "title": "Clinical Veterinarian"
+},
+{
+  "_id": "llmoyle",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1bb"
+  },
+  "department": "Environmental Health & Safety",
+  "campus_id": "000535139",
+  "OUC": "426301",
+  "OUC_name": "Environmental Health & Safety",
+  "supervisor_id": "000006094",
+  "liaison_name": "Lora Moyle",
+  "first_name": "Lora",
+  "middle_name": "L.",
+  "last_name": "Moyle",
+  "email": "llmoyle@ncsu.edu",
+  "office_phone": "919-515-6856",
+  "title": "Associate Radiation Safety Officer"
+},
+{
+  "_id": "tmbulloc",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1be"
+  },
+  "department": "Dining and Catering Operations",
+  "campus_id": "000978390",
+  "OUC": "471501",
+  "OUC_name": "Dining and Catering Operations",
+  "supervisor_id": "001018717",
+  "liaison_name": "Tammy Bullock",
+  "first_name": "Tammy",
+  "middle_name": "Marie",
+  "last_name": "Bullock",
+  "email": "tmbulloc@ncsu.edu",
+  "title": "Food Service Manager"
+},
+{
+  "_id": "ndhinton",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1bf"
+  },
+  "department": "Dining and Catering Operations",
+  "campus_id": "001112650",
+  "OUC": " ",
+  "OUC_name": "Dining and Catering Operations",
+  "supervisor_id": " ",
+  "liaison_name": "Natasha Hinton",
+  "first_name": "Natasha",
+  "middle_name": "D",
+  "last_name": "Hinton",
+  "email": "ndhinton@ncsu.edu",
+  "title": "Food Service Manager"
+},
+{
+  "_id": "cjdavis3",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1cf"
+  },
+  "department": "Enviromental Health & Safety",
+  "campus_id": "000939909",
+  "OUC": "426001",
+  "OUC_name": "EH & SC - Health And Safety",
+  "supervisor_id": "000001019",
+  "liaison_name": "Christian Davis",
+  "first_name": "Christian",
+  "middle_name": "John",
+  "last_name": "Davis",
+  "email": "cjdavis3@ncsu.edu",
+  "office_phone": "919.515.6857",
+  "cell_phone": "919.410.0465",
+  "title": "Dir, Finance & Bus Admin"
+},
+{
+  "_id": "tracy_brown",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1d6"
+  },
+  "department": "College Of Engineering-dean's",
+  "campus_id": "000319483",
+  "OUC": "140101",
+  "OUC_name": "College Of Engineering-dean's",
+  "supervisor_id": "000009017",
+  "liaison_name": "Tracy Brown",
+  "first_name": "Tracy",
+  "middle_name": "E.",
+  "last_name": "Brown",
+  "email": "tracy_brown@ncsu.edu"
+},
+{
+  "_id": "ajmille9",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1d7"
+  },
+  "department": "CCEE Department",
+  "campus_id": "000558280",
+  "OUC": "140301",
+  "OUC_name": "Civil Const & Environ Engineer",
+  "supervisor_id": "000001279",
+  "liaison_name": "Amy Alexander",
+  "first_name": "Amy",
+  "middle_name": "Miller",
+  "last_name": "Alexander",
+  "email": "ajmille9@ncsu.edu"
+},
+{
+  "_id": "detaylo2",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1db"
+  },
+  "department": "Fitts Dept Indust & Syst Engr",
+  "campus_id": "001110853",
+  "OUC": "140601",
+  "OUC_name": "Fitts Dept Indust & Syst Engr",
+  "supervisor_id": "000002339",
+  "liaison_name": "Danita Taylor",
+  "first_name": "Danita",
+  "middle_name": "Eleanor",
+  "last_name": "Taylor",
+  "email": "detaylo2@ncsu.edu"
+},
+{
+  "_id": "linda_smith",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1de"
+  },
+  "department": "Operations Research",
+  "campus_id": "000010190",
+  "OUC": "140101",
+  "OUC_name": "College Of Engineering-dean's",
+  "supervisor_id": "000009487",
+  "liaison_name": "Linda Smith",
+  "first_name": "Linda",
+  "middle_name": "Carol",
+  "last_name": "Smith",
+  "email": "linda_smith@ncsu.edu"
+},
+{
+  "_id": "rwiesel",
+  "old_id": {
+    "$oid": "61525b669721525e269dd2ab"
+  },
+  "department": "Institutional Strategy and Analysis",
+  "campus_id": "001129054",
+  "OUC_name": "Institutional Res. & Planning",
+  "liaison_name": "Rachel Wieselquist",
+  "first_name": "Rachel",
+  "middle_name": "",
+  "last_name": "Wieselquist",
+  "email": "rwiesel@ncsu.edu"
+},
+{
+  "_id": "dkhurst",
+  "old_id": {
+    "$oid": "61525b669721525e269dd211"
+  },
+  "department": "Univ Housing - Asst Dir, Central Campus",
+  "campus_id": "001113024",
+  "OUC": "242240",
+  "OUC_name": "Residence Life",
+  "supervisor_id": "000996526",
+  "liaison_name": "Durell Hurst",
+  "first_name": "Durell",
+  "middle_name": "Kenyatta",
+  "last_name": "Hurst",
+  "email": "dkhurst@ncsu.edu",
+  "office_phone": "919-515-8646",
+  "cell_phone": "919-576-6486",
+  "title": "Assistant Director"
+},
+{
+  "_id": "jasantia",
+  "old_id": {
+    "$oid": "61525b669721525e269dd213"
+  },
+  "department": "Exploratory Studies",
+  "campus_id": "001118158",
+  "OUC": "248201",
+  "OUC_name": "Exploratory Studies",
+  "supervisor_id": "000301711",
+  "liaison_name": "Jamy Santiago",
+  "first_name": "Jamy",
+  "middle_name": "Ann",
+  "last_name": "Santiago",
+  "email": "jasantia@ncsu.edu",
+  "title": "Administrative Support Spec"
+},
+{
+  "_id": "bapeters",
+  "old_id": {
+    "$oid": "61525b669721525e269dd214"
+  },
+  "department": "Exploratory Studies",
+  "campus_id": "001063050",
+  "OUC": "248201",
+  "OUC_name": "Exploratory Studies",
+  "supervisor_id": "001119717",
+  "liaison_name": "Brian Peters",
+  "first_name": "Brian",
+  "middle_name": "Anderson",
+  "last_name": "Peters",
+  "email": "bapeters@ncsu.edu",
+  "title": "Assoc Dir, University Advising Partnerships & Services"
+},
+{
+  "_id": "zearcaro",
+  "old_id": {
+    "$oid": "61525b669721525e269dd226"
+  },
+  "department": "Ctr. for Geospatial Analytics",
+  "campus_id": "000784731",
+  "OUC": "150103",
+  "OUC_name": "Ctr. for Geospatial Analytics",
+  "supervisor_id": "001109764",
+  "liaison_name": "Zachary Arcaro",
+  "first_name": "Zachary",
+  "middle_name": "Emerson",
+  "last_name": "Arcaro",
+  "email": "zearcaro@ncsu.edu",
+  "office_phone": "919-513-4000",
+  "cell_phone": "919-696-5086",
+  "title": "Asst Director of Operations"
+},
+{
+  "_id": "mhhicks",
+  "old_id": {
+    "$oid": "61525b669721525e269dd227"
+  },
+  "department": "Ctr. for Geospatial Analytics",
+  "campus_id": "000315298",
+  "OUC": "150103",
+  "OUC_name": "Ctr. for Geospatial Analytics",
+  "supervisor_id": "000784731",
+  "liaison_name": "Mary Hicks",
+  "first_name": "Mary",
+  "middle_name": "Hall",
+  "last_name": "Hicks",
+  "email": "mhhicks@ncsu.edu",
+  "office_phone": "919-515-3682",
+  "title": "Business Service Coordinator"
+},
+{
+  "_id": "lrschenkman",
+  "old_id": {
+    "$oid": "61525b669721525e269dd228"
+  },
+  "department": "Biotechnology Dept",
+  "campus_id": "001060455",
+  "OUC": "118601",
+  "OUC_name": "Biotechnology Teaching",
+  "supervisor_id": "000000734",
+  "liaison_name": "Laura Schenkman",
+  "first_name": "Laura",
+  "middle_name": "R",
+  "last_name": "Schenkman",
+  "email": "lrschenkman@ncsu.edu",
+  "office_phone": "919-515-4230"
+},
+{
+  "_id": "adupchur",
+  "old_id": {
+    "$oid": "61525b669721525e269dd236"
+  },
+  "department": "Advancement Services",
+  "campus_id": "000138769",
+  "OUC": "085001",
+  "OUC_name": "Advancement Services",
+  "supervisor_id": "001116317",
+  "liaison_name": "Allison Upchurch Williams",
+  "first_name": "Allison",
+  "middle_name": "Upchurch",
+  "last_name": "Williams",
+  "email": "adupchur@ncsu.edu",
+  "office_phone": "919-515-9079",
+  "title": "Executive Assistant to the AVC"
+},
+{
+  "_id": "shmaddox",
+  "old_id": {
+    "$oid": "61525b669721525e269dd243"
+  },
+  "department": "CHASS IT",
+  "campus_id": "000321166",
+  "OUC": "162901",
+  "OUC_name": "CHASS IT",
+  "supervisor_id": "000014794",
+  "liaison_name": "Scott Maddox",
+  "first_name": "Scott",
+  "middle_name": "H",
+  "last_name": "Maddox",
+  "email": "shmaddox@ncsu.edu",
+  "office_phone": "919-515-5478",
+  "title": "Supervisor for CHASS Classrooms, Labs, Conference rooms"
+},
+{
+  "_id": "kctitusb",
+  "old_id": {
+    "$oid": "61525b669721525e269dd24a"
+  },
+  "department": "WISE",
+  "campus_id": "000589088",
+  "OUC": "131601",
+  "OUC_name": "WISE Program",
+  "supervisor_id": "000402621",
+  "liaison_name": "Katherine Titus-Becker",
+  "first_name": "Katherine",
+  "middle_name": "C.",
+  "last_name": "Titus-Becker",
+  "email": "kctitusb@ncsu.edu"
+},
+{
+  "_id": "tlcross2",
+  "old_id": {
+    "$oid": "61525b669721525e269dd265"
+  },
+  "department": "Dean's Office-Poole College of Management",
+  "campus_id": "000400710",
+  "OUC": "200111",
+  "OUC_name": "College Business Services-PCOM",
+  "supervisor_id": "001118993",
+  "liaison_name": "Tuesday Cross",
+  "first_name": "Tuesday",
+  "middle_name": "Laverne",
+  "last_name": "Cross",
+  "email": "tlcross2@ncsu.edu",
+  "office_phone": "919-515-6955",
+  "cell_phone": "919-417-7483",
+  "title": "Operations Assistant"
+},
+{
+  "_id": "tdmedlin",
+  "old_id": {
+    "$oid": "61525b669721525e269dd269"
+  },
+  "department": "CALS - College of Agriculture and Life Sciences",
+  "campus_id": "001112973",
+  "OUC": "118001",
+  "OUC_name": "Ag & Resource Economics",
+  "supervisor_id": "000002503",
+  "liaison_name": "Tracy Medlin",
+  "first_name": "Tracy",
+  "middle_name": " ",
+  "last_name": "Medlin",
+  "email": "tdmedlin@ncsu.edu",
+  "office_phone": "919-515-4619",
+  "title": "Business Svcs Coordinator"
+},
+{
+  "_id": "katie_walston",
+  "old_id": {
+    "$oid": "61525b669721525e269dd273"
+  },
+  "department": "Acad Stu Aff-VC and Dean Off",
+  "campus_id": "000151512",
+  "OUC": "240101",
+  "OUC_name": "Acad Stu Aff-VC and Dean Off",
+  "supervisor_id": "001128655",
+  "liaison_name": "Katie Walston",
+  "first_name": "Katie",
+  "middle_name": "Kinsey",
+  "last_name": "Walston",
+  "email": "katie_walston@ncsu.edu",
+  "office_phone": "919-515-1588"
+},
+{
+  "_id": "cmello",
+  "old_id": {
+    "$oid": "61525b669721525e269dd27c"
+  },
+  "department": "CALS Personnel Services",
+  "campus_id": "000335881",
+  "OUC": "110310",
+  "OUC_name": "CALS Personnel Services",
+  "supervisor_id": "000002503",
+  "liaison_name": "Claudia Mello",
+  "first_name": "Claudia",
+  "middle_name": "Ann",
+  "last_name": "Mello",
+  "email": "cmello@ncsu.edu",
+  "office_phone": "919-515-8372",
+  "title": "Executive Assistant"
+},
+{
+  "_id": "careema.rodgers",
+  "old_id": {
+    "$oid": "61525b669721525e269dd281"
+  },
+  "department": "Freese & Nichols, Inc. - Suite 1200",
+  "campus_id": "100028897",
+  "OUC_name": "Freese and Nichols",
+  "liaison_name": "Careema Rodgers",
+  "first_name": "Careema",
+  "middle_name": "",
+  "last_name": "Rodgers",
+  "email": "Careema.Rodgers@freese.com",
+  "office_phone": "919-582-5859",
+  "cell_phone": "919-332-3323",
+  "title": "Support Specialist II"
+},
+{
+  "_id": "ebhebert",
+  "old_id": {
+    "$oid": "61525b669721525e269dd287"
+  },
+  "department": "Entrepreneurship Garage",
+  "campus_id": "001117410",
+  "OUC": "336201",
+  "OUC_name": "NCSU Entrepreneurship Program",
+  "supervisor_id": "000180679",
+  "liaison_name": "Eren Hebert",
+  "first_name": "Eren",
+  "middle_name": " ",
+  "last_name": "Hebert",
+  "email": "ebhebert@ncsu.edu",
+  "office_phone": "919-513-3675",
+  "cell_phone": "650-427-9130",
+  "title": "Specialty Trades Techncian"
+},
+{
+  "_id": "cel",
+  "old_id": {
+    "$oid": "61525b669721525e269dd299"
+  },
+  "department": "Chemistry",
+  "campus_id": "000002426",
+  "OUC": "170701",
+  "OUC_name": "Chemistry",
+  "supervisor_id": "000002056",
+  "liaison_name": "Catherine Lull",
+  "first_name": "Catherine",
+  "middle_name": "E",
+  "last_name": "Lull",
+  "email": "cel@ncsu.edu",
+  "office_phone": "919-513-4010",
+  "cell_phone": "919-274-3957",
+  "title": "Business Officer"
+},
+{
+  "_id": "scparke2",
+  "old_id": {
+    "$oid": "61525b669721525e269dd2a3"
+  },
+  "department": "Admissions",
+  "campus_id": "000007508",
+  "OUC": "320101",
+  "OUC_name": "Admissions",
+  "supervisor_id": "001121769",
+  "liaison_name": "Stephanie Parker",
+  "first_name": "Stephanie",
+  "middle_name": "C.",
+  "last_name": "Parker",
+  "email": "scparke2@ncsu.edu",
+  "office_phone": "919-513-2156",
+  "title": "Executive Assistant"
+},
+{
+  "_id": "cmhinson",
+  "old_id": {
+    "$oid": "61525b669721525e269dd2a6"
+  },
+  "department": "Internal Audit",
+  "campus_id": "000171617",
+  "OUC": "014101",
+  "OUC_name": "Internal Audit Division",
+  "supervisor_id": "001004400",
+  "liaison_name": "Cecile Hinson",
+  "first_name": "Cecile",
+  "middle_name": "M.",
+  "last_name": "Hinson",
+  "email": "cmhinson@ncsu.edu",
+  "office_phone": "919-515-8862",
+  "cell_phone": "919-946-8148",
+  "title": "Chief Audit Officer & Director"
+},
+{
+  "_id": "ajmedlin",
+  "old_id": {
+    "$oid": "61525b669721525e269dd2a9"
+  },
+  "department": "Goodnight Scholars",
+  "campus_id": "000327460",
+  "OUC": "320801",
+  "OUC_name": "Goodnight Scholars Program",
+  "supervisor_id": "000156393",
+  "liaison_name": "Allison Medlin",
+  "first_name": "Allison",
+  "middle_name": " ",
+  "last_name": "Medlin",
+  "email": "ajmedlin@ncsu.edu",
+  "office_phone": "919-515-7485",
+  "title": "Director"
+},
+{
+  "_id": "scroyce",
+  "old_id": {
+    "$oid": "61525b669721525e269dd2c1"
+  },
+  "department": "CED-Dean's Office",
+  "campus_id": "001116819",
+  "OUC": "130101",
+  "OUC_name": "College Of Education",
+  "supervisor_id": "000306786",
+  "liaison_name": "Sarah Royce",
+  "first_name": "Sarah",
+  "middle_name": "Copithorne",
+  "last_name": "Royce",
+  "email": "scroyce@ncsu.edu",
+  "office_phone": "919-515-5514",
+  "title": "Executive Assistance"
+},
+{
+  "_id": "ijkendri",
+  "old_id": {
+    "$oid": "61525b669721525e269dd2e0"
+  },
+  "department": "Public Safety",
+  "campus_id": "000403538",
+  "OUC": "425001",
+  "OUC_name": "Public Safety",
+  "supervisor_id": "000176552",
+  "liaison_name": "Ian Kendrick",
+  "first_name": "Ian",
+  "middle_name": "J",
+  "last_name": "Kendrick",
+  "email": "ijkendri@ncsu.edu"
+},
+{
+  "_id": "alsilve3",
+  "old_id": {
+    "$oid": "61525b669721525e269dd2f1"
+  },
+  "department": "Athletics",
+  "campus_id": "100016137",
+  "OUC_name": "",
+  "liaison_name": "Amy Silverthorn",
+  "first_name": "AMY",
+  "middle_name": "",
+  "last_name": "SILVERTHORN",
+  "email": "alsilve3@ncsu.edu",
+  "office_phone": "919-515-7369",
+  "title": "Assistant AD"
+},
+{
+  "_id": "charles_whittington",
+  "old_id": {
+    "$oid": "61525b669721525e269dd306"
+  },
+  "department": "IES Operations",
+  "campus_id": "000406044",
+  "OUC": "140701",
+  "OUC_name": "IES Operations",
+  "supervisor_id": "000004916",
+  "liaison_name": "Charles Whittington",
+  "first_name": "Charles",
+  "middle_name": " ",
+  "last_name": "Whittington",
+  "email": "charles_whittington@ncsu.edu",
+  "office_phone": "919-513-4518",
+  "title": "Business Services Coordinator"
+},
+{
+  "_id": "kevin_dudley",
+  "old_id": {
+    "$oid": "61525b669721525e269dd30e"
+  },
+  "department": "College of Sciences",
+  "campus_id": "000316245",
+  "OUC": "170101",
+  "OUC_name": "College of Sciences - Dean",
+  "supervisor_id": "001127723",
+  "liaison_name": "Kevin Dudley",
+  "first_name": "Kevin",
+  "middle_name": "Michael",
+  "last_name": "Dudley",
+  "email": "kevin_dudley@ncsu.edu",
+  "office_phone": "919-515-6083",
+  "cell_phone": "919-961-3631",
+  "title": "Dean Systems Administrator"
+},
+{
+  "_id": "cacolli7",
+  "old_id": {
+    "$oid": "61525b669721525e269dd343"
+  },
+  "department": "Campus Visits",
+  "campus_id": "001117464",
+  "OUC": "321002",
+  "OUC_name": "Visitor Center",
+  "supervisor_id": "000157265",
+  "liaison_name": "Christopher Collins",
+  "first_name": "Christopher",
+  "middle_name": "Andrew",
+  "last_name": "Collins",
+  "email": "cacolli7@ncsu.edu",
+  "title": "Assoc Dir, Campus Visits"
+},
+{
+  "_id": "dasetser",
+  "old_id": {
+    "$oid": "61525b669721525e269dd356"
+  },
+  "department": "Facilites Division, Contract Construction",
+  "campus_id": "000003222",
+  "OUC": "442001",
+  "OUC_name": "Const Svcs-Contracted Const",
+  "supervisor_id": "000198821",
+  "liaison_name": "David Setser",
+  "first_name": "David",
+  "middle_name": "A",
+  "last_name": "Setser",
+  "email": "dasetser@ncsu.edu ",
+  "office_phone": "919-515-8125",
+  "cell_phone": "919-795-1585",
+  "title": "Engineering/Architectural Technician"
+},
+{
+  "_id": "jareave2",
+  "old_id": {
+    "$oid": "61525b669721525e269dd36a"
+  },
+  "department": "University Theatre",
+  "campus_id": "001060985",
+  "OUC": "248901",
+  "OUC_name": "University Theatre",
+  "supervisor_id": "001114280",
+  "liaison_name": "Joshua Reaves",
+  "first_name": "Joshua",
+  "middle_name": "Anthony",
+  "last_name": "Reaves",
+  "email": "jareave2@ncsu.edu",
+  "office_phone": "919-513-3568",
+  "title": "Director"
+},
+{
+  "_id": "amende",
+  "old_id": {
+    "$oid": "61525b669721525e269dd38e"
+  },
+  "department": "Center for Integrated Pest Management",
+  "campus_id": "001125432",
+  "OUC": "113810",
+  "OUC_name": "Integrated Pest Mgmt-Research",
+  "supervisor_id": "000917822",
+  "liaison_name": "Andrew Mende",
+  "first_name": "Andrew",
+  "middle_name": " ",
+  "last_name": "Mende",
+  "email": "amende@ncsu.edu",
+  "office_phone": "(919) 515-4553",
+  "title": "IT Programmer / Analyst"
+},
+{
+  "_id": "hbcarrol",
+  "old_id": {
+    "$oid": "61525b669721525e269dd3a1"
+  },
+  "department": "PowerAmerica",
+  "campus_id": "001125079",
+  "OUC": "062301",
+  "OUC_name": "NG Pwr Elec Natl Mfg Innovatio",
+  "supervisor_id": "200083940",
+  "liaison_name": "Heather Carroll",
+  "first_name": "Heather",
+  "middle_name": " ",
+  "last_name": "Carroll",
+  "email": "hbcarrol@ncsu.edu"
+},
+{
+  "_id": "tjhogan",
+  "old_id": {
+    "$oid": "61525b669721525e269dd3c3"
+  },
+  "department": "Dining Committee",
+  "campus_id": "100019431",
+  "OUC_name": "Dining Committee",
+  "liaison_name": "Tim Hogan",
+  "first_name": "Tim",
+  "middle_name": "",
+  "last_name": "Hogan",
+  "email": "tjhogan@ncsu.edu",
+  "office_phone": "919-515-1090",
+  "cell_phone": "919-270-7812",
+  "title": "NC State Student Centers, Director"
+},
+{
+  "_id": "vkumara",
+  "department": "Acme Department",
+  "email": "vkumara@ncsu.edu",
+  "first_name": "Vikram",
+  "last_name": "Kumaran",
+  "liaison_name": "Vikram Kumaran",
+  "office_phone": "555-555-7414",
+  "cell_phone": "555-555-1234",
+  "title": "Test Liaison",
+  "OUC": "420501",
+  "OUC_name": "Information Technology-EHPS",
+  "unity": " ",
+  "supervisor_id": "000008954",
+  "supervisor_name": "Robert McInturf",
+  "campus_id": "000148888"
+},
+{
+  "_id": "test",
+  "department": "",
+  "email": "test@ncsuliaisons.com",
+  "first_name": "John",
+  "last_name": "Smith",
+  "liaison_name": "John Smith",
+  "office_phone": "9195551234",
+  "cell_phone": "",
+  "title": "",
+  "supervisor_name": ""
+},
+{
+  "_id": "nkmille3",
+  "old_id": {
+    "$oid": "61525b669721525e269dd0cc"
+  },
+  "department": "Jenkins School of Management",
+  "campus_id": "001115057",
+  "OUC": "200201",
+  "OUC_name": "MBA Program-Poole COM",
+  "supervisor_id": "000009715",
+  "liaison_name": "Nichole Miller",
+  "first_name": "Nichole",
+  "middle_name": "K",
+  "last_name": "Miller",
+  "email": "nkmille3@ncsu.edu",
+  "office_phone": "919-515-5587 ",
+  "title": "Assistant Dean, MBA Programs"
+},
+{
+  "_id": "jbflemin",
+  "old_id": {
+    "$oid": "61525b669721525e269dd0cd"
+  },
+  "department": "Jenkins School of Management",
+  "campus_id": "000311291",
+  "OUC": "200201",
+  "OUC_name": "MBA Program-Poole COM",
+  "supervisor_id": "001115057",
+  "liaison_name": "Julie Fleming",
+  "first_name": "Julie",
+  "middle_name": "Brunson",
+  "last_name": "Fleming",
+  "email": "jbflemin@ncsu.edu",
+  "office_phone": "919-513-1440 ",
+  "title": "Director of Advising and Student Affairs"
+},
+{
+  "_id": "jagrego2",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1d8"
+  },
+  "department": "Civil Const & Environ Engineer",
+  "campus_id": "001120256",
+  "OUC": "140301",
+  "OUC_name": "Civil Const & Environ Engineer",
+  "supervisor_id": "000008835",
+  "liaison_name": "Jodie Gregoritsch",
+  "first_name": "Jodie",
+  "middle_name": "Ann",
+  "last_name": "Gregoritsch",
+  "email": "jagrego2@ncsu.edu"
+},
+{
+  "_id": "ccmadden",
+  "old_id": {
+    "$oid": "61525b669721525e269dd0e6"
+  },
+  "department": "IEP Intensive English Program",
+  "campus_id": "000320113",
+  "OUC": "390601",
+  "OUC_name": "Intensive English Program",
+  "supervisor_id": " ",
+  "liaison_name": "Catherine Madden",
+  "first_name": "Catherine",
+  "middle_name": "Condon",
+  "last_name": "Madden",
+  "email": "ccmadden@ncsu.edu",
+  "office_phone": "(919) 513-2926",
+  "title": "Assoc. Dir., Intensive English Program"
+},
+{
+  "_id": "ichen3",
+  "old_id": {
+    "$oid": "61525b669721525e269dd0e9"
+  },
+  "department": "Global Training Initiative",
+  "campus_id": "000969347",
+  "OUC": "390701",
+  "OUC_name": "Global Training Initiative",
+  "supervisor_id": "000404760",
+  "liaison_name": "Ilin Misaras",
+  "first_name": "Ilin",
+  "middle_name": "Chen",
+  "last_name": "Misaras",
+  "email": "ichen3@ncsu.edu"
+},
+{
+  "_id": "corrinda_watkins",
+  "old_id": {
+    "$oid": "61525b669721525e269dd103"
+  },
+  "department": "Human Resources",
+  "campus_id": "000004811",
+  "OUC": "480101",
+  "OUC_name": "UHR Administration",
+  "supervisor_id": "001116334",
+  "liaison_name": "Corrinda Watkins",
+  "first_name": "Corrinda",
+  "middle_name": "S",
+  "last_name": "Watkins",
+  "email": "corrinda_watkins@ncsu.edu",
+  "office_phone": "919-515-4271",
+  "title": "Sr Exec Asst & Ofc Mgr"
+},
+{
+  "_id": "sacaudil",
+  "old_id": {
+    "$oid": "61525b669721525e269dd105"
+  },
+  "department": "Human Resources",
+  "campus_id": "001112678",
+  "OUC": "481001",
+  "OUC_name": "HR Benefits, Welness&Worklife",
+  "supervisor_id": "001128041",
+  "liaison_name": "Samantha Caudill",
+  "first_name": "Samantha",
+  "middle_name": "A.",
+  "last_name": "Caudill",
+  "email": "sacaudil@ncsu.edu"
+},
+{
+  "_id": "alwill25",
+  "old_id": {
+    "$oid": "61525b669721525e269dd108"
+  },
+  "department": "University Controller",
+  "campus_id": "001122843",
+  "OUC": "496001",
+  "OUC_name": "University Controller",
+  "supervisor_id": "000307136",
+  "liaison_name": "Arianna Williams",
+  "first_name": "Arianna",
+  "middle_name": "Letasha",
+  "last_name": "Williams",
+  "email": "alwill25@ncsu.edu"
+},
+{
+  "_id": "sarah_slover",
+  "old_id": {
+    "$oid": "61525b669721525e269dd22a"
+  },
+  "department": "Forestry and Env. Resources Dept.",
+  "campus_id": "000400779",
+  "OUC": "150401",
+  "OUC_name": "For & Envir Res Acad Research",
+  "supervisor_id": "000002470",
+  "liaison_name": "Sarah Slover",
+  "first_name": "Sarah",
+  "middle_name": "J",
+  "last_name": "Slover",
+  "email": "sarah_slover@ncsu.edu",
+  "office_phone": "919-515-7563"
+},
+{
+  "_id": "lghester",
+  "old_id": {
+    "$oid": "61525b669721525e269dd134"
+  },
+  "department": "Biological Resources Facility",
+  "campus_id": "000005270",
+  "OUC": "170522",
+  "OUC_name": "Biological Resources Facility",
+  "supervisor_id": "001103842",
+  "liaison_name": "Linda Hester",
+  "first_name": "Linda",
+  "middle_name": "Griffin",
+  "last_name": "Hester",
+  "email": "lghester@ncsu.edu",
+  "office_phone": "919-515-2921",
+  "title": "Research Technician"
+},
+{
+  "_id": "sjoneshu",
+  "old_id": {
+    "$oid": "61525b669721525e269dd148"
+  },
+  "department": "Office of the University Architect",
+  "campus_id": "000002403",
+  "OUC": "441901",
+  "OUC_name": "University Architect's Office",
+  "supervisor_id": "000010024",
+  "liaison_name": "Sumayya Jones-Humienny",
+  "first_name": "Sumayya",
+  "middle_name": "Esther",
+  "last_name": "Jones-Humienny",
+  "email": "sjoneshu@ncsu.edu",
+  "office_phone": "919-513-2399",
+  "cell_phone": "919-608-4436",
+  "title": "Assoc Univ Architect"
+},
+{
+  "_id": "eholsop",
+  "old_id": {
+    "$oid": "61525b669721525e269dd14a"
+  },
+  "department": "Athletics, Air Rifle Team",
+  "campus_id": "001121479",
+  "OUC": "103010",
+  "OUC_name": "Rifle - Coed",
+  "supervisor_id": "001114150",
+  "liaison_name": "Emily Holsopple",
+  "first_name": "Emily",
+  "middle_name": " ",
+  "last_name": "Holsopple",
+  "email": "eholsop@ncsu.edu",
+  "office_phone": "919-740-4072",
+  "cell_phone": "919-740-4072",
+  "title": "Head Coach"
+},
+{
+  "_id": "klaudate",
+  "old_id": {
+    "$oid": "61525b669721525e269dd2d7"
+  },
+  "department": "Music",
+  "campus_id": "000002013",
+  "OUC": "248401",
+  "OUC_name": "Music",
+  "supervisor_id": "001116664",
+  "liaison_name": "Kathleen Laudate",
+  "first_name": "Kathleen",
+  "middle_name": "A",
+  "last_name": "Laudate",
+  "email": "klaudate@ncsu.edu",
+  "office_phone": "919-515-1064",
+  "cell_phone": "919-448-5500",
+  "title": "Program Manager"
+},
+{
+  "_id": "mrcoombe",
+  "old_id": {
+    "$oid": "61525b669721525e269dd155"
+  },
+  "department": "DASA, New Student Programs",
+  "campus_id": "000925540",
+  "OUC": "240402",
+  "OUC_name": "New Student Programs",
+  "supervisor_id": "000002530",
+  "liaison_name": "Michael Coombes",
+  "first_name": "Michael",
+  "middle_name": "Rhys",
+  "last_name": "Coombes",
+  "email": "mrcoombe@ncsu.edu",
+  "office_phone": "919-513-0187",
+  "cell_phone": "513-593-0013",
+  "title": "New Student Programs Director"
+},
+{
+  "_id": "crbentl2",
+  "old_id": {
+    "$oid": "61525b669721525e269dd159"
+  },
+  "department": "Facilities, Housekeeping",
+  "campus_id": "001117346",
+  "OUC": "443501",
+  "OUC_name": "Housekeeping Svcs-Reg3",
+  "supervisor_id": "001110109",
+  "liaison_name": "Christina Bentley",
+  "first_name": "Christina",
+  "middle_name": "Renee'",
+  "last_name": "Bentley",
+  "email": "crbentl2@ncsu.edu",
+  "office_phone": "919-513-0179",
+  "cell_phone": "919-268-7953",
+  "title": "Housekeeping Supervisor I"
+},
+{
+  "_id": "gcfreema",
+  "old_id": {
+    "$oid": "61525b669721525e269dd15c"
+  },
+  "department": "Facilities, Zone Shop 2",
+  "campus_id": "000006692",
+  "OUC": "443801",
+  "OUC_name": "BM&O-Orig Campus",
+  "supervisor_id": "000333786",
+  "liaison_name": "Garden Freeman",
+  "first_name": "Garden",
+  "middle_name": "C.",
+  "last_name": "Freeman",
+  "email": "gcfreema@ncsu.edu",
+  "office_phone": "919-515-9867",
+  "cell_phone": "919-218-0419",
+  "title": "BM&O Superintendent of Maint.-Trades"
+},
+{
+  "_id": "lewelch",
+  "old_id": {
+    "$oid": "61525b669721525e269dd160"
+  },
+  "department": "University Advancement, University Development, Central Major Gifts",
+  "campus_id": "000116086",
+  "OUC": "082001",
+  "OUC_name": "University Development",
+  "supervisor_id": "001118460",
+  "liaison_name": "Lauren Welch",
+  "first_name": "Lauren",
+  "middle_name": "Elizabeth",
+  "last_name": "Welch",
+  "email": "lewelch@ncsu.edu",
+  "office_phone": "919-513-7506",
+  "cell_phone": "919-985-5045",
+  "title": "Director"
+},
+{
+  "_id": "sltucci",
+  "old_id": {
+    "$oid": "61525b669721525e269dd16c"
+  },
+  "department": "Wellness and Recreation",
+  "campus_id": "001114696",
+  "OUC": "244040",
+  "OUC_name": "Wellness and Recreation",
+  "supervisor_id": "000108749",
+  "liaison_name": "Stephen Tucci",
+  "first_name": "Stephen",
+  "middle_name": "Lee",
+  "last_name": "Tucci",
+  "email": "sltucci@ncsu.edu",
+  "office_phone": "919-515-7323",
+  "title": "Assistant Director"
+},
+{
+  "_id": "frankie_griffin",
+  "old_id": {
+    "$oid": "61525b669721525e269dd181"
+  },
+  "department": "Bldg Maint & Oper-CBC",
+  "campus_id": "000005414",
+  "OUC": " ",
+  "OUC_name": "Bldg Maint & Oper-CBC",
+  "supervisor_id": " ",
+  "liaison_name": "Frankie Griffin",
+  "first_name": "Frankie",
+  "middle_name": "F",
+  "last_name": "Griffin",
+  "email": "frankie_griffin@ncsu.edu",
+  "office_phone": "919-513-6485",
+  "title": "Mechanic V"
+},
+{
+  "_id": "sasomers",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1a3"
+  },
+  "department": "DELTA",
+  "campus_id": "001125404",
+  "OUC": "339001",
+  "OUC_name": "DELTA",
+  "supervisor_id": "000149736",
+  "liaison_name": "Stacy Somers",
+  "first_name": "Stacy",
+  "middle_name": "Arlene",
+  "last_name": "Somers",
+  "email": "sasomers@ncsu.edu",
+  "office_phone": "919 513-7358",
+  "title": "Business Operations Accountant"
+},
+{
+  "_id": "spegram",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1a6"
+  },
+  "department": "Nonwovens Institute",
+  "campus_id": "000333612",
+  "OUC": "183501",
+  "OUC_name": "Nonwovens Institute",
+  "supervisor_id": "001117332",
+  "liaison_name": "Susan Pegram",
+  "first_name": "Susan",
+  "middle_name": "Lynn",
+  "last_name": "Pegram",
+  "email": "spegram@ncsu.edu",
+  "office_phone": "919-515-6551",
+  "title": "University Program Associate"
+},
+{
+  "_id": "danielle_pfaff",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1b3"
+  },
+  "department": "CVM-Business Office",
+  "campus_id": "001123928",
+  "OUC": "190101",
+  "OUC_name": "College Of Veterinary Medicine",
+  "supervisor_id": "000335557",
+  "liaison_name": "Danielle Pfaff",
+  "first_name": "Danielle",
+  "middle_name": "Kristina",
+  "last_name": "Pfaff",
+  "email": "danielle_pfaff@ncsu.edu",
+  "office_phone": "919-513-6687",
+  "title": "VTH Hospital Administrator"
+},
+{
+  "_id": "curtis_colwell",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1b5"
+  },
+  "department": "CVM Teaching Hospital",
+  "campus_id": "000185602",
+  "OUC": "192001",
+  "OUC_name": "CVM Teaching Hospital",
+  "supervisor_id": "001123928",
+  "liaison_name": "Curtis Colwell",
+  "first_name": "Curtis",
+  "middle_name": " ",
+  "last_name": "Colwell",
+  "email": "curtis_colwell@ncsu.edu",
+  "office_phone": "919-513-6615",
+  "title": "EFAVC / HWC Operations Manager"
+},
+{
+  "_id": "kttyo",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1c8"
+  },
+  "department": "NCSU Libraries",
+  "campus_id": "000407323",
+  "OUC": "250101",
+  "OUC_name": "Libraries",
+  "supervisor_id": "000959270",
+  "liaison_name": "Kerry Travis Tyo",
+  "first_name": "Kerry",
+  "middle_name": "Travis",
+  "last_name": "Tyo",
+  "email": "kttyo@ncsu.edu",
+  "office_phone": "919-513-0236",
+  "title": "Director of Operational Project Management"
+},
+{
+  "_id": "jlbarbe2",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1e2"
+  },
+  "department": "Friday Institute",
+  "campus_id": "001047267",
+  "OUC": "139001",
+  "OUC_name": "Friday Institute",
+  "supervisor_id": "000326409",
+  "liaison_name": "Jonathan Barbee",
+  "first_name": "Jonathan",
+  "middle_name": "Lee",
+  "last_name": "Barbee",
+  "email": "jlbarbe2@ncsu.edu",
+  "office_phone": "919-513-8500",
+  "cell_phone": "919-607-1776",
+  "title": "Friday Inst. Adm Support"
+},
+{
+  "_id": "cfgarrel",
+  "old_id": {
+    "$oid": "61525b669721525e269dd1e7"
+  },
+  "department": "Dining and Catering Operations",
+  "campus_id": "000132950",
+  "OUC": "471501",
+  "OUC_name": "Dining and Catering Operations",
+  "supervisor_id": "000005398",
+  "liaison_name": "Crayton Garrell",
+  "first_name": "Crayton",
+  "middle_name": "F.",
+  "last_name": "Garrell",
+  "email": "cfgarrel@ncsu.edu",
+  "office_phone": "919-515-2806",
+  "cell_phone": "919.345.4666",
+  "title": "Food Service Director II"
+},
+{
+  "_id": "brcody",
+  "old_id": {
+    "$oid": "61525b669721525e269dd35e"
+  },
+  "department": "Entomology & Plant Pathology 1st & 2nd Flr",
+  "campus_id": "000011165",
+  "OUC": "111801",
+  "OUC_name": "Entomology & Plant Pathology",
+  "supervisor_id": "000010718",
+  "liaison_name": "Bryan Cody",
+  "first_name": "Bryan",
+  "middle_name": "R",
+  "last_name": "Cody",
+  "email": "brcody@ncsu.edu",
+  "office_phone": "919-515-2307",
+  "cell_phone": "919-523-7413",
+  "title": "Academic Support"
+},
+{
+  "_id": "lbdelois",
+  "old_id": {
+    "$oid": "61525b669721525e269dd204"
+  },
+  "department": "Cashier's Office",
+  "campus_id": "001109177",
+  "OUC": "491501",
+  "OUC_name": "University Cashier's Office",
+  "supervisor_id": "000314589",
+  "liaison_name": "Lorraine de Lois",
+  "first_name": "Lorraine",
+  "middle_name": "Barbara",
+  "last_name": "De Lois",
+  "email": "lbdelois@ncsu.edu",
+  "office_phone": "919-515-9399",
+  "cell_phone": "919-798-3460",
+  "title": "Assistant Director"
+},
+{
+  "_id": "elwest",
+  "old_id": {
+    "$oid": "61525b669721525e269dd210"
+  },
+  "department": "Study Abroad",
+  "campus_id": "000188792",
+  "OUC": "390301",
+  "OUC_name": "Study Abroad",
+  "supervisor_id": "001127057",
+  "liaison_name": "Elizabeth \"Lowell\" West",
+  "first_name": "Elizabeth",
+  "middle_name": "Lowell",
+  "last_name": "West",
+  "email": "elwest@ncsu.edu",
+  "office_phone": "919-513-5062",
+  "cell_phone": "919-761-3508",
+  "title": "Program Budgets Specialist"
+},
+{
+  "_id": "cfmclean",
+  "old_id": {
+    "$oid": "61525b669721525e269dd216"
+  },
+  "department": "Exploratory Studies",
+  "campus_id": "000003213",
+  "OUC": "248201",
+  "OUC_name": "Exploratory Studies",
+  "supervisor_id": "001119717",
+  "liaison_name": "Carrie McLean",
+  "first_name": "Carrie",
+  "middle_name": "Frederick",
+  "last_name": "McLean",
+  "email": "cfmclean@ncsu.edu",
+  "office_phone": "919-515-8498",
+  "title": "Asst Dean, University Collage and Dir of Advising"
+},
+{
+  "_id": "cdthomas",
+  "old_id": {
+    "$oid": "61525b669721525e269dd218"
+  },
+  "department": "NC State Prague",
+  "campus_id": "000146653",
+  "OUC": "390101",
+  "OUC_name": "Office of Global Engagement",
+  "supervisor_id": "000143168",
+  "liaison_name": "Carl Thomas",
+  "first_name": "Carl",
+  "middle_name": " ",
+  "last_name": "Thomas",
+  "email": "cdthomas@ncsu.edu",
+  "office_phone": "919-515-9697"
+},
+{
+  "_id": "sbwillis",
+  "old_id": {
+    "$oid": "61525b669721525e269dd231"
+  },
+  "department": "Forestry and Env. Resources Dept.",
+  "campus_id": "000303584",
+  "OUC": "150401",
+  "OUC_name": "For & Envir Res Acad Research",
+  "supervisor_id": "001057831",
+  "liaison_name": "Sydna Willis",
+  "first_name": "Sydna",
+  "middle_name": "Brooks",
+  "last_name": "Willis",
+  "email": "sbwillis@ncsu.edu",
+  "office_phone": "919-515-7560",
+  "cell_phone": "919-390-9693",
+  "title": "Admin Support"
+},
+{
+  "_id": "jmmccoy",
+  "old_id": {
+    "$oid": "61525b669721525e269dd23f"
+  },
+  "department": "College of Design",
+  "campus_id": "000003896",
+  "OUC": "120101",
+  "OUC_name": "College of Design",
+  "supervisor_id": "000006091",
+  "liaison_name": "Jonas M. McCoy",
+  "first_name": "Jonas",
+  "middle_name": "M",
+  "last_name": "McCoy",
+  "email": "jmmccoy@ncsu.edu",
+  "office_phone": "919-515-3785",
+  "cell_phone": "919-815-4295",
+  "title": "Director of Operations"
+},
+{
+  "_id": "amy.kirk",
+  "old_id": {
+    "$oid": "61525b669721525e269dd381"
+  },
+  "department": "Lincoln Harris",
+  "campus_id": "100023770",
+  "OUC_name": "Lincoln Harris",
+  "liaison_name": "Amy Kirk",
+  "first_name": "Amy",
+  "middle_name": "Lynn",
+  "last_name": "Kirk",
+  "email": "Amy.Kirk@lincolnharris.com",
+  "office_phone": "919-645-6974",
+  "title": "Property Manager"
+},
+{
+  "_id": "franklin_finch",
+  "old_id": {
+    "$oid": "61525b669721525e269dd268"
+  },
+  "department": "Computing Services-Poole COM",
+  "campus_id": "000007056",
+  "OUC": "205001",
+  "OUC_name": "Computing Services-Poole COM",
+  "supervisor_id": "001124168",
+  "liaison_name": "Franklin Finch",
+  "first_name": "Franklin",
+  "middle_name": "P",
+  "last_name": "Finch",
+  "email": "franklin_finch@ncsu.edu",
+  "office_phone": "919-515-6094",
+  "title": "Director of Information Technology"
+},
+{
+  "_id": "hmdurham",
+  "old_id": {
+    "$oid": "61525b669721525e269dd274"
+  },
+  "department": "Academic Programs & Services",
+  "campus_id": "000916108",
+  "OUC": "240130",
+  "OUC_name": "Acad Stu Aff-Business Adm",
+  "supervisor_id": "000178205",
+  "liaison_name": "Holly Durham",
+  "first_name": "Holly",
+  "middle_name": "Marie",
+  "last_name": "Durham",
+  "email": "hmdurham@ncsu.edu",
+  "title": "Assistant Vice Chancellor, Finance"
+},
+{
+  "_id": "adbuckne",
+  "old_id": {
+    "$oid": "61525b669721525e269dd27b"
+  },
+  "department": "CALS IT",
+  "campus_id": "000920768",
+  "OUC": "110103",
+  "OUC_name": "CALS IT",
+  "supervisor_id": "000014881",
+  "liaison_name": "Anthony Buckner",
+  "first_name": "Anthony",
+  "middle_name": "Don",
+  "last_name": "Buckner",
+  "email": "adbuckne@ncsu.edu",
+  "office_phone": "919-513-7246",
+  "title": "Technology Support Specialist"
+},
+{
+  "_id": "lnsmith",
+  "old_id": {
+    "$oid": "61525b669721525e269dd300"
+  },
+  "department": "Univ Real Estate & Development",
+  "campus_id": "000552049",
+  "OUC": "430101",
+  "OUC_name": "Univ Real Estate & Development",
+  "supervisor_id": "000184299",
+  "liaison_name": "Lisa Van Roekel",
+  "first_name": "Lisa",
+  "middle_name": "Smith",
+  "last_name": "Van Roekel",
+  "email": "lnsmith@ncsu.edu",
+  "office_phone": "919-513-1564",
+  "title": "Property Specialist - Leasing"
+},
+{
+  "_id": "bpourdey",
+  "old_id": {
+    "$oid": "61525b669721525e269dd284"
+  },
+  "department": "Nonwovens Institute",
+  "campus_id": "000002824",
+  "OUC": "140201",
+  "OUC_name": "College Of Textiles-dean's Off",
+  "supervisor_id": "000002069",
+  "liaison_name": "Behnam Pourdeyhimi",
+  "first_name": "Behnam",
+  "middle_name": " ",
+  "last_name": "Pourdeyhimi",
+  "email": "bpourdey@ncsu.edu",
+  "office_phone": "919-515-1822",
+  "title": "Executive Director"
+},
+{
+  "_id": "wrbarne2",
+  "old_id": {
+    "$oid": "61525b669721525e269dd285"
+  },
+  "department": "Nonwovens Institute",
+  "campus_id": "000302515",
+  "OUC": "183501",
+  "OUC_name": "Nonwovens Institute",
+  "supervisor_id": "000002824",
+  "liaison_name": "William Barnes",
+  "first_name": "William",
+  "middle_name": "R",
+  "last_name": "Barnes",
+  "email": "wrbarne2@ncsu.edu",
+  "office_phone": "919-513-0980",
+  "cell_phone": "919-673-5709",
+  "title": "Assistant Director"
+},
+{
+  "_id": "rpeaglet",
+  "old_id": {
+    "$oid": "61525b669721525e269dd2a4"
+  },
+  "department": "Park Scholars",
+  "campus_id": "000002660",
+  "OUC": "012101",
+  "OUC_name": "Park Scholars",
+  "supervisor_id": "000401951",
+  "liaison_name": "Rosalyn Eagleton",
+  "first_name": "Rosalyn",
+  "middle_name": " ",
+  "last_name": "Eagleton",
+  "email": "rpeaglet@ncsu.edu ",
+  "office_phone": "919-515-3794",
+  "title": "Executive Assistant"
+},
+{
+  "_id": "ncburgar",
+  "old_id": {
+    "$oid": "61525b669721525e269dd2a7"
+  },
+  "department": "Internal Audit",
+  "campus_id": "000006404",
+  "OUC": "014101",
+  "OUC_name": "Internal Audit Division",
+  "supervisor_id": "000171617",
+  "liaison_name": "Nancy Burgart",
+  "first_name": "Nancy",
+  "middle_name": "L",
+  "last_name": "Burgart",
+  "email": "ncburgar@ncsu.edu",
+  "office_phone": "919-515-8861",
+  "cell_phone": "919-649-5476",
+  "title": "Assistant Director"
+},
+{
+  "_id": "sycho2",
+  "old_id": {
+    "$oid": "61525b669721525e269dd2b7"
+  },
+  "department": "Phytotron",
+  "campus_id": "000990284",
+  "OUC": "111701",
+  "OUC_name": "Phytotron",
+  "supervisor_id": "000001306",
+  "liaison_name": "Samuel Cho",
+  "first_name": "Samuel",
+  "middle_name": " ",
+  "last_name": "Cho",
+  "email": "sycho2@ncsu.edu",
+  "office_phone": "919-515-0436",
+  "cell_phone": "704-582-0436",
+  "title": "Administrative Support Specialist"
+},
+{
+  "_id": "mdwillia",
+  "old_id": {
+    "$oid": "61525b669721525e269dd2be"
+  },
+  "department": "CED - IT & Facilities",
+  "campus_id": "000161605",
+  "OUC": "130101",
+  "OUC_name": "College Of Education",
+  "supervisor_id": "000313304",
+  "liaison_name": "Mark Williams",
+  "first_name": "Mark",
+  "middle_name": "DeWayne",
+  "last_name": "Williams",
+  "email": "mdwillia@ncsu.edu",
+  "office_phone": "919-515-3324",
+  "cell_phone": "919-656-4961",
+  "title": "Director, IT & Facilities"
+},
+{
+  "_id": "paul_swartz",
+  "old_id": {
+    "$oid": "61525b669721525e269dd2d1"
+  },
+  "department": "Biochemistry",
+  "campus_id": "000321461",
+  "OUC": "118403",
+  "OUC_name": "Biochemistry - METRIC",
+  "supervisor_id": "001117861",
+  "liaison_name": "Paul Swartz",
+  "first_name": "Paul",
+  "middle_name": "Douglas",
+  "last_name": "Swartz",
+  "email": "paul_swartz@ncsu.edu",
+  "office_phone": "919-513-0173",
+  "title": "Research Asst. Professor"
+},
+{
+  "_id": "dgmonek",
+  "old_id": {
+    "$oid": "61525b669721525e269dd2d6"
+  },
+  "department": "Music",
+  "campus_id": "001116664",
+  "OUC": "248401",
+  "OUC_name": "Music",
+  "supervisor_id": "001119717",
+  "liaison_name": "Daniel Monek",
+  "first_name": "Daniel",
+  "middle_name": "Glenn",
+  "last_name": "Monek",
+  "email": "dgmonek@ncsu.edu",
+  "office_phone": "919-515-1692",
+  "title": "Head"
+},
+{
+  "_id": "jamcguir",
+  "old_id": {
+    "$oid": "61525b669721525e269dd307"
+  },
+  "department": "NC Climate Office",
+  "campus_id": "000212441",
+  "OUC": "179501",
+  "OUC_name": "Sciences-State Climate Office",
+  "supervisor_id": "001125145",
+  "liaison_name": "John McGuire",
+  "first_name": "John",
+  "middle_name": "Allen",
+  "last_name": "McGuire",
+  "email": "jamcguir@ncsu.edu",
+  "office_phone": "919-515-0412"
+},
+{
+  "_id": "lhmiles",
+  "old_id": {
+    "$oid": "61525b669721525e269dd3dc"
+  },
+  "department": "DASA Tech Services",
+  "campus_id": "000300474",
+  "OUC": "240110",
+  "OUC_name": "Acad Stu Aff-Tech Services",
+  "supervisor_id": "001127278",
+  "liaison_name": "Lisa Miles",
+  "first_name": "Lisa",
+  "middle_name": "Hinshaw",
+  "last_name": "Miles",
+  "email": "lhmiles@ncsu.edu",
+  "office_phone": "919-515-3046",
+  "title": "Assistant Director"
+},
+{
+  "_id": "dewessel",
+  "old_id": {
+    "$oid": "61525b669721525e269dd34d"
+  },
+  "department": "Graduate School-Dean's Office",
+  "campus_id": "001110919",
+  "OUC": "040101",
+  "OUC_name": "Graduate School-Dean's Office",
+  "supervisor_id": "000326887",
+  "liaison_name": "Denise Wesselow",
+  "first_name": "Denise",
+  "middle_name": "E",
+  "last_name": "Wesselow",
+  "email": "dewessel@ncsu.edu",
+  "office_phone": "919-515-1996",
+  "title": "Administrative Support Spec"
+},
+{
+  "_id": "clnix",
+  "old_id": {
+    "$oid": "61525b669721525e269dd36f"
+  },
+  "department": "Crafts Center",
+  "campus_id": "000546972",
+  "OUC": "243030",
+  "OUC_name": "Crafts Center",
+  "supervisor_id": "001114280",
+  "liaison_name": "Carol L. Nix",
+  "first_name": "Carol",
+  "middle_name": "Lynn",
+  "last_name": "Nix",
+  "email": "clnix@ncsu.edu",
+  "office_phone": "919-513-3677",
+  "title": "Director"
+},
+{
+  "_id": "mubunce",
+  "old_id": {
+    "$oid": "61525b669721525e269dd376"
+  },
+  "department": "Chemical & Biomolecular Engr",
+  "campus_id": "001116227",
+  "OUC": "140201",
+  "OUC_name": "Chemical & Biomolecular Engr",
+  "supervisor_id": "000002862",
+  "liaison_name": "Michelle Bunce",
+  "first_name": "Michelle",
+  "middle_name": "Upchurch",
+  "last_name": "Bunce",
+  "email": "mubunce@ncsu.edu",
+  "title": "Admin Support"
+},
+{
+  "_id": "lisa.levert",
+  "old_id": {
+    "$oid": "61525b669721525e269dd382"
+  },
+  "department": "Lincoln Harris",
+  "campus_id": "100028431",
+  "OUC_name": "Lincoln Harris",
+  "liaison_name": "Lisa LeVert",
+  "first_name": "Lisa",
+  "middle_name": "",
+  "last_name": "LeVert",
+  "email": "Lisa.LeVert@lincolnharris.com",
+  "office_phone": "919-645-6978",
+  "title": "Property & Brokerage Coordinator"
+},
+{
+  "_id": "mshilling",
+  "old_id": {
+    "$oid": "61525b669721525e269dd38c"
+  },
+  "department": "Center for Integrated Pest Management",
+  "campus_id": "000917822",
+  "OUC": "113810",
+  "OUC_name": "Integrated Pest Mgmt-Research",
+  "supervisor_id": "000008065",
+  "liaison_name": "Mikel Shilling",
+  "first_name": "Mikel",
+  "middle_name": " ",
+  "last_name": "Shilling",
+  "email": "mshilling@cipm.info",
+  "office_phone": "919-513-8188",
+  "cell_phone": "814-203-0438",
+  "title": "Bus & Tech App Specialist"
+},
+{
+  "_id": "alwhita4",
+  "old_id": {
+    "$oid": "61525b669721525e269dd3bf"
+  },
+  "department": "Dept of Foreign Languages",
+  "campus_id": "001108750",
+  "OUC": "160401",
+  "OUC_name": "Foreign Languages And Literatu",
+  "supervisor_id": "000162406",
+  "liaison_name": "April Whitaker",
+  "first_name": "April",
+  "middle_name": "L",
+  "last_name": "Whitaker",
+  "email": "alwhita4@ncsu.edu",
+  "office_phone": "919-515-9276",
+  "title": "Student Services Coordinator"
+},
+{
+  "_id": "krchampi",
+  "department": "Department",
+  "email": "krchampi@ncsu.edu",
+  "first_name": "Kyle",
+  "last_name": "Champion",
+  "liaison_name": "Kyle Champion",
+  "office_phone": "9195551234",
+  "cell_phone": "9195551234",
+  "title": "Title",
+  "supervisor_name": "Supervisor",
+  "OUC": " ",
+  "OUC_name": " ",
+  "unity": "ktchampi",
+  "supervisor_id": " "
+},
+{
+  "_id": "staylor8",
+  "department": "Department",
+  "email": "staylor8@ncsu.edu",
+  "first_name": "Shawn",
+  "last_name": "Taylor",
+  "liaison_name": "Shawn Taylor",
+  "office_phone": "9195551234",
+  "cell_phone": "9195551234",
+  "title": "Title",
+  "supervisor_name": "Supervisor",
+  "OUC": " ",
+  "OUC_name": "Information Technology-EHPS",
+  "unity": "staylor8",
+  "supervisor_id": " "
+},
+{
+  "_id": "jnbocarro",
+  "department": " Department",
+  "email": "jnbocarro@ncsu.edu",
+  "first_name": "Jason",
+  "last_name": "Bocarro",
+  "liaison_name": "Jason Bocarro",
+  "office_phone": "555-555-7414",
+  "cell_phone": "555-555-7413",
+  "title": "Test Liaison",
+  "supervisor_name": "Vikram"
+},
+{
+  "_id": "jnbocarro1",
+  "department": "Acme Department",
+  "email": "jnbocarro1@ncsu.edu",
+  "first_name": "Jason1",
+  "last_name": "Bocarro",
+  "liaison_name": "Jason1 Bocarro",
+  "office_phone": "555-555-7414",
+  "cell_phone": "555-555-7413",
+  "title": "Test Liaison"
+},
+{
+  "_id": "jtchampi",
+  "department": "Security Applications & Technologies",
+  "email": "jtchampi@ncsu.edu",
+  "first_name": "John",
+  "last_name": "Champion",
+  "liaison_name": "John Champion",
+  "office_phone": "9195551234",
+  "cell_phone": "9195551234",
+  "title": "Software Developer",
+  "supervisor_name": "Shawn Taylor",
+  "last_acknowledged": {
+    "$date": "2023-10-12T13:32:53.825Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6527f59dd4383c4545d21b26"
+  },
+  "campus_id": "001132807",
+  "email": "rsemmle@ncsu.edu",
+  "clearances": [
+    {
+      "id": 10354,
+      "name": "ClearanceB"
+    }
+  ],
+  "last_acknowledged": {
+    "$date": "2023-10-13T13:23:37.552Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6527f686edac0d162b16a216"
+  },
+  "campus_id": "200103374",
+  "email": "jtchampi@ncsu.edu",
+  "clearances": [
+    {
+      "id": 10354,
+      "name": "ClearanceB"
+    },
+    {
+      "id": 10355,
+      "name": "ClearanceC"
+    }
+  ]
+}]

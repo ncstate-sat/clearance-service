@@ -1,0 +1,5520 @@
+[{
+  "_id": {
+    "$oid": "6422f05b46f7296e77c5b545"
+  },
+  "unity_id": "kttyo",
+  "campus_id": "000407323",
+  "email": "kttyo@ncsu.edu",
+  "clearances": [],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "6422f05b46f7296e77c5b546"
+  },
+  "unity_id": "rnbowen",
+  "campus_id": "000004991",
+  "email": "rnbowen@ncsu.edu",
+  "clearances": [
+    {
+      "name": "PUL-UH Pullen Stu Legal 24hrs-DEPT",
+      "id": 8673
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "6422f05b46f7296e77c5b547"
+  },
+  "unity_id": "jashash",
+  "campus_id": "000400701",
+  "email": "jahash@ncsu.edu",
+  "clearances": [
+    {
+      "name": "WN-G-007A-NMDF-DEPT",
+      "id": 8050
+    },
+    {
+      "name": "EB3-01-1224-MAE Lab-DEPT",
+      "id": 8234
+    },
+    {
+      "name": "EB3-01-1225-MAE Lab-DEPT",
+      "id": 8235
+    },
+    {
+      "name": "Library Security Guard-REG",
+      "id": 8327
+    },
+    {
+      "name": "THM-02-2577-PMB Lab 24hrs-DEPT",
+      "id": 8535
+    },
+    {
+      "name": "VET-CVM All Doors Mon thru Fri 7am to 5pm-DEPT",
+      "id": 8563
+    },
+    {
+      "name": "SAS-04-4268-Statistics Gradute Study-DEPT",
+      "id": 8446
+    },
+    {
+      "name": "VET-02-E200-CVM LAH Client Entrance-DEPT",
+      "id": 8576
+    },
+    {
+      "name": "CRP-01-E26-Service Entry Only-DEPT",
+      "id": 8533
+    },
+    {
+      "name": "CHC-01-1231M-DASA Technology Services IT Office-DEPT",
+      "id": 8636
+    },
+    {
+      "name": "RE3-2nd Floor IES Suite-DEPT",
+      "id": 8637
+    },
+    {
+      "name": "WR-UH Oval Dining Limited Extra Doors-DEPT",
+      "id": 8594
+    },
+    {
+      "name": "WR1-01-E185-UH Loading Dock Entry-DEPT",
+      "id": 8595
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "6422f05b46f7296e77c5b548"
+  },
+  "unity_id": "jtchampi",
+  "campus_id": "200103374",
+  "email": "jtchampi@ncsu.edu",
+  "clearances": [
+    {
+      "id": 10240,
+      "name": "VRB-B-B140-Module 1 Software Developer-DEPT"
+    },
+    {
+      "id": 8897,
+      "name": "VRB-Module 2 Exteriors-DEPT"
+    },
+    {
+      "id": 9069,
+      "name": "VRB-SAT All Doors MOD1-DEPT"
+    },
+    {
+      "id": 9073,
+      "name": "VRB SAT Perimeter Entry MOD1-REG"
+    },
+    {
+      "id": 9096,
+      "name": "VRB-Module 6 & 7 All Common Doors-DEPT"
+    },
+    {
+      "id": 9112,
+      "name": "VRB SAT Module 1 Contractor Access-REG"
+    },
+    {
+      "id": 9116,
+      "name": "VRB-01-1543-Module 6 Lab-DEPT"
+    },
+    {
+      "id": 9129,
+      "name": "VRB-Module 2 Turf Labs-DEPT"
+    },
+    {
+      "id": 9133,
+      "name": "VRB-Module 7 Lab-DEPT"
+    },
+    {
+      "id": 9221,
+      "name": "VRB-01-1118-Module 3 Lab-DEPT"
+    },
+    {
+      "id": 9312,
+      "name": "VRB-01-1002-Module 2 Student Suite-DEPT"
+    },
+    {
+      "id": 9356,
+      "name": "VRB-SAT Module 1 Exterior 24hrs-DEPT"
+    },
+    {
+      "id": 9497,
+      "name": "VRB - HS - Test"
+    },
+    {
+      "id": 9839,
+      "name": "VRB-B-B106-Module 1 IT Manager-DEPT"
+    },
+    {
+      "id": 9846,
+      "name": "VRB-01-1003-Module 3 Wet Lab-DEPT"
+    },
+    {
+      "id": 9849,
+      "name": "VRB-01-1007-Module 2 Wet Lab-DEPT"
+    },
+    {
+      "id": 10183,
+      "name": "VRB-Module 6 & 7 DEPP Wing-DEPT"
+    },
+    {
+      "id": 10191,
+      "name": "VRB-B-B112-Module 1 Office-DEPT"
+    },
+    {
+      "id": 10211,
+      "name": "VRB-SAT Perimeter Entry Scheduled MOD1-DEPT"
+    },
+    {
+      "id": 10217,
+      "name": "VRB-COS Exterior Doors MOD 8,9,10-DEPT"
+    },
+    {
+      "id": 10259,
+      "name": "VRB-B-B104-Module 1 IT Specialist-DEPT"
+    },
+    {
+      "id": 10322,
+      "name": "VRB-SAT-Module 1 B103C IT Operations Tech"
+    },
+    {
+      "id": 10323,
+      "name": "VRB-SAT-Module 1 IT Student Worker"
+    },
+    {
+      "id": 10356,
+      "name": "VRB-Test Clearance 1"
+    },
+    {
+      "id": 10357,
+      "name": "VRB-Test Clearance 2"
+    },
+    {
+      "id": 9132,
+      "name": "VRB-Module 6 & 7 Students/Staff-DEPT"
+    }
+  ],
+  "last_acknowledged": {
+    "$date": "2024-06-20T13:42:18.080Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6422f05b46f7296e77c5b549"
+  },
+  "unity_id": "staylor8",
+  "campus_id": "001120834",
+  "email": "staylor8@ncsu.edu",
+  "clearances": [
+    {
+      "name": "EB3-01-HB104-MAE Engine Test Cell-DEPT",
+      "id": 8665
+    },
+    {
+      "name": "SAS-All Doors-DEPT",
+      "id": 8471
+    },
+    {
+      "id": 9497,
+      "name": "VRB - HS - Test"
+    },
+    {
+      "id": 9112,
+      "name": "VRB SAT Module 1 Contractor Access-REG"
+    },
+    {
+      "id": 10353,
+      "name": "ClearanceAAA"
+    },
+    {
+      "id": 10354,
+      "name": "ClearanceB"
+    },
+    {
+      "id": 10310,
+      "name": "CG-01-E1118-Domestic Water Rm Entry E-DEPT"
+    }
+  ],
+  "last_acknowledged": {
+    "$date": "2024-01-03T15:51:23.447Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6422f05b46f7296e77c5b54a"
+  },
+  "unity_id": "jdperry5",
+  "campus_id": "001117856",
+  "email": "jdperry5@ncsu.edu",
+  "clearances": [
+    {
+      "name": "PK-03-358-BSL3 24/7-HS",
+      "id": 8416
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "6422f05b46f7296e77c5b54b"
+  },
+  "unity_id": "nrprice2",
+  "campus_id": "200215840",
+  "email": "nrprice2@ncsu.edu",
+  "clearances": [
+    {
+      "name": "POE-OIT MDF Server Room-DEPT",
+      "id": 8387
+    },
+    {
+      "name": "WR-UH Oval Dining-DEPT",
+      "id": 8593
+    },
+    {
+      "name": "WR2-UH Plaza 24hrs-DEPT",
+      "id": 8037
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "6422f05b46f7296e77c5b54c"
+  },
+  "unity_id": "pdswartz",
+  "campus_id": "000321461",
+  "email": "pdswartz@ncsu.edu",
+  "clearances": [],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "6422f05b46f7296e77c5b54e"
+  },
+  "unity_id": "lhmiles",
+  "campus_id": "000300474",
+  "email": "lhmiles@ncsu.edu",
+  "clearances": [],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "6422f05b46f7296e77c5b54f"
+  },
+  "unity_id": "kjpawvlu",
+  "campus_id": "001119999",
+  "email": "kjpawvlu@ncsu.edu",
+  "clearances": [
+    {
+      "name": "CRA-04-428-CVM Lab 2-DEPT",
+      "id": 8552
+    },
+    {
+      "name": "WR6-UH Lakeview Undergrad Fall/Spring-DEPT",
+      "id": 8699
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "6422f05b46f7296e77c5b550"
+  },
+  "unity_id": "karuppe",
+  "campus_id": "000323787",
+  "email": "karuppe@ncsu.edu",
+  "clearances": [
+    {
+      "name": "OWN-UH Owen Contractor/Visitor-DEPT",
+      "id": 8832
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "6422f05b46f7296e77c5b551"
+  },
+  "unity_id": "gfmartel",
+  "campus_id": "001118385",
+  "email": "gfmartel@ncsu.edu",
+  "clearances": [
+    {
+      "name": "WR2-UH Plaza Undergrad Fall/Spring-DEPT",
+      "id": 8703
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "6448505ad0119c42be1f6938"
+  },
+  "campus_id": "000826649",
+  "email": "grbock@ncsu.edu",
+  "clearances": [
+    {
+      "name": "TSU-Women's Center-DEPT",
+      "id": 8683
+    },
+    {
+      "name": "TSU-Employee Entrance-DEPT",
+      "id": 8516
+    },
+    {
+      "name": "Textiles - All Doors 24/7-Automated",
+      "id": 8528
+    },
+    {
+      "name": "TEX-01-1121A-Dock Rollup Dr Pod 1-DEPT",
+      "id": 8529
+    },
+    {
+      "name": "THM-Exteriors/Elevators 24/7-DEPT",
+      "id": 8536
+    },
+    {
+      "name": "TOX-All Doors + Animal Suite 24/7-DEPT",
+      "id": 8537
+    },
+    {
+      "name": "TOX-All Doors Visitors 8am to 5pm-DEPT",
+      "id": 8539
+    },
+    {
+      "name": "VC4-CIPM All Doors EXCEPT 103-DEPT",
+      "id": 8540
+    },
+    {
+      "name": "VC4-CIPM All Doors-DEPT",
+      "id": 8541
+    },
+    {
+      "name": "VET-CVM LAR PI/T Entrance Mon thru Fri 7am to 6pm-DEPT",
+      "id": 8546
+    },
+    {
+      "name": "VET-02-EF282-CVM Fsection Back Loading Dock NE-DEPT",
+      "id": 8547
+    },
+    {
+      "name": "CRA-CVM 1st Floor-DEPT",
+      "id": 8548
+    },
+    {
+      "name": "CRA-CVM All Doors Mon to Fri 7am to 6pm-DEPT",
+      "id": 8549
+    },
+    {
+      "name": "CRA-04-BSL Labs Restricted-HS",
+      "id": 8553
+    },
+    {
+      "name": "CRA-04-463-Radioactive Lab-DEPT",
+      "id": 8560
+    },
+    {
+      "name": "PT1-Exterior Doors-DEPT",
+      "id": 8610
+    },
+    {
+      "name": "DHL-02-2133-DLI & DELTA-DEPT",
+      "id": 8621
+    },
+    {
+      "name": "EB3-01-1311-MAE BLAST LAB-DEPT",
+      "id": 8662
+    },
+    {
+      "name": "EB3-01-1315-MAE Advanced Materials Analytical Lab-DEPT",
+      "id": 8663
+    },
+    {
+      "name": "EB3-01-HB101-MAE Supersonic Wind Tunnel-DEPT",
+      "id": 8664
+    },
+    {
+      "name": "PT1-01-1100-Lincoln Harris Prop Mgmt Office-DEPT",
+      "id": 8672
+    },
+    {
+      "name": "CRP-All Doors 24hrs-DEPT",
+      "id": 8530
+    },
+    {
+      "name": "WVF-UH Mackenzie Transitional-DEPT",
+      "id": 8713
+    },
+    {
+      "name": "WVH-UH Hudson Summer I-DEPT",
+      "id": 8714
+    },
+    {
+      "name": "WR5-UH Grove Undergrad Fall/Spring-DEPT",
+      "id": 8715
+    },
+    {
+      "name": "WR3-UH Innovation Grad Fall/Spring-DEPT",
+      "id": 8716
+    },
+    {
+      "name": "WR3-UH Innovation Undergrad Fall/Spring-DEPT",
+      "id": 8717
+    },
+    {
+      "name": "WR4-UH Valley Undergrad Fall/Spring-DEPT",
+      "id": 8718
+    },
+    {
+      "name": "BOW-UH Bowen Fall/Spring-DEPT",
+      "id": 8719
+    },
+    {
+      "name": "BRA-UH Bragaw EcoVillage Student Fall/Spring-DEPT",
+      "id": 8720
+    },
+    {
+      "name": "BRA-UH Bragaw RA Fall/Spring-DEPT",
+      "id": 8721
+    },
+    {
+      "name": "BRA-UH Bragaw Fall/Spring-DEPT",
+      "id": 8722
+    },
+    {
+      "name": "BEC / BER / BAG UH RA Fall/Spring-DEPT",
+      "id": 8723
+    },
+    {
+      "name": "BEC / BER / BAG UH Fall/Spring-DEPT",
+      "id": 8724
+    },
+    {
+      "name": "CAR-UH Carroll Fall/Spring-DEPT",
+      "id": 8725
+    },
+    {
+      "name": "ESKingVillage UH RA Summer-DEPT",
+      "id": 8726
+    },
+    {
+      "name": "ESKingVillage UH Fall/Spring-DEPT",
+      "id": 8727
+    },
+    {
+      "name": "GOL-UH Gold Fall/Spring-DEPT",
+      "id": 8728
+    },
+    {
+      "name": "CHC-DASA Counseling-DEPT",
+      "id": 8491
+    },
+    {
+      "name": "TOX-All Doors 24/7 No Animal Suite-DEPT",
+      "id": 8538
+    },
+    {
+      "name": "VC4-CIPM Guest 111D, 130-DEPT",
+      "id": 8542
+    },
+    {
+      "name": "CRA-01-127A-West Corr Entry Loading Dock-DEPT",
+      "id": 8559
+    },
+    {
+      "name": "WR1-NC State Bookstores Pack Shop Sat 8:30am to 4:40pm-DEPT",
+      "id": 8592
+    },
+    {
+      "name": "DH Hill - E1303 Hillsborough St Entrance",
+      "id": 8658
+    },
+    {
+      "name": "VET-01-C121-CVM Anatomy Lab Main Entrance 24/7-DEPT",
+      "id": 8564
+    },
+    {
+      "name": "TUC-UH Tucker Fall/Spring-DEPT",
+      "id": 8736
+    },
+    {
+      "name": "WAT-UH Watauga Fall/Spring-DEPT",
+      "id": 8738
+    },
+    {
+      "name": "IPF-Level 01 All Doors 24/7-DEPT",
+      "id": 8745
+    },
+    {
+      "name": "WV-UH Fall Early Break-DEPT",
+      "id": 8830
+    },
+    {
+      "name": "FSL All Greek Houses-REG",
+      "id": 8846
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "6448563dd0119c42be1f693f"
+  },
+  "campus_id": "000189232",
+  "email": "jjgira@ncsu.edu",
+  "clearances": [
+    {
+      "name": "ComTech ALL Campus MDF Rooms-REG",
+      "id": 8056
+    },
+    {
+      "name": "COX/DAB All Exterior Doors 24hrs-DEPT",
+      "id": 8057
+    },
+    {
+      "name": "DHL-G-G102-East Wing North Stairwell-DEPT",
+      "id": 8093
+    },
+    {
+      "name": "DHL-01 First Floor Elevator 24/7-DEPT",
+      "id": 8094
+    },
+    {
+      "name": "ASX-Satellite Shelving Mon thru Sun 7:30am to 5:30pm with Security-DEPT",
+      "id": 8478
+    },
+    {
+      "name": "SFC-Dairy Employees 24/7-DEPT",
+      "id": 8479
+    },
+    {
+      "name": "TSU-Wolf Xpress Suite-DEPT",
+      "id": 8504
+    },
+    {
+      "name": "WR1-NC State Bookstores Pack Shop Mon to Fri 7:45am to 6:30pm-DEPT",
+      "id": 8591
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64764bf0d573fdbc3cc25417"
+  },
+  "campus_id": "200184895",
+  "email": "vlprati@ncsu.edu",
+  "clearances": [
+    {
+      "name": "TSU-University Theatre Staff-DEPT",
+      "id": 8674
+    },
+    {
+      "name": "TSU-Shared Admin Suite-DEPT",
+      "id": 8675
+    },
+    {
+      "name": "VTE-G-NA-TAU Finger Barn Gate-DEPT",
+      "id": 8060
+    },
+    {
+      "name": "DH Hill - G207 - 2 Dock Rollup 24/7",
+      "id": 8114
+    },
+    {
+      "name": "DHL-DHS-SCRC Staff- 24/7-C2",
+      "id": 8119
+    },
+    {
+      "name": "DHL-03-G102-North Stairwell-DEPT",
+      "id": 8120
+    },
+    {
+      "name": "DHL-G-G103-North Stairwell-DEPT",
+      "id": 8121
+    },
+    {
+      "name": "EB1-01-1008-CBE Grad Office Chemical-DEPT",
+      "id": 8125
+    },
+    {
+      "name": "EB1-03-3003-MSE Faculty-DEPT",
+      "id": 8126
+    },
+    {
+      "name": "EB1-03-3034-MSE North Corridor North Door-DEPT",
+      "id": 8127
+    },
+    {
+      "name": "EB1-CBE All Doors-DEPT",
+      "id": 8128
+    },
+    {
+      "name": "EB1-All Exterior Doors 24hrs-DEPT",
+      "id": 8129
+    },
+    {
+      "name": "EB1-MSE All Doors-DEPT",
+      "id": 8130
+    },
+    {
+      "name": "EB1-CBE 2058 (includes 2056)-DEPT",
+      "id": 8131
+    },
+    {
+      "name": "EB1-02-2062-CBE Lab-DEPT",
+      "id": 8132
+    },
+    {
+      "name": "EB1-02-2072-CBE Lab-DEPT",
+      "id": 8133
+    },
+    {
+      "name": "EB2-02-2245-CSC Graduate Students Lab-DEPT",
+      "id": 8149
+    },
+    {
+      "name": "EB2-CSC 3224/3226 Systems Research Lab-DEPT",
+      "id": 8152
+    },
+    {
+      "name": "PS-DASA Admin Office-DEPT",
+      "id": 8392
+    },
+    {
+      "name": "VET-CVM LAH Employees Mon thru Fri 7am to 5pm-DEPT",
+      "id": 8573
+    },
+    {
+      "name": "VET-CVM LAH Field Service Doors-DEPT",
+      "id": 8574
+    },
+    {
+      "name": "JHL-Library Creativity Lab 5th Floor-DEPT",
+      "id": 8617
+    },
+    {
+      "name": "EB3-03-3001-MAE Research Lab-DEPT",
+      "id": 8618
+    },
+    {
+      "name": "Vendor Door Test Clearance Allied Universal AUTS-REG",
+      "id": 8619
+    },
+    {
+      "name": "TPS-Theatre Show B-DEPT",
+      "id": 8632
+    },
+    {
+      "name": "DHL-Ground Floor Student Worker-DEPT",
+      "id": 8115
+    },
+    {
+      "name": "DHL-SCRC Student Workers-DEPT",
+      "id": 8117
+    },
+    {
+      "name": "TSU-Leadership & Civic Engagement-DEPT",
+      "id": 8676
+    },
+    {
+      "name": "DHL-DHS-SCRC Staff Limited Lvl 2-C2",
+      "id": 8118
+    },
+    {
+      "name": "HL1-COMM Downstairs Doors-DEPT",
+      "id": 8285
+    },
+    {
+      "name": "CHB-Cherry Building All Doors The Science House-DEPT",
+      "id": 8124
+    },
+    {
+      "name": "EB1-03-3042-MSE Lab-DEPT",
+      "id": 8134
+    },
+    {
+      "name": "Dunbar Armored Services-DEPT",
+      "id": 8123
+    },
+    {
+      "name": "BUR-Dosemeter 24/7 Common Clearance-DEPT",
+      "id": 8122
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64764c0dd573fdbc3cc2541b"
+  },
+  "campus_id": "000108749",
+  "email": "mary_yemma@ncsu.edu",
+  "clearances": [
+    {
+      "name": "TSU-Shared Admin Suite-DEPT",
+      "id": 8675
+    },
+    {
+      "name": "TSU-University Theatre Staff-DEPT",
+      "id": 8674
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64764c23d573fdbc3cc2541f"
+  },
+  "campus_id": "000324659",
+  "email": "jason_spivey@ncsu.edu",
+  "clearances": [
+    {
+      "name": "TSU-University Theatre Staff-DEPT",
+      "id": 8674
+    },
+    {
+      "name": "TSU-Shared Admin Suite-DEPT",
+      "id": 8675
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "647909b5dfa4310055b09921"
+  },
+  "campus_id": "001129920",
+  "email": "stwest2@ncsu.edu",
+  "clearances": [
+    {
+      "name": "WR2-UH Plaza Undergrad Fall/Spring-DEPT",
+      "id": 8703
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "647a4483dfa4310055b09955"
+  },
+  "campus_id": "001110853",
+  "email": "detaylo2@ncsu.edu",
+  "clearances": [
+    {
+      "name": "AFH-103 Warehouse Doors 24/7-DEPT",
+      "id": 7940
+    },
+    {
+      "name": "AFH-EAS Suite 205 All Doors 24hrs-DEPT",
+      "id": 7948
+    },
+    {
+      "name": "AFH-Exterior Doors 24/7-DEPT",
+      "id": 7949
+    },
+    {
+      "name": "AFH-Exterior Doors 6 am 5:30 pm M/F-DEPT",
+      "id": 7950
+    },
+    {
+      "name": "AFH-NOC Suite 229 24/7-DEPT",
+      "id": 7951
+    },
+    {
+      "name": "AFH-NOC Suite Only 7:30am 5:30pm M/F-DEPT",
+      "id": 7952
+    },
+    {
+      "name": "AFH-105, 122 Equipment Workrooms-DEPT",
+      "id": 7953
+    },
+    {
+      "name": "AFH-01-107-Networking Lab-DEPT",
+      "id": 7954
+    },
+    {
+      "name": "AFH-01-115-Physical Layer Lab-DEPT",
+      "id": 7957
+    },
+    {
+      "name": "BI-All Exterior Doors 24hrs-DEPT",
+      "id": 7958
+    },
+    {
+      "name": "BRC-Level 3 Users M to F 7am to 5pm-DEPT",
+      "id": 7961
+    },
+    {
+      "name": "BRC-Level 7 Insectary Users-DEPT",
+      "id": 7963
+    },
+    {
+      "name": "BRC-Level 9 All Doors-DEPT",
+      "id": 7964
+    },
+    {
+      "name": "BTEC-01-155B-Clean Room-DHS",
+      "id": 7965
+    },
+    {
+      "name": "BTEC-Admin Access-DEPT",
+      "id": 7966
+    },
+    {
+      "name": "BTEC-02-263B-Clean Room-DHS",
+      "id": 7967
+    },
+    {
+      "name": "BTEC-Common Door Access-DEPT",
+      "id": 7968
+    },
+    {
+      "name": "BTEC-01-137-Large Scale Suite-DEPT",
+      "id": 7969
+    },
+    {
+      "name": "BTEC-02-226-Aseptic Entry-DHS",
+      "id": 7970
+    },
+    {
+      "name": "BTEC-02-240B-Equipment Passthru-DHS",
+      "id": 7971
+    },
+    {
+      "name": "BTEC-NCCCS Admin Access-DEPT",
+      "id": 7972
+    },
+    {
+      "name": "COE-BU-Dosimeter Reactor-HS",
+      "id": 7973
+    },
+    {
+      "name": "COE-BU-Burlington Labratories-HS",
+      "id": 7974
+    },
+    {
+      "name": "COE-BU-Reactor-HS",
+      "id": 7976
+    },
+    {
+      "name": "BUT-All Doors-DEPT",
+      "id": 7977
+    },
+    {
+      "name": "SUL-UH Sullivan 24hrs-DEPT",
+      "id": 8025
+    },
+    {
+      "name": "TUC-UH Tucker 24/7-DEPT",
+      "id": 8027
+    },
+    {
+      "name": "EB3-02-2208-MAE Lab-DEPT",
+      "id": 8240
+    },
+    {
+      "name": "EB3-03-3412-MAE Electro Mechanics Research Lab-DEPT",
+      "id": 8260
+    },
+    {
+      "name": "HSKP Zone A3N-REG",
+      "id": 8289
+    },
+    {
+      "name": "MRC-ECE 401/A, 446, 454, 454D-DEPT",
+      "id": 8360
+    },
+    {
+      "name": "Ricks Hall - DELTA AEE",
+      "id": 8430
+    },
+    {
+      "name": "SAS-01-1105-Teleconference Room 24/7-DEPT",
+      "id": 8443
+    },
+    {
+      "name": "SAS-04-4213-Computer Lab 24/7-DEPT",
+      "id": 8444
+    },
+    {
+      "name": "EHS-Dave Rainers Office-DEPT",
+      "id": 8648
+    },
+    {
+      "name": "BU-01-1212-Change Room 24/7-DEPT",
+      "id": 7975
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "647f4865dfa4310055b09971"
+  },
+  "campus_id": "000110406",
+  "email": "jelanca2@ncsu.edu",
+  "clearances": [
+    {
+      "name": "AFH-103 Warehouse Doors 24/7-DEPT",
+      "id": 7940
+    },
+    {
+      "name": "AFH-EAS Suite 205 All Doors 24hrs-DEPT",
+      "id": 7948
+    },
+    {
+      "name": "AFH-Exterior Doors 24/7-DEPT",
+      "id": 7949
+    },
+    {
+      "name": "AFH-Exterior Doors 6 am 5:30 pm M/F-DEPT",
+      "id": 7950
+    },
+    {
+      "name": "AFH-NOC Suite 229 24/7-DEPT",
+      "id": 7951
+    },
+    {
+      "name": "AFH-NOC Suite Only 7:30am 5:30pm M/F-DEPT",
+      "id": 7952
+    },
+    {
+      "name": "AFH-105, 122 Equipment Workrooms-DEPT",
+      "id": 7953
+    },
+    {
+      "name": "AFH-01-107-Networking Lab-DEPT",
+      "id": 7954
+    },
+    {
+      "name": "AFH-01-115-Physical Layer Lab-DEPT",
+      "id": 7957
+    },
+    {
+      "name": "BI-All Exterior Doors 24hrs-DEPT",
+      "id": 7958
+    },
+    {
+      "name": "BRC-Level 3 Users M to F 7am to 5pm-DEPT",
+      "id": 7961
+    },
+    {
+      "name": "BRC-Level 7 Insectary Users-DEPT",
+      "id": 7963
+    },
+    {
+      "name": "BRC-Level 9 All Doors-DEPT",
+      "id": 7964
+    },
+    {
+      "name": "BTEC-01-155B-Clean Room-DHS",
+      "id": 7965
+    },
+    {
+      "name": "BTEC-Admin Access-DEPT",
+      "id": 7966
+    },
+    {
+      "name": "BTEC-02-263B-Clean Room-DHS",
+      "id": 7967
+    },
+    {
+      "name": "BTEC-Common Door Access-DEPT",
+      "id": 7968
+    },
+    {
+      "name": "BTEC-01-137-Large Scale Suite-DEPT",
+      "id": 7969
+    },
+    {
+      "name": "BTEC-02-226-Aseptic Entry-DHS",
+      "id": 7970
+    },
+    {
+      "name": "BTEC-02-240B-Equipment Passthru-DHS",
+      "id": 7971
+    },
+    {
+      "name": "BTEC-NCCCS Admin Access-DEPT",
+      "id": 7972
+    },
+    {
+      "name": "COE-BU-Dosimeter Reactor-HS",
+      "id": 7973
+    },
+    {
+      "name": "COE-BU-Burlington Labratories-HS",
+      "id": 7974
+    },
+    {
+      "name": "COE-BU-Reactor-HS",
+      "id": 7976
+    },
+    {
+      "name": "BUT-All Doors-DEPT",
+      "id": 7977
+    },
+    {
+      "name": "SUL-UH Sullivan 24hrs-DEPT",
+      "id": 8025
+    },
+    {
+      "name": "TUC-UH Tucker 24/7-DEPT",
+      "id": 8027
+    },
+    {
+      "name": "EB3-02-2208-MAE Lab-DEPT",
+      "id": 8240
+    },
+    {
+      "name": "EB3-03-3412-MAE Electro Mechanics Research Lab-DEPT",
+      "id": 8260
+    },
+    {
+      "name": "HSKP Zone A3N-REG",
+      "id": 8289
+    },
+    {
+      "name": "MRC-ECE 401/A, 446, 454, 454D-DEPT",
+      "id": 8360
+    },
+    {
+      "name": "Ricks Hall - DELTA AEE",
+      "id": 8430
+    },
+    {
+      "name": "SAS-01-1105-Teleconference Room 24/7-DEPT",
+      "id": 8443
+    },
+    {
+      "name": "SAS-04-4213-Computer Lab 24/7-DEPT",
+      "id": 8444
+    },
+    {
+      "name": "EHS-Dave Rainers Office-DEPT",
+      "id": 8648
+    },
+    {
+      "name": "BU-01-1212-Change Room 24/7-DEPT",
+      "id": 7975
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "647f4e4edfa4310055b0997b"
+  },
+  "campus_id": "001134085",
+  "email": "rtjujjur@ncsu.edu",
+  "clearances": [
+    {
+      "name": "EB3-01-HB104-MAE Engine Test Cell-DEPT",
+      "id": 8665
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "6495bfd2b169d2875f555d40"
+  },
+  "campus_id": "001079317",
+  "email": "kmhart3@ncsu.edu",
+  "clearances": [],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "6495bfe2b169d2875f555d44"
+  },
+  "campus_id": "000817315",
+  "email": "jbmoose3@ncsu.edu",
+  "clearances": [
+    {
+      "name": "Pechmann-NA-NA-Front Main Entrance24/7-DEPT",
+      "id": 8403
+    },
+    {
+      "name": "TSU-Maintenance-DEPT",
+      "id": 8518
+    },
+    {
+      "name": "WR1-NC State Bookstores Pack Shop All Doors-DEPT",
+      "id": 8590
+    },
+    {
+      "name": "BMO Zone 2 Bldg Maint & Ops-REG",
+      "id": 8601
+    },
+    {
+      "name": "BMO Zone 3 Bldg Maint & Ops-REG",
+      "id": 8602
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64ac1c43392b9764f34a36f2"
+  },
+  "campus_id": "000311696",
+  "email": "djgreen@ncsu.edu",
+  "clearances": [
+    {
+      "name": "EB1-03-3058-MSE Lab-DEPT",
+      "id": 8136
+    },
+    {
+      "name": "JVC-All Doors 24/7-DEPT",
+      "id": 8338
+    },
+    {
+      "name": "SS3-01-E1103-Grounds Admin-DEPT",
+      "id": 8498
+    },
+    {
+      "name": "SS3-01-1500/1300C-WRR & Employee Entry-DEPT",
+      "id": 8499
+    },
+    {
+      "name": "SS1-01-A111B-Common Doors-DEPT",
+      "id": 8500
+    },
+    {
+      "name": "SS1-01-A101A-Main Entry-DEPT",
+      "id": 8501
+    },
+    {
+      "name": "SS1-01-A111B-Back Door-DEPT",
+      "id": 8502
+    },
+    {
+      "name": "SS1-Lock Shop Staff-DEPT",
+      "id": 8503
+    },
+    {
+      "name": "TSU-Talley Catering-DEPT",
+      "id": 8509
+    },
+    {
+      "name": "TPS-Theatre Design Room-DEPT",
+      "id": 8649
+    },
+    {
+      "name": "Textiles - 1121 Senior Fashion Studio 24/7-Automated",
+      "id": 8650
+    },
+    {
+      "name": "Textiles - 1115 Fashion Studio 24/7-Automated",
+      "id": 8651
+    },
+    {
+      "name": "SAS-All Doors-DEPT",
+      "id": 8471
+    },
+    {
+      "name": "ASX-Satellite Shelving 24hrs with Security-DEPT",
+      "id": 8472
+    },
+    {
+      "name": "HSKP Zone AS1-REG",
+      "id": 8656
+    },
+    {
+      "name": "TSU-04-4221-CE Copy and Supply Room-DEPT",
+      "id": 8687
+    },
+    {
+      "name": "DHL-Digital Scholar/Conf/IT Doors-DEPT",
+      "id": 8688
+    },
+    {
+      "name": "VTP-Power America Access 24hrs-DEPT",
+      "id": 8689
+    },
+    {
+      "name": "VTP-Power America Cleaners 6pm to 12am-DEPT",
+      "id": 8690
+    },
+    {
+      "name": "SC-Common Doors-DEPT",
+      "id": 8691
+    },
+    {
+      "name": "RE3-State Climate Suite-DEPT",
+      "id": 8692
+    },
+    {
+      "name": "WDB-01-113-Campus Enterprises Office-DEPT",
+      "id": 8693
+    },
+    {
+      "name": "Vendor Door Test Clearance - Signet",
+      "id": 8694
+    },
+    {
+      "name": "RE2-Suite 100 Counseling Center-DEPT",
+      "id": 8695
+    },
+    {
+      "name": "TSU-05-5130A-Facilities Operations-DEPT",
+      "id": 8696
+    },
+    {
+      "name": "ASX-Satellite Shelving Mon thru Sun 6am to 10pm-DEPT",
+      "id": 8473
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64ac1dc9392b9764f34a36f6"
+  },
+  "campus_id": "000912387",
+  "email": "arragsda@ncsu.edu",
+  "clearances": [
+    {
+      "name": "TAC-01-1400-CSS Inventory-DEPT",
+      "id": 8067
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64ac2186392b9764f34a36fa"
+  },
+  "campus_id": "000010190",
+  "email": "linda_smith@ncsu.edu",
+  "clearances": [
+    {
+      "name": "AFH-Exterior Doors 6 am 5:30 pm M/F-DEPT",
+      "id": 7950
+    },
+    {
+      "name": "ECE-All ECE Doors-DEPT",
+      "id": 8263
+    },
+    {
+      "name": "PT3-Exterior Doors 24/7-DEPT",
+      "id": 8401
+    },
+    {
+      "name": "AFH-RM 111 Video Lab 24/7-DEPT",
+      "id": 7956
+    },
+    {
+      "name": "OWN-UH Owen 24/7-DEPT",
+      "id": 8021
+    },
+    {
+      "id": 7919,
+      "name": "NIN-1911 Building All Doors & Elevator 24/7-DEPT"
+    },
+    {
+      "id": 7920,
+      "name": "NIN-1911 Building Exterior Doors Only-DEPT"
+    },
+    {
+      "id": 7925,
+      "name": "AS1-PS Purchasing Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7926,
+      "name": "AS1-01-1219-Purchasing Back Door-DEPT"
+    },
+    {
+      "id": 7927,
+      "name": "AS1-All Dining Doors-DEPT"
+    },
+    {
+      "id": 7928,
+      "name": "AS1-01-E1138-Loading Dock Door-DEPT"
+    },
+    {
+      "id": 7929,
+      "name": "AS2-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7931,
+      "name": "AS3-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7935,
+      "name": "COE-All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7938,
+      "name": "EC-Atrium All Doors-DEPT"
+    },
+    {
+      "id": 7940,
+      "name": "AFH-103 Warehouse Doors 24/7-DEPT"
+    },
+    {
+      "id": 7941,
+      "name": "AFH-103 Warehouse Doors 6:30a 3:30p M/F-DEPT"
+    },
+    {
+      "id": 7942,
+      "name": "AFH-103 Warehouse Doors 7:30am 5:30pm M/F-DEPT"
+    },
+    {
+      "id": 7944,
+      "name": "AFH-Classtech Warehouse Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7948,
+      "name": "AFH-EAS Suite 205 All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7949,
+      "name": "AFH-Exterior Doors 24/7-DEPT"
+    },
+    {
+      "id": 7958,
+      "name": "BI-All Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7964,
+      "name": "BRC-Level 9 All Doors-DEPT"
+    },
+    {
+      "id": 7968,
+      "name": "BTEC-Common Door Access-DEPT"
+    },
+    {
+      "id": 7977,
+      "name": "BUT-All Doors-DEPT"
+    },
+    {
+      "id": 7981,
+      "name": "CG-Gym Complex All Doors-DEPT"
+    },
+    {
+      "id": 7984,
+      "name": "CG-Outdoor Basketball 24hrs-DEPT"
+    },
+    {
+      "id": 7988,
+      "name": "HRH-Cashiers Office All Doors-DEPT"
+    },
+    {
+      "id": 7995,
+      "name": "CJP-All Doors-DEPT"
+    },
+    {
+      "id": 8017,
+      "name": "UH Housing All Doors 24/7-REG"
+    },
+    {
+      "id": 8024,
+      "name": "G2A-FSL All Doors-DEPT"
+    },
+    {
+      "id": 8057,
+      "name": "COX/DAB All Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8063,
+      "name": "TAC-CVM All Doors EXCEPT 2450-DEPT"
+    },
+    {
+      "id": 8064,
+      "name": "TAC-CVM All Doors-DEPT"
+    },
+    {
+      "id": 8071,
+      "name": "TAC-CVM Exterior Doors BS-DEPT"
+    },
+    {
+      "id": 8076,
+      "name": "CVM-TAC PCJ Doors-DEPT"
+    },
+    {
+      "id": 8080,
+      "name": "TAC-02-CVM Pharmacy All Doors-HS"
+    },
+    {
+      "id": 8086,
+      "name": "LMP-Exterior Doors-DEPT"
+    },
+    {
+      "id": 8113,
+      "name": "DHL-02-EG208A-Loading Dock Rollup Door-DEPT"
+    },
+    {
+      "id": 8124,
+      "name": "CHB-Cherry Building All Doors The Science House-DEPT"
+    },
+    {
+      "id": 8127,
+      "name": "EB1-03-3034-MSE North Corridor North Door-DEPT"
+    },
+    {
+      "id": 8128,
+      "name": "EB1-CBE All Doors-DEPT"
+    },
+    {
+      "id": 8129,
+      "name": "EB1-All Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8130,
+      "name": "EB1-MSE All Doors-DEPT"
+    },
+    {
+      "id": 8137,
+      "name": "EB2-All Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8211,
+      "name": "EB3-BME All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8212,
+      "name": "EB3-CSC 2402 CASL Lab Doors-DEPT"
+    },
+    {
+      "id": 8214,
+      "name": "EB3-MAE All Lab Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8269,
+      "name": "FOX-All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8271,
+      "name": "FIW-All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8272,
+      "name": "FIW-All Doors Except Middle School-DEPT"
+    },
+    {
+      "id": 8273,
+      "name": "FIW-Exterior Doors-DEPT"
+    },
+    {
+      "id": 8274,
+      "name": "FIW-Middle School Doors 6am to 6pm-DEPT"
+    },
+    {
+      "id": 8276,
+      "name": "GLOBAL ALL DOORS"
+    },
+    {
+      "id": 8277,
+      "name": "HRH-All Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8278,
+      "name": "HRH-All Exterior Doors Mon thru Fri 6am to 8pm-DEPT"
+    },
+    {
+      "id": 8279,
+      "name": "HRH-RRO All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8280,
+      "name": "HRH-RRO All Doors Mon thru Fri 7:15am to 6pm-DEPT"
+    },
+    {
+      "id": 8285,
+      "name": "HL1-COMM Downstairs Doors-DEPT"
+    },
+    {
+      "id": 8286,
+      "name": "HOL-All Doors-DEPT"
+    },
+    {
+      "id": 8307,
+      "name": "JHL-Exterior Doors-DEPT"
+    },
+    {
+      "id": 8325,
+      "name": "JHL-Loading Dock Door 24hrs-DEPT"
+    },
+    {
+      "id": 8334,
+      "name": "JOR-Al Exterior Doors-DEPT"
+    },
+    {
+      "id": 8338,
+      "name": "JVC-All Doors 24/7-DEPT"
+    },
+    {
+      "id": 8339,
+      "name": "JVC-All Doors 7:30am to 5pm M to F-DEPT"
+    },
+    {
+      "id": 8342,
+      "name": "LAU-All Doors-DEPT"
+    },
+    {
+      "id": 8346,
+      "name": "Magnolia - All Doors 24/7"
+    },
+    {
+      "id": 8354,
+      "name": "MCK-Admin Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8355,
+      "name": "MCK-All Doors / Elevator Buttons 24hrs-DEPT"
+    },
+    {
+      "id": 8356,
+      "name": "MCK-Annex Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8357,
+      "name": "MCK-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8361,
+      "name": "MRC-DELTA All Doors-DEPT"
+    },
+    {
+      "id": 8362,
+      "name": "MRC-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8363,
+      "name": "WRB-All Doors-DEPT"
+    },
+    {
+      "id": 8371,
+      "name": "WRB-Entrance Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8379,
+      "name": "N-All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8381,
+      "name": "N-Students & Guests Common Doors-DEPT"
+    },
+    {
+      "id": 8383,
+      "name": "HLB-OIT All Hillsborough Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8386,
+      "name": "HLB-OIT Exterior & Lobby Doors / Elevator 2-DEPT"
+    },
+    {
+      "id": 8388,
+      "name": "PS-All DELTA Doors-DEPT"
+    },
+    {
+      "id": 8390,
+      "name": "PS-DASA 211 Suite Doors-DEPT"
+    },
+    {
+      "id": 8391,
+      "name": "PS-DASA All Doors-DEPT"
+    },
+    {
+      "id": 8395,
+      "name": "PS-Exterior Doors 24/7-DEPT"
+    },
+    {
+      "id": 8396,
+      "name": "PS-PCJ Doors-DEPT"
+    },
+    {
+      "id": 8402,
+      "name": "Pechmann-All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8408,
+      "name": "PH-03-317-Internal Audit Main Suite Door-HS"
+    },
+    {
+      "id": 8410,
+      "name": "PHY-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8411,
+      "name": "PHY-Exterior Doors Mon thru Fri 7:30am to 6:30pm-DEPT"
+    },
+    {
+      "id": 8413,
+      "name": "POE-Exterior Doors 24/7-DEPT"
+    },
+    {
+      "id": 8414,
+      "name": "PK-Exterior Doors 24/7-DEPT"
+    },
+    {
+      "id": 8419,
+      "name": "PIC-All Exterior Doors 24hrs BS-DEPT"
+    },
+    {
+      "id": 8420,
+      "name": "PSC-01-100-Main Entrance Interior Doors 24/7-DEPT"
+    },
+    {
+      "id": 8425,
+      "name": "PSC-Exterior & Corridor Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8433,
+      "name": "RI-Annex CHASS Exterior Doors-DEPT"
+    },
+    {
+      "id": 8439,
+      "name": "RD-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8441,
+      "name": "SAS-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8471,
+      "name": "SAS-All Doors-DEPT"
+    },
+    {
+      "id": 8484,
+      "name": "Regional Clearance Most Doors 24/7-REG"
+    },
+    {
+      "id": 8496,
+      "name": "SS3-All Doors-DEPT"
+    },
+    {
+      "id": 8500,
+      "name": "SS1-01-A111B-Common Doors-DEPT"
+    },
+    {
+      "id": 8502,
+      "name": "SS1-01-A111B-Back Door-DEPT"
+    },
+    {
+      "id": 8524,
+      "name": "TEX-02-2402-Pod 4 Double Door at PCJ-DEPT"
+    },
+    {
+      "id": 10353,
+      "name": "ClearanceAAA"
+    },
+    {
+      "id": 10354,
+      "name": "ClearanceB"
+    },
+    {
+      "id": 9069,
+      "name": "VRB-SAT All Doors MOD1-DEPT"
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64ac253f392b9764f34a3704"
+  },
+  "campus_id": "000306392",
+  "email": "lshoneyc@ncsu.edu",
+  "clearances": [
+    {
+      "name": "EB2-CSC Faculty/Staff-DEPT",
+      "id": 8157
+    },
+    {
+      "name": "SYM-UH Syme Fall/Spring-DEPT",
+      "id": 8735
+    },
+    {
+      "name": "PHY-04-BSL3 Lab-HS",
+      "id": 8409
+    },
+    {
+      "name": "WDB-Exterior Doors 24/7-DEPT",
+      "id": 8585
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64ac2654392b9764f34a370b"
+  },
+  "campus_id": "001108979",
+  "email": "ctgardne@ncsu.edu",
+  "clearances": [
+    {
+      "name": "EB2-CSC Faculty/Staff-DEPT",
+      "id": 8157
+    },
+    {
+      "name": "SYM-UH Syme Fall/Spring-DEPT",
+      "id": 8735
+    },
+    {
+      "name": "PHY-04-BSL3 Lab-HS",
+      "id": 8409
+    },
+    {
+      "name": "WDB-Exterior Doors 24/7-DEPT",
+      "id": 8585
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64ac6f82392b9764f34a375e"
+  },
+  "campus_id": "001119176",
+  "email": "dwest3@ncsu.edu",
+  "clearances": [],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64ad7c3a392b9764f34a37b8"
+  },
+  "campus_id": "000159835",
+  "email": "cabenave@ncsu.edu",
+  "clearances": [
+    {
+      "name": "EB2-CSC Faculty/Staff-DEPT",
+      "id": 8157
+    },
+    {
+      "name": "SYM-UH Syme Fall/Spring-DEPT",
+      "id": 8735
+    },
+    {
+      "name": "PHY-04-BSL3 Lab-HS",
+      "id": 8409
+    },
+    {
+      "name": "WDB-Exterior Doors 24/7-DEPT",
+      "id": 8585
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64b811cd392b9764f34a39f9"
+  },
+  "campus_id": "001110623",
+  "email": "jkroth@ncsu.edu",
+  "clearances": [
+    {
+      "name": "BRC-Level 5 Users-DEPT",
+      "id": 7962
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64b82146392b9764f34a3a0e"
+  },
+  "campus_id": "000992150",
+  "email": "nchedges@ncsu.edu",
+  "clearances": [
+    {
+      "name": "CHC-DASA Exterior Entrances BS-DEPT",
+      "id": 8490
+    },
+    {
+      "name": "Zone All Campus Generator Group Exterior Only-REG",
+      "id": 8616
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64b82211392b9764f34a3a12"
+  },
+  "campus_id": "001112773",
+  "email": "jasuddut@ncsu.edu",
+  "clearances": [],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64b823a4392b9764f34a3a16"
+  },
+  "campus_id": "000002294",
+  "email": "jeff_gillikin@ncsu.edu",
+  "clearances": [
+    {
+      "name": "DH Hill - 2133 DLI & DELTA 8a-5p M-F",
+      "id": 8622
+    },
+    {
+      "name": "PUL-UH Pullen All Doors 24hrs-DEPT",
+      "id": 8623
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64b823be392b9764f34a3a1a"
+  },
+  "campus_id": "000130000",
+  "email": "cmfreem2@ncsu.edu",
+  "clearances": [
+    {
+      "name": "DH Hill - 2133 DLI & DELTA 8a-5p M-F",
+      "id": 8622
+    },
+    {
+      "name": "PUL-UH Pullen All Doors 24hrs-DEPT",
+      "id": 8623
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64b933aa392b9764f34a3a35"
+  },
+  "campus_id": "000922064",
+  "email": "ewmoore@ncsu.edu",
+  "clearances": [
+    {
+      "name": "EB1-03-3058-MSE Lab-DEPT",
+      "id": 8136
+    },
+    {
+      "name": "JVC-All Doors 24/7-DEPT",
+      "id": 8338
+    },
+    {
+      "name": "SS3-01-E1103-Grounds Admin-DEPT",
+      "id": 8498
+    },
+    {
+      "name": "SS3-01-1500/1300C-WRR & Employee Entry-DEPT",
+      "id": 8499
+    },
+    {
+      "name": "SS1-01-A111B-Common Doors-DEPT",
+      "id": 8500
+    },
+    {
+      "name": "SS1-01-A101A-Main Entry-DEPT",
+      "id": 8501
+    },
+    {
+      "name": "SS1-01-A111B-Back Door-DEPT",
+      "id": 8502
+    },
+    {
+      "name": "TSU-Talley Catering-DEPT",
+      "id": 8509
+    },
+    {
+      "name": "TPS-Theatre Design Room-DEPT",
+      "id": 8649
+    },
+    {
+      "name": "Textiles - 1121 Senior Fashion Studio 24/7-Automated",
+      "id": 8650
+    },
+    {
+      "name": "Textiles - 1115 Fashion Studio 24/7-Automated",
+      "id": 8651
+    },
+    {
+      "name": "SS1-Lock Shop Staff-DEPT",
+      "id": 8503
+    },
+    {
+      "name": "EB2-CSC Faculty/Staff-DEPT",
+      "id": 8157
+    },
+    {
+      "name": "NIN-1911 Building All Doors & Elevator 24/7-DEPT",
+      "id": 7919
+    },
+    {
+      "name": "NIN-1911 Building Exterior Doors Only-DEPT",
+      "id": 7920
+    },
+    {
+      "name": "HH-01-108-UH Computer Classroom-DEPT",
+      "id": 7921
+    },
+    {
+      "name": "HH-01-E100-UH Main Entry-DEPT",
+      "id": 7922
+    },
+    {
+      "name": "FMM-Hillsborough Staff/Instructors-DEPT",
+      "id": 7923
+    },
+    {
+      "name": "FMM-01-100-Main Entry Hillsborough-DEPT",
+      "id": 7924
+    },
+    {
+      "name": "AS1-PS Purchasing Doors 24hrs-DEPT",
+      "id": 7925
+    },
+    {
+      "name": "AS1-01-1219-Purchasing Back Door-DEPT",
+      "id": 7926
+    },
+    {
+      "name": "AS1-All Dining Doors-DEPT",
+      "id": 7927
+    },
+    {
+      "name": "AS1-01-E1138-Loading Dock Door-DEPT",
+      "id": 7928
+    },
+    {
+      "name": "EC-Atrium Front Entrances-DEPT",
+      "id": 7937
+    },
+    {
+      "name": "AFH-103 Warehouse Doors 24/7-DEPT",
+      "id": 7940
+    },
+    {
+      "name": "AFH-01-101-File Room ComTech Warehouse-DEPT",
+      "id": 7943
+    },
+    {
+      "name": "DHL-G142 1/2 SC Staff Side Entrance Mon thru Fri 7:30am to 5:30pm-DEPT",
+      "id": 8107
+    },
+    {
+      "name": "DHL-G143 South Hallway Mon thru Fri 6:30am to 5:30pm-DEPT",
+      "id": 8108
+    },
+    {
+      "name": "EB2-03-3014-ECE West Corridor-DEPT",
+      "id": 8164
+    },
+    {
+      "name": "EB2-B-B005-ECE Teaching Lab-DEPT",
+      "id": 8167
+    },
+    {
+      "name": "EB3-01-1208-MAE High Pressure Lab-DEPT",
+      "id": 8230
+    },
+    {
+      "name": "EB3-01-1213-MAE Lab-DEPT",
+      "id": 8231
+    },
+    {
+      "name": "EB3-01-1216-MAE Lab-DEPT",
+      "id": 8232
+    },
+    {
+      "name": "EB3-MAE 2003A/B Student Access-DEPT",
+      "id": 8237
+    },
+    {
+      "name": "EB3-02-2142-MAE Industrial Assessment Center-DEPT",
+      "id": 8238
+    },
+    {
+      "name": "EB3-03-3141-MAE Computational MultiPhysics Lab-DEPT",
+      "id": 8242
+    },
+    {
+      "name": "EB3-03-3171-MAE VibroAcoustic Systems and Controls Lab-DEPT",
+      "id": 8243
+    },
+    {
+      "name": "EB3-03-3172-MAE Accoustics and Ultrasonics Lab-DEPT",
+      "id": 8244
+    },
+    {
+      "name": "HSKP Zone A5-REG",
+      "id": 8292
+    },
+    {
+      "name": "HSKP Zone A8-REG",
+      "id": 8295
+    },
+    {
+      "name": "PW1-01-130C-West Deck Evidence Room 24/7-HS",
+      "id": 8427
+    },
+    {
+      "name": "PPL-01-ED1201-Main Entry 24/7-DEPT",
+      "id": 8428
+    },
+    {
+      "name": "RI-G-23A-Server Room ( SAS ) 24 / 7-DEPT",
+      "id": 8429
+    },
+    {
+      "name": "RI-Annex CHASS Exterior Doors-DEPT",
+      "id": 8433
+    },
+    {
+      "name": "TPS-Craft Center Temp-DEPT",
+      "id": 8628
+    },
+    {
+      "name": "AFH-EAS Suite 205 All Doors 24hrs-DEPT",
+      "id": 7948
+    },
+    {
+      "name": "AFH-Exterior Doors 24/7-DEPT",
+      "id": 7949
+    },
+    {
+      "name": "AFH-Exterior Doors 6 am 5:30 pm M/F-DEPT",
+      "id": 7950
+    },
+    {
+      "name": "AFH-NOC Suite 229 24/7-DEPT",
+      "id": 7951
+    },
+    {
+      "name": "AFH-NOC Suite Only 7:30am 5:30pm M/F-DEPT",
+      "id": 7952
+    },
+    {
+      "name": "AFH-01-115-Physical Layer Lab-DEPT",
+      "id": 7957
+    },
+    {
+      "name": "BI-All Exterior Doors 24hrs-DEPT",
+      "id": 7958
+    },
+    {
+      "name": "BRC-Level 3 Users M to F 7am to 5pm-DEPT",
+      "id": 7961
+    },
+    {
+      "name": "BRC-Level 7 Insectary Users-DEPT",
+      "id": 7963
+    },
+    {
+      "name": "BRC-Level 9 All Doors-DEPT",
+      "id": 7964
+    },
+    {
+      "name": "BTEC-01-155B-Clean Room-DHS",
+      "id": 7965
+    },
+    {
+      "name": "BTEC-Admin Access-DEPT",
+      "id": 7966
+    },
+    {
+      "name": "BTEC-02-263B-Clean Room-DHS",
+      "id": 7967
+    },
+    {
+      "name": "BTEC-Common Door Access-DEPT",
+      "id": 7968
+    },
+    {
+      "name": "BTEC-01-137-Large Scale Suite-DEPT",
+      "id": 7969
+    },
+    {
+      "name": "BTEC-02-226-Aseptic Entry-DHS",
+      "id": 7970
+    },
+    {
+      "name": "BTEC-02-240B-Equipment Passthru-DHS",
+      "id": 7971
+    },
+    {
+      "name": "COE-BU-Burlington Labratories-HS",
+      "id": 7974
+    },
+    {
+      "name": "BU-01-1212-Change Room 24/7-DEPT",
+      "id": 7975
+    },
+    {
+      "name": "HSKP Zone A3N-REG",
+      "id": 8289
+    },
+    {
+      "name": "MRC-ECE 401/A, 446, 454, 454D-DEPT",
+      "id": 8360
+    },
+    {
+      "name": "SAS-04-4213-Computer Lab 24/7-DEPT",
+      "id": 8444
+    },
+    {
+      "name": "WR2-UH Plaza Undergrad Fall/Spring-DEPT",
+      "id": 8703
+    },
+    {
+      "name": "TSU-University Theatre Students-DEPT",
+      "id": 8686
+    },
+    {
+      "name": "DCL-Exterior and General Labs-DEPT",
+      "id": 8088
+    }
+  ],
+  "unity_id": "ewmoore",
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64d63ba87a787f4428248866"
+  },
+  "campus_id": "001132020",
+  "email": "rcallim@ncsu.edu",
+  "clearances": [
+    {
+      "name": "GLOBAL ALL DOORS",
+      "id": 8276
+    },
+    {
+      "name": "POE-OIT MDF Server Room-DEPT",
+      "id": 8387
+    },
+    {
+      "name": "RD-Daniels Riehn Corridor-DEPT",
+      "id": 8437
+    },
+    {
+      "name": "WR-UH Oval Dining-DEPT",
+      "id": 8593
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64d63ec57a787f4428248870"
+  },
+  "campus_id": "000100647",
+  "email": "gwlucier@ncsu.edu",
+  "clearances": [],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64d63f6c7a787f4428248874"
+  },
+  "campus_id": "000118652",
+  "email": "jcmcenti@ncsu.edu",
+  "clearances": [],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64d6409a7a787f4428248878"
+  },
+  "campus_id": "000005510",
+  "email": "asdeaton@ncsu.edu",
+  "clearances": [
+    {
+      "name": "GLOBAL ALL DOORS",
+      "id": 8276
+    },
+    {
+      "name": "POE-OIT MDF Server Room-DEPT",
+      "id": 8387
+    },
+    {
+      "name": "RD-Daniels Riehn Corridor-DEPT",
+      "id": 8437
+    },
+    {
+      "name": "WR-UH Oval Dining-DEPT",
+      "id": 8593
+    },
+    {
+      "id": 7921,
+      "name": "HH-01-108-UH Computer Classroom-DEPT"
+    },
+    {
+      "id": 7943,
+      "name": "AFH-01-101-File Room ComTech Warehouse-DEPT"
+    },
+    {
+      "id": 7945,
+      "name": "AFH-ComTech Suite 218 24/7-DEPT"
+    },
+    {
+      "id": 7946,
+      "name": "AFH-ComTech Suite Only 7:30am 5:30pm-DEPT"
+    },
+    {
+      "id": 7968,
+      "name": "BTEC-Common Door Access-DEPT"
+    },
+    {
+      "id": 7981,
+      "name": "CG-Gym Complex All Doors-DEPT"
+    },
+    {
+      "id": 8049,
+      "name": "ComTech - MDF - Talley 1113"
+    },
+    {
+      "id": 8052,
+      "name": "Comtech-PT1-01-1450 CMDF 24hrs-DEPT"
+    },
+    {
+      "id": 8056,
+      "name": "ComTech ALL Campus MDF Rooms-REG"
+    },
+    {
+      "id": 8083,
+      "name": "DAB-01-120A-Computer Lab-DEPT"
+    },
+    {
+      "id": 8091,
+      "name": "DHL-1214D Computer Storage Closet 24hrs-DEPT"
+    },
+    {
+      "id": 8092,
+      "name": "DHL-1214D Computer Storage Closet 7am to 12pm-DEPT"
+    },
+    {
+      "id": 8122,
+      "name": "BUR-Dosemeter 24/7 Common Clearance-DEPT"
+    },
+    {
+      "id": 8138,
+      "name": "EB2-01-1203A-CSC Computer Lab-DEPT"
+    },
+    {
+      "id": 8145,
+      "name": "EB2-02-2237-CSC Semantic Computing Research Lab-DEPT"
+    },
+    {
+      "id": 8146,
+      "name": "EB2-Secure Computing Institute-DEPT"
+    },
+    {
+      "id": 8148,
+      "name": "EB2-02-2244-CSC Spatio Temporal Analytics and Computing Lab-DEPT"
+    },
+    {
+      "id": 8198,
+      "name": "EB3-04-4101-BME Computer Classroom-DEPT"
+    },
+    {
+      "id": 8225,
+      "name": "EB3-01-1008-MAE Smart Composite Lab-DEPT"
+    },
+    {
+      "id": 8242,
+      "name": "EB3-03-3141-MAE Computational MultiPhysics Lab-DEPT"
+    },
+    {
+      "id": 8246,
+      "name": "EB3-03-3211-MAE Computational Fluid Dynamics Lab A-DEPT"
+    },
+    {
+      "id": 8247,
+      "name": "EB3-03-3213-MAE Comp. Fluid Dynamics B/Hypersonic Lab-DEPT"
+    },
+    {
+      "id": 8248,
+      "name": "EB3-03-3217-MAE Computational Energy Sciences Lab/ Comp-DEPT"
+    },
+    {
+      "id": 8249,
+      "name": "EB3-03-3251-MAE Comp. and Exp. Materials and Structures-DEPT"
+    },
+    {
+      "id": 8250,
+      "name": "EB3-03-3267-MAE Comp Mech Simulation & System Design Op-DEPT"
+    },
+    {
+      "id": 8285,
+      "name": "HL1-COMM Downstairs Doors-DEPT"
+    },
+    {
+      "id": 8308,
+      "name": "Library - Faculty Commons"
+    },
+    {
+      "id": 8310,
+      "name": "JHL-02-2112- IEI Commons Server Room-DEPT"
+    },
+    {
+      "id": 8345,
+      "name": "Library - Grad Commons"
+    },
+    {
+      "id": 8381,
+      "name": "N-Students & Guests Common Doors-DEPT"
+    },
+    {
+      "id": 8385,
+      "name": "OIT - Hillsborough - Computer Room M-F 7am-6pm"
+    },
+    {
+      "id": 8444,
+      "name": "SAS-04-4213-Computer Lab 24/7-DEPT"
+    },
+    {
+      "id": 8452,
+      "name": "SAS-05-5285-Computer Lab 24/7-DEPT"
+    },
+    {
+      "id": 8461,
+      "name": "SAS-02-2103-Mathematics Computer Lab-DEPT"
+    },
+    {
+      "id": 8470,
+      "name": "SAS-4104A/B Commons-DEPT"
+    },
+    {
+      "id": 8500,
+      "name": "SS1-01-A111B-Common Doors-DEPT"
+    },
+    {
+      "id": 8642,
+      "name": "LMP-02-255-Computer Lab-DEPT"
+    },
+    {
+      "id": 8644,
+      "name": "LMP-02-200-Computer Lab-DEPT"
+    },
+    {
+      "id": 8645,
+      "name": "LMP-02-201A-Computer Lab-DEPT"
+    },
+    {
+      "id": 8691,
+      "name": "SC-Common Doors-DEPT"
+    },
+    {
+      "id": 8860,
+      "name": "ComTech Greek Houses-REG"
+    },
+    {
+      "id": 8868,
+      "name": "RE3-1st Floor Common Exterior Doors-DEPT"
+    },
+    {
+      "id": 8902,
+      "name": "ComTech Housing OIT-REG"
+    },
+    {
+      "id": 8949,
+      "name": "MRC-03-331-ECE PSRC Computer Laboratory-DEPT"
+    },
+    {
+      "id": 8972,
+      "name": "SFS-02-218-Office Complex-DEPT"
+    },
+    {
+      "id": 8973,
+      "name": "SFS-02-236-Office Complex-DEPT"
+    },
+    {
+      "id": 8974,
+      "name": "SFS-03-322-Office Complex-DEPT"
+    },
+    {
+      "id": 8975,
+      "name": "SFS-03-339-Office Complex-DEPT"
+    },
+    {
+      "id": 9065,
+      "name": "N-02-2150-COM Suite Entrance-DEPT"
+    },
+    {
+      "id": 9092,
+      "name": "EB2-03-3034-ECE Computational Lab-DEPT"
+    },
+    {
+      "id": 9096,
+      "name": "VRB-Module 6 & 7 All Common Doors-DEPT"
+    },
+    {
+      "id": 9139,
+      "name": "N-COM Dean's Office Entry-DEPT"
+    },
+    {
+      "id": 9277,
+      "name": "N-02-2100-COM Dean's Suite Entrance-DEPT"
+    },
+    {
+      "id": 9278,
+      "name": "SFS-03-325-Office Complex-DEPT"
+    },
+    {
+      "id": 9279,
+      "name": "SFS-03-330-Office Complex-DEPT"
+    },
+    {
+      "id": 9289,
+      "name": "SFS-02-221-Office Complex-DEPT"
+    },
+    {
+      "id": 9297,
+      "name": "SFS-02-204-Office Complex-DEPT"
+    },
+    {
+      "id": 9298,
+      "name": "SFS-02-206-Office Complex-DEPT"
+    },
+    {
+      "id": 9348,
+      "name": "BOS-04-4704-Computer Lab-DEPT"
+    },
+    {
+      "id": 9508,
+      "name": "FWH-Most Doors except ComTech-DEPT"
+    },
+    {
+      "id": 9643,
+      "name": "FWH-CCEE 1320/1322 Struct Composites-DEPT"
+    },
+    {
+      "id": 9941,
+      "name": "FWH-Computer/Short Courses-DEPT"
+    },
+    {
+      "id": 10043,
+      "name": "FWH-Comp Software Teach Lab-DEPT"
+    },
+    {
+      "id": 10105,
+      "name": "SAS-Math Commons 24hrs-DEPT"
+    },
+    {
+      "id": 10140,
+      "name": "TSU-Campus Community Centers Staff-DEPT"
+    },
+    {
+      "id": 10165,
+      "name": "FWH-IDF Rooms ComTech-DEPT"
+    },
+    {
+      "id": 10196,
+      "name": "RD-03-319A-PY COMMONS-DEPT"
+    },
+    {
+      "id": 10205,
+      "name": "Vendor Door Test Clearance - A3 Communications"
+    },
+    {
+      "id": 10213,
+      "name": "CALS-PLS-PSI Administrative Community List-Automated"
+    },
+    {
+      "id": 10214,
+      "name": "CALS-PLS-PSI IT Master Community List-Automated"
+    },
+    {
+      "id": 10221,
+      "name": "CALS-PLS-PSI Jean Ristaino Lab Community List-Automated"
+    },
+    {
+      "id": 10222,
+      "name": "CALS-PLS-PSI Lina Quesada Lab Community List-Automated"
+    },
+    {
+      "id": 10223,
+      "name": "CALS-PLS-PSI CEFS Communtiy List-Automated"
+    },
+    {
+      "id": 10224,
+      "name": "CALS-PLS-PSI Phytotron Lab Community Group List-Automated"
+    },
+    {
+      "id": 10225,
+      "name": "CALS-PLS-PSI USDA Master Community Group List-Automated"
+    },
+    {
+      "id": 10226,
+      "name": "CALS-PLS-PSI Qingshan Wei Lab Community List-Automated"
+    },
+    {
+      "id": 10227,
+      "name": "CALS-PLS-PSI OSL Lab Community List-Automated"
+    },
+    {
+      "id": 10231,
+      "name": "CALS-PLS-PSI CMIF Lab Community List-Automated"
+    },
+    {
+      "id": 10232,
+      "name": "CALS-PLS-PSI Chris Reberg-Horton Lab Community-Automated"
+    },
+    {
+      "id": 10234,
+      "name": "CALS-PLS-PSI METRIC Lab Community List-Automated"
+    },
+    {
+      "id": 10348,
+      "name": "CALS-PLS-PSI Alex Woodley Lab Community List"
+    },
+    {
+      "id": 8897,
+      "name": "VRB-Module 2 Exteriors-DEPT"
+    },
+    {
+      "id": 9069,
+      "name": "VRB-SAT All Doors MOD1-DEPT"
+    },
+    {
+      "id": 9073,
+      "name": "VRB SAT Perimeter Entry MOD1-REG"
+    },
+    {
+      "id": 9112,
+      "name": "VRB SAT Module 1 Contractor Access-REG"
+    },
+    {
+      "id": 9116,
+      "name": "VRB-01-1543-Module 6 Lab-DEPT"
+    },
+    {
+      "id": 9129,
+      "name": "VRB-Module 2 Turf Labs-DEPT"
+    },
+    {
+      "id": 9132,
+      "name": "VRB-Module 6 & 7 Students/Staff-DEPT"
+    },
+    {
+      "id": 9133,
+      "name": "VRB-Module 7 Lab-DEPT"
+    },
+    {
+      "id": 9221,
+      "name": "VRB-01-1118-Module 3 Lab-DEPT"
+    },
+    {
+      "id": 9312,
+      "name": "VRB-01-1002-Module 2 Student Suite-DEPT"
+    },
+    {
+      "id": 9356,
+      "name": "VRB-SAT Module 1 Exterior 24hrs-DEPT"
+    },
+    {
+      "id": 9497,
+      "name": "VRB - HS - Test"
+    },
+    {
+      "id": 9839,
+      "name": "VRB-B-B106-Module 1 IT Manager-DEPT"
+    },
+    {
+      "id": 9846,
+      "name": "VRB-01-1003-Module 3 Wet Lab-DEPT"
+    },
+    {
+      "id": 9849,
+      "name": "VRB-01-1007-Module 2 Wet Lab-DEPT"
+    },
+    {
+      "id": 10183,
+      "name": "VRB-Module 6 & 7 DEPP Wing-DEPT"
+    },
+    {
+      "id": 10191,
+      "name": "VRB-B-B112-Module 1 Office-DEPT"
+    },
+    {
+      "id": 10211,
+      "name": "VRB-SAT Perimeter Entry Scheduled MOD1-DEPT"
+    },
+    {
+      "id": 10217,
+      "name": "VRB-COS Exterior Doors MOD 8,9,10-DEPT"
+    },
+    {
+      "id": 10240,
+      "name": "VRB-B-B140-Module 1 Software Developer-DEPT"
+    },
+    {
+      "id": 10259,
+      "name": "VRB-B-B104-Module 1 IT Specialist-DEPT"
+    },
+    {
+      "id": 10322,
+      "name": "VRB-SAT-Module 1 B103C IT Operations Tech"
+    },
+    {
+      "id": 10323,
+      "name": "VRB-SAT-Module 1 IT Student Worker"
+    },
+    {
+      "id": 10357,
+      "name": "VRB-Test Clearance 2"
+    },
+    {
+      "id": 10356,
+      "name": "VRB-Test Clearance 1"
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64d64c977a787f44282488a3"
+  },
+  "campus_id": "000005602",
+  "email": "sgdunnin@ncsu.edu",
+  "clearances": [
+    {
+      "name": "VET-02-EF257-CVM Fsection Necropsy 2nd-DEPT",
+      "id": 8544
+    },
+    {
+      "name": "OWN-UH Owen Fall/Spring-DEPT",
+      "id": 8733
+    },
+    {
+      "name": "SUL-UH Sullivan Fall/Spring-DEPT",
+      "id": 8734
+    },
+    {
+      "name": "CRP-All Doors 24hrs-DEPT",
+      "id": 8530
+    },
+    {
+      "name": "SAS-05-5108-Dept of Statistics-DEPT",
+      "id": 8449
+    },
+    {
+      "name": "Magnolia - Main Entrance",
+      "id": 8349
+    },
+    {
+      "name": "Library - Faculty Commons",
+      "id": 8308
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64d64f567a787f44282488af"
+  },
+  "campus_id": "000011165",
+  "email": "brcody@ncsu.edu",
+  "clearances": [
+    {
+      "name": "EB2-CSC 2231 A&B Knowledge Discovery-DEPT",
+      "id": 8143
+    },
+    {
+      "name": "EB2-Secure Computing Institute-DEPT",
+      "id": 8146
+    },
+    {
+      "name": "CRP-All Doors 24hrs-DEPT",
+      "id": 8530
+    },
+    {
+      "name": "CRP-NA-NA-Gate-DEPT",
+      "id": 8532
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64d66c3d7a787f442824893f"
+  },
+  "campus_id": "001120256",
+  "email": "jagrego2@ncsu.edu",
+  "clearances": [
+    {
+      "name": "NIN-1911 Building All Doors & Elevator 24/7-DEPT",
+      "id": 7919
+    },
+    {
+      "name": "NIN-1911 Building Exterior Doors Only-DEPT",
+      "id": 7920
+    },
+    {
+      "name": "HH-01-108-UH Computer Classroom-DEPT",
+      "id": 7921
+    },
+    {
+      "name": "HH-01-E100-UH Main Entry-DEPT",
+      "id": 7922
+    },
+    {
+      "name": "FMM-Hillsborough Staff/Instructors-DEPT",
+      "id": 7923
+    },
+    {
+      "name": "FMM-01-100-Main Entry Hillsborough-DEPT",
+      "id": 7924
+    },
+    {
+      "name": "AS1-PS Purchasing Doors 24hrs-DEPT",
+      "id": 7925
+    },
+    {
+      "name": "AS1-01-1219-Purchasing Back Door-DEPT",
+      "id": 7926
+    },
+    {
+      "name": "AS1-All Dining Doors-DEPT",
+      "id": 7927
+    },
+    {
+      "name": "AS1-01-E1138-Loading Dock Door-DEPT",
+      "id": 7928
+    },
+    {
+      "name": "EC-Atrium Front Entrances-DEPT",
+      "id": 7937
+    },
+    {
+      "name": "AFH-103 Warehouse Doors 24/7-DEPT",
+      "id": 7940
+    },
+    {
+      "name": "AFH-01-101-File Room ComTech Warehouse-DEPT",
+      "id": 7943
+    },
+    {
+      "name": "DHL-G142 1/2 SC Staff Side Entrance Mon thru Fri 7:30am to 5:30pm-DEPT",
+      "id": 8107
+    },
+    {
+      "name": "DHL-G143 South Hallway Mon thru Fri 6:30am to 5:30pm-DEPT",
+      "id": 8108
+    },
+    {
+      "name": "EB2-03-3014-ECE West Corridor-DEPT",
+      "id": 8164
+    },
+    {
+      "name": "EB2-B-B005-ECE Teaching Lab-DEPT",
+      "id": 8167
+    },
+    {
+      "name": "EB3-01-1208-MAE High Pressure Lab-DEPT",
+      "id": 8230
+    },
+    {
+      "name": "EB3-01-1213-MAE Lab-DEPT",
+      "id": 8231
+    },
+    {
+      "name": "EB3-01-1216-MAE Lab-DEPT",
+      "id": 8232
+    },
+    {
+      "name": "EB3-MAE 2003A/B Student Access-DEPT",
+      "id": 8237
+    },
+    {
+      "name": "EB3-02-2142-MAE Industrial Assessment Center-DEPT",
+      "id": 8238
+    },
+    {
+      "name": "EB3-03-3141-MAE Computational MultiPhysics Lab-DEPT",
+      "id": 8242
+    },
+    {
+      "name": "EB3-03-3171-MAE VibroAcoustic Systems and Controls Lab-DEPT",
+      "id": 8243
+    },
+    {
+      "name": "EB3-03-3172-MAE Accoustics and Ultrasonics Lab-DEPT",
+      "id": 8244
+    },
+    {
+      "name": "HSKP Zone A5-REG",
+      "id": 8292
+    },
+    {
+      "name": "HSKP Zone A8-REG",
+      "id": 8295
+    },
+    {
+      "name": "PW1-01-130C-West Deck Evidence Room 24/7-HS",
+      "id": 8427
+    },
+    {
+      "name": "PPL-01-ED1201-Main Entry 24/7-DEPT",
+      "id": 8428
+    },
+    {
+      "name": "RI-G-23A-Server Room ( SAS ) 24 / 7-DEPT",
+      "id": 8429
+    },
+    {
+      "name": "TPS-Craft Center Temp-DEPT",
+      "id": 8628
+    },
+    {
+      "name": "EB3-03-3251-MAE Comp. and Exp. Materials and Structures-DEPT",
+      "id": 8249
+    },
+    {
+      "name": "EB3-03-3309-MAE Movement Biomechanics Lab-DEPT",
+      "id": 8254
+    },
+    {
+      "name": "EB3-03-3418-MAE Micro/Nano Engineering Lab-DEPT",
+      "id": 8262
+    },
+    {
+      "name": "EHS-01-1200-Warehouse Entry-HS",
+      "id": 8265
+    },
+    {
+      "name": "HSKP Zone H6-REG",
+      "id": 8302
+    },
+    {
+      "name": "JHL-IEI Staff-DEPT",
+      "id": 8311
+    },
+    {
+      "name": "PS-All DELTA Doors-DEPT",
+      "id": 8388
+    },
+    {
+      "name": "PK-05-50-NMR Laboratory 24/7-DEPT",
+      "id": 8415
+    },
+    {
+      "name": "RI / RHA DELTA Access-DEPT",
+      "id": 8432
+    },
+    {
+      "name": "WV-UH RA Fall/Spring-DEPT",
+      "id": 8707
+    },
+    {
+      "name": "GRM-Gregg Museum Staff-DEPT",
+      "id": 8828
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64d672bd7a787f4428248945"
+  },
+  "campus_id": "000319928",
+  "email": "mswoodya@ncsu.edu",
+  "clearances": [],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64de7c9f82e11799c79df846"
+  },
+  "campus_id": "001113513",
+  "email": "rwwatso2@ncsu.edu",
+  "clearances": [
+    {
+      "name": "EB2-01-1008-ECE West Lab-DEPT",
+      "id": 8172
+    },
+    {
+      "name": "Hunt - Turnstiles",
+      "id": 8330
+    },
+    {
+      "name": "JOR-02-2115A-Active Learn Class-DEPT",
+      "id": 8331
+    },
+    {
+      "name": "SAS-02-2209-Mathematics IT-DEPT",
+      "id": 8465
+    },
+    {
+      "name": "VET-02-EB200-CVM HWC Exotics Rear Door-DEPT",
+      "id": 8571
+    },
+    {
+      "name": "DELTA Temp Access-REG",
+      "id": 8608
+    },
+    {
+      "name": "WBS-All Doors 24hrs-DEPT",
+      "id": 8816
+    },
+    {
+      "name": "DHL-1214D Computer Storage Closet 7am to 12pm-DEPT",
+      "id": 8092
+    },
+    {
+      "name": "EB2-01-1229B-CSC Conference Room-DEPT",
+      "id": 8141
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64e4bea682e11799c79dfb9e"
+  },
+  "campus_id": "001133332",
+  "email": "breynol6@ncsu.edu",
+  "clearances": [],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64e9146eadb2c42eb1d8533e"
+  },
+  "campus_id": "000960827",
+  "email": "dcmarti2@ncsu.edu",
+  "clearances": [
+    {
+      "name": "EB1-03-3058-MSE Lab-DEPT",
+      "id": 8136
+    },
+    {
+      "name": "JVC-All Doors 24/7-DEPT",
+      "id": 8338
+    },
+    {
+      "name": "SS3-01-E1103-Grounds Admin-DEPT",
+      "id": 8498
+    },
+    {
+      "name": "SS3-01-1500/1300C-WRR & Employee Entry-DEPT",
+      "id": 8499
+    },
+    {
+      "name": "SS1-01-A111B-Common Doors-DEPT",
+      "id": 8500
+    },
+    {
+      "name": "SS1-01-A101A-Main Entry-DEPT",
+      "id": 8501
+    },
+    {
+      "name": "SS1-01-A111B-Back Door-DEPT",
+      "id": 8502
+    },
+    {
+      "name": "SS1-Lock Shop Staff-DEPT",
+      "id": 8503
+    },
+    {
+      "name": "TSU-Talley Catering-DEPT",
+      "id": 8509
+    },
+    {
+      "name": "TPS-Theatre Design Room-DEPT",
+      "id": 8649
+    },
+    {
+      "name": "Textiles - 1121 Senior Fashion Studio 24/7-Automated",
+      "id": 8650
+    },
+    {
+      "name": "Textiles - 1115 Fashion Studio 24/7-Automated",
+      "id": 8651
+    },
+    {
+      "name": "SAS-All Doors-DEPT",
+      "id": 8471
+    },
+    {
+      "name": "ASX-Satellite Shelving 24hrs with Security-DEPT",
+      "id": 8472
+    },
+    {
+      "name": "ASX-Satellite Shelving Mon thru Sun 6am to 10pm-DEPT",
+      "id": 8473
+    },
+    {
+      "name": "HSKP Zone AS1-REG",
+      "id": 8656
+    },
+    {
+      "name": "TSU-04-4221-CE Copy and Supply Room-DEPT",
+      "id": 8687
+    },
+    {
+      "name": "DHL-Digital Scholar/Conf/IT Doors-DEPT",
+      "id": 8688
+    },
+    {
+      "name": "VTP-Power America Access 24hrs-DEPT",
+      "id": 8689
+    },
+    {
+      "name": "VTP-Power America Cleaners 6pm to 12am-DEPT",
+      "id": 8690
+    },
+    {
+      "name": "SC-Common Doors-DEPT",
+      "id": 8691
+    },
+    {
+      "name": "RE3-State Climate Suite-DEPT",
+      "id": 8692
+    },
+    {
+      "name": "WDB-01-113-Campus Enterprises Office-DEPT",
+      "id": 8693
+    },
+    {
+      "name": "Vendor Door Test Clearance - Signet",
+      "id": 8694
+    },
+    {
+      "name": "RE2-Suite 100 Counseling Center-DEPT",
+      "id": 8695
+    },
+    {
+      "name": "TSU-05-5130A-Facilities Operations-DEPT",
+      "id": 8696
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64ec9de2adb2c42eb1d85441"
+  },
+  "campus_id": "001136724",
+  "email": "mdwarsha@ncsu.edu",
+  "clearances": [
+    {
+      "name": "TSU-Dining Building Manager-DEPT",
+      "id": 8511
+    }
+  ],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "64ef8885adb2c42eb1d8582a"
+  },
+  "campus_id": "001136746",
+  "email": "lgsanche@ncsu.edu",
+  "clearances": [
+    {
+      "id": 9069,
+      "name": "VRB-SAT All Doors MOD1-DEPT"
+    },
+    {
+      "id": 9073,
+      "name": "VRB SAT Perimeter Entry MOD1-REG"
+    },
+    {
+      "id": 9112,
+      "name": "VRB SAT Module 1 Contractor Access-REG"
+    },
+    {
+      "id": 9356,
+      "name": "VRB-SAT Module 1 Exterior 24hrs-DEPT"
+    },
+    {
+      "id": 9839,
+      "name": "VRB-B-B106-Module 1 IT Manager-DEPT"
+    },
+    {
+      "id": 10191,
+      "name": "VRB-B-B112-Module 1 Office-DEPT"
+    },
+    {
+      "id": 10211,
+      "name": "VRB-SAT Perimeter Entry Scheduled MOD1-DEPT"
+    },
+    {
+      "id": 10240,
+      "name": "VRB-B-B140-Module 1 Software Developer-DEPT"
+    },
+    {
+      "id": 10259,
+      "name": "VRB-B-B104-Module 1 IT Specialist-DEPT"
+    },
+    {
+      "id": 10322,
+      "name": "VRB-SAT-Module 1 B103C IT Operations Tech"
+    },
+    {
+      "id": 9497,
+      "name": "VRB - HS - Test"
+    }
+  ],
+  "last_acknowledged": {
+    "$date": "2024-02-16T18:22:06.458Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "650b0a4dad4991fe748e5ff6"
+  },
+  "campus_id": "200306616",
+  "email": "eswood3@ncsu.edu",
+  "clearances": [],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "650b0ac4ad4991fe748e5ffa"
+  },
+  "campus_id": "200292884",
+  "email": "khwood@ncsu.edu",
+  "clearances": [],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "650b0aecad4991fe748e5ffe"
+  },
+  "campus_id": "200331202",
+  "email": "kmwood8@ncsu.edu",
+  "clearances": [],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "650b0b93ad4991fe748e6002"
+  },
+  "campus_id": "200235786",
+  "email": "hlwood@ncsu.edu",
+  "clearances": [],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "650b0d56ad4991fe748e6006"
+  },
+  "campus_id": "200296319",
+  "email": "sjwood4@ncsu.edu",
+  "clearances": [],
+  "last_acknowledged": null
+},
+{
+  "_id": {
+    "$oid": "6517290493c591c5c4025cac"
+  },
+  "campus_id": "200304865",
+  "email": "awood7@ncsu.edu",
+  "clearances": [
+    {
+      "id": 9497,
+      "name": "VRB - HS - Test"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6517296993c591c5c4025cb0"
+  },
+  "campus_id": "001114574",
+  "email": "dlwood2@ncsu.edu",
+  "clearances": [
+    {
+      "id": 9497,
+      "name": "VRB - HS - Test"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "651ae1a38ed7e8caccd7cab4"
+  },
+  "email": "rsmcintu@ncsu.edu",
+  "campus_id": "",
+  "clearances": [],
+  "last_acknowledged": {
+    "$date": "2023-10-02T15:29:59.250Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "651b2e9c93c591c5c4025cf4"
+  },
+  "campus_id": "000010024",
+  "email": "lisa_johnson@ncsu.edu",
+  "clearances": []
+},
+{
+  "_id": {
+    "$oid": "651ed6cee3efbccae808fdd2"
+  },
+  "campus_id": "000300985",
+  "email": "lisa_parks@ncsu.edu",
+  "clearances": []
+},
+{
+  "_id": {
+    "$oid": "65452c2022a1735169a38093"
+  },
+  "campus_id": "000323966",
+  "email": "lgscript@ncsu.edu",
+  "clearances": [
+    {
+      "id": 9497,
+      "name": "VRB - HS - Test"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "654aa41922a1735169a38122"
+  },
+  "campus_id": "001132808",
+  "email": "lmena@ncsu.edu",
+  "clearances": [
+    {
+      "id": 10354,
+      "name": "ClearanceB"
+    },
+    {
+      "id": 10355,
+      "name": "ClearanceC"
+    },
+    {
+      "id": 8897,
+      "name": "VRB-Module 2 Exteriors-DEPT"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "656a0cb709210d1c90dda2d3"
+  },
+  "campus_id": "200387797",
+  "email": "jean.wilson.stayton@gmail.com",
+  "clearances": [
+    {
+      "id": 9497,
+      "name": "VRB - HS - Test"
+    },
+    {
+      "id": 10356,
+      "name": "VRB-Test Clearance 1"
+    },
+    {
+      "id": 10357,
+      "name": "VRB-Test Clearance 2"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65a01ef7410bf469bc271cec"
+  },
+  "campus_id": "000003882",
+  "email": "natalie@ncsu.edu",
+  "clearances": [
+    {
+      "id": 8897,
+      "name": "VRB-Module 2 Exteriors-DEPT"
+    },
+    {
+      "id": 8059,
+      "name": "COX-02-205-DELTA Testing Entry-DEPT"
+    },
+    {
+      "id": 9069,
+      "name": "VRB-SAT All Doors MOD1-DEPT"
+    },
+    {
+      "id": 9073,
+      "name": "VRB SAT Perimeter Entry MOD1-REG"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65c63ceeecb3636564a6b65b"
+  },
+  "campus_id": "00113280777",
+  "email": "rsemmle@ncsu.edu",
+  "clearances": []
+},
+{
+  "_id": {
+    "$oid": "65e78713de9ca7691bf55435"
+  },
+  "campus_id": "001038928",
+  "email": "jmgibso3@ncsu.edu",
+  "clearances": [
+    {
+      "id": 9069,
+      "name": "VRB-SAT All Doors MOD1-DEPT"
+    }
+  ],
+  "last_acknowledged": {
+    "$date": "2024-05-29T17:49:27.554Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "667b060c652d512c9a67d3a2"
+  },
+  "campus_id": "001079695",
+  "email": "ewvannew@ncsu.edu",
+  "clearances": [
+    {
+      "id": 9069,
+      "name": "VRB-SAT All Doors MOD1-DEPT"
+    },
+    {
+      "id": 9073,
+      "name": "VRB SAT Perimeter Entry MOD1-REG"
+    },
+    {
+      "id": 9112,
+      "name": "VRB SAT Module 1 Contractor Access-REG"
+    },
+    {
+      "id": 9133,
+      "name": "VRB-Module 7 Lab-DEPT"
+    },
+    {
+      "id": 9356,
+      "name": "VRB-SAT Module 1 Exterior 24hrs-DEPT"
+    },
+    {
+      "id": 9839,
+      "name": "VRB-B-B106-Module 1 IT Manager-DEPT"
+    },
+    {
+      "id": 10191,
+      "name": "VRB-B-B112-Module 1 Office-DEPT"
+    },
+    {
+      "id": 10211,
+      "name": "VRB-SAT Perimeter Entry Scheduled MOD1-DEPT"
+    },
+    {
+      "id": 10240,
+      "name": "VRB-B-B140-Module 1 Software Developer-DEPT"
+    },
+    {
+      "id": 10259,
+      "name": "VRB-B-B104-Module 1 IT Specialist-DEPT"
+    },
+    {
+      "id": 10322,
+      "name": "VRB-SAT-Module 1 B103C IT Operations Tech"
+    },
+    {
+      "id": 10323,
+      "name": "VRB-SAT-Module 1 IT Student Worker"
+    }
+  ],
+  "last_acknowledged": {
+    "$date": "2024-06-25T18:02:22.320Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66c64f10469d2409530729dd"
+  },
+  "campus_id": "001112199",
+  "email": "arjohn14@ncsu.edu",
+  "clearances": [
+    {
+      "id": 10353,
+      "name": "ClearanceAAA"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66c64f19469d2409530729e1"
+  },
+  "campus_id": "001104832",
+  "email": "",
+  "clearances": [
+    {
+      "id": 10353,
+      "name": "ClearanceAAA"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66c7414c469d240953072df8"
+  },
+  "campus_id": "000008058",
+  "email": "cornwell@ncsu.edu",
+  "clearances": []
+},
+{
+  "_id": {
+    "$oid": "66db44c0ac1418a464d0cc63"
+  },
+  "campus_id": "001132807",
+  "email": "rsemmle@ncsu.edu",
+  "clearances": []
+},
+{
+  "_id": {
+    "$oid": "66db66203b04eaa56d7c3efc"
+  },
+  "campus_id": "000308542",
+  "email": "david_goldsmith@ncsu.edu",
+  "clearances": [
+    {
+      "id": 7919,
+      "name": "NIN-1911 Building All Doors & Elevator 24/7-DEPT"
+    },
+    {
+      "id": 7920,
+      "name": "NIN-1911 Building Exterior Doors Only-DEPT"
+    },
+    {
+      "id": 7925,
+      "name": "AS1-PS Purchasing Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7926,
+      "name": "AS1-01-1219-Purchasing Back Door-DEPT"
+    },
+    {
+      "id": 7927,
+      "name": "AS1-All Dining Doors-DEPT"
+    },
+    {
+      "id": 7928,
+      "name": "AS1-01-E1138-Loading Dock Door-DEPT"
+    },
+    {
+      "id": 7929,
+      "name": "AS2-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7931,
+      "name": "AS3-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7935,
+      "name": "COE-All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7938,
+      "name": "EC-Atrium All Doors-DEPT"
+    },
+    {
+      "id": 7940,
+      "name": "AFH-103 Warehouse Doors 24/7-DEPT"
+    },
+    {
+      "id": 7941,
+      "name": "AFH-103 Warehouse Doors 6:30a 3:30p M/F-DEPT"
+    },
+    {
+      "id": 7942,
+      "name": "AFH-103 Warehouse Doors 7:30am 5:30pm M/F-DEPT"
+    },
+    {
+      "id": 7944,
+      "name": "AFH-Classtech Warehouse Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7948,
+      "name": "AFH-EAS Suite 205 All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7949,
+      "name": "AFH-Exterior Doors 24/7-DEPT"
+    },
+    {
+      "id": 7950,
+      "name": "AFH-Exterior Doors 6 am 5:30 pm M/F-DEPT"
+    },
+    {
+      "id": 7958,
+      "name": "BI-All Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7964,
+      "name": "BRC-Level 9 All Doors-DEPT"
+    },
+    {
+      "id": 7968,
+      "name": "BTEC-Common Door Access-DEPT"
+    },
+    {
+      "id": 7977,
+      "name": "BUT-All Doors-DEPT"
+    },
+    {
+      "id": 7981,
+      "name": "CG-Gym Complex All Doors-DEPT"
+    },
+    {
+      "id": 7984,
+      "name": "CG-Outdoor Basketball 24hrs-DEPT"
+    },
+    {
+      "id": 7988,
+      "name": "HRH-Cashiers Office All Doors-DEPT"
+    },
+    {
+      "id": 7995,
+      "name": "CJP-All Doors-DEPT"
+    },
+    {
+      "id": 8017,
+      "name": "UH Housing All Doors 24/7-REG"
+    },
+    {
+      "id": 8024,
+      "name": "G2A-FSL All Doors-DEPT"
+    },
+    {
+      "id": 8057,
+      "name": "COX/DAB All Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8063,
+      "name": "TAC-CVM All Doors EXCEPT 2450-DEPT"
+    },
+    {
+      "id": 8064,
+      "name": "TAC-CVM All Doors-DEPT"
+    },
+    {
+      "id": 8071,
+      "name": "TAC-CVM Exterior Doors BS-DEPT"
+    },
+    {
+      "id": 8076,
+      "name": "CVM-TAC PCJ Doors-DEPT"
+    },
+    {
+      "id": 8080,
+      "name": "TAC-02-CVM Pharmacy All Doors-HS"
+    },
+    {
+      "id": 8086,
+      "name": "LMP-Exterior Doors-DEPT"
+    },
+    {
+      "id": 8113,
+      "name": "DHL-02-EG208A-Loading Dock Rollup Door-DEPT"
+    },
+    {
+      "id": 8124,
+      "name": "CHB-Cherry Building All Doors The Science House-DEPT"
+    },
+    {
+      "id": 8127,
+      "name": "EB1-03-3034-MSE North Corridor North Door-DEPT"
+    },
+    {
+      "id": 8128,
+      "name": "EB1-CBE All Doors-DEPT"
+    },
+    {
+      "id": 8129,
+      "name": "EB1-All Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8130,
+      "name": "EB1-MSE All Doors-DEPT"
+    },
+    {
+      "id": 8137,
+      "name": "EB2-All Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8211,
+      "name": "EB3-BME All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8212,
+      "name": "EB3-CSC 2402 CASL Lab Doors-DEPT"
+    },
+    {
+      "id": 8214,
+      "name": "EB3-MAE All Lab Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8263,
+      "name": "ECE-All ECE Doors-DEPT"
+    },
+    {
+      "id": 8269,
+      "name": "FOX-All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8271,
+      "name": "FIW-All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8272,
+      "name": "FIW-All Doors Except Middle School-DEPT"
+    },
+    {
+      "id": 8273,
+      "name": "FIW-Exterior Doors-DEPT"
+    },
+    {
+      "id": 8274,
+      "name": "FIW-Middle School Doors 6am to 6pm-DEPT"
+    },
+    {
+      "id": 8276,
+      "name": "GLOBAL ALL DOORS"
+    },
+    {
+      "id": 8277,
+      "name": "HRH-All Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8278,
+      "name": "HRH-All Exterior Doors Mon thru Fri 6am to 8pm-DEPT"
+    },
+    {
+      "id": 8279,
+      "name": "HRH-RRO All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8280,
+      "name": "HRH-RRO All Doors Mon thru Fri 7:15am to 6pm-DEPT"
+    },
+    {
+      "id": 8285,
+      "name": "HL1-COMM Downstairs Doors-DEPT"
+    },
+    {
+      "id": 8286,
+      "name": "HOL-All Doors-DEPT"
+    },
+    {
+      "id": 8307,
+      "name": "JHL-Exterior Doors-DEPT"
+    },
+    {
+      "id": 8325,
+      "name": "JHL-Loading Dock Door 24hrs-DEPT"
+    },
+    {
+      "id": 8334,
+      "name": "JOR-Al Exterior Doors-DEPT"
+    },
+    {
+      "id": 8338,
+      "name": "JVC-All Doors 24/7-DEPT"
+    },
+    {
+      "id": 8339,
+      "name": "JVC-All Doors 7:30am to 5pm M to F-DEPT"
+    },
+    {
+      "id": 8342,
+      "name": "LAU-All Doors-DEPT"
+    },
+    {
+      "id": 8346,
+      "name": "Magnolia - All Doors 24/7"
+    },
+    {
+      "id": 8354,
+      "name": "MCK-Admin Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8355,
+      "name": "MCK-All Doors / Elevator Buttons 24hrs-DEPT"
+    },
+    {
+      "id": 8356,
+      "name": "MCK-Annex Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8357,
+      "name": "MCK-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8361,
+      "name": "MRC-DELTA All Doors-DEPT"
+    },
+    {
+      "id": 8362,
+      "name": "MRC-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8363,
+      "name": "WRB-All Doors-DEPT"
+    },
+    {
+      "id": 8371,
+      "name": "WRB-Entrance Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8379,
+      "name": "N-All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8381,
+      "name": "N-Students & Guests Common Doors-DEPT"
+    },
+    {
+      "id": 8383,
+      "name": "HLB-OIT All Hillsborough Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8386,
+      "name": "HLB-OIT Exterior & Lobby Doors / Elevator 2-DEPT"
+    },
+    {
+      "id": 8388,
+      "name": "PS-All DELTA Doors-DEPT"
+    },
+    {
+      "id": 8390,
+      "name": "PS-DASA 211 Suite Doors-DEPT"
+    },
+    {
+      "id": 8391,
+      "name": "PS-DASA All Doors-DEPT"
+    },
+    {
+      "id": 8395,
+      "name": "PS-Exterior Doors 24/7-DEPT"
+    },
+    {
+      "id": 8396,
+      "name": "PS-PCJ Doors-DEPT"
+    },
+    {
+      "id": 8401,
+      "name": "PT3-Exterior Doors 24/7-DEPT"
+    },
+    {
+      "id": 8402,
+      "name": "Pechmann-All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8408,
+      "name": "PH-03-317-Internal Audit Main Suite Door-HS"
+    },
+    {
+      "id": 8410,
+      "name": "PHY-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8411,
+      "name": "PHY-Exterior Doors Mon thru Fri 7:30am to 6:30pm-DEPT"
+    },
+    {
+      "id": 8413,
+      "name": "POE-Exterior Doors 24/7-DEPT"
+    },
+    {
+      "id": 8414,
+      "name": "PK-Exterior Doors 24/7-DEPT"
+    },
+    {
+      "id": 8419,
+      "name": "PIC-All Exterior Doors 24hrs BS-DEPT"
+    },
+    {
+      "id": 8420,
+      "name": "PSC-01-100-Main Entrance Interior Doors 24/7-DEPT"
+    },
+    {
+      "id": 8425,
+      "name": "PSC-Exterior & Corridor Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8433,
+      "name": "RI-Annex CHASS Exterior Doors-DEPT"
+    },
+    {
+      "id": 8439,
+      "name": "RD-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8441,
+      "name": "SAS-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8471,
+      "name": "SAS-All Doors-DEPT"
+    },
+    {
+      "id": 8484,
+      "name": "Regional Clearance Most Doors 24/7-REG"
+    },
+    {
+      "id": 8496,
+      "name": "SS3-All Doors-DEPT"
+    },
+    {
+      "id": 8500,
+      "name": "SS1-01-A111B-Common Doors-DEPT"
+    },
+    {
+      "id": 8502,
+      "name": "SS1-01-A111B-Back Door-DEPT"
+    },
+    {
+      "id": 8524,
+      "name": "TEX-02-2402-Pod 4 Double Door at PCJ-DEPT"
+    },
+    {
+      "id": 8897,
+      "name": "VRB-Module 2 Exteriors-DEPT"
+    },
+    {
+      "id": 9069,
+      "name": "VRB-SAT All Doors MOD1-DEPT"
+    },
+    {
+      "id": 9073,
+      "name": "VRB SAT Perimeter Entry MOD1-REG"
+    },
+    {
+      "id": 9096,
+      "name": "VRB-Module 6 & 7 All Common Doors-DEPT"
+    },
+    {
+      "id": 9112,
+      "name": "VRB SAT Module 1 Contractor Access-REG"
+    },
+    {
+      "id": 9116,
+      "name": "VRB-01-1543-Module 6 Lab-DEPT"
+    },
+    {
+      "id": 9129,
+      "name": "VRB-Module 2 Turf Labs-DEPT"
+    },
+    {
+      "id": 9132,
+      "name": "VRB-Module 6 & 7 Students/Staff-DEPT"
+    },
+    {
+      "id": 9133,
+      "name": "VRB-Module 7 Lab-DEPT"
+    },
+    {
+      "id": 9221,
+      "name": "VRB-01-1118-Module 3 Lab-DEPT"
+    },
+    {
+      "id": 9312,
+      "name": "VRB-01-1002-Module 2 Student Suite-DEPT"
+    },
+    {
+      "id": 9356,
+      "name": "VRB-SAT Module 1 Exterior 24hrs-DEPT"
+    },
+    {
+      "id": 9497,
+      "name": "VRB - HS - Test"
+    },
+    {
+      "id": 9839,
+      "name": "VRB-B-B106-Module 1 IT Manager-DEPT"
+    },
+    {
+      "id": 9846,
+      "name": "VRB-01-1003-Module 3 Wet Lab-DEPT"
+    },
+    {
+      "id": 9849,
+      "name": "VRB-01-1007-Module 2 Wet Lab-DEPT"
+    },
+    {
+      "id": 10183,
+      "name": "VRB-Module 6 & 7 DEPP Wing-DEPT"
+    },
+    {
+      "id": 10191,
+      "name": "VRB-B-B112-Module 1 Office-DEPT"
+    },
+    {
+      "id": 10211,
+      "name": "VRB-SAT Perimeter Entry Scheduled MOD1-DEPT"
+    },
+    {
+      "id": 10217,
+      "name": "VRB-COS Exterior Doors MOD 8,9,10-DEPT"
+    },
+    {
+      "id": 10240,
+      "name": "VRB-B-B140-Module 1 Software Developer-DEPT"
+    },
+    {
+      "id": 10259,
+      "name": "VRB-B-B104-Module 1 IT Specialist-DEPT"
+    },
+    {
+      "id": 10322,
+      "name": "VRB-SAT-Module 1 B103C IT Operations Tech"
+    },
+    {
+      "id": 10354,
+      "name": "ClearanceB"
+    },
+    {
+      "id": 10353,
+      "name": "ClearanceAAA"
+    },
+    {
+      "id": 10355,
+      "name": "ClearanceC"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66e9a35613a00c3cc60bd7f1"
+  },
+  "campus_id": "200492165",
+  "email": "nobody@ncsu.edu",
+  "clearances": [
+    {
+      "id": 9497,
+      "name": "VRB - HS - Test"
+    },
+    {
+      "id": 7919,
+      "name": "NIN-1911 Building All Doors & Elevator 24/7-DEPT"
+    },
+    {
+      "id": 7920,
+      "name": "NIN-1911 Building Exterior Doors Only-DEPT"
+    },
+    {
+      "id": 7925,
+      "name": "AS1-PS Purchasing Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7926,
+      "name": "AS1-01-1219-Purchasing Back Door-DEPT"
+    },
+    {
+      "id": 7927,
+      "name": "AS1-All Dining Doors-DEPT"
+    },
+    {
+      "id": 7928,
+      "name": "AS1-01-E1138-Loading Dock Door-DEPT"
+    },
+    {
+      "id": 7929,
+      "name": "AS2-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7931,
+      "name": "AS3-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7935,
+      "name": "COE-All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7938,
+      "name": "EC-Atrium All Doors-DEPT"
+    },
+    {
+      "id": 7940,
+      "name": "AFH-103 Warehouse Doors 24/7-DEPT"
+    },
+    {
+      "id": 7941,
+      "name": "AFH-103 Warehouse Doors 6:30a 3:30p M/F-DEPT"
+    },
+    {
+      "id": 7942,
+      "name": "AFH-103 Warehouse Doors 7:30am 5:30pm M/F-DEPT"
+    },
+    {
+      "id": 7944,
+      "name": "AFH-Classtech Warehouse Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7948,
+      "name": "AFH-EAS Suite 205 All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7949,
+      "name": "AFH-Exterior Doors 24/7-DEPT"
+    },
+    {
+      "id": 7950,
+      "name": "AFH-Exterior Doors 6 am 5:30 pm M/F-DEPT"
+    },
+    {
+      "id": 7958,
+      "name": "BI-All Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7964,
+      "name": "BRC-Level 9 All Doors-DEPT"
+    },
+    {
+      "id": 7968,
+      "name": "BTEC-Common Door Access-DEPT"
+    },
+    {
+      "id": 7977,
+      "name": "BUT-All Doors-DEPT"
+    },
+    {
+      "id": 7981,
+      "name": "CG-Gym Complex All Doors-DEPT"
+    },
+    {
+      "id": 7984,
+      "name": "CG-Outdoor Basketball 24hrs-DEPT"
+    },
+    {
+      "id": 7988,
+      "name": "HRH-Cashiers Office All Doors-DEPT"
+    },
+    {
+      "id": 7995,
+      "name": "CJP-All Doors-DEPT"
+    },
+    {
+      "id": 8017,
+      "name": "UH Housing All Doors 24/7-REG"
+    },
+    {
+      "id": 8024,
+      "name": "G2A-FSL All Doors-DEPT"
+    },
+    {
+      "id": 8057,
+      "name": "COX/DAB All Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8063,
+      "name": "TAC-CVM All Doors EXCEPT 2450-DEPT"
+    },
+    {
+      "id": 8064,
+      "name": "TAC-CVM All Doors-DEPT"
+    },
+    {
+      "id": 8071,
+      "name": "TAC-CVM Exterior Doors BS-DEPT"
+    },
+    {
+      "id": 8076,
+      "name": "CVM-TAC PCJ Doors-DEPT"
+    },
+    {
+      "id": 8080,
+      "name": "TAC-02-CVM Pharmacy All Doors-HS"
+    },
+    {
+      "id": 8086,
+      "name": "LMP-Exterior Doors-DEPT"
+    },
+    {
+      "id": 8113,
+      "name": "DHL-02-EG208A-Loading Dock Rollup Door-DEPT"
+    },
+    {
+      "id": 8124,
+      "name": "CHB-Cherry Building All Doors The Science House-DEPT"
+    },
+    {
+      "id": 8127,
+      "name": "EB1-03-3034-MSE North Corridor North Door-DEPT"
+    },
+    {
+      "id": 8128,
+      "name": "EB1-CBE All Doors-DEPT"
+    },
+    {
+      "id": 8129,
+      "name": "EB1-All Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8130,
+      "name": "EB1-MSE All Doors-DEPT"
+    },
+    {
+      "id": 8137,
+      "name": "EB2-All Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8211,
+      "name": "EB3-BME All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8212,
+      "name": "EB3-CSC 2402 CASL Lab Doors-DEPT"
+    },
+    {
+      "id": 8214,
+      "name": "EB3-MAE All Lab Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8263,
+      "name": "ECE-All ECE Doors-DEPT"
+    },
+    {
+      "id": 8269,
+      "name": "FOX-All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8271,
+      "name": "FIW-All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8272,
+      "name": "FIW-All Doors Except Middle School-DEPT"
+    },
+    {
+      "id": 8273,
+      "name": "FIW-Exterior Doors-DEPT"
+    },
+    {
+      "id": 8274,
+      "name": "FIW-Middle School Doors 6am to 6pm-DEPT"
+    },
+    {
+      "id": 8276,
+      "name": "GLOBAL ALL DOORS"
+    },
+    {
+      "id": 8277,
+      "name": "HRH-All Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8278,
+      "name": "HRH-All Exterior Doors Mon thru Fri 6am to 8pm-DEPT"
+    },
+    {
+      "id": 8279,
+      "name": "HRH-RRO All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8280,
+      "name": "HRH-RRO All Doors Mon thru Fri 7:15am to 6pm-DEPT"
+    },
+    {
+      "id": 8285,
+      "name": "HL1-COMM Downstairs Doors-DEPT"
+    },
+    {
+      "id": 8286,
+      "name": "HOL-All Doors-DEPT"
+    },
+    {
+      "id": 8307,
+      "name": "JHL-Exterior Doors-DEPT"
+    },
+    {
+      "id": 8325,
+      "name": "JHL-Loading Dock Door 24hrs-DEPT"
+    },
+    {
+      "id": 8334,
+      "name": "JOR-Al Exterior Doors-DEPT"
+    },
+    {
+      "id": 8338,
+      "name": "JVC-All Doors 24/7-DEPT"
+    },
+    {
+      "id": 8339,
+      "name": "JVC-All Doors 7:30am to 5pm M to F-DEPT"
+    },
+    {
+      "id": 8342,
+      "name": "LAU-All Doors-DEPT"
+    },
+    {
+      "id": 8346,
+      "name": "Magnolia - All Doors 24/7"
+    },
+    {
+      "id": 8354,
+      "name": "MCK-Admin Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8355,
+      "name": "MCK-All Doors / Elevator Buttons 24hrs-DEPT"
+    },
+    {
+      "id": 8356,
+      "name": "MCK-Annex Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8357,
+      "name": "MCK-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8361,
+      "name": "MRC-DELTA All Doors-DEPT"
+    },
+    {
+      "id": 8362,
+      "name": "MRC-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8363,
+      "name": "WRB-All Doors-DEPT"
+    },
+    {
+      "id": 8371,
+      "name": "WRB-Entrance Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8379,
+      "name": "N-All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8381,
+      "name": "N-Students & Guests Common Doors-DEPT"
+    },
+    {
+      "id": 8383,
+      "name": "HLB-OIT All Hillsborough Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8386,
+      "name": "HLB-OIT Exterior & Lobby Doors / Elevator 2-DEPT"
+    },
+    {
+      "id": 8388,
+      "name": "PS-All DELTA Doors-DEPT"
+    },
+    {
+      "id": 8390,
+      "name": "PS-DASA 211 Suite Doors-DEPT"
+    },
+    {
+      "id": 8391,
+      "name": "PS-DASA All Doors-DEPT"
+    },
+    {
+      "id": 8395,
+      "name": "PS-Exterior Doors 24/7-DEPT"
+    },
+    {
+      "id": 8396,
+      "name": "PS-PCJ Doors-DEPT"
+    },
+    {
+      "id": 8401,
+      "name": "PT3-Exterior Doors 24/7-DEPT"
+    },
+    {
+      "id": 8402,
+      "name": "Pechmann-All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8408,
+      "name": "PH-03-317-Internal Audit Main Suite Door-HS"
+    },
+    {
+      "id": 8410,
+      "name": "PHY-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8411,
+      "name": "PHY-Exterior Doors Mon thru Fri 7:30am to 6:30pm-DEPT"
+    },
+    {
+      "id": 8413,
+      "name": "POE-Exterior Doors 24/7-DEPT"
+    },
+    {
+      "id": 8414,
+      "name": "PK-Exterior Doors 24/7-DEPT"
+    },
+    {
+      "id": 8419,
+      "name": "PIC-All Exterior Doors 24hrs BS-DEPT"
+    },
+    {
+      "id": 8420,
+      "name": "PSC-01-100-Main Entrance Interior Doors 24/7-DEPT"
+    },
+    {
+      "id": 8425,
+      "name": "PSC-Exterior & Corridor Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8433,
+      "name": "RI-Annex CHASS Exterior Doors-DEPT"
+    },
+    {
+      "id": 8439,
+      "name": "RD-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8441,
+      "name": "SAS-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8471,
+      "name": "SAS-All Doors-DEPT"
+    },
+    {
+      "id": 8484,
+      "name": "Regional Clearance Most Doors 24/7-REG"
+    },
+    {
+      "id": 8496,
+      "name": "SS3-All Doors-DEPT"
+    },
+    {
+      "id": 8500,
+      "name": "SS1-01-A111B-Common Doors-DEPT"
+    },
+    {
+      "id": 8502,
+      "name": "SS1-01-A111B-Back Door-DEPT"
+    },
+    {
+      "id": 8524,
+      "name": "TEX-02-2402-Pod 4 Double Door at PCJ-DEPT"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ed8a95d63f53586e258b5b"
+  },
+  "campus_id": "001017342",
+  "email": "",
+  "clearances": [
+    {
+      "id": 7919,
+      "name": "NIN-1911 Building All Doors & Elevator 24/7-DEPT"
+    },
+    {
+      "id": 7920,
+      "name": "NIN-1911 Building Exterior Doors Only-DEPT"
+    },
+    {
+      "id": 7925,
+      "name": "AS1-PS Purchasing Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7926,
+      "name": "AS1-01-1219-Purchasing Back Door-DEPT"
+    },
+    {
+      "id": 7927,
+      "name": "AS1-All Dining Doors-DEPT"
+    },
+    {
+      "id": 7928,
+      "name": "AS1-01-E1138-Loading Dock Door-DEPT"
+    },
+    {
+      "id": 7929,
+      "name": "AS2-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7931,
+      "name": "AS3-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7935,
+      "name": "COE-All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7938,
+      "name": "EC-Atrium All Doors-DEPT"
+    },
+    {
+      "id": 7940,
+      "name": "AFH-103 Warehouse Doors 24/7-DEPT"
+    },
+    {
+      "id": 7941,
+      "name": "AFH-103 Warehouse Doors 6:30a 3:30p M/F-DEPT"
+    },
+    {
+      "id": 7942,
+      "name": "AFH-103 Warehouse Doors 7:30am 5:30pm M/F-DEPT"
+    },
+    {
+      "id": 7944,
+      "name": "AFH-Classtech Warehouse Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7948,
+      "name": "AFH-EAS Suite 205 All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7949,
+      "name": "AFH-Exterior Doors 24/7-DEPT"
+    },
+    {
+      "id": 7950,
+      "name": "AFH-Exterior Doors 6 am 5:30 pm M/F-DEPT"
+    },
+    {
+      "id": 7958,
+      "name": "BI-All Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 7964,
+      "name": "BRC-Level 9 All Doors-DEPT"
+    },
+    {
+      "id": 7968,
+      "name": "BTEC-Common Door Access-DEPT"
+    },
+    {
+      "id": 7977,
+      "name": "BUT-All Doors-DEPT"
+    },
+    {
+      "id": 7981,
+      "name": "CG-Gym Complex All Doors-DEPT"
+    },
+    {
+      "id": 7984,
+      "name": "CG-Outdoor Basketball 24hrs-DEPT"
+    },
+    {
+      "id": 7988,
+      "name": "HRH-Cashiers Office All Doors-DEPT"
+    },
+    {
+      "id": 7995,
+      "name": "CJP-All Doors-DEPT"
+    },
+    {
+      "id": 8017,
+      "name": "UH Housing All Doors 24/7-REG"
+    },
+    {
+      "id": 8024,
+      "name": "G2A-FSL All Doors-DEPT"
+    },
+    {
+      "id": 8057,
+      "name": "COX/DAB All Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8063,
+      "name": "TAC-CVM All Doors EXCEPT 2450-DEPT"
+    },
+    {
+      "id": 8064,
+      "name": "TAC-CVM All Doors-DEPT"
+    },
+    {
+      "id": 8071,
+      "name": "TAC-CVM Exterior Doors BS-DEPT"
+    },
+    {
+      "id": 8076,
+      "name": "CVM-TAC PCJ Doors-DEPT"
+    },
+    {
+      "id": 8080,
+      "name": "TAC-02-CVM Pharmacy All Doors-HS"
+    },
+    {
+      "id": 8086,
+      "name": "LMP-Exterior Doors-DEPT"
+    },
+    {
+      "id": 8113,
+      "name": "DHL-02-EG208A-Loading Dock Rollup Door-DEPT"
+    },
+    {
+      "id": 8124,
+      "name": "CHB-Cherry Building All Doors The Science House-DEPT"
+    },
+    {
+      "id": 8127,
+      "name": "EB1-03-3034-MSE North Corridor North Door-DEPT"
+    },
+    {
+      "id": 8128,
+      "name": "EB1-CBE All Doors-DEPT"
+    },
+    {
+      "id": 8129,
+      "name": "EB1-All Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8130,
+      "name": "EB1-MSE All Doors-DEPT"
+    },
+    {
+      "id": 8137,
+      "name": "EB2-All Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8211,
+      "name": "EB3-BME All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8212,
+      "name": "EB3-CSC 2402 CASL Lab Doors-DEPT"
+    },
+    {
+      "id": 8214,
+      "name": "EB3-MAE All Lab Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8263,
+      "name": "ECE-All ECE Doors-DEPT"
+    },
+    {
+      "id": 8269,
+      "name": "FOX-All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8271,
+      "name": "FIW-All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8272,
+      "name": "FIW-All Doors Except Middle School-DEPT"
+    },
+    {
+      "id": 8273,
+      "name": "FIW-Exterior Doors-DEPT"
+    },
+    {
+      "id": 8274,
+      "name": "FIW-Middle School Doors 6am to 6pm-DEPT"
+    },
+    {
+      "id": 8276,
+      "name": "GLOBAL ALL DOORS"
+    },
+    {
+      "id": 8277,
+      "name": "HRH-All Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8278,
+      "name": "HRH-All Exterior Doors Mon thru Fri 6am to 8pm-DEPT"
+    },
+    {
+      "id": 8279,
+      "name": "HRH-RRO All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8280,
+      "name": "HRH-RRO All Doors Mon thru Fri 7:15am to 6pm-DEPT"
+    },
+    {
+      "id": 8285,
+      "name": "HL1-COMM Downstairs Doors-DEPT"
+    },
+    {
+      "id": 8286,
+      "name": "HOL-All Doors-DEPT"
+    },
+    {
+      "id": 8307,
+      "name": "JHL-Exterior Doors-DEPT"
+    },
+    {
+      "id": 8325,
+      "name": "JHL-Loading Dock Door 24hrs-DEPT"
+    },
+    {
+      "id": 8330,
+      "name": "Hunt - Turnstiles"
+    },
+    {
+      "id": 8334,
+      "name": "JOR-Al Exterior Doors-DEPT"
+    },
+    {
+      "id": 8338,
+      "name": "JVC-All Doors 24/7-DEPT"
+    },
+    {
+      "id": 8339,
+      "name": "JVC-All Doors 7:30am to 5pm M to F-DEPT"
+    },
+    {
+      "id": 8342,
+      "name": "LAU-All Doors-DEPT"
+    },
+    {
+      "id": 8346,
+      "name": "Magnolia - All Doors 24/7"
+    },
+    {
+      "id": 8354,
+      "name": "MCK-Admin Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8355,
+      "name": "MCK-All Doors / Elevator Buttons 24hrs-DEPT"
+    },
+    {
+      "id": 8356,
+      "name": "MCK-Annex Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8357,
+      "name": "MCK-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8361,
+      "name": "MRC-DELTA All Doors-DEPT"
+    },
+    {
+      "id": 8362,
+      "name": "MRC-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8363,
+      "name": "WRB-All Doors-DEPT"
+    },
+    {
+      "id": 8371,
+      "name": "WRB-Entrance Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8379,
+      "name": "N-All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8381,
+      "name": "N-Students & Guests Common Doors-DEPT"
+    },
+    {
+      "id": 8383,
+      "name": "HLB-OIT All Hillsborough Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8386,
+      "name": "HLB-OIT Exterior & Lobby Doors / Elevator 2-DEPT"
+    },
+    {
+      "id": 8388,
+      "name": "PS-All DELTA Doors-DEPT"
+    },
+    {
+      "id": 8390,
+      "name": "PS-DASA 211 Suite Doors-DEPT"
+    },
+    {
+      "id": 8391,
+      "name": "PS-DASA All Doors-DEPT"
+    },
+    {
+      "id": 8395,
+      "name": "PS-Exterior Doors 24/7-DEPT"
+    },
+    {
+      "id": 8396,
+      "name": "PS-PCJ Doors-DEPT"
+    },
+    {
+      "id": 8401,
+      "name": "PT3-Exterior Doors 24/7-DEPT"
+    },
+    {
+      "id": 8402,
+      "name": "Pechmann-All Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8408,
+      "name": "PH-03-317-Internal Audit Main Suite Door-HS"
+    },
+    {
+      "id": 8410,
+      "name": "PHY-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8411,
+      "name": "PHY-Exterior Doors Mon thru Fri 7:30am to 6:30pm-DEPT"
+    },
+    {
+      "id": 8413,
+      "name": "POE-Exterior Doors 24/7-DEPT"
+    },
+    {
+      "id": 8414,
+      "name": "PK-Exterior Doors 24/7-DEPT"
+    },
+    {
+      "id": 8419,
+      "name": "PIC-All Exterior Doors 24hrs BS-DEPT"
+    },
+    {
+      "id": 8420,
+      "name": "PSC-01-100-Main Entrance Interior Doors 24/7-DEPT"
+    },
+    {
+      "id": 8425,
+      "name": "PSC-Exterior & Corridor Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8433,
+      "name": "RI-Annex CHASS Exterior Doors-DEPT"
+    },
+    {
+      "id": 8439,
+      "name": "RD-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8441,
+      "name": "SAS-Exterior Doors 24hrs-DEPT"
+    },
+    {
+      "id": 8471,
+      "name": "SAS-All Doors-DEPT"
+    },
+    {
+      "id": 8484,
+      "name": "Regional Clearance Most Doors 24/7-REG"
+    },
+    {
+      "id": 8496,
+      "name": "SS3-All Doors-DEPT"
+    },
+    {
+      "id": 8500,
+      "name": "SS1-01-A111B-Common Doors-DEPT"
+    },
+    {
+      "id": 8502,
+      "name": "SS1-01-A111B-Back Door-DEPT"
+    },
+    {
+      "id": 8524,
+      "name": "TEX-02-2402-Pod 4 Double Door at PCJ-DEPT"
+    },
+    {
+      "id": 8897,
+      "name": "VRB-Module 2 Exteriors-DEPT"
+    },
+    {
+      "id": 9069,
+      "name": "VRB-SAT All Doors MOD1-DEPT"
+    },
+    {
+      "id": 9073,
+      "name": "VRB SAT Perimeter Entry MOD1-REG"
+    },
+    {
+      "id": 9096,
+      "name": "VRB-Module 6 & 7 All Common Doors-DEPT"
+    },
+    {
+      "id": 9112,
+      "name": "VRB SAT Module 1 Contractor Access-REG"
+    },
+    {
+      "id": 9116,
+      "name": "VRB-01-1543-Module 6 Lab-DEPT"
+    },
+    {
+      "id": 9129,
+      "name": "VRB-Module 2 Turf Labs-DEPT"
+    },
+    {
+      "id": 9132,
+      "name": "VRB-Module 6 & 7 Students/Staff-DEPT"
+    },
+    {
+      "id": 9133,
+      "name": "VRB-Module 7 Lab-DEPT"
+    },
+    {
+      "id": 9221,
+      "name": "VRB-01-1118-Module 3 Lab-DEPT"
+    },
+    {
+      "id": 9312,
+      "name": "VRB-01-1002-Module 2 Student Suite-DEPT"
+    },
+    {
+      "id": 9356,
+      "name": "VRB-SAT Module 1 Exterior 24hrs-DEPT"
+    },
+    {
+      "id": 9497,
+      "name": "VRB - HS - Test"
+    },
+    {
+      "id": 9839,
+      "name": "VRB-B-B106-Module 1 IT Manager-DEPT"
+    },
+    {
+      "id": 9846,
+      "name": "VRB-01-1003-Module 3 Wet Lab-DEPT"
+    },
+    {
+      "id": 9849,
+      "name": "VRB-01-1007-Module 2 Wet Lab-DEPT"
+    },
+    {
+      "id": 10183,
+      "name": "VRB-Module 6 & 7 DEPP Wing-DEPT"
+    },
+    {
+      "id": 10191,
+      "name": "VRB-B-B112-Module 1 Office-DEPT"
+    },
+    {
+      "id": 10211,
+      "name": "VRB-SAT Perimeter Entry Scheduled MOD1-DEPT"
+    },
+    {
+      "id": 10217,
+      "name": "VRB-COS Exterior Doors MOD 8,9,10-DEPT"
+    },
+    {
+      "id": 10240,
+      "name": "VRB-B-B140-Module 1 Software Developer-DEPT"
+    },
+    {
+      "id": 10259,
+      "name": "VRB-B-B104-Module 1 IT Specialist-DEPT"
+    },
+    {
+      "id": 10322,
+      "name": "VRB-SAT-Module 1 B103C IT Operations Tech"
+    },
+    {
+      "id": 10323,
+      "name": "VRB-SAT-Module 1 IT Student Worker"
+    },
+    {
+      "id": 10356,
+      "name": "VRB-Test Clearance 1"
+    },
+    {
+      "id": 10357,
+      "name": "VRB-Test Clearance 2"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ed97e4d63f53586e258bb2"
+  },
+  "campus_id": "001105626",
+  "email": "jsmulhol@ncsu.edu",
+  "clearances": [
+    {
+      "id": 7921,
+      "name": "HH-01-108-UH Computer Classroom-DEPT"
+    },
+    {
+      "id": 7943,
+      "name": "AFH-01-101-File Room ComTech Warehouse-DEPT"
+    },
+    {
+      "id": 7945,
+      "name": "AFH-ComTech Suite 218 24/7-DEPT"
+    },
+    {
+      "id": 7946,
+      "name": "AFH-ComTech Suite Only 7:30am 5:30pm-DEPT"
+    },
+    {
+      "id": 7968,
+      "name": "BTEC-Common Door Access-DEPT"
+    },
+    {
+      "id": 7981,
+      "name": "CG-Gym Complex All Doors-DEPT"
+    },
+    {
+      "id": 8049,
+      "name": "ComTech - MDF - Talley 1113"
+    },
+    {
+      "id": 8052,
+      "name": "Comtech-PT1-01-1450 CMDF 24hrs-DEPT"
+    },
+    {
+      "id": 8056,
+      "name": "ComTech ALL Campus MDF Rooms-REG"
+    },
+    {
+      "id": 8083,
+      "name": "DAB-01-120A-Computer Lab-DEPT"
+    },
+    {
+      "id": 8091,
+      "name": "DHL-1214D Computer Storage Closet 24hrs-DEPT"
+    },
+    {
+      "id": 8092,
+      "name": "DHL-1214D Computer Storage Closet 7am to 12pm-DEPT"
+    },
+    {
+      "id": 8122,
+      "name": "BUR-Dosemeter 24/7 Common Clearance-DEPT"
+    },
+    {
+      "id": 8138,
+      "name": "EB2-01-1203A-CSC Computer Lab-DEPT"
+    },
+    {
+      "id": 8145,
+      "name": "EB2-02-2237-CSC Semantic Computing Research Lab-DEPT"
+    },
+    {
+      "id": 8146,
+      "name": "EB2-Secure Computing Institute-DEPT"
+    },
+    {
+      "id": 8148,
+      "name": "EB2-02-2244-CSC Spatio Temporal Analytics and Computing Lab-DEPT"
+    },
+    {
+      "id": 8198,
+      "name": "EB3-04-4101-BME Computer Classroom-DEPT"
+    },
+    {
+      "id": 8225,
+      "name": "EB3-01-1008-MAE Smart Composite Lab-DEPT"
+    },
+    {
+      "id": 8242,
+      "name": "EB3-03-3141-MAE Computational MultiPhysics Lab-DEPT"
+    },
+    {
+      "id": 8246,
+      "name": "EB3-03-3211-MAE Computational Fluid Dynamics Lab A-DEPT"
+    },
+    {
+      "id": 8247,
+      "name": "EB3-03-3213-MAE Comp. Fluid Dynamics B/Hypersonic Lab-DEPT"
+    },
+    {
+      "id": 8248,
+      "name": "EB3-03-3217-MAE Computational Energy Sciences Lab/ Comp-DEPT"
+    },
+    {
+      "id": 8249,
+      "name": "EB3-03-3251-MAE Comp. and Exp. Materials and Structures-DEPT"
+    },
+    {
+      "id": 8250,
+      "name": "EB3-03-3267-MAE Comp Mech Simulation & System Design Op-DEPT"
+    },
+    {
+      "id": 8276,
+      "name": "GLOBAL ALL DOORS"
+    },
+    {
+      "id": 8285,
+      "name": "HL1-COMM Downstairs Doors-DEPT"
+    },
+    {
+      "id": 8308,
+      "name": "Library - Faculty Commons"
+    },
+    {
+      "id": 8310,
+      "name": "JHL-02-2112- IEI Commons Server Room-DEPT"
+    },
+    {
+      "id": 8345,
+      "name": "Library - Grad Commons"
+    },
+    {
+      "id": 8381,
+      "name": "N-Students & Guests Common Doors-DEPT"
+    },
+    {
+      "id": 8385,
+      "name": "OIT - Hillsborough - Computer Room M-F 7am-6pm"
+    },
+    {
+      "id": 8387,
+      "name": "POE-OIT MDF Server Room-DEPT"
+    },
+    {
+      "id": 8437,
+      "name": "RD-Daniels Riehn Corridor-DEPT"
+    },
+    {
+      "id": 8444,
+      "name": "SAS-04-4213-Computer Lab 24/7-DEPT"
+    },
+    {
+      "id": 8452,
+      "name": "SAS-05-5285-Computer Lab 24/7-DEPT"
+    },
+    {
+      "id": 8461,
+      "name": "SAS-02-2103-Mathematics Computer Lab-DEPT"
+    },
+    {
+      "id": 8470,
+      "name": "SAS-4104A/B Commons-DEPT"
+    },
+    {
+      "id": 8500,
+      "name": "SS1-01-A111B-Common Doors-DEPT"
+    },
+    {
+      "id": 8593,
+      "name": "WR-UH Oval Dining-DEPT"
+    },
+    {
+      "id": 8642,
+      "name": "LMP-02-255-Computer Lab-DEPT"
+    },
+    {
+      "id": 8644,
+      "name": "LMP-02-200-Computer Lab-DEPT"
+    },
+    {
+      "id": 8645,
+      "name": "LMP-02-201A-Computer Lab-DEPT"
+    },
+    {
+      "id": 8691,
+      "name": "SC-Common Doors-DEPT"
+    },
+    {
+      "id": 8860,
+      "name": "ComTech Greek Houses-REG"
+    },
+    {
+      "id": 8868,
+      "name": "RE3-1st Floor Common Exterior Doors-DEPT"
+    },
+    {
+      "id": 8897,
+      "name": "VRB-Module 2 Exteriors-DEPT"
+    },
+    {
+      "id": 8902,
+      "name": "ComTech Housing OIT-REG"
+    },
+    {
+      "id": 8949,
+      "name": "MRC-03-331-ECE PSRC Computer Laboratory-DEPT"
+    },
+    {
+      "id": 8972,
+      "name": "SFS-02-218-Office Complex-DEPT"
+    },
+    {
+      "id": 8973,
+      "name": "SFS-02-236-Office Complex-DEPT"
+    },
+    {
+      "id": 8974,
+      "name": "SFS-03-322-Office Complex-DEPT"
+    },
+    {
+      "id": 8975,
+      "name": "SFS-03-339-Office Complex-DEPT"
+    },
+    {
+      "id": 9065,
+      "name": "N-02-2150-COM Suite Entrance-DEPT"
+    },
+    {
+      "id": 9069,
+      "name": "VRB-SAT All Doors MOD1-DEPT"
+    },
+    {
+      "id": 9073,
+      "name": "VRB SAT Perimeter Entry MOD1-REG"
+    },
+    {
+      "id": 9092,
+      "name": "EB2-03-3034-ECE Computational Lab-DEPT"
+    },
+    {
+      "id": 9096,
+      "name": "VRB-Module 6 & 7 All Common Doors-DEPT"
+    },
+    {
+      "id": 9112,
+      "name": "VRB SAT Module 1 Contractor Access-REG"
+    },
+    {
+      "id": 9116,
+      "name": "VRB-01-1543-Module 6 Lab-DEPT"
+    },
+    {
+      "id": 9129,
+      "name": "VRB-Module 2 Turf Labs-DEPT"
+    },
+    {
+      "id": 9132,
+      "name": "VRB-Module 6 & 7 Students/Staff-DEPT"
+    },
+    {
+      "id": 9133,
+      "name": "VRB-Module 7 Lab-DEPT"
+    },
+    {
+      "id": 9139,
+      "name": "N-COM Dean's Office Entry-DEPT"
+    },
+    {
+      "id": 9221,
+      "name": "VRB-01-1118-Module 3 Lab-DEPT"
+    },
+    {
+      "id": 9277,
+      "name": "N-02-2100-COM Dean's Suite Entrance-DEPT"
+    },
+    {
+      "id": 9278,
+      "name": "SFS-03-325-Office Complex-DEPT"
+    },
+    {
+      "id": 9279,
+      "name": "SFS-03-330-Office Complex-DEPT"
+    },
+    {
+      "id": 9289,
+      "name": "SFS-02-221-Office Complex-DEPT"
+    },
+    {
+      "id": 9297,
+      "name": "SFS-02-204-Office Complex-DEPT"
+    },
+    {
+      "id": 9298,
+      "name": "SFS-02-206-Office Complex-DEPT"
+    },
+    {
+      "id": 9312,
+      "name": "VRB-01-1002-Module 2 Student Suite-DEPT"
+    },
+    {
+      "id": 9348,
+      "name": "BOS-04-4704-Computer Lab-DEPT"
+    },
+    {
+      "id": 9356,
+      "name": "VRB-SAT Module 1 Exterior 24hrs-DEPT"
+    },
+    {
+      "id": 9497,
+      "name": "VRB - HS - Test"
+    },
+    {
+      "id": 9508,
+      "name": "FWH-Most Doors except ComTech-DEPT"
+    },
+    {
+      "id": 9643,
+      "name": "FWH-CCEE 1320/1322 Struct Composites-DEPT"
+    },
+    {
+      "id": 9839,
+      "name": "VRB-B-B106-Module 1 IT Manager-DEPT"
+    },
+    {
+      "id": 9846,
+      "name": "VRB-01-1003-Module 3 Wet Lab-DEPT"
+    },
+    {
+      "id": 9849,
+      "name": "VRB-01-1007-Module 2 Wet Lab-DEPT"
+    },
+    {
+      "id": 9941,
+      "name": "FWH-Computer/Short Courses-DEPT"
+    },
+    {
+      "id": 10043,
+      "name": "FWH-Comp Software Teach Lab-DEPT"
+    },
+    {
+      "id": 10105,
+      "name": "SAS-Math Commons 24hrs-DEPT"
+    },
+    {
+      "id": 10140,
+      "name": "TSU-Campus Community Centers Staff-DEPT"
+    },
+    {
+      "id": 10165,
+      "name": "FWH-IDF Rooms ComTech-DEPT"
+    },
+    {
+      "id": 10183,
+      "name": "VRB-Module 6 & 7 DEPP Wing-DEPT"
+    },
+    {
+      "id": 10191,
+      "name": "VRB-B-B112-Module 1 Office-DEPT"
+    },
+    {
+      "id": 10196,
+      "name": "RD-03-319A-PY COMMONS-DEPT"
+    },
+    {
+      "id": 10205,
+      "name": "Vendor Door Test Clearance - A3 Communications"
+    },
+    {
+      "id": 10211,
+      "name": "VRB-SAT Perimeter Entry Scheduled MOD1-DEPT"
+    },
+    {
+      "id": 10213,
+      "name": "CALS-PLS-PSI Administrative Community List-Automated"
+    },
+    {
+      "id": 10214,
+      "name": "CALS-PLS-PSI IT Master Community List-Automated"
+    },
+    {
+      "id": 10217,
+      "name": "VRB-COS Exterior Doors MOD 8,9,10-DEPT"
+    },
+    {
+      "id": 10221,
+      "name": "CALS-PLS-PSI Jean Ristaino Lab Community List-Automated"
+    },
+    {
+      "id": 10222,
+      "name": "CALS-PLS-PSI Lina Quesada Lab Community List-Automated"
+    },
+    {
+      "id": 10223,
+      "name": "CALS-PLS-PSI CEFS Communtiy List-Automated"
+    },
+    {
+      "id": 10224,
+      "name": "CALS-PLS-PSI Phytotron Lab Community Group List-Automated"
+    },
+    {
+      "id": 10225,
+      "name": "CALS-PLS-PSI USDA Master Community Group List-Automated"
+    },
+    {
+      "id": 10226,
+      "name": "CALS-PLS-PSI Qingshan Wei Lab Community List-Automated"
+    },
+    {
+      "id": 10227,
+      "name": "CALS-PLS-PSI OSL Lab Community List-Automated"
+    },
+    {
+      "id": 10231,
+      "name": "CALS-PLS-PSI CMIF Lab Community List-Automated"
+    },
+    {
+      "id": 10232,
+      "name": "CALS-PLS-PSI Chris Reberg-Horton Lab Community-Automated"
+    },
+    {
+      "id": 10234,
+      "name": "CALS-PLS-PSI METRIC Lab Community List-Automated"
+    },
+    {
+      "id": 10240,
+      "name": "VRB-B-B140-Module 1 Software Developer-DEPT"
+    },
+    {
+      "id": 10259,
+      "name": "VRB-B-B104-Module 1 IT Specialist-DEPT"
+    },
+    {
+      "id": 10322,
+      "name": "VRB-SAT-Module 1 B103C IT Operations Tech"
+    },
+    {
+      "id": 10323,
+      "name": "VRB-SAT-Module 1 IT Student Worker"
+    },
+    {
+      "id": 10348,
+      "name": "CALS-PLS-PSI Alex Woodley Lab Community List"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66eda1b0d63f53586e258bea"
+  },
+  "campus_id": "000000019",
+  "email": "scotford@ncsu.edu",
+  "clearances": [
+    {
+      "id": 9112,
+      "name": "VRB SAT Module 1 Contractor Access-REG"
+    },
+    {
+      "id": 8330,
+      "name": "Hunt - Turnstiles"
+    },
+    {
+      "id": 9073,
+      "name": "VRB SAT Perimeter Entry MOD1-REG"
+    },
+    {
+      "id": 9846,
+      "name": "VRB-01-1003-Module 3 Wet Lab-DEPT"
+    },
+    {
+      "id": 9116,
+      "name": "VRB-01-1543-Module 6 Lab-DEPT"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66f1c81f9064f805b1539ac4"
+  },
+  "campus_id": "000008385",
+  "email": "andy_hale@ncsu.edu",
+  "clearances": [
+    {
+      "id": 9497,
+      "name": "VRB - HS - Test"
+    },
+    {
+      "id": 9112,
+      "name": "VRB SAT Module 1 Contractor Access-REG"
+    },
+    {
+      "id": 9073,
+      "name": "VRB SAT Perimeter Entry MOD1-REG"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66f1c9899064f805b1539ad5"
+  },
+  "campus_id": "000008216",
+  "email": "scott_dean@ncsu.edu",
+  "clearances": [
+    {
+      "id": 9497,
+      "name": "VRB - HS - Test"
+    },
+    {
+      "id": 9112,
+      "name": "VRB SAT Module 1 Contractor Access-REG"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66f2cab59064f805b1539f30"
+  },
+  "campus_id": "001035783",
+  "email": "rsauced@ncsu.edu",
+  "clearances": [
+    {
+      "id": 9497,
+      "name": "VRB - HS - Test"
+    },
+    {
+      "id": 9112,
+      "name": "VRB SAT Module 1 Contractor Access-REG"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66fb0485e7163177f98b488f"
+  },
+  "campus_id": "001018740",
+  "email": "cbsmit11@ncsu.edu",
+  "clearances": [
+    {
+      "id": 10353,
+      "name": "ClearanceAAA"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66fed2a0814d2fd2153cdb40"
+  },
+  "campus_id": "001013811",
+  "email": "adam_rogers@ncsu.edu",
+  "clearances": [
+    {
+      "id": 10353,
+      "name": "ClearanceAAA"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66fed2b6814d2fd2153cdb45"
+  },
+  "campus_id": "000540736",
+  "email": "bill_krueger@ncsu.edu",
+  "clearances": []
+},
+{
+  "_id": {
+    "$oid": "66fed399814d2fd2153cdb52"
+  },
+  "campus_id": "000110384",
+  "email": "bill_hicks@ncsu.edu",
+  "clearances": []
+},
+{
+  "_id": {
+    "$oid": "670fcb76f8bf4b3852e25a24"
+  },
+  "campus_id": "001123633",
+  "email": "cwpulver@ncsu.edu",
+  "clearances": [
+    {
+      "id": 9069,
+      "name": "VRB-SAT All Doors MOD1-DEPT"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "670fcb8ef8bf4b3852e25a29"
+  },
+  "campus_id": "001126706",
+  "email": "aatterb@ncsu.edu",
+  "clearances": [
+    {
+      "id": 9069,
+      "name": "VRB-SAT All Doors MOD1-DEPT"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6750a9f9e79352a8ac259d30"
+  },
+  "campus_id": "001128398",
+  "email": "mboeren@ncsu.edu",
+  "clearances": []
+},
+{
+  "_id": {
+    "$oid": "675b225a21fccaf39102ce7b"
+  },
+  "campus_id": "001128022",
+  "email": "bjsosnow@ncsu.edu",
+  "clearances": [
+    {
+      "id": 10310,
+      "name": "CG-01-E1118-Domestic Water Rm Entry E-DEPT"
+    }
+  ]
+}]

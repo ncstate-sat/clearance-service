@@ -1,0 +1,77 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+  workflow_dispatch:
+
+jobs:
+  run-tests:
+    name: "Run Tests"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Setup Mongo
+        shell: bash
+        env:
+          TAG: "4.4.18"
+          PORT: "27022"
+        run: |
+          echo "TAG: ${TAG}"
+          echo "PORT: ${PORT}"
+          running_containers="$(docker ps -a -f status=running -q)"
+          if [ -n "${running_containers}" ]; then
+            sudo docker stop ${running_containers}
+          fi
+          sudo docker run -d -p "${PORT}:27017" "mongo:${TAG}"
+      - name: Setup Python
+        id: setup_python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - name: Cache Packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.local
+          key: requirements-local-${{ runner.os }}-${{ steps.setup_python.outputs.python-version }}-${{ hashFiles('**/requirements/base/base.txt') }}-${{ hashFiles('**/requirements/dev/dev.txt') }}-${{ hashFiles('.github/workflows/*.yml') }}
+          restore-keys: |
+            requirements-local-${{ runner.os }}-${{ steps.setup_python.outputs.python-version }}-
+      - name: Setup Virtual Environment
+        run: |
+          python -m venv venv
+      - run: |
+          source venv/bin/activate
+          make setup
+      - name: Run Tests
+        run: |
+          source venv/bin/activate
+          pytest
+      - name: End the Job if the Tests Fail
+        if: ${{ failure() }}
+        run: exit 1
+
+  build-and-push:
+    name: "Build & Push"
+    needs: run-tests
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Log in to GitHub Container Registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: Build and push Docker image
+        run: |
+          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/auth-service:latest
+          docker build . -t $IMAGE_ID
+          docker push $IMAGE_ID

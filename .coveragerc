@@ -1,0 +1,3 @@
+[run]
+source = clearance_service
+omit = */tests/*

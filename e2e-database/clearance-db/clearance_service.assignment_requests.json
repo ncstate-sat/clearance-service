@@ -1,0 +1,232 @@
+[{
+  "_id": {
+    "$oid": "62eaad96719d3a0806672106"
+  },
+  "liaison_id": "nprabhu5",
+  "clearance_guid": "75A1AE65-798B-49DA-BDAC-671732AB4794",
+  "clearance_name": "Library - Grad Commons",
+  "campus_id": "200342947",
+  "action": "remove",
+  "group": "individual",
+  "action_time": {
+    "$date": "2022-08-03T17:17:10.125Z"
+  },
+  "status": "submitted",
+  "submission_time": {
+    "$date": "2022-08-03T17:17:10.125Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "62f3bd117d7ea9a1404819ea"
+  },
+  "liaison_id": "jtchampi",
+  "clearance_name": "VRB-SAT-Module 1 Field Ops Stock Room-C1",
+  "campus_id": "200191895",
+  "action": "add",
+  "group": "individual",
+  "clearance_guid": "66C109CA-EBC1-41C8-8A92-B44D6496689E",
+  "action_time": {
+    "$date": "2022-08-10T14:13:37.961Z"
+  },
+  "status": "submitted",
+  "submission_time": {
+    "$date": "2022-08-10T14:13:37.961Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "62f3fe5b3f58372a9a3fe591"
+  },
+  "liaison_id": "jtchampi",
+  "clearance_name": "VRB-B-B112-SAT Project Manager-C1",
+  "campus_id": "200103374",
+  "action": "add",
+  "group": "individual",
+  "clearance_guid": "D6A233C5-7339-4461-A2DC-89BADD182F97",
+  "action_time": {
+    "$date": "2022-08-10T18:52:11.965Z"
+  },
+  "status": "submitted",
+  "submission_time": {
+    "$date": "2022-08-10T18:52:11.965Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "62f3fe5b3f58372a9a3fe592"
+  },
+  "liaison_id": "jtchampi",
+  "clearance_name": "VRB-B-B112-SAT Project Manager-C1",
+  "campus_id": "200191895",
+  "action": "add",
+  "group": "individual",
+  "clearance_guid": "D6A233C5-7339-4461-A2DC-89BADD182F97",
+  "action_time": {
+    "$date": "2022-08-10T18:52:11.970Z"
+  },
+  "status": "submitted",
+  "submission_time": {
+    "$date": "2022-08-10T18:52:11.970Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "62f400b337ec0fd6e93ffd27"
+  },
+  "liaison_id": "jtchampi",
+  "clearance_name": "VRB - Module 3 - 1118 Lab",
+  "campus_id": "200103374",
+  "action": "add",
+  "group": "individual",
+  "clearance_guid": "EF6C0C58-7DCC-4DA7-9D80-BCF3BE064C52",
+  "action_time": "2022-08-15 13:00:00",
+  "status": "active",
+  "submission_time": {
+    "$date": "2022-08-10T19:02:11.090Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "62f4079fe4ce90a48ba753af"
+  },
+  "liaison_id": "jtchampi",
+  "clearance_guid": "D6A233C5-7339-4461-A2DC-89BADD182F97",
+  "clearance_name": "VRB-B-B112-SAT Project Manager-C1",
+  "campus_id": "200191895",
+  "action": "remove",
+  "group": "individual",
+  "action_time": {
+    "$date": "2022-08-10T19:31:43.110Z"
+  },
+  "status": "submitted",
+  "submission_time": {
+    "$date": "2022-08-10T19:31:43.110Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "630632fb2a64ed44e4963006"
+  },
+  "liaison_id": "jtchampi",
+  "clearance_guid": "D6A233C5-7339-4461-A2DC-89BADD182F97",
+  "clearance_name": "VRB-B-B112-SAT Project Manager-C1",
+  "campus_id": "200103374",
+  "action": "remove",
+  "group": "individual",
+  "action_time": {
+    "$date": "2022-08-24T10:17:31.688Z"
+  },
+  "status": "submitted",
+  "submission_time": {
+    "$date": "2022-08-24T10:17:31.688Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "630634b32a64ed44e4963011"
+  },
+  "liaison_id": "jtchampi",
+  "clearance_guid": "1FF93926-150D-42F5-8369-B755D9C17AEF",
+  "clearance_name": "OIT-AFH-Building Exterior Automated-C2",
+  "campus_id": "200103374",
+  "action": "remove",
+  "group": "individual",
+  "action_time": {
+    "$date": "2022-08-24T10:24:51.286Z"
+  },
+  "status": "submitted",
+  "submission_time": {
+    "$date": "2022-08-24T10:24:51.286Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6307b43da0af092736edb8e9"
+  },
+  "liaison_id": "jtchampi",
+  "clearance_name": "VRB - Module 6 & 7 All Common Doors",
+  "clearance_guid": "41C69822-9E33-4F8C-AE0B-DD77272A5867",
+  "campus_id": "200103374",
+  "action": "add",
+  "group": "individual",
+  "action_time": {
+    "$date": "2022-08-25T13:41:17.233Z"
+  },
+  "status": "submitted",
+  "submission_time": {
+    "$date": "2022-08-25T13:41:17.233Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "62eab494719d3a080667212b"
+  },
+  "liaison_id": "nprabhu5",
+  "clearance_guid": "96968298-8562-4DBA-9F04-6EBB89EC878F",
+  "clearance_name": "UH-AFB-Bayview Fall/Spring-C3 (Quarantine Clearance)",
+  "campus_id": "200342947",
+  "action": "remove",
+  "group": "individual",
+  "action_time": {
+    "$date": "2022-08-03T17:47:00.450Z"
+  },
+  "status": "submitted",
+  "submission_time": {
+    "$date": "2022-08-03T17:47:00.450Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "62f5694e2a73b511171ce1d9"
+  },
+  "liaison_id": "jtchampi",
+  "clearance_guid": "D6A233C5-7339-4461-A2DC-89BADD182F97",
+  "clearance_name": "VRB-B-B112-SAT Project Manager-C1",
+  "campus_id": "200103374",
+  "action": "remove",
+  "group": "individual",
+  "action_time": {
+    "$date": "2022-08-11T20:40:46.162Z"
+  },
+  "status": "submitted",
+  "submission_time": {
+    "$date": "2022-08-11T20:40:46.162Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "630632f32a64ed44e4962ffd"
+  },
+  "liaison_id": "jtchampi",
+  "clearance_guid": "66C109CA-EBC1-41C8-8A92-B44D6496689E",
+  "clearance_name": "VRB-SAT-Module 1 Field Ops Stock Room-C1",
+  "campus_id": "200103374",
+  "action": "remove",
+  "group": "individual",
+  "action_time": {
+    "$date": "2022-08-24T10:17:23.136Z"
+  },
+  "status": "submitted",
+  "submission_time": {
+    "$date": "2022-08-24T10:17:23.136Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6307b44ca0af092736edb8ef"
+  },
+  "liaison_id": "jtchampi",
+  "clearance_guid": "41C69822-9E33-4F8C-AE0B-DD77272A5867",
+  "clearance_name": "VRB - Module 6 & 7 All Common Doors",
+  "campus_id": "200103374",
+  "action": "remove",
+  "group": "individual",
+  "action_time": {
+    "$date": "2022-08-25T13:41:32.605Z"
+  },
+  "status": "submitted",
+  "submission_time": {
+    "$date": "2022-08-25T13:41:32.605Z"
+  }
+}]

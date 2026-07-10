@@ -1,0 +1,14 @@
+site_name: Clearance Tool
+markdown_extensions:
+    - attr_list
+    - toc:
+        permalink: true 
+extra_css:
+  - stylesheets/extra.css        
+theme:
+    name: material
+    palette:
+        primary: custom
+nav:
+    - Admin: index.md
+    - Liaison: liaison/index.md

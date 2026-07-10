@@ -1,0 +1,96 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: clearance-service-template
+labels:
+  app: ${APP_NAME}
+
+parameters:
+- name: IMAGE_TAG
+  required: true
+- name: APP_NAME
+  required: true
+  value: clearance-service
+- name: APP_NAMESPACE
+  value: clearance
+
+objects:
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: ${APP_NAME}
+    namespace: ${APP_NAMESPACE}
+  spec:
+    selector:
+      matchLabels:
+        app: ${APP_NAME}
+    replicas: 1
+    template:
+      metadata:
+        labels:
+          app: ${APP_NAME}
+      spec:
+        containers:
+          - name: ${APP_NAME}
+            image: satregistry.ehps.ncsu.edu/clearance-tool/clearance-service:${IMAGE_TAG}
+            imagePullPolicy: IfNotPresent
+            envFrom:
+            - configMapRef:
+                name: clearance-service-config
+            env:
+              - name: JWT_SECRET
+                valueFrom:
+                  secretKeyRef:
+                    name: clearance-service-secrets
+                    key: JWT_SECRET
+              - name: CLEARANCE_DB_URL
+                valueFrom:
+                  secretKeyRef:
+                    name: clearance-service-secrets
+                    key: CLEARANCE_DB_URL
+              - name: CCURE_USERNAME
+                valueFrom:
+                  secretKeyRef:
+                    name: clearance-service-secrets
+                    key: CCURE_USERNAME
+              - name: CCURE_PASSWORD
+                valueFrom:
+                  secretKeyRef:
+                    name: clearance-service-secrets
+                    key: CCURE_PASSWORD
+            command: ["uvicorn"]
+            args: ["main:app"]
+
+- apiVersion: v1
+  kind: Service
+  metadata:
+    name: ${APP_NAME}
+    namespace: ${APP_NAMESPACE}
+    labels:
+      app: ${APP_NAME}
+  spec:
+    selector:
+      app: ${APP_NAME}
+    ports:
+      - port: 8000
+        targetPort: 8000
+        protocol: TCP
+
+- apiVersion: route.openshift.io/v1
+  kind: Route
+  metadata:
+    name: ${APP_NAME}
+    namespace: ${APP_NAMESPACE}
+    annotations:
+      cert-manager.io/issuer-kind: ClusterIssuer
+      cert-manager.io/issuer-name: sectigo
+    labels:
+      app: ${APP_NAME}
+  spec:
+    to:
+      kind: Service
+      name: ${APP_NAME}
+    port:
+      targetPort: 8000
+    host: clearance.services.staging.ehps.ncsu.edu
+    path: /

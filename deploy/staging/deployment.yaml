@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clearance-service
+  namespace: clearance
+spec:
+  selector:
+    matchLabels:
+      app: clearance-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: clearance-service
+    spec:
+      containers:
+        - name: clearance-service
+          image: satregistry.ehps.ncsu.edu/clearance-tool/clearance-service:main
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: ACS_SYSTEM
+              value: ccure
+            - name: CCURE_BASE_URL
+              value: https://c9k.dev.ehps.ncsu.edu
+            - name: CCURE_CLIENT_NAME
+              value: NCSU - Security Portal - Integration
+            - name: CCURE_CLIENT_VERSION
+              value: "2.9"
+            - name: CCURE_CLIENT_ID
+              value: "d2a1f285-2d28-4147-8652-ba5ea211f1c1"
+            - name: SCHEDULE_CLEARANCES
+              value: "True"
+            - name: LIAISON_ACKNOWLEDGEMENT_DAYS
+              value: "60"
+            - name: SCHEDULER_LIMIT
+              value: "40"
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: clearance-service-secrets
+                  key: JWT_SECRET
+            - name: CLEARANCE_DB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: clearance-service-secrets
+                  key: CLEARANCE_DB_URL
+            - name: CCURE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: clearance-service-secrets
+                  key: CCURE_USERNAME
+            - name: CCURE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: clearance-service-secrets
+                  key: CCURE_PASSWORD
+          command: ["uvicorn"]
+          args: ["main:app"]

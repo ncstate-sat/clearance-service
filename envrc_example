@@ -1,0 +1,45 @@
+layout pyenv 3.10.4
+use nix
+dotenv_if_exists
+
+# This is the variable that is used in the app.
+# On non-local servers ths should be set to the appropriate value.
+export CLEARANCE_DB_URL=mongodb://dev-user:dev-password@localhost:27021/clearance_service
+
+# This is the variable that is used by the test suite.
+export TEST_DB_URL=mongodb://localhost:27022/clearance_service
+
+#### These are required in any capacity for the app to run. ####
+export JWT_SECRET=<>
+export CCURE_USERNAME=<>
+export CCURE_PASSWORD=<>
+export CCURE_BASE_URL=<>
+export CCURE_CLIENT_NAME="NCSU - Security Portal - Integration"
+export CCURE_CLIENT_VERSION=2.9
+export CCURE_CLIENT_ID=<>
+
+# These are here to support the restore and backup Make commands
+export REMOTE_DB_URL=<>
+export REMOTE_MONGO_USER=<>
+export REMOTE_MONGO_PASSWORD=<>
+export REMOTE_MONGO_HOST=<>
+export REMOTE_MONGO_PORT=27017
+export REMOTE_MONGO_DB=clearance_service
+# A URI that is compatible with the mongodump/mongorestore tools
+export REMOTE_BACKUP_URI=mongodb://<>
+# A URI that is compatible with mongosh
+export REMOTE_MONGO_URI=mongodb://<>
+
+export LOCAL_MONGO_USER=dev-user
+export LOCAL_MONGO_PASSWORD=dev-password
+export LOCAL_MONGO_HOST=localhost
+export LOCAL_MONGO_PORT=27021
+export LOCAL_MONGO_DB=clearance_service
+export ACS_SYSTEM="ccure"
+
+# Settings and preferences
+export DEVELOPMENT="True"
+export SCHEDULE_CLEARANCES="True"
+export SCHEDULER_LIMIT=20
+export PURGE_OLD_SCHEDULED_ACTIONS="True"
+export SCHEDULED_ACTION_PURGE_CUTOFF=90

@@ -1,0 +1,20 @@
+[{
+  "_id": {
+    "$oid": "653176376445d12539c45b4a"
+  },
+  "campus_id": "200103374",
+  "email": "jtchampi@ncsu.edu",
+  "clearances": [
+    {
+      "id": 10356,
+      "name": "VRB-Test Clearance 1"
+    },
+    {
+      "id": 10357,
+      "name": "VRB-Test Clearance 2"
+    }
+  ],
+  "last_acknowledged": {
+    "$date": "2023-10-19T18:35:21.637Z"
+  }
+}]

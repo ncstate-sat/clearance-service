@@ -1,0 +1,893 @@
+[{
+  "_id": {
+    "$oid": "66ed90b3d63f53586e258b7a"
+  },
+  "assigner_email": "lgsanche@ncsu.edu",
+  "assigner_id": "lgsanche@ncsu.edu",
+  "assigner_name": "Luc Sanchez",
+  "assignee_id": "200103374",
+  "clearance_id": 8330,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-09-21T04:00:00.000Z"
+  },
+  "submitted_time": {
+    "$date": "2024-09-20T15:11:47.593Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "66ed90dcd63f53586e258b7d"
+  },
+  "assigner_email": "lgsanche@ncsu.edu",
+  "assigner_id": "lgsanche@ncsu.edu",
+  "assigner_name": "Luc Sanchez",
+  "assignee_id": "200103374",
+  "clearance_id": 9312,
+  "action": "revoke",
+  "action_time": {
+    "$date": "2024-09-23T14:30:00.000Z"
+  },
+  "submitted_time": {
+    "$date": "2024-09-20T15:12:28.359Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "66f2d3f59064f805b1539f66"
+  },
+  "assigner_email": "lgsanche@ncsu.edu",
+  "assigner_id": "lgsanche@ncsu.edu",
+  "assigner_name": "Luc Sanchez",
+  "assignee_id": "200103374",
+  "clearance_id": 7957,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-09-25T04:00:00.000Z"
+  },
+  "submitted_time": {
+    "$date": "2024-09-24T15:00:05.260Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "66f2d4079064f805b1539f69"
+  },
+  "assigner_email": "lgsanche@ncsu.edu",
+  "assigner_id": "lgsanche@ncsu.edu",
+  "assigner_name": "Luc Sanchez",
+  "assignee_id": "200103374",
+  "clearance_id": 8330,
+  "action": "revoke",
+  "action_time": {
+    "$date": "2024-09-25T14:00:00.000Z"
+  },
+  "submitted_time": {
+    "$date": "2024-09-24T15:00:23.008Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "66faf2c7e7163177f98b4831"
+  },
+  "assigner_email": "jtchampi@ncsu.edu",
+  "assigner_id": "200103374",
+  "assigner_name": "John Champion",
+  "assignee_id": "001132807",
+  "clearance_id": 9069,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-10-07T04:00:00.000Z"
+  },
+  "submitted_time": {
+    "$date": "2024-09-30T18:49:43.676Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "66feb649814d2fd2153cdabd"
+  },
+  "assigner_email": "lgsanche@ncsu.edu",
+  "assigner_id": "001136746",
+  "assigner_name": "Luc Sanchez",
+  "assignee_id": "200103374",
+  "clearance_id": 9497,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-10-04T15:30:00.000Z"
+  },
+  "submitted_time": {
+    "$date": "2024-10-03T15:20:41.722Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "66feded0814d2fd2153cdb8d"
+  },
+  "assigner_email": "lgsanche@ncsu.edu",
+  "assigner_id": "001136746",
+  "assigner_name": "Luc Sanchez",
+  "assignee_id": "200103374",
+  "clearance_id": 9112,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-10-04T17:30:00.000Z"
+  },
+  "submitted_time": {
+    "$date": "2024-10-03T18:13:36.806Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "6712648ef8bf4b3852e2656b"
+  },
+  "assigner_email": "lgsanche@ncsu.edu",
+  "assigner_id": "001136746",
+  "assigner_name": "Luc Sanchez",
+  "assignee_id": "200103374",
+  "clearance_id": 9129,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-10-21T13:30:00.000Z"
+  },
+  "submitted_time": {
+    "$date": "2024-10-18T13:37:18.248Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "67126f42f8bf4b3852e2659f"
+  },
+  "assigner_email": "lgsanche@ncsu.edu",
+  "assigner_id": "001136746",
+  "assigner_name": "Sanchez, Luc",
+  "assignee_id": "200103374",
+  "clearance_id": 9069,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-10-26T21:12:36.676Z"
+  },
+  "submitted_time": {
+    "$date": "2024-10-18T14:22:58.473Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "67126f42f8bf4b3852e265a0"
+  },
+  "assigner_email": "lgsanche@ncsu.edu",
+  "assigner_id": "001136746",
+  "assigner_name": "Sanchez, Luc",
+  "assignee_id": "001136746",
+  "clearance_id": 10356,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-10-18T18:12:36.676Z"
+  },
+  "submitted_time": {
+    "$date": "2024-10-18T14:22:58.473Z"
+  },
+  "status": "failed",
+  "error_message": "This action has already been done."
+},
+{
+  "_id": {
+    "$oid": "67127432f8bf4b3852e265bc"
+  },
+  "assigner_email": "lgsanche@ncsu.edu",
+  "assigner_id": "001136746",
+  "assigner_name": "Luc Sanchez",
+  "assignee_id": "001132807",
+  "clearance_id": 9216,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-10-22T14:15:00.000Z"
+  },
+  "submitted_time": {
+    "$date": "2024-10-18T14:44:02.061Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "67127432f8bf4b3852e265bb"
+  },
+  "assigner_email": "lgsanche@ncsu.edu",
+  "assigner_id": "001136746",
+  "assigner_name": "Luc Sanchez",
+  "assignee_id": "200103374",
+  "clearance_id": 9216,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-10-22T14:15:00.000Z"
+  },
+  "submitted_time": {
+    "$date": "2024-10-18T14:44:02.061Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "67127afdf8bf4b3852e265de"
+  },
+  "assigner_email": "rsmcintu@ncsu.edu",
+  "assigner_id": "000008954",
+  "assigner_name": "McInturf, Robert S",
+  "assignee_id": "200103374",
+  "clearance_id": 9069,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-10-26T21:12:36.676Z"
+  },
+  "submitted_time": {
+    "$date": "2024-10-18T15:13:01.011Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "67127c54f8bf4b3852e265e8"
+  },
+  "assigner_email": "rsmcintu@ncsu.edu",
+  "assigner_id": "000008954",
+  "assigner_name": "McInturf, Robert S",
+  "assignee_id": "200103374",
+  "clearance_id": 9069,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-10-26T21:12:36.676Z"
+  },
+  "submitted_time": {
+    "$date": "2024-10-18T15:18:43.930Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "6717e532f8bf4b3852e27d74"
+  },
+  "assigner_email": "lgsanche@ncsu.edu",
+  "assigner_id": "001136746",
+  "assigner_name": "Sanchez, Luc",
+  "assignee_id": "200103374",
+  "clearance_id": 9069,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-10-26T21:12:36.676Z"
+  },
+  "submitted_time": {
+    "$date": "2024-10-22T17:47:30.757Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "671a6c3cf8bf4b3852e2888e"
+  },
+  "assigner_email": "jtchampi@ncsu.edu",
+  "assigner_id": "200103374",
+  "assigner_name": "Champion, John",
+  "assignee_id": "200103374",
+  "clearance_id": 9069,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-10-24T15:50:37.676Z"
+  },
+  "submitted_time": {
+    "$date": "2024-10-24T15:48:12.289Z"
+  },
+  "status": "failed",
+  "error_message": "This action has already been done."
+},
+{
+  "_id": {
+    "$oid": "671a6c3cf8bf4b3852e2888d"
+  },
+  "assigner_email": "jtchampi@ncsu.edu",
+  "assigner_id": "200103374",
+  "assigner_name": "Champion, John",
+  "assignee_id": "001132807",
+  "clearance_id": 9069,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-10-24T15:50:36.676Z"
+  },
+  "submitted_time": {
+    "$date": "2024-10-24T15:48:12.289Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "671a6c3cf8bf4b3852e2888f"
+  },
+  "assigner_email": "jtchampi@ncsu.edu",
+  "assigner_id": "200103374",
+  "assigner_name": "Champion, John",
+  "assignee_id": "001132807",
+  "clearance_id": 9073,
+  "action": "revoke",
+  "action_time": {
+    "$date": "2024-10-24T15:53:36.676Z"
+  },
+  "submitted_time": {
+    "$date": "2024-10-24T15:48:12.289Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "671a6c3cf8bf4b3852e28890"
+  },
+  "assigner_email": "jtchampi@ncsu.edu",
+  "assigner_id": "200103374",
+  "assigner_name": "Champion, John",
+  "assignee_id": "200103374",
+  "clearance_id": 9073,
+  "action": "revoke",
+  "action_time": {
+    "$date": "2024-10-24T15:53:37.676Z"
+  },
+  "submitted_time": {
+    "$date": "2024-10-24T15:48:12.289Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "672399323c7c6b4386a6a4a8"
+  },
+  "assigner_email": "staylor8@ncsu.edu",
+  "assigner_id": "001120834",
+  "assigner_name": "Shawn Taylor",
+  "assignee_id": "200103374",
+  "clearance_id": 8346,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-11-01T15:00:00.000Z"
+  },
+  "submitted_time": {
+    "$date": "2024-10-31T14:50:26.152Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "6724d92766663acbae7d24eb"
+  },
+  "assigner_email": "lgsanche@ncsu.edu",
+  "assigner_id": "001136746",
+  "assigner_name": "Sanchez, Luc",
+  "assignee_id": "001136746",
+  "clearance_id": 10183,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-11-18T18:12:36.676Z"
+  },
+  "submitted_time": {
+    "$date": "2024-11-01T13:35:34.976Z"
+  },
+  "status": "failed",
+  "error_message": "This action has already been done."
+},
+{
+  "_id": {
+    "$oid": "6724d92766663acbae7d24ec"
+  },
+  "assigner_email": "lgsanche@ncsu.edu",
+  "assigner_id": "001136746",
+  "assigner_name": "Sanchez, Luc",
+  "assignee_id": "200103374",
+  "clearance_id": 10353,
+  "action": "revoke",
+  "action_time": {
+    "$date": "2024-11-18T18:12:36.676Z"
+  },
+  "submitted_time": {
+    "$date": "2024-11-01T13:35:34.976Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "6724d92766663acbae7d24e8"
+  },
+  "assigner_email": "lgsanche@ncsu.edu",
+  "assigner_id": "001136746",
+  "assigner_name": "Sanchez, Luc",
+  "assignee_id": "200103374",
+  "clearance_id": 9069,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-11-02T21:12:36.676Z"
+  },
+  "submitted_time": {
+    "$date": "2024-11-01T13:35:34.976Z"
+  },
+  "status": "failed",
+  "error_message": "This action has already been done."
+},
+{
+  "_id": {
+    "$oid": "6724d92766663acbae7d24e9"
+  },
+  "assigner_email": "lgsanche@ncsu.edu",
+  "assigner_id": "001136746",
+  "assigner_name": "Sanchez, Luc",
+  "assignee_id": "001136746",
+  "clearance_id": 10356,
+  "action": "revoke",
+  "action_time": {
+    "$date": "2024-11-12T18:12:36.676Z"
+  },
+  "submitted_time": {
+    "$date": "2024-11-01T13:35:34.976Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "6724d92766663acbae7d24ea"
+  },
+  "assigner_email": "lgsanche@ncsu.edu",
+  "assigner_id": "001136746",
+  "assigner_name": "Sanchez, Luc",
+  "assignee_id": "001136746",
+  "clearance_id": 9129,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-11-01T18:12:36.676Z"
+  },
+  "submitted_time": {
+    "$date": "2024-11-01T13:35:34.976Z"
+  },
+  "status": "failed",
+  "error_message": "This action has already been done."
+},
+{
+  "_id": {
+    "$oid": "6734f5698ec9476a7f342d4b"
+  },
+  "assigner_email": "lgsanche@ncsu.edu",
+  "assigner_id": "001136746",
+  "assigner_name": "Luc Sanchez",
+  "assignee_id": "001120834",
+  "clearance_id": 9073,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-11-15T19:00:00.000Z"
+  },
+  "submitted_time": {
+    "$date": "2024-11-13T18:52:25.356Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "673ce3298ec9476a7f344f8d"
+  },
+  "assigner_email": "jtchampi@ncsu.edu",
+  "assigner_id": "200103374",
+  "assigner_name": "Champion, John",
+  "assignee_id": "001132807",
+  "clearance_id": 9069,
+  "action": "assign",
+  "action_time": {
+    "$date": "2025-10-24T15:50:36.676Z"
+  },
+  "submitted_time": {
+    "$date": "2024-11-19T19:12:41.909Z"
+  },
+  "status": "pending"
+},
+{
+  "_id": {
+    "$oid": "673ce3298ec9476a7f344f8f"
+  },
+  "assigner_email": "jtchampi@ncsu.edu",
+  "assigner_id": "200103374",
+  "assigner_name": "Champion, John",
+  "assignee_id": "001120834",
+  "clearance_id": 9069,
+  "action": "assign",
+  "action_time": {
+    "$date": "2025-10-24T15:50:36.676Z"
+  },
+  "submitted_time": {
+    "$date": "2024-11-19T19:12:41.909Z"
+  },
+  "status": "pending"
+},
+{
+  "_id": {
+    "$oid": "673ce3298ec9476a7f344f8e"
+  },
+  "assigner_email": "jtchampi@ncsu.edu",
+  "assigner_id": "200103374",
+  "assigner_name": "Champion, John",
+  "assignee_id": "200103374",
+  "clearance_id": 9069,
+  "action": "assign",
+  "action_time": {
+    "$date": "2025-10-24T15:50:36.676Z"
+  },
+  "submitted_time": {
+    "$date": "2024-11-19T19:12:41.909Z"
+  },
+  "status": "pending"
+},
+{
+  "_id": {
+    "$oid": "673e76218ec9476a7f34565c"
+  },
+  "assigner_email": "bjsosnow@ncsu.edu",
+  "assigner_id": "bjsosnow@ncsu.edu",
+  "assigner_name": "Bradley Sosnowski",
+  "assignee_id": "000008954",
+  "clearance_id": 8872,
+  "action": "revoke",
+  "action_time": {
+    "$date": "2024-11-21T09:00:00.000Z"
+  },
+  "submitted_time": {
+    "$date": "2024-11-20T23:52:01.462Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "673f9ca78ec9476a7f345b78"
+  },
+  "assigner_email": "rsemmle@ncsu.edu",
+  "assigner_id": "001132807",
+  "assigner_name": "Semmler, Ryan",
+  "assignee_id": "001132807",
+  "clearance_id": 10353,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-11-21T21:50:50.676Z"
+  },
+  "submitted_time": {
+    "$date": "2024-11-21T20:48:39.066Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "674635e5473b1fd22b8c1b20"
+  },
+  "assigner_email": "lgsanche@ncsu.edu",
+  "assigner_id": "001136746",
+  "assigner_name": "Sanchez, Luc",
+  "assignee_id": "200103374",
+  "clearance_id": 9069,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-11-18T05:00:00.000Z"
+  },
+  "submitted_time": {
+    "$date": "2024-11-26T20:56:05.980Z"
+  },
+  "status": "failed",
+  "error_message": "This action has already been done."
+},
+{
+  "_id": {
+    "$oid": "674635e5473b1fd22b8c1b21"
+  },
+  "assigner_email": "lgsanche@ncsu.edu",
+  "assigner_id": "001136746",
+  "assigner_name": "Sanchez, Luc",
+  "assignee_id": "200103374",
+  "clearance_id": 10353,
+  "action": "revoke",
+  "action_time": {
+    "$date": "2024-11-18T18:12:36.676Z"
+  },
+  "submitted_time": {
+    "$date": "2024-11-26T20:56:05.980Z"
+  },
+  "status": "failed",
+  "error_message": "This action has already been done."
+},
+{
+  "_id": {
+    "$oid": "67474401473b1fd22b8c1fa8"
+  },
+  "assigner_email": "jtchampi@ncsu.edu",
+  "assigner_id": "200103374",
+  "assigner_name": "John Champion",
+  "assignee_id": "200103374",
+  "clearance_id": 10354,
+  "action": "revoke",
+  "action_time": {
+    "$date": "2024-11-29T05:00:00.000Z"
+  },
+  "submitted_time": {
+    "$date": "2024-11-27T16:08:33.755Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "67474a68473b1fd22b8c1fcc"
+  },
+  "assigner_email": "jtchampi@ncsu.edu",
+  "assigner_id": "200103374",
+  "assigner_name": "John Champion",
+  "assignee_id": "200103374",
+  "clearance_id": 10354,
+  "action": "revoke",
+  "action_time": {
+    "$date": "2024-11-30T05:00:00.000Z"
+  },
+  "submitted_time": {
+    "$date": "2024-11-27T16:35:52.035Z"
+  },
+  "status": "failed",
+  "error_message": "This action has already been done."
+},
+{
+  "_id": {
+    "$oid": "674784b2473b1fd22b8c20d1"
+  },
+  "assigner_email": "jtchampi@ncsu.edu",
+  "assigner_id": "200103374",
+  "assigner_name": "Champion, John",
+  "assignee_id": "001132807",
+  "clearance_id": 9069,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-10-24T15:50:36.676Z"
+  },
+  "submitted_time": {
+    "$date": "2024-11-27T20:44:34.670Z"
+  },
+  "status": "failed",
+  "error_message": "This action has already been done."
+},
+{
+  "_id": {
+    "$oid": "674784b2473b1fd22b8c20d2"
+  },
+  "assigner_email": "jtchampi@ncsu.edu",
+  "assigner_id": "200103374",
+  "assigner_name": "Champion, John",
+  "assignee_id": "200103374",
+  "clearance_id": 9069,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-10-24T15:50:37.676Z"
+  },
+  "submitted_time": {
+    "$date": "2024-11-27T20:44:34.670Z"
+  },
+  "status": "failed",
+  "error_message": "This action has already been done."
+},
+{
+  "_id": {
+    "$oid": "674784b2473b1fd22b8c20d4"
+  },
+  "assigner_email": "jtchampi@ncsu.edu",
+  "assigner_id": "200103374",
+  "assigner_name": "Champion, John",
+  "assignee_id": "200103374",
+  "clearance_id": 9073,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-10-24T15:53:37.676Z"
+  },
+  "submitted_time": {
+    "$date": "2024-11-27T20:44:34.670Z"
+  },
+  "status": "failed",
+  "error_message": "This action has already been done."
+},
+{
+  "_id": {
+    "$oid": "674784b2473b1fd22b8c20d3"
+  },
+  "assigner_email": "jtchampi@ncsu.edu",
+  "assigner_id": "200103374",
+  "assigner_name": "Champion, John",
+  "assignee_id": "001132807",
+  "clearance_id": 9073,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-10-24T15:53:36.676Z"
+  },
+  "submitted_time": {
+    "$date": "2024-11-27T20:44:34.670Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "674785ad473b1fd22b8c20dd"
+  },
+  "assigner_email": "jtchampi@ncsu.edu",
+  "assigner_id": "200103374",
+  "assigner_name": "Champion, John",
+  "assignee_id": "200103374",
+  "clearance_id": 10354,
+  "action": "revoke",
+  "action_time": {
+    "$date": "2024-10-24T15:53:37.676Z"
+  },
+  "submitted_time": {
+    "$date": "2024-11-27T20:48:45.802Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "67478fca473b1fd22b8c2121"
+  },
+  "assigner_email": "jtchampi@ncsu.edu",
+  "assigner_id": "200103374",
+  "assigner_name": "John Champion",
+  "assignee_id": "200103374",
+  "clearance_id": 10355,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-12-02T05:00:00.000Z"
+  },
+  "submitted_time": {
+    "$date": "2024-11-27T21:31:54.525Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "67478ff5473b1fd22b8c212a"
+  },
+  "assigner_email": "jtchampi@ncsu.edu",
+  "assigner_id": "200103374",
+  "assigner_name": "John Champion",
+  "assignee_id": "200103374",
+  "clearance_id": 9497,
+  "action": "revoke",
+  "action_time": {
+    "$date": "2024-11-29T05:00:00.000Z"
+  },
+  "submitted_time": {
+    "$date": "2024-11-27T21:32:37.867Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "674a2695473b1fd22b8c2c3c"
+  },
+  "assigner_email": "lgsanche@ncsu.edu",
+  "assigner_id": "001136746",
+  "assigner_name": "Luc Sanchez",
+  "assignee_id": "200103374",
+  "clearance_id": 9497,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-11-30T20:00:00.000Z"
+  },
+  "submitted_time": {
+    "$date": "2024-11-29T20:39:49.223Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "674a277e473b1fd22b8c2c44"
+  },
+  "assigner_email": "lgsanche@ncsu.edu",
+  "assigner_id": "001136746",
+  "assigner_name": "Luc Sanchez",
+  "assignee_id": "200103374",
+  "clearance_id": 10353,
+  "action": "revoke",
+  "action_time": {
+    "$date": "2024-11-29T21:00:00.263Z"
+  },
+  "submitted_time": {
+    "$date": "2024-11-29T20:43:42.680Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "674e0aac473b1fd22b8c3cea"
+  },
+  "assigner_email": "jtchampi@ncsu.edu",
+  "assigner_id": "200103374",
+  "assigner_name": "John Champion",
+  "assignee_id": "200103374",
+  "clearance_id": 10354,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-12-02T19:45:00.000Z"
+  },
+  "submitted_time": {
+    "$date": "2024-12-02T19:29:48.507Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "674e0bfa473b1fd22b8c3cf2"
+  },
+  "assigner_email": "jtchampi@ncsu.edu",
+  "assigner_id": "200103374",
+  "assigner_name": "John Champion",
+  "assignee_id": "200103374",
+  "clearance_id": 10355,
+  "action": "revoke",
+  "action_time": {
+    "$date": "2024-12-02T19:45:00.000Z"
+  },
+  "submitted_time": {
+    "$date": "2024-12-02T19:35:22.491Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "674e108f473b1fd22b8c3d0b"
+  },
+  "assigner_email": "jtchampi@ncsu.edu",
+  "assigner_id": "200103374",
+  "assigner_name": "John Champion",
+  "assignee_id": "200103374",
+  "clearance_id": 9497,
+  "action": "revoke",
+  "action_time": {
+    "$date": "2024-12-02T20:00:00.549Z"
+  },
+  "submitted_time": {
+    "$date": "2024-12-02T19:54:54.941Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "674e45da473b1fd22b8c3df6"
+  },
+  "assigner_email": "lgsanche@ncsu.edu",
+  "assigner_id": "001136746",
+  "assigner_name": "Luc Sanchez",
+  "assignee_id": "200103374",
+  "clearance_id": 10048,
+  "action": "assign",
+  "action_time": {
+    "$date": "2024-12-03T19:00:00.000Z"
+  },
+  "submitted_time": {
+    "$date": "2024-12-02T23:42:18.414Z"
+  },
+  "status": "succeeded"
+},
+{
+  "_id": {
+    "$oid": "675b4ba721fccaf39102cf4c"
+  },
+  "assigner_email": "lgsanche@ncsu.edu",
+  "assigner_id": "001136746",
+  "assigner_name": "Luc Sanchez",
+  "assignee_id": "200103374",
+  "clearance_id": 9216,
+  "action": "revoke",
+  "action_time": {
+    "$date": "2024-12-13T20:30:00.000Z"
+  },
+  "submitted_time": {
+    "$date": "2024-12-12T20:46:31.120Z"
+  },
+  "status": "succeeded"
+}]

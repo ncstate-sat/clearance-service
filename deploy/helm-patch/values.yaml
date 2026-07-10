@@ -1,0 +1,4 @@
+registryUrl: satregistry.ehps.ncsu.edu/clearance-tool/clearance-service
+# imageTag is defaulted to latest but this should be overridden in the deployment to a specific tag
+# Example: helm --set imageTag=develop.374e4a8.2023-05-19.1329Z install ./deploy/helm-charts
+imageTag: latest
