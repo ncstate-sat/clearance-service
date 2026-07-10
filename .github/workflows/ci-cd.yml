@@ -82,6 +82,6 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
       - name: Build and push Docker image
         run: |
-          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/auth-service:latest
+          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/clearance-service:latest
           docker build . -t $IMAGE_ID
           docker push $IMAGE_ID
