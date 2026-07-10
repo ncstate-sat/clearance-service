@@ -11,6 +11,16 @@ on:
       - develop
   workflow_dispatch:
 
+env:
+  TEST_DB_URL: mongodb://localhost:27022/clearance_service
+  ACS_SYSTEM: ccure
+  CCURE_USERNAME: test-username
+  CCURE_PASSWORD: test-password
+  CCURE_BASE_URL: http://localhost:9999
+  CCURE_CLIENT_NAME: test-client-name
+  CCURE_CLIENT_VERSION: "2.9"
+  CCURE_CLIENT_ID: test-client-id
+
 jobs:
   run-tests:
     name: "Run Tests"
