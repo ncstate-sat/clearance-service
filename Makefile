@@ -26,14 +26,14 @@ run-db:
 	docker compose up -d --remove-orphans
 
 update-requirements:
-	pip install -U -q pip-tools
+	pip install -q "pip-tools<7.6.0"
 	pip-compile --resolver=backtracking -o requirements/base/base.txt pyproject.toml
 	pip-compile --resolver=backtracking --extra dev -o requirements/dev/dev.txt pyproject.toml
 
 install-dev:
 	@echo 'Installing pip-tools...'
 	export PIP_REQUIRE_VIRTUALENV=true; \
-	pip install -U -q pip-tools
+	pip install -q "pip-tools<7.6.0"
 	@echo 'Installing requirements...'
 	pip-sync requirements/base/base.txt requirements/dev/dev.txt
 
