@@ -72,6 +72,7 @@ jobs:
   build-and-push:
     name: "Build & Push"
     needs: run-tests
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     permissions:
       contents: read
