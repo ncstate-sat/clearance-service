@@ -34,6 +34,7 @@ install-dev:
 	@echo 'Installing pip-tools...'
 	export PIP_REQUIRE_VIRTUALENV=true; \
 	pip install -q "pip-tools<7.6.0"
+	pip install typing-extensions
 	@echo 'Installing requirements...'
 	pip-sync requirements/base/base.txt requirements/dev/dev.txt
 
