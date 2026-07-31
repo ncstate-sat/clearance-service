@@ -9,7 +9,6 @@ from clearance_service.models.personnel import Personnel
 from clearance_service.util.authorization import get_authorization
 from clearance_service.util.authorization_roles import ADMIN_ROLES, READ_ROLES
 from clearance_service.util.handle_requests import RequestException
-from clearance_service.util.settings import LIAISON_ACKNOWLEDGEMENT_DAYS
 from fastapi import APIRouter, Depends, Response, status
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel
@@ -96,41 +95,6 @@ def revoke_liaison_permissions(response: Response, body: ChangePermissionRequest
     record = liaison.revoke_liaison_permissions([int(_id) for _id in body.clearance_ids])
     del record["_id"]
     return {"record": record}
-
-
-@router.get("/needs-acknowledgement", tags=["Liaison"])
-def liaison_needs_acknowledgement(
-    response: Response, account: Account = Depends(get_authorization)
-) -> dict:
-    """Check whether the logged-in liaison needs to see the role acknowledgement modal"""
-    now = datetime.now(timezone.utc)
-    liaison_email = account.get_email if account.get_email else ""
-    liaison = Personnel.find_one_liaison(email=liaison_email)
-    if not liaison:
-        return {
-            "needs_acknowledgement": True,
-            "detail": f"Couldn't find liaison with email {liaison_email}",
-        }
-    last_acknowledgement = liaison.get("last_acknowledged")
-    if not last_acknowledgement:
-        return {"needs_acknowledgement": True}
-    elapsed = now - last_acknowledgement
-    return {"needs_acknowledgement": elapsed.days >= LIAISON_ACKNOWLEDGEMENT_DAYS}
-
-
-@router.put("/save-acknowledgement", tags=["Liaison"])
-def save_acknowledgement(response: Response, account: Account = Depends(get_authorization)) -> dict:
-    """Save the liaison's role acknowledgement"""
-    liaison_email = account.get_email if account.get_email else ""
-    try:
-        result = Personnel.save_liaison_acknowledgement(liaison_email)
-    except PyMongoError as e:
-        response.status_code = status.HTTP_400_BAD_REQUEST
-        return {"detail": f"Could not save liaison's role acknowledgement: {e}"}
-    if result.modified_count != 1 and result.upserted_id is None:
-        response.status_code = status.HTTP_400_BAD_REQUEST
-        return {"detail": "Could not save liaison's role acknowledgement"}
-    return {"updated": 1}
 
 
 @router.post("/add", tags=["Liaison"], dependencies=[Depends(AuthChecker(ADMIN_ROLES))])

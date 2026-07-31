@@ -7,8 +7,6 @@ from auth_checker.models.models import TokenAuthorizer as AuthChecker
 from bson import ObjectId
 from pymongo import ASCENDING, MongoClient
 
-from clearance_service.util.settings import LIAISON_ACKNOWLEDGEMENT_DAYS
-
 now = datetime.now(timezone.utc)
 
 mongo_client = MongoClient(os.getenv("TEST_DB_URL"))
@@ -122,19 +120,16 @@ def dbp(db):
                 "liaison_id": "person2",
                 "email": "person2@email.com",
                 "clearances": [],
-                "last_acknowledged": None,
             },
             {
                 "liaison_id": "person3",
                 "email": "person3@email.com",
                 "clearances": [],
-                "last_acknowledged": today - timedelta(days=LIAISON_ACKNOWLEDGEMENT_DAYS + 1),
             },
             {
                 "liaison_id": "person4",
                 "email": "person4@email.com",
                 "clearances": [],
-                "last_acknowledged": today - timedelta(days=LIAISON_ACKNOWLEDGEMENT_DAYS - 1),
             },
         ]
     )
