@@ -91,7 +91,8 @@ class Clearance:
         )
         clearances = acs.clearance.search(ids, search_filter, page_size=len(ids))
         return [
-            {"id": clearance["ObjectID"], "name": clearance["Name"]} for clearance in clearances
+            {"id": clearance.get("ObjectID"), "name": clearance.get("Name")}
+            for clearance in clearances
         ]
 
     @staticmethod

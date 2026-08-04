@@ -54,12 +54,13 @@ class Audit:
         search_filter = filters.PersonnelFilter(
             lookups={"EmailAddress": filters.NFUZZ},
             outer_bool=BooleanOperators.OR,
-            display_properties=[],
+            display_properties=["EmailAddress", "ProperName"],
         )
         people_records = acs.personnel.search(list(people_emails), search_filter)
         names_by_email = {
-            person["EmailAddress"]: person["ProperName"]
+            person.get("EmailAddress"): person.get("ProperName")
             for person in people_records
+            if person.get("EmailAddress")
         }
         result = cls.collection.insert_many(
             [
