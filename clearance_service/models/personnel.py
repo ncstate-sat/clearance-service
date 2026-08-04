@@ -131,7 +131,7 @@ class Personnel:
 
         if person_records:
             person_record = {
-                property: person_records[0][property]
+                property: person_records[0].get(property)
                 for property in search_filter.display_properties
             }
             person = Personnel(person_record)
@@ -171,6 +171,7 @@ class Personnel:
         search_filter = filters.PersonnelFilter(
             lookups={"EmailAddress": filters.NFUZZ},
             display_properties=list(set([
+                "ObjectID",
                 "FirstName",
                 "MiddleName",
                 "LastName",
