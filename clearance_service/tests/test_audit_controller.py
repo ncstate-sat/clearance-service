@@ -44,6 +44,37 @@ def test_search_actions(db, fake_auth):
     assert len(response.json()) == 1
 
 
+def test_search_actions_with_null_names(db, fake_auth):
+    """Records with null assigner_name/assignee_name (e.g. from before names were
+    resolved, or an unmatched CCure lookup) should not break the endpoint"""
+
+    ca_collection = db.audit
+
+    audit_records = [
+        {
+            "_id": bson.ObjectId(),
+            "assigner_name": None,
+            "assignee_name": None,
+            "assigner": "",
+            "assignee": "",
+            "action": "",
+            "clearance_id": None,
+            "clearance_name": "",
+            "timestamp": datetime.now(),
+            "message": "test_message",
+        }
+    ]
+
+    ca_collection.insert_many(audit_records)
+
+    response = client.get("/audit", headers={"Authorization": "Bearer token"})
+    assert response.status_code == 200
+    records = response.json()["records"]
+    assert len(records) == 1
+    assert records[0]["assigner_name"] == ""
+    assert records[0]["assignee_name"] == ""
+
+
 def test_search_actions_by_assigner_pagination(db, fake_auth):
     """Test the search_actions_by_assigner endpoint with pagination"""
 

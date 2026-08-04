@@ -60,7 +60,7 @@ class Audit:
         names_by_email = {
             person.get("EmailAddress"): person.get("ProperName")
             for person in people_records
-            if person.get("EmailAddress")
+            if person.get("EmailAddress") and person.get("ProperName")
         }
         result = cls.collection.insert_many(
             [
@@ -139,8 +139,8 @@ class Audit:
                 {"$match": match},
                 {"$project": {
                     "_id": 0,
-                    "assigner_name": 1,
-                    "assignee_name": 1,
+                    "assigner_name": {"$ifNull": ["$assigner_name", ""]},
+                    "assignee_name": {"$ifNull": ["$assignee_name", ""]},
                     "action": 1,
                     "timestamp": 1,
                 }},
