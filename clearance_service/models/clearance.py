@@ -206,7 +206,6 @@ class Clearance:
                     door_ids_by_clearance_id.setdefault(clearance_id, set()).add(
                         member["TargetObjectID"]
                     )
-            breakpoint()
 
         all_door_ids = set(door_ids) | {
             door_id for door_ids_ in door_ids_by_clearance_id.values() for door_id in door_ids_
