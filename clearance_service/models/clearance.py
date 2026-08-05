@@ -128,9 +128,9 @@ class Clearance:
         return [Clearance(**clearance) for clearance in allowed_clearances]
 
     @staticmethod
-    def get_doors_by_clearance_id(clearance_ids: list[str]):
+    def get_doors_by_clearance_id(clearance_ids: list[str]) -> dict[int, dict[int, Optional[str]]]:
         """
-        Get all doors by clearance ID.
+        Get all doors by clearance ID, including doors granted through a door group.
 
         Parameters:
             clearance_ids: A list of clearance IDs of which to find associated doors.
@@ -177,26 +177,71 @@ class Clearance:
         )
         door_ids = [item["DoorID"] for item in clearance_items if item["DoorID"] is not None]
 
+        # A door group can be shared by more than one of the given clearances, so
+        # each door group maps to a set of clearance IDs, not just one.
+        clearance_ids_by_door_group_id: dict[int, set[int]] = {}
+        for item in clearance_items:
+            if item.get("DoorGroupID"):
+                clearance_ids_by_door_group_id.setdefault(item["DoorGroupID"], set()).add(
+                    item["ClearanceID"]
+                )
+
+        # Resolve door groups into their member doors, and track which clearances
+        # reach each member door via that group.
+        door_ids_by_clearance_id: dict[int, set[int]] = {}
+        if clearance_ids_by_door_group_id:
+            group_member_search_filter = filters.GroupMemberFilter(
+                lookups={"GroupID": filters.NFUZZ},
+                outer_bool=BooleanOperators.OR,
+                display_properties=["TargetObjectID", "GroupID"],
+            )
+            group_members = acs.group_member.search(
+                terms=list(clearance_ids_by_door_group_id),
+                search_filter=group_member_search_filter,
+                timeout=35,
+                page_size=99999,
+            )
+            for member in group_members:
+                for clearance_id in clearance_ids_by_door_group_id.get(member["GroupID"], ()):
+                    door_ids_by_clearance_id.setdefault(clearance_id, set()).add(
+                        member["TargetObjectID"]
+                    )
+            breakpoint()
+
+        all_door_ids = set(door_ids) | {
+            door_id for door_ids_ in door_ids_by_clearance_id.values() for door_id in door_ids_
+        }
+
         # Query door names found in the clearance-to-door relationships.
-        acs_doors = acs.ccure_object.search(
-            object_type=ObjectType.DOOR.complete,
-            search_filter=door_search_filter,
-            terms=door_ids,
-            timeout=35,
-            page_size=99999,
+        acs_doors = (
+            acs.ccure_object.search(
+                object_type=ObjectType.DOOR.complete,
+                search_filter=door_search_filter,
+                terms=list(all_door_ids),
+                timeout=35,
+                page_size=99999,
+            )
+            if all_door_ids
+            else []
         )
         door_names = {}
         for door in acs_doors:
             door_names[door["ObjectID"]] = door["Name"]
 
         # Map door names to the clearance-to-door relationships.
-        clearance_doors = {}
+        clearance_doors: dict[int, dict[int, Optional[str]]] = {}
         for item in clearance_items:
             door_id = item["DoorID"]
             clearance_id = item["ClearanceID"]
             if door_id and door_id in door_names:
-                if clearance_id not in clearance_doors:
-                    clearance_doors[clearance_id] = {}
-                clearance_doors[clearance_id][door_id] = door_names[door_id] or None
+                clearance_doors.setdefault(clearance_id, {})[door_id] = door_names[door_id] or None
+
+        # Map door names found via door groups to the owning clearances.
+        for clearance_id, group_door_ids in door_ids_by_clearance_id.items():
+            for door_id in group_door_ids:
+                if door_id in door_names:
+                    clearance_doors.setdefault(clearance_id, {})[door_id] = (
+                        door_names[door_id] or None
+                    )
 
         return clearance_doors
