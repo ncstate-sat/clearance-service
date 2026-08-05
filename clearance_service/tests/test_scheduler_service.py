@@ -2,6 +2,7 @@
 
 from datetime import datetime, timedelta, timezone
 
+from bson import ObjectId
 from fastapi.testclient import TestClient
 from main import app
 
@@ -85,22 +86,28 @@ def test_update_action_statuses(dbp, fake_auth, monkeypatch, time_machine):
 
     time_machine.move_to(datetime(now.year, 8, 15, tzinfo=timezone.utc))
     monkeypatch.setattr(Audit, "add_many", lambda *_, **__: [])
-    monkeypatch.setattr(acs.personnel, "search", lambda *_, **__: [
-        {
-            "FirstName": "testfirst",
-            "MiddleName": "testmiddle",
-            "LastName": "testlast",
-            "EmailAddress": "testemail@test.email",
-            "ObjectID": 5000,
-            "Disabled": False,
-        },
-    ])
+    monkeypatch.setattr(
+        acs.personnel,
+        "search",
+        lambda *_, **__: [
+            {
+                "FirstName": "testfirst",
+                "MiddleName": "testmiddle",
+                "LastName": "testlast",
+                "EmailAddress": "testemail@test.email",
+                "ObjectID": 5000,
+                "Disabled": False,
+            },
+        ],
+    )
     monkeypatch.setattr(
         Personnel,
         "search_by_email",
-        lambda *_, **__: [Personnel(
-            {"FirstName": "firstname", "EmailAddress": "person2@email.com", "ObjectID": 5000},
-        )],
+        lambda *_, **__: [
+            Personnel(
+                {"FirstName": "firstname", "EmailAddress": "person2@email.com", "ObjectID": 5000},
+            )
+        ],
     )
     monkeypatch.setattr(
         acs.clearance,
@@ -138,6 +145,93 @@ def test_update_action_statuses(dbp, fake_auth, monkeypatch, time_machine):
     assert dbp.scheduled_action.count_documents({"status": "succeeded"}) == 1
     # one action already had 'already_completed', three pending actions updated their status:
     assert dbp.scheduled_action.count_documents({"status": "already_completed"}) == 4
+
+    monkeypatch.undo()
+
+
+def test_push_to_ccure_skips_malformed_documents(db, monkeypatch):
+    """A document missing required ActionConfig fields (e.g. a pre-migration
+    document with `assignee_id` but no `assignee_email`) should be marked
+    failed instead of crashing the whole batch."""
+    monkeypatch.setattr(SchedulerService, "scheduled_action_coll", db.scheduled_action)
+    monkeypatch.setattr(Audit, "add_many", lambda *_, **__: [])
+    monkeypatch.setattr(
+        acs.personnel,
+        "search",
+        lambda *_, **__: [
+            {
+                "FirstName": "testfirst",
+                "MiddleName": "testmiddle",
+                "LastName": "testlast",
+                "EmailAddress": "guy@test.email",
+                "ObjectID": 5000,
+                "Disabled": False,
+            },
+        ],
+    )
+    monkeypatch.setattr(
+        Personnel,
+        "search_by_email",
+        lambda *_, **__: [
+            Personnel(
+                {"FirstName": "firstname", "EmailAddress": "person1@email.com", "ObjectID": 5001}
+            ),
+        ],
+    )
+    monkeypatch.setattr(
+        acs.clearance,
+        "search",
+        lambda *_, **__: [{"ObjectID": 10354, "Name": "Clearance0"}],
+    )
+    monkeypatch.setattr(
+        acs.action.personnel,
+        "get_assigned_clearances",
+        lambda *_, **__: [],
+    )
+    monkeypatch.setattr(
+        acs.action.personnel,
+        "assign_clearances",
+        lambda *_, **__: None,
+    )
+
+    valid_action_id = ObjectId()
+    malformed_action_id = ObjectId()
+    db.scheduled_action.insert_many(
+        [
+            {
+                "_id": valid_action_id,
+                "assigner_email": "guy@test.email",
+                "assigner_name": "Guy Test",
+                "assignee_email": "person1@email.com",
+                "clearance_id": 10354,
+                "action": "assign",
+                "action_time": now - timedelta(days=9),
+                "submitted_time": now,
+                "status": "pending",
+            },
+            {
+                # legacy pre-migration document: no assignee_email
+                "_id": malformed_action_id,
+                "assigner_email": "guy@test.email",
+                "assigner_name": "Guy Test",
+                "assignee_id": "001132807",
+                "clearance_id": 10355,
+                "action": "assign",
+                "action_time": now - timedelta(days=9),
+                "submitted_time": now,
+                "status": "pending",
+            },
+        ]
+    )
+
+    SchedulerService.push_to_ccure()
+
+    malformed_doc = db.scheduled_action.find_one({"_id": malformed_action_id})
+    assert malformed_doc["status"] == "failed"
+    assert "error_message" in malformed_doc
+
+    valid_doc = db.scheduled_action.find_one({"_id": valid_action_id})
+    assert valid_doc["status"] == "succeeded"
 
     monkeypatch.undo()
 
