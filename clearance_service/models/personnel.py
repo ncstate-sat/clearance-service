@@ -131,7 +131,7 @@ class Personnel:
 
         if person_records:
             person_record = {
-                property: person_records[0][property]
+                property: person_records[0].get(property)
                 for property in search_filter.display_properties
             }
             person = Personnel(person_record)
@@ -171,6 +171,7 @@ class Personnel:
         search_filter = filters.PersonnelFilter(
             lookups={"EmailAddress": filters.NFUZZ},
             display_properties=list(set([
+                "ObjectID",
                 "FirstName",
                 "MiddleName",
                 "LastName",
@@ -215,7 +216,9 @@ class Personnel:
         if person_records:
             personnel = []
             for record in person_records:
-                person_data = {prop_name: record[prop_name] for prop_name in display_properties}
+                person_data = {
+                    prop_name: record.get(prop_name) for prop_name in display_properties
+                }
                 personnel.append(Personnel(person_data))
                 # NOTE this is a different definition of 'active' than in _find_one
             return personnel

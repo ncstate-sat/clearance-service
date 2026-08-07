@@ -234,10 +234,10 @@ def get_clearance_assignee_report(
         search_filter=personnel_filter, timeout=30, where_clause=where_clause, page_size=99999
     )
     assignees_by_acs_id = {
-        assignee["ObjectID"]: {
-            "first": assignee["FirstName"],
-            "last": assignee["LastName"],
-        } | {prop: assignee[prop] for prop in additional_acs_properties}
+        assignee.get("ObjectID"): {
+            "first": assignee.get("FirstName"),
+            "last": assignee.get("LastName"),
+        } | {prop: assignee.get(prop) for prop in additional_acs_properties}
         for assignee in assignees
     }
     if clearance_id:

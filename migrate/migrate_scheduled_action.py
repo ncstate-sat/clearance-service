@@ -3,7 +3,6 @@ import os
 from pymongo import MongoClient
 from sat.logs import SATLogger
 
-
 logger = SATLogger(__name__)
 
 
@@ -38,13 +37,14 @@ class ScheduledActionMigrate:
         logger.info(f"Added assignee emails to {updates} documents.")
         if unmatched_cids:
             logger.info(
-                "Could not find email addresses for these campus IDs: "
-                + ", ".join(unmatched_cids)
+                "Could not find email addresses for these campus IDs: " + ", ".join(unmatched_cids)
             )
 
-        # remove assigner_id and assignee_id fields
+        # remove assigner_id and assignee_id fields, but only from documents that
+        # were actually backfilled with assignee_email -- otherwise documents whose
+        # campus ID couldn't be matched to an email would be left with neither field
         response = cls.coll.update_many(
-            filter={},
+            filter={"assignee_email": {"$exists": True}},
             update={
                 "$unset": {
                     "assigner_id": 1,
