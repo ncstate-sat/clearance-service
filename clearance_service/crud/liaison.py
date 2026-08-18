@@ -2,12 +2,11 @@
 
 from datetime import datetime, timezone
 
-from auth_checker.models.models import Account
-from auth_checker.models.models import TokenAuthorizer as AuthChecker
+from auth_checker import AuthChecker, TokenPayload
 from clearance_service.models.clearance import Clearance
 from clearance_service.models.personnel import Personnel
 from clearance_service.util.authorization import get_authorization
-from clearance_service.util.authorization_roles import ADMIN_ROLES, READ_ROLES
+from clearance_service.util.authorization_roles import PERMISSIONS
 from clearance_service.util.handle_requests import RequestException
 from fastapi import APIRouter, Depends, Response, status
 from fastapi.encoders import jsonable_encoder
@@ -28,7 +27,9 @@ class RemoveLiaisonRequestBody(BaseModel):
     email: str
 
 
-@router.get("", tags=["Liaison"], dependencies=[Depends(AuthChecker(ADMIN_ROLES))])
+@router.get(
+    "", tags=["Liaison"], dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_LIAISON_READ"]))]
+)
 def get_liaison_permissions(email: str) -> dict:
     """
     Fetch all clearances a liaison is allowed to assign
@@ -43,7 +44,11 @@ def get_liaison_permissions(email: str) -> dict:
     return {"clearances": jsonable_encoder(permissions)}
 
 
-@router.post("/assign", tags=["Liaison"], dependencies=[Depends(AuthChecker(ADMIN_ROLES))])
+@router.post(
+    "/assign",
+    tags=["Liaison"],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_LIAISON_WRITE"]))],
+)
 def assign_liaison_permissions(response: Response, body: ChangePermissionRequestBody) -> dict:
     """
     Assign clearance assignment permissions to a liaison
@@ -76,7 +81,11 @@ def assign_liaison_permissions(response: Response, body: ChangePermissionRequest
     return {"record": record}
 
 
-@router.post("/revoke", tags=["Liaison"], dependencies=[Depends(AuthChecker(ADMIN_ROLES))])
+@router.post(
+    "/revoke",
+    tags=["Liaison"],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_LIAISON_WRITE"]))],
+)
 def revoke_liaison_permissions(response: Response, body: ChangePermissionRequestBody):
     """
     Revoke clearance assignment permissions from a liaison
@@ -97,7 +106,11 @@ def revoke_liaison_permissions(response: Response, body: ChangePermissionRequest
     return {"record": record}
 
 
-@router.post("/add", tags=["Liaison"], dependencies=[Depends(AuthChecker(ADMIN_ROLES))])
+@router.post(
+    "/add",
+    tags=["Liaison"],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_LIAISON_WRITE"]))],
+)
 def add_liaison(response: Response, body: RemoveLiaisonRequestBody) -> dict:
     """Add a liaison to the database."""
     try:
@@ -121,7 +134,11 @@ def add_liaison(response: Response, body: RemoveLiaisonRequestBody) -> dict:
     return {"updated": vars(new_liaison), "detail": ""}
 
 
-@router.post("/remove", tags=["Liaison"], dependencies=[Depends(AuthChecker(ADMIN_ROLES))])
+@router.post(
+    "/remove",
+    tags=["Liaison"],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_LIAISON_WRITE"]))],
+)
 def remove_liaison(
     response: Response,
     body: RemoveLiaisonRequestBody,
@@ -135,10 +152,14 @@ def remove_liaison(
     return {"updated": result}
 
 
-@router.get("/doors", tags=["Liaison"], dependencies=[Depends(AuthChecker(READ_ROLES))])
+@router.get(
+    "/doors",
+    tags=["Liaison"],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_LIAISON_READ"]))],
+)
 def get_doors(
     response: Response,
-    account: Account = Depends(get_authorization),
+    account: TokenPayload = Depends(get_authorization),
 ):
     """Get all doors assignable by the current user"""
     try:

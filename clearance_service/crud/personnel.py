@@ -1,19 +1,17 @@
 """Controller functions for personnel operations"""
 from typing import Literal
 
-from acslib.ccure.data_models import PersonnelCreateData
 from acslib.base.search import BooleanOperators
-from auth_checker.models.models import TokenAuthorizer as AuthChecker
+from acslib.ccure.data_models import PersonnelCreateData
+from auth_checker import AuthChecker
+from clearance_service.models import acs, filters
+from clearance_service.models.personnel import Personnel
+from clearance_service.util.authorization_roles import PERMISSIONS
+from clearance_service.util.handle_requests import RequestException
+from clearance_service.util.parse_list_param import parse_list_param
 from fastapi import APIRouter, Depends, Response, status
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel
-
-from clearance_service.models import acs, filters
-from clearance_service.models.personnel import Personnel
-from clearance_service.util.authorization_roles import READ_ROLES, READ_WRITE_ROLES
-from clearance_service.util.handle_requests import RequestException
-from clearance_service.util.parse_list_param import parse_list_param
-
 
 router = APIRouter()
 
@@ -45,7 +43,11 @@ class SearchPersonnelBody(BaseModel):
     additional_display_properties: list[str] = []
 
 
-@router.post("", tags=["Personnel"], dependencies=[Depends(AuthChecker(READ_ROLES))])
+@router.post(
+    "",
+    tags=["Personnel"],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_PERSONNEL_READ"]))],
+)
 def search_personnel(
     response: Response,
     body: SearchPersonnelBody,
@@ -74,7 +76,11 @@ def search_personnel(
     return {"personnel": serialized_personnel}
 
 
-@router.post("/bulk", tags=["Personnel"], dependencies=[Depends(AuthChecker(READ_ROLES))])
+@router.post(
+    "/bulk",
+    tags=["Personnel"],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_PERSONNEL_READ"]))],
+)
 def search_bulk_personnel(
     response: Response,
     body: BulkPersonnelSearchBody,
@@ -107,7 +113,11 @@ def search_bulk_personnel(
     return {"personnel": jsonable_encoder(personnel), "not_found": not_found}
 
 
-@router.get("/{email}", tags=["Personnel"], dependencies=[Depends(AuthChecker(READ_ROLES))])
+@router.get(
+    "/{email}",
+    tags=["Personnel"],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_PERSONNEL_READ"]))],
+)
 def get_person(
     response: Response,
     email: str,
@@ -133,7 +143,11 @@ def get_person(
     return {"person": jsonable_encoder(person)}
 
 
-@router.post("/disable", tags=["Personnel"], dependencies=[Depends(AuthChecker(READ_WRITE_ROLES))])
+@router.post(
+    "/disable",
+    tags=["Personnel"],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_PERSONNEL_WRITE"]))],
+)
 def disable_personnel(response: Response, email: str) -> dict:
     """
     Disable a person in acs.
@@ -175,7 +189,11 @@ def disable_personnel(response: Response, email: str) -> dict:
     }
 
 
-@router.post("/persist", tags=["Personnel"], dependencies=[Depends(AuthChecker(READ_WRITE_ROLES))])
+@router.post(
+    "/persist",
+    tags=["Personnel"],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_PERSONNEL_WRITE"]))],
+)
 def persist_personnel(response: Response, body: PersonnelPersistRequestBody) -> dict:
     """
     Persist a person to acs
@@ -202,9 +220,9 @@ def persist_personnel(response: Response, body: PersonnelPersistRequestBody) -> 
 
 
 @router.post(
-        "/update-credentials",
-        tags=["Personnel"],
-        dependencies=[Depends(AuthChecker(READ_WRITE_ROLES))]
+    "/update-credentials",
+    tags=["Personnel"],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_PERSONNEL_WRITE"]))],
 )
 def update_personnel_credentials(response: Response, email: str, new_credential: str) -> dict:
     """
@@ -227,19 +245,18 @@ def update_personnel_credentials(response: Response, email: str, new_credential:
 
         # check if they have an existing credential
         existing_credential = acs.credential.search(
-                    terms=[object_id],
-                    search_filter=filters.CcureFilter(
-                        lookups={"PersonnelID": filters.NFUZZ},
-                        outer_bool=BooleanOperators.OR,
-                        display_properties=["ObjectID", "PersonnelID", "CardNumber"],
-                    ),
-                )
+            terms=[object_id],
+            search_filter=filters.CcureFilter(
+                lookups={"PersonnelID": filters.NFUZZ},
+                outer_bool=BooleanOperators.OR,
+                display_properties=["ObjectID", "PersonnelID", "CardNumber"],
+            ),
+        )
 
         # if they do, update it
         if existing_credential:
             credential_response = acs.credential.update(
-                existing_credential[0]["ObjectID"],
-                {"CardNumber": new_credential}
+                existing_credential[0]["ObjectID"], {"CardNumber": new_credential}
             )
             return {
                 "status": f"{credential_response.status_code}",
@@ -282,7 +299,11 @@ def update_personnel_credentials(response: Response, email: str, new_credential:
         return {"status": 400, "message": str(e)}
 
 
-@router.post("/remove", tags=["Personnel"], dependencies=[Depends(AuthChecker(READ_WRITE_ROLES))])
+@router.post(
+    "/remove",
+    tags=["Personnel"],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_PERSONNEL_WRITE"]))],
+)
 def remove_personnel(response: Response, body: PersonnelRemoveRequestBody) -> dict:
     """
     Removes a person from ccure

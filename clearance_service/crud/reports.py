@@ -6,13 +6,12 @@ from datetime import datetime, timezone
 from acslib.base.search import BooleanOperators
 from acslib.ccure.base import CcureACS
 from acslib.ccure.types import ObjectType
-from auth_checker.models.models import Account
-from auth_checker.models.models import TokenAuthorizer as AuthChecker
+from auth_checker import AuthChecker, TokenPayload
 from clearance_service.models import acs, filters
 from clearance_service.models.audit import Audit
 from clearance_service.models.clearance import Clearance
 from clearance_service.util.authorization import get_authorization
-from clearance_service.util.authorization_roles import READ_ROLES
+from clearance_service.util.authorization_roles import PERMISSIONS
 from clearance_service.util.parse_list_param import parse_list_param
 from fastapi import APIRouter, Depends, Response, status
 from fastapi.responses import StreamingResponse
@@ -23,7 +22,7 @@ router = APIRouter()
 @router.get(
     "/usage/monthly-by-user",
     tags=["Reports"],
-    dependencies=[Depends(AuthChecker(READ_ROLES))],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_REPORTS_READ"]))],
     response_class=StreamingResponse,
 )
 async def get_liaisons_csv():
@@ -120,11 +119,11 @@ class UsageReport:
 @router.get(
     "/clearances/persons",
     tags=["Reports"],
-    dependencies=[Depends(AuthChecker(READ_ROLES))],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_REPORTS_READ"]))],
 )
 def get_clearance_assignee_report(
     response: Response,
-    account: Account = Depends(get_authorization),
+    account: TokenPayload = Depends(get_authorization),
     clearances_skip: int = 0,
     clearances_limit: int = 10,
     assignees_page: int = 1,
@@ -152,7 +151,7 @@ def get_clearance_assignee_report(
     if assignees_page > 1 and not clearance_id:
         response.status_code = status.HTTP_400_BAD_REQUEST
         return {"detail": "Clearance ID must be specified"}
-    assigner_email = account.get_email
+    assigner_email = account.email
 
     # Get this user's allowed clearances
     all_allowed_clearances = Clearance.get_allowed(email=assigner_email)
@@ -237,7 +236,8 @@ def get_clearance_assignee_report(
         assignee.get("ObjectID"): {
             "first": assignee.get("FirstName"),
             "last": assignee.get("LastName"),
-        } | {prop: assignee.get(prop) for prop in additional_acs_properties}
+        }
+        | {prop: assignee.get(prop) for prop in additional_acs_properties}
         for assignee in assignees
     }
     if clearance_id:
@@ -272,10 +272,14 @@ def get_clearance_assignee_report(
     }
 
 
-@router.get("/clearances/doors", tags=["Reports"], dependencies=[Depends(AuthChecker(READ_ROLES))])
+@router.get(
+    "/clearances/doors",
+    tags=["Reports"],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_REPORTS_READ"]))],
+)
 def get_clearance_door_report(
     response: Response,
-    account: Account = Depends(get_authorization),
+    account: TokenPayload = Depends(get_authorization),
     clearances_skip: int = 0,
     clearances_limit: int = 10,
     clearance_id: int = 0,
@@ -300,7 +304,7 @@ def get_clearance_door_report(
     elevator_ids = [int(elevator_id) for elevator_id in filter(None, elevator_ids.split(","))]
 
     # Get clearances allowed to be assigned by this person
-    assigner_email = account.get_email
+    assigner_email = account.email
     allowed_clearances = Clearance.get_allowed(email=assigner_email)
     if not allowed_clearances:
         return {"total_clearances": 0, "clearances": {}}
@@ -565,7 +569,11 @@ def get_clearance_door_report(
     return {"total_clearances": len(items_by_clearance), "clearances": items_by_clearance}
 
 
-@router.get("/search-items", tags=["Reports"], dependencies=[Depends(AuthChecker(READ_ROLES))])
+@router.get(
+    "/search-items",
+    tags=["Reports"],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_REPORTS_READ"]))],
+)
 def search_items(response: Response, search: str = "", doors_only: bool = True) -> list[dict]:
     """
     Search for clearance items by name. Returns doors by default, optionally include elevators
