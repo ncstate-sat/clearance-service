@@ -234,13 +234,18 @@ def get_clearance_assignee_report(
             where_arg_list.extend([name, name])
         where_clause = f"({where_clause}) AND {name_filter}"
     assignees = acs.personnel.search(
-        search_filter=personnel_filter, timeout=30, where_clause=where_clause, where_arg_list=where_arg_list, page_size=99999
+        search_filter=personnel_filter,
+        timeout=30,
+        where_clause=where_clause,
+        where_arg_list=where_arg_list,
+        page_size=99999,
     )
     assignees_by_acs_id = {
         assignee.get("ObjectID"): {
             "first": assignee.get("FirstName"),
             "last": assignee.get("LastName"),
-        } | {prop: assignee.get(prop) for prop in additional_acs_properties}
+        }
+        | {prop: assignee.get(prop) for prop in additional_acs_properties}
         for assignee in assignees
     }
     if clearance_id:
