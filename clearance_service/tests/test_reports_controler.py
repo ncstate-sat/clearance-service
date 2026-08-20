@@ -117,10 +117,10 @@ def mock_get_people_by_object_id(*_, **kwargs):
             "FirstName": "Shawn",
             "LastName": "Kemp",
             "MiddleName": "",
-            "Name": "Mena, Lisa",
+            "Name": "Kemp, Shawn",
             "ObjectID": 3001,
-            "ProperName": "Lisa Mena",
-            "EmailAddress": "lmena@university.edu",
+            "ProperName": "Shawn Kemp",
+            "EmailAddress": "skemp@university.edu",
         },
     ][: 1 if "mena" in kwargs["where_clause"].lower() else 2]
 

@@ -228,10 +228,8 @@ def get_clearance_assignee_report(
     if assignee_name:
         assignee_names = assignee_name.split()
         name_filter = " AND ".join(
-            f"(FirstName LIKE '%?%' OR LastName LIKE '%?%')" for _ in assignee_names
+            f"(FirstName LIKE '%{name}%' OR LastName LIKE '%{name}%')" for name in assignee_names
         )
-        for name in assignee_names:
-            where_arg_list.extend([name, name])
         where_clause = f"({where_clause}) AND {name_filter}"
     assignees = acs.personnel.search(
         search_filter=personnel_filter,
