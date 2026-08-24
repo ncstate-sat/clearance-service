@@ -30,8 +30,6 @@ spec:
               value: "d2a1f285-2d28-4147-8652-ba5ea211f1c1"
             - name: SCHEDULE_CLEARANCES
               value: "True"
-            - name: LIAISON_ACKNOWLEDGEMENT_DAYS
-              value: "60"
             - name: SCHEDULER_LIMIT
               value: "40"
             - name: JWT_SECRET

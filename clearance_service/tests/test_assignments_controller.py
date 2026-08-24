@@ -251,6 +251,72 @@ def mock_get_acs_doors(*_, **__):
     ]
 
 
+def mock_get_clearance_items_with_door_group(*_, **__):
+    """
+    Mock clearance items where clearance 5000 has a direct door plus a door group,
+    and clearance 5001 shares that same door group.
+    """
+    return [
+        {
+            "*state": 1,
+            "ClassType": "SoftwareHouse.NextGen.Common.SecurityObjects.ClearanceItem",
+            "GUID": "9c3bd102-a49f-4b8f-b9fa-03e483f97a3f",
+            "ClearanceID": 5000,
+            "DoorID": 3000,
+            "ElevatorID": None,
+            "ScheduleID": 2,
+            "DoorGroupID": None,
+            "ElevatorGroupID": None,
+            "*appServer": "VRB-C9K-02",
+            "ObjectID": 5003,
+            "*PK": ["ObjectID"],
+        },
+        {
+            "*state": 1,
+            "ClassType": "SoftwareHouse.NextGen.Common.SecurityObjects.ClearanceItem",
+            "GUID": "c2973f52-13fa-441c-a6fb-6acbeace3585",
+            "ClearanceID": 5000,
+            "DoorID": None,
+            "ElevatorID": None,
+            "ScheduleID": 3,
+            "DoorGroupID": 9000,
+            "ElevatorGroupID": None,
+            "*appServer": "VRB-C9K-02",
+            "ObjectID": 5004,
+            "*PK": ["ObjectID"],
+        },
+        {
+            "*state": 1,
+            "ClassType": "SoftwareHouse.NextGen.Common.SecurityObjects.ClearanceItem",
+            "GUID": "d3973f52-13fa-441c-a6fb-6acbeace3586",
+            "ClearanceID": 5001,
+            "DoorID": None,
+            "ElevatorID": None,
+            "ScheduleID": 3,
+            "DoorGroupID": 9000,
+            "ElevatorGroupID": None,
+            "*appServer": "VRB-C9K-02",
+            "ObjectID": 5005,
+            "*PK": ["ObjectID"],
+        },
+    ]
+
+
+def mock_get_group_members(*_, **__):
+    """Mock group members for door group 9000, containing door 3001."""
+    return [
+        {
+            "*state": 1,
+            "ClassType": "SoftwareHouse.NextGen.Common.SecurityObjects.GroupMember",
+            "GroupID": 9000,
+            "TargetObjectID": 3001,
+            "*appServer": "VRB-C9K-02",
+            "ObjectID": 9100,
+            "*PK": ["ObjectID"],
+        }
+    ]
+
+
 def mock_assign_clearances(*_, **__):
     """Mock a clearance assignment in acs."""
     return
@@ -264,13 +330,15 @@ def mock_get_assigned_clearances(*_, **__):
 def mock_find_by_email(*_, **__):
     """Mock Personnel.search_by_email"""
     return [
-        Personnel({
-            "FirstName": "John",
-            "MiddleName": None,
-            "LastName": "Champion",
-            "EmailAddress": "person2@email.com",
-            "ObjectID": 5001,
-        }),
+        Personnel(
+            {
+                "FirstName": "John",
+                "MiddleName": None,
+                "LastName": "Champion",
+                "EmailAddress": "person2@email.com",
+                "ObjectID": 5001,
+            }
+        ),
     ]
 
 
@@ -302,7 +370,9 @@ def test_error_get_assignments(db, fake_auth, monkeypatch):
     monkeypatch.setattr(acs.clearance, "get_property", mock_get_clearance_name)
     monkeypatch.setattr(ScheduledAction, "get_clearances_by_assignee", mock_error)
 
-    response = client.get("/assignments/person2@email.com", headers={"Authorization": "Bearer token"})
+    response = client.get(
+        "/assignments/person2@email.com", headers={"Authorization": "Bearer token"}
+    )
     assert response.status_code == 400
 
 
@@ -314,7 +384,9 @@ def test_get_assignments_as_admin(db, fake_auth, monkeypatch):
     monkeypatch.setattr(
         ScheduledAction, "get_clearances_by_assignee", mock_get_clearances_by_assignee
     )
-    response = client.get("/assignments/person2@email.com", headers={"Authorization": "Bearer token"})
+    response = client.get(
+        "/assignments/person2@email.com", headers={"Authorization": "Bearer token"}
+    )
     assert response.status_code == 200
     assert response.json() == {
         "assignments": [
@@ -358,6 +430,45 @@ def test_get_assignments_with_doors(db, fake_auth, monkeypatch):
                 },
             },
             {"id": 5001, "name": "Library - Faculty Commons", "can_revoke": True, "doors": {}},
+        ]
+    }
+
+
+def test_get_assignments_with_doors_via_door_group(db, fake_auth, monkeypatch):
+    """
+    It should include doors granted through a door group, attributing the group's
+    doors to every clearance that references it, even when the group is shared.
+    """
+    monkeypatch.setattr(acs.clearance, "get_property", mock_get_clearance_name)
+    monkeypatch.setattr(
+        ScheduledAction, "get_clearances_by_assignee", mock_get_clearances_by_assignee
+    )
+    monkeypatch.setattr(acs.clearance_item, "search", mock_get_clearance_items_with_door_group)
+    monkeypatch.setattr(acs.group_member, "search", mock_get_group_members)
+    monkeypatch.setattr(acs.ccure_object, "search", mock_get_acs_doors)
+    response = client.get(
+        "/assignments/person2@email.com?get_doors=True", headers={"Authorization": "Bearer token"}
+    )
+    assert response.status_code == 200
+    assert response.json() == {
+        "assignments": [
+            {
+                "id": 5000,
+                "name": "Hunt - Turnstiles",
+                "can_revoke": True,
+                "doors": {
+                    "3000": "VRB-B-B103C-Test Door 1234",
+                    "3001": "VRB-B-B103C-Test Door 5678",
+                },
+            },
+            {
+                "id": 5001,
+                "name": "Library - Faculty Commons",
+                "can_revoke": True,
+                "doors": {
+                    "3001": "VRB-B-B103C-Test Door 5678",
+                },
+            },
         ]
     }
 
@@ -537,7 +648,9 @@ def test_get_assignments_as_liaison(db, fake_auth, monkeypatch):
     monkeypatch.setattr(Clearance, "get_allowed", mock_get_allowed)
     app.dependency_overrides[get_authorization] = override_get_authorization_liaison
 
-    response = client.get("/assignments/person2@email.com", headers={"Authorization": "Bearer token"})
+    response = client.get(
+        "/assignments/person2@email.com", headers={"Authorization": "Bearer token"}
+    )
     assert response.status_code == 200
     assert response.json() == {"assignments": assigned_clearances}
 

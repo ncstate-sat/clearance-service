@@ -110,24 +110,7 @@ class Personnel:
         liaison = liaison_coll.find_one({"email": email})
         if not liaison:
             return None
-        if last_acknowledgement := liaison.get("last_acknowledged"):
-            if isinstance(last_acknowledgement, datetime):
-                liaison["last_acknowledged"] = last_acknowledgement.replace(tzinfo=timezone.utc)
         return liaison
-
-    @staticmethod
-    def save_liaison_acknowledgement(email: str):
-        """
-        Save the liaison's role acknowledgement with a new timestamp
-
-        Parameters:
-            email: the liaison's email address
-        """
-        liaison_coll = get_clearance_collection("liaison")
-        now = datetime.now(timezone.utc)
-        return liaison_coll.update_one(
-            {"email": email}, {"$set": {"last_acknowledged": now}}, upsert=True
-        )
 
     @staticmethod
     def _find_one(search_filter, search_term) -> Optional["Personnel"]:
@@ -148,7 +131,7 @@ class Personnel:
 
         if person_records:
             person_record = {
-                property: person_records[0][property]
+                property: person_records[0].get(property)
                 for property in search_filter.display_properties
             }
             person = Personnel(person_record)
@@ -188,6 +171,7 @@ class Personnel:
         search_filter = filters.PersonnelFilter(
             lookups={"EmailAddress": filters.NFUZZ},
             display_properties=list(set([
+                "ObjectID",
                 "FirstName",
                 "MiddleName",
                 "LastName",
@@ -232,7 +216,9 @@ class Personnel:
         if person_records:
             personnel = []
             for record in person_records:
-                person_data = {prop_name: record[prop_name] for prop_name in display_properties}
+                person_data = {
+                    prop_name: record.get(prop_name) for prop_name in display_properties
+                }
                 personnel.append(Personnel(person_data))
                 # NOTE this is a different definition of 'active' than in _find_one
             return personnel
@@ -318,7 +304,6 @@ class Personnel:
             {
                 "email": email,
                 "clearances": [],
-                "last_acknowledged": None,
             }
         )
         return acs_person

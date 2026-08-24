@@ -3,6 +3,7 @@
 from datetime import datetime, timedelta, timezone
 
 from fastapi import status
+from pydantic import ValidationError
 from sat.logs import SATLogger
 
 from clearance_service.models import acs
@@ -89,10 +90,34 @@ class SchedulerService:
         """
         An automated job that pushes new clearance assignments to CCure
         """
-        scheduled_actions = cls.get_scheduled_actions()
-        results = ScheduledAction.process(
-            [ScheduledAction.ActionConfig(**action) for action in scheduled_actions]
-        )
+        due_actions = cls.get_scheduled_actions()
+
+        scheduled_actions = []
+        action_configs = []
+        malformed_ids = []
+        for action in due_actions:
+            try:
+                action_configs.append(ScheduledAction.ActionConfig(**action))
+                scheduled_actions.append(action)
+            except ValidationError as e:
+                logger.error(
+                    f"Scheduled action document {action.get('_id')} is missing required "
+                    f"fields and will be marked failed: {e}"
+                )
+                malformed_ids.append(action["_id"])
+
+        if malformed_ids:
+            cls.scheduled_action_coll.update_many(
+                {"_id": {"$in": malformed_ids}},
+                {
+                    "$set": {
+                        "status": "failed",
+                        "error_message": "Scheduled action is missing required fields.",
+                    }
+                },
+            )
+
+        results = ScheduledAction.process(action_configs)
 
         # Loop through successful actions, update documents
         succeeded_ids = []
@@ -102,9 +127,15 @@ class SchedulerService:
         for action in scheduled_actions:
             assignee_email = action["assignee_email"]
             clearance_id = action["clearance_id"]
-            if results.get("succeeded", {}).get(assignee_email, {}).get(clearance_id, False) is True:
+            if (
+                results.get("succeeded", {}).get(assignee_email, {}).get(clearance_id, False)
+                is True
+            ):
                 succeeded_ids.append(action["_id"])
-            elif results.get("failed", {}).get(assignee_email, {}).get(clearance_id, None) is not None:
+            elif (
+                results.get("failed", {}).get(assignee_email, {}).get(clearance_id, None)
+                is not None
+            ):
                 error_message = (
                     results.get("failed", {}).get(assignee_email, {}).get(clearance_id, None)
                 )
