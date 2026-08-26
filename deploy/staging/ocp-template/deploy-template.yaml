@@ -83,7 +83,7 @@ objects:
     namespace: ${APP_NAMESPACE}
     annotations:
       cert-manager.io/issuer-kind: ClusterIssuer
-      cert-manager.io/issuer-name: sectigo
+      cert-manager.io/issuer-name: certinext
     labels:
       app: ${APP_NAME}
   spec:
@@ -94,3 +94,10 @@ objects:
       targetPort: 8000
     host: clearance.services.staging.ehps.ncsu.edu
     path: /
+    tls:
+      externalCertificate:
+        name: route-tls
+      insecureEdgeTerminationPolicy: Redirect
+      termination: edge
+      certificate: null
+      key: null
