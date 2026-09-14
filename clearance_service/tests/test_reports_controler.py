@@ -122,7 +122,7 @@ def mock_get_people_by_object_id(*_, **kwargs):
             "ProperName": "Lisa Mena",
             "EmailAddress": "lmena@university.edu",
         },
-    ][: 1 if "mena" in kwargs["where_clause"].lower() else 2]
+    ][: 1 if "mena" in ''.join(map(str, kwargs["where_arg_list"])).lower() else 2]
 
 
 def mock_search_clearance_items(doors_only: bool = True, *_, **__):
@@ -430,10 +430,11 @@ def test_assignee_report_limit_assignees(fake_auth, monkeypatch):
         ],
     )
     response = test_client.get(
-        "/reports/clearances/persons?assignee_name=Lisa+Mena",
+        "/reports/clearances/persons",
+        params={"assignee_name": "Lisa Mena"},
         headers={"Authorization": "Bearer token"},
     )
-
+    # breakpoint()
     assert response.status_code == 200
 
     data = response.json()
