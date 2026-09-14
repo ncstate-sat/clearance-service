@@ -231,7 +231,8 @@ def get_clearance_assignee_report(
             f"(FirstName LIKE ? OR LastName LIKE ?)" for _ in assignee_names
         )
         where_clause = f"({where_clause}) AND {name_filter}"
-        where_arg_list.extend([f"%{name}%" for name in assignee_names])
+        for name in assignee_names:
+            where_arg_list.extend([f"%{name}%"] * 2)
     assignees = acs.personnel.search(
         search_filter=personnel_filter,
         timeout=30,
