@@ -223,7 +223,8 @@ def get_clearance_assignee_report(
     personnel_filter = filters.PersonnelFilter(
         display_properties=["FirstName", "LastName"] + additional_acs_properties
     )
-    where_clause = " OR ".join(f"ObjectID = {email}" for email in all_assignee_emails)
+    where_clause = " OR ".join("ObjectID = ?" for _ in all_assignee_emails)
+    where_arg_list = list(all_assignee_emails)
     if assignee_name:
         assignee_names = assignee_name.split()
         name_filter = " AND ".join(
@@ -231,13 +232,18 @@ def get_clearance_assignee_report(
         )
         where_clause = f"({where_clause}) AND {name_filter}"
     assignees = acs.personnel.search(
-        search_filter=personnel_filter, timeout=30, where_clause=where_clause, page_size=99999
+        search_filter=personnel_filter,
+        timeout=30,
+        where_clause=where_clause,
+        where_arg_list=where_arg_list,
+        page_size=99999,
     )
     assignees_by_acs_id = {
         assignee.get("ObjectID"): {
             "first": assignee.get("FirstName"),
             "last": assignee.get("LastName"),
-        } | {prop: assignee.get(prop) for prop in additional_acs_properties}
+        }
+        | {prop: assignee.get(prop) for prop in additional_acs_properties}
         for assignee in assignees
     }
     if clearance_id:
