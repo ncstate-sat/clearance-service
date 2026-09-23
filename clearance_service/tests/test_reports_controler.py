@@ -434,7 +434,6 @@ def test_assignee_report_limit_assignees(fake_auth, monkeypatch):
         params={"assignee_name": "Lisa Mena"},
         headers={"Authorization": "Bearer token"},
     )
-    # breakpoint()
     assert response.status_code == 200
 
     data = response.json()
