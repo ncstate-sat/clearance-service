@@ -1,13 +1,12 @@
 """Model for clearance assignment audit"""
-from datetime import datetime, timezone, date
+from datetime import date, datetime, timezone
 from typing import Optional
 
+from acslib.base.search import BooleanOperators
 from pydantic import BaseModel
 
 from clearance_service.models import acs, filters
 from clearance_service.util.db_connect import get_clearance_collection
-
-from acslib.base.search import BooleanOperators
 
 
 class Audit:
@@ -19,13 +18,17 @@ class Audit:
         """Model for initializing new Audit objects"""
 
         assigner_name: str
+        assigner_email: str
         assignee_name: str
+        assignee_email: str
         action: str
         timestamp: datetime
 
     def __init__(self, audit_data: AuditRecord):
         self.assigner_name = audit_data.assigner_name
+        self.assigner_email = audit_data.assigner_email
         self.assignee_name = audit_data.assignee_name
+        self.assignee_email = audit_data.assignee_email
         self.action = audit_data.action
         self.timestamp = audit_data.timestamp.isoformat() + "Z"
 
@@ -56,9 +59,11 @@ class Audit:
             outer_bool=BooleanOperators.OR,
             display_properties=["EmailAddress", "ProperName"],
         )
+        # CCure's personnel search omits ProperName unless it's explicitly requested
+        search_filter.explicit_property_list = ["ProperName"]
         people_records = acs.personnel.search(list(people_emails), search_filter)
         names_by_email = {
-            person.get("EmailAddress"): person.get("ProperName")
+            person.get("EmailAddress").lower(): person.get("ProperName")
             for person in people_records
             if person.get("EmailAddress") and person.get("ProperName")
         }
@@ -66,13 +71,13 @@ class Audit:
             [
                 {
                     "assigner_name": names_by_email.get(
-                        config.assigner_email,
+                        config.assigner_email.lower(),
                         config.assigner_name
                         if config.assigner_name is not None
                         else config.assigner_email,
                     ),
                     "assigner_email": config.assigner_email,
-                    "assignee_name": names_by_email.get(config.assignee_email, ""),
+                    "assignee_name": names_by_email.get(config.assignee_email.lower(), ""),
                     "assignee_email": config.assignee_email,
                     "action": config.clearance_name + config.message_base,
                     "clearance_id": config.clearance_id,
@@ -137,13 +142,17 @@ class Audit:
         audit_results = cls.collection.aggregate(
             [
                 {"$match": match},
-                {"$project": {
-                    "_id": 0,
-                    "assigner_name": {"$ifNull": ["$assigner_name", ""]},
-                    "assignee_name": {"$ifNull": ["$assignee_name", ""]},
-                    "action": 1,
-                    "timestamp": 1,
-                }},
+                {
+                    "$project": {
+                        "_id": 0,
+                        "assigner_name": {"$ifNull": ["$assigner_name", ""]},
+                        "assigner_email": {"$ifNull": ["$assigner_email", ""]},
+                        "assignee_name": {"$ifNull": ["$assignee_name", ""]},
+                        "assignee_email": {"$ifNull": ["$assignee_email", ""]},
+                        "action": 1,
+                        "timestamp": 1,
+                    }
+                },
                 {"$sort": {"timestamp": -1}},
                 {"$skip": skip},
                 {"$limit": limit},
