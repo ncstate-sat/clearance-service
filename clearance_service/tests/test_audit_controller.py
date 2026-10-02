@@ -9,6 +9,8 @@ import bson
 from fastapi.testclient import TestClient
 from main import app
 
+from clearance_service.models import acs
+from clearance_service.models.audit import Audit
 from clearance_service.tests.override_get_authorization import override_get_authorization_admin
 from clearance_service.util.authorization import get_authorization
 
@@ -73,6 +75,68 @@ def test_search_actions_with_null_names(db, fake_auth):
     assert len(records) == 1
     assert records[0]["assigner_name"] == ""
     assert records[0]["assignee_name"] == ""
+    assert records[0]["assigner_email"] == ""
+    assert records[0]["assignee_email"] == ""
+
+
+def test_search_actions_includes_emails(db, fake_auth):
+    """Emails are returned so a client can identify people whose names aren't known"""
+    db.audit.insert_one(
+        {
+            "assigner_name": "Assigner Person",
+            "assigner_email": "assigner@email.com",
+            "assignee_name": "",
+            "assignee_email": "assignee@email.com",
+            "action": "ClearanceA revoked",
+            "clearance_id": 1234,
+            "clearance_name": "ClearanceA",
+            "timestamp": datetime.now(),
+        }
+    )
+
+    response = client.get("/audit", headers={"Authorization": "Bearer token"})
+    assert response.status_code == 200
+    record = response.json()["records"][0]
+    assert record["assigner_email"] == "assigner@email.com"
+    assert record["assignee_name"] == ""
+    assert record["assignee_email"] == "assignee@email.com"
+
+
+def test_add_many_resolves_names(db, monkeypatch):
+    """Names come from CCure's ProperName, matching emails case-insensitively,
+    and fall back to empty when the person isn't found in CCure"""
+    search_filters = []
+
+    def mock_personnel_search(_terms, search_filter, *_, **__):
+        search_filters.append(search_filter)
+        return [
+            {"ProperName": "Pat Smith", "EmailAddress": "PSmith@email.com"},
+            {"ProperName": "Sam Jones", "EmailAddress": "sjones@email.com"},
+        ]
+
+    monkeypatch.setattr(Audit, "collection", db.audit)
+    monkeypatch.setattr(acs.personnel, "search", mock_personnel_search)
+
+    Audit.add_many(
+        [
+            Audit.NewAuditData(
+                assigner_email="sjones@email.com",
+                assigner_name="token name",
+                assignee_email=assignee_email,
+                clearance_id=1234,
+                clearance_name="ClearanceA",
+                message_base=" revoked",
+            )
+            for assignee_email in ["psmith@email.com", "unknown@email.com"]
+        ]
+    )
+
+    records = {r["assignee_email"]: r for r in db.audit.find()}
+    assert records["psmith@email.com"]["assignee_name"] == "Pat Smith"
+    assert records["psmith@email.com"]["assigner_name"] == "Sam Jones"
+    assert records["unknown@email.com"]["assignee_name"] == ""
+    # CCure only returns ProperName when it's in the explicit property list
+    assert "ProperName" in search_filters[0].explicit_property_list
 
 
 def test_search_actions_by_assigner_pagination(db, fake_auth):

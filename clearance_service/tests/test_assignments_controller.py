@@ -99,7 +99,9 @@ def mock_get_audit_log(**kwargs):
         Audit(
             audit_data=Audit.AuditRecord(
                 assigner_name="test assigner",
+                assigner_email="assigner@email.com",
                 assignee_name="test assignee",
+                assignee_email="assignee@email.com",
                 action="some clearance assigned.",
                 timestamp=datetime.now(),
             )
