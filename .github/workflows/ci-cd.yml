@@ -93,7 +93,7 @@ jobs:
           IMAGE_TAG="${IMAGE_BASE}:${{ steps.vars.outputs.tag }}"
           docker build . -t "$IMAGE_TAG"
           docker push "$IMAGE_TAG"
-          if [ "$GITHUB_REF_NAME" = "develop" ]; then
+          if [ "$GITHUB_REF_NAME" = "develop" ] || [ "$GITHUB_REF_NAME" = "main" ]; then
             IMAGE_LATEST="${IMAGE_BASE}:latest"
             docker tag "$IMAGE_TAG" "$IMAGE_LATEST"
             docker push "$IMAGE_LATEST"
