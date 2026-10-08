@@ -20,7 +20,7 @@ def populate_emails():
             search_filter=personnel_filter,
             page_size=99999,
             where_clause="(Text1 LIKE ? OR Text1 LIKE ?) AND EmailAddress IS NULL",
-            where_arg_list=["100%", "65%"],
+            where_arg_list=["1000%", "6200%"],
         )
     except ACSRequestException as e:
         logger.info(f"Couldn't search personnel: {e}")
