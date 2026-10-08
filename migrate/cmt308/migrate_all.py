@@ -4,9 +4,9 @@ from acslib.base.search import BooleanOperators
 from acslib.ccure import PersonnelFilter, filters
 from sat.logs import SATLogger
 
-from migrate_audit import AuditMigrate
-from migrate_liaison import LiaisonMigrate
-from migrate_scheduled_action import ScheduledActionMigrate
+from migrate.cmt308.migrate_audit import AuditMigrate
+from migrate.cmt308.migrate_liaison import LiaisonMigrate
+from migrate.cmt308.migrate_scheduled_action import ScheduledActionMigrate
 
 
 logger = SATLogger(__name__)
