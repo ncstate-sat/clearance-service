@@ -3,14 +3,13 @@
 from datetime import datetime
 from typing import Literal, Optional
 
-from auth_checker.models.models import Account
-from auth_checker.models.models import TokenAuthorizer as AuthChecker
+from auth_checker import AuthChecker, TokenPayload
 from clearance_service.models import acs, filters
 from clearance_service.models.clearance import Clearance
 from clearance_service.models.personnel import Personnel
 from clearance_service.models.scheduled_action import ScheduledAction
 from clearance_service.util.authorization import get_authorization, user_is_admin
-from clearance_service.util.authorization_roles import READ_ROLES, READ_WRITE_ROLES
+from clearance_service.util.authorization_roles import PERMISSIONS
 from clearance_service.util.handle_requests import RequestException
 from clearance_service.util.settings import C9K_CLEARANCE_LIMIT
 from fastapi import APIRouter, Depends, Response, status
@@ -39,12 +38,12 @@ class ClearanceRevokeRequestBody(BaseModel):
 @router.post(
     "/assign",
     tags=["Assignments"],
-    dependencies=[Depends(AuthChecker(READ_WRITE_ROLES))],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_ASSIGNMENTS_WRITE"]))],
 )
 def assign_clearances(
     response: Response,
     body: ClearanceAssignRequestBody,
-    account: Account = Depends(get_authorization),
+    account: TokenPayload = Depends(get_authorization),
 ) -> dict:
     """
     Assign one or more clearances to one or more people
@@ -59,7 +58,7 @@ def assign_clearances(
         response.status_code = status.HTTP_400_BAD_REQUEST
         return {"record": {}, "detail": "At least one assignee is required to assign a clearance."}
 
-    assigner_email = account.get_email
+    assigner_email = account.email
     if assigner_email is None:
         response.status_code = status.HTTP_400_BAD_REQUEST
         return {"detail": "There must be an email address in this token."}
@@ -79,7 +78,7 @@ def assign_clearances(
         [
             ScheduledAction.ActionConfig(
                 assigner_email=assigner_email,
-                assigner_name=account.name if account.name else assigner_email,
+                assigner_name=assigner_email,
                 assignee_email=assignee_email,
                 clearance_id=clearance_id,
                 action="assign",
@@ -94,7 +93,7 @@ def assign_clearances(
             [
                 ScheduledAction.ActionConfig(
                     assigner_email=assigner_email,
-                    assigner_name=account.name if account.name else assigner_email,
+                    assigner_name=assigner_email,
                     assignee_email=assignee_email,
                     clearance_id=clearance_id,
                     action="revoke",
@@ -136,12 +135,12 @@ def assign_clearances(
 @router.post(
     "/revoke",
     tags=["Assignments"],
-    dependencies=[Depends(AuthChecker(READ_WRITE_ROLES))],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_ASSIGNMENTS_WRITE"]))],
 )
 def revoke_clearances(
     response: Response,
     body: ClearanceRevokeRequestBody,
-    account: Account = Depends(get_authorization),
+    account: TokenPayload = Depends(get_authorization),
 ) -> dict:
     """
     Revoke one or more clearances to one or more people
@@ -156,7 +155,7 @@ def revoke_clearances(
         response.status_code = status.HTTP_400_BAD_REQUEST
         return {"record": {}, "detail": "At least one assignee is required to revoke a clearance."}
 
-    assigner_email = account.get_email
+    assigner_email = account.email
     if assigner_email is None:
         response.status_code = status.HTTP_400_BAD_REQUEST
         return {"detail": "There must be an email address in this token."}
@@ -176,7 +175,7 @@ def revoke_clearances(
             configs=[
                 ScheduledAction.ActionConfig(
                     assigner_email=assigner_email,
-                    assigner_name=account.name if account.name else assigner_email,
+                    assigner_name=assigner_email,
                     assignee_email=assignee_email,
                     clearance_id=clearance_id,
                     action="revoke",
@@ -215,12 +214,12 @@ class GetScheduledActionsBody(BaseModel):
 @router.post(
     "/scheduled-actions",
     tags=["Assignments"],
-    dependencies=[Depends(AuthChecker(READ_ROLES))],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_ASSIGNMENTS_READ"]))],
 )
 def get_scheduled_actions(
     response: Response,
     body: GetScheduledActionsBody,
-    account: Account = Depends(get_authorization),
+    account: TokenPayload = Depends(get_authorization),
 ):
     if not body.assigner_email and not user_is_admin(account.roles):
         user = Personnel.find_one(account.email, [])
@@ -235,7 +234,7 @@ def get_scheduled_actions(
         for action in scheduled_actions["actions"]:
             action["can_cancel"] = True
     else:
-        assigner_email = account.get_email
+        assigner_email = account.email
         allowed_clearances = Clearance.get_allowed(assigner_email)
         allowed_ids = {clearance.id for clearance in allowed_clearances}
 
@@ -258,15 +257,15 @@ class BulkScheduleConfig(BaseModel):
 @router.post(
     "/bulk-schedule-actions",
     tags=["Assignments"],
-    dependencies=[Depends(AuthChecker(READ_WRITE_ROLES))],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_ASSIGNMENTS_WRITE"]))],
 )
 def bulk_schedule_actions(
     response: Response,
     body: list[BulkScheduleConfig],
-    account: Account = Depends(get_authorization),
+    account: TokenPayload = Depends(get_authorization),
 ):
     """Add actions to the scheduled_action db collection"""
-    assigner_email = account.get_email
+    assigner_email = account.email
     personnel_filter = filters.PersonnelFilter(
         lookups={"EmailAddress": filters.NFUZZ},
         display_properties=["Name"],
@@ -307,12 +306,14 @@ class CancelFutureActionBody(BaseModel):
 @router.post(
     "/cancel-scheduled-actions",
     tags=["Assignments"],
-    dependencies=[Depends(AuthChecker(READ_WRITE_ROLES))],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_ASSIGNMENTS_WRITE"]))],
 )
 def cancel_scheduled_actions(
-    response: Response, body: CancelFutureActionBody, account: Account = Depends(get_authorization)
+    response: Response,
+    body: CancelFutureActionBody,
+    account: TokenPayload = Depends(get_authorization),
 ):
-    assigner_email = account.get_email
+    assigner_email = account.email
     if assigner_email is None:
         response.status_code = status.HTTP_400_BAD_REQUEST
         return {"detail": "There must be an email address in this token."}
@@ -344,13 +345,13 @@ def cancel_scheduled_actions(
 @router.get(
     "/{email}",
     tags=["Assignments"],
-    dependencies=[Depends(AuthChecker(READ_ROLES))],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_ASSIGNMENTS_READ"]))],
 )
 def get_assignments(
     response: Response,
     email: str,
     get_doors: Optional[bool] = False,
-    account: Account = Depends(get_authorization),
+    account: TokenPayload = Depends(get_authorization),
 ) -> dict:
     """
     Return all active clearance assignments for an individual given their email address.
@@ -384,7 +385,7 @@ def get_assignments(
                 }
             )
     else:
-        assigner_email = account.get_email
+        assigner_email = account.email
         allowed_clearances = Clearance.get_allowed(assigner_email)
         allowed_ids = {clearance.id for clearance in allowed_clearances}
 

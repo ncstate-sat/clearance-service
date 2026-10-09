@@ -1,23 +1,26 @@
 """Controller functions for door operations"""
 
 
-from auth_checker.models.models import Account
-from auth_checker.models.models import TokenAuthorizer as AuthChecker
+from auth_checker import AuthChecker, TokenPayload
 from clearance_service.models import acs
 from clearance_service.models.personnel import Personnel
 from clearance_service.util.authorization import get_authorization
-from clearance_service.util.authorization_roles import READ_WRITE_ROLES
+from clearance_service.util.authorization_roles import PERMISSIONS
 from clearance_service.util.handle_requests import RequestException
 from fastapi import APIRouter, Depends, Response, status
 
 router = APIRouter()
 
 
-@router.post("/lock", tags=["Door"], dependencies=[Depends(AuthChecker(READ_WRITE_ROLES))])
+@router.post(
+    "/lock",
+    tags=["Door"],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_DOORS_WRITE"]))],
+)
 def lock_door(
     door_id: int,
     response: Response,
-    account: Account = Depends(get_authorization),
+    account: TokenPayload = Depends(get_authorization),
 ) -> dict[str, str]:
     """
     Lock a door indefinitely. The user must have permission to assign the door.
@@ -38,11 +41,15 @@ def lock_door(
     return {"detail": f"Not authorized to lock door {door_id}"}
 
 
-@router.post("/unlock", tags=["Door"], dependencies=[Depends(AuthChecker(READ_WRITE_ROLES))])
+@router.post(
+    "/unlock",
+    tags=["Door"],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_DOORS_WRITE"]))],
+)
 def unlock_door(
     door_id: int,
     response: Response,
-    account: Account = Depends(get_authorization),
+    account: TokenPayload = Depends(get_authorization),
 ) -> dict[str, str]:
     """
     Unock a door indefinitely. The user must have permission to assign the door.
