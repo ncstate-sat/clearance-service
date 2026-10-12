@@ -12,7 +12,6 @@ from clearance_service.models.door_group import DoorGroup
 from clearance_service.models.personnel import Personnel
 from clearance_service.tests.override_get_authorization import (
     override_get_authorization_admin,
-    override_get_authorization_liaison,
 )
 from clearance_service.util.authorization import get_authorization
 from clearance_service.util.handle_requests import RequestException
@@ -54,12 +53,14 @@ def mock_get_by_ids(*_, **__):
 
 def mock_find_one(*_, **__):
     """Mock Personnel.find_one"""
-    return Personnel({
-        "FirstName": "first",
-        "MiddleName": "M",
-        "LastName": "last",
-        "EmailAddress": "test@email.com",
-    })
+    return Personnel(
+        {
+            "FirstName": "first",
+            "MiddleName": "M",
+            "LastName": "last",
+            "EmailAddress": "test@email.com",
+        }
+    )
 
 
 def mock_error(*_, **__):
@@ -205,6 +206,68 @@ def test_get_liaison_permissions_with_data(db, fake_auth, monkeypatch):
     }
     assert get_response.status_code == 200
     assert get_response.json() == expected_json
+
+
+def test_get_liaison_permissions_with_null_clearances(db, fake_auth, monkeypatch):
+    """
+    It should return no clearances when a liaison record's clearances are null or missing.
+    """
+    db.liaison.insert_many(
+        [
+            {"email": "null-clearances@email.com", "clearances": None},
+            {"email": "missing-clearances@email.com"},
+        ]
+    )
+
+    null_response = client.get(
+        "/liaison?email=null-clearances@email.com", headers={"Authorization": "Bearer token"}
+    )
+    missing_response = client.get(
+        "/liaison?email=missing-clearances@email.com", headers={"Authorization": "Bearer token"}
+    )
+
+    assert null_response.status_code == 200
+    assert null_response.json() == {"clearances": []}
+    assert missing_response.status_code == 200
+    assert missing_response.json() == {"clearances": []}
+
+
+def test_get_liaison_permissions_skips_malformed_clearances(db, fake_auth, monkeypatch):
+    """
+    It should skip clearance entries that are not dicts or have no ID.
+    """
+    db.liaison.insert_one(
+        {
+            "email": "malformed@email.com",
+            "clearances": [5000, {"name": "No ID"}, {"id": 5001, "name": "Valid clearance"}],
+        }
+    )
+
+    response = client.get(
+        "/liaison?email=malformed@email.com", headers={"Authorization": "Bearer token"}
+    )
+
+    assert response.status_code == 200
+    assert response.json() == {"clearances": [{"id": 5001, "name": "Valid clearance"}]}
+
+
+def test_get_liaison_permissions_when_acs_request_fails(db, fake_auth, monkeypatch):
+    """
+    It should respond with the ACS error status when looking up a clearance name fails.
+    """
+
+    def mock_failed_get_property(*_, **__):
+        raise RequestException(503, "CCure unavailable")
+
+    monkeypatch.setattr(acs.clearance, "get_property", mock_failed_get_property)
+    db.liaison.insert_one({"email": "unnamed@email.com", "clearances": [{"id": 5000}]})
+
+    response = client.get(
+        "/liaison?email=unnamed@email.com", headers={"Authorization": "Bearer token"}
+    )
+
+    assert response.status_code == 503
+    assert response.json()["clearances"] == []
 
 
 def test_assign_no_clearance_permissions(db, fake_auth, monkeypatch):
