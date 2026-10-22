@@ -335,6 +335,7 @@ class Personnel:
                     display_properties=["DoorID", "DoorGroupID"],
                 ),
                 timeout=10,
+                page_size=10000,
             )
             if clearances
             else []
@@ -352,6 +353,7 @@ class Personnel:
                         display_properties=["ObjectID", "Name"],
                     ),
                     timeout=10,
+                    page_size=10000,
                 )
             ]
             if door_ids
@@ -365,13 +367,14 @@ class Personnel:
             [
                 DoorGroup(acs_door_group["ObjectID"], acs_door_group["Name"])
                 for acs_door_group in acs.group.search(
-                    [door_group_id for door_group_id in door_group_ids],
+                    list(door_group_ids),
                     filters.GroupFilter(
                         lookups={"ObjectID": filters.NFUZZ},
                         outer_bool=BooleanOperators.OR,
                         display_properties=["ObjectID", "Name"],
                     ),
                     timeout=10,
+                    page_size=10000,
                 )
             ]
             if door_group_ids
