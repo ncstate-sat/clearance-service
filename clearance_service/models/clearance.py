@@ -10,6 +10,8 @@ from clearance_service.models import acs, filters
 from clearance_service.util.db_connect import get_clearance_collection
 from clearance_service.util.sanitize_string import sanitize_string
 
+FETCH_ALL_DOORS_THRESHOLD = 500
+
 
 class Clearance:
     """ACS clearance objects"""
@@ -159,14 +161,6 @@ class Clearance:
                 "ElevatorGroupID",
             ],
         )
-        door_search_filter = filters.ClearanceItemFilter(
-            lookups={"ObjectID": filters.NFUZZ},
-            outer_bool=BooleanOperators.OR,
-            display_properties=[
-                "ObjectID",
-                "Name",
-            ],
-        )
 
         # Query the many-to-many relationship between clearances and doors.
         clearance_items = acs.clearance_item.search(
@@ -212,17 +206,7 @@ class Clearance:
         }
 
         # Query door names found in the clearance-to-door relationships.
-        acs_doors = (
-            acs.ccure_object.search(
-                object_type=ObjectType.DOOR.complete,
-                search_filter=door_search_filter,
-                terms=list(all_door_ids),
-                timeout=35,
-                page_size=99999,
-            )
-            if all_door_ids
-            else []
-        )
+        acs_doors = Clearance._search_doors(all_door_ids) if all_door_ids else []
         door_names = {}
         for door in acs_doors:
             door_names[door["ObjectID"]] = door["Name"]
@@ -244,3 +228,25 @@ class Clearance:
                     )
 
         return clearance_doors
+
+    @staticmethod
+    def _search_doors(door_ids: set[int]) -> list[dict]:
+        """Get door IDs and names, fetching every door when there are too many IDs to query."""
+        door_search_filter = filters.ClearanceItemFilter(
+            lookups={"ObjectID": filters.NFUZZ},
+            outer_bool=BooleanOperators.OR,
+            display_properties=[
+                "ObjectID",
+                "Name",
+            ],
+        )
+        # acslib turns each search term into its own OR'd condition, so a long ID list
+        # becomes a slow query. Above the threshold, fetching every door is faster.
+        search_terms = list(door_ids) if len(door_ids) <= FETCH_ALL_DOORS_THRESHOLD else []
+        return acs.ccure_object.search(
+            object_type=ObjectType.DOOR.complete,
+            search_filter=door_search_filter,
+            terms=search_terms,
+            timeout=35,
+            page_size=99999,
+        )

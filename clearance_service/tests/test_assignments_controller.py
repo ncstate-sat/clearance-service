@@ -475,6 +475,46 @@ def test_get_assignments_with_doors_via_door_group(db, fake_auth, monkeypatch):
     }
 
 
+def test_get_assignments_with_doors_above_fetch_all_threshold(db, fake_auth, monkeypatch):
+    """
+    It should fetch every door when there are too many door IDs to search for,
+    and only return the doors belonging to each clearance.
+    """
+    door_search_terms = []
+
+    def mock_get_all_acs_doors(*_, terms, **__):
+        door_search_terms.append(terms)
+        unrelated_door = {"ObjectID": 3999, "Name": "VRB-B-B999-Unrelated Door"}
+        return mock_get_acs_doors() + [unrelated_door]
+
+    monkeypatch.setattr("clearance_service.models.clearance.FETCH_ALL_DOORS_THRESHOLD", 1)
+    monkeypatch.setattr(acs.clearance, "get_property", mock_get_clearance_name)
+    monkeypatch.setattr(
+        ScheduledAction, "get_clearances_by_assignee", mock_get_clearances_by_assignee
+    )
+    monkeypatch.setattr(acs.clearance_item, "search", mock_get_clearance_items)
+    monkeypatch.setattr(acs.ccure_object, "search", mock_get_all_acs_doors)
+    response = client.get(
+        "/assignments/person2@email.com?get_doors=True", headers={"Authorization": "Bearer token"}
+    )
+    assert response.status_code == 200
+    assert door_search_terms == [[]]
+    assert response.json() == {
+        "assignments": [
+            {
+                "id": 5000,
+                "name": "Hunt - Turnstiles",
+                "can_revoke": True,
+                "doors": {
+                    "3000": "VRB-B-B103C-Test Door 1234",
+                    "3001": "VRB-B-B103C-Test Door 5678",
+                },
+            },
+            {"id": 5001, "name": "Library - Faculty Commons", "can_revoke": True, "doors": {}},
+        ]
+    }
+
+
 def test_get_assignments_of_missing_person(db, fake_auth, monkeypatch):
     """
     It should fail gracefully when searching for assignments of someone who does not exist in ACS.
