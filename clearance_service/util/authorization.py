@@ -15,7 +15,7 @@ def get_authorization(authorization: str = Header(default=None)) -> TokenPayload
     """Middleware to extract authorization details out of the token"""
     token = authorization.split(" ")[1]
     payload = jwt.decode(
-        token, os.getenv("JWT_SECRET"), ["HS256"], options={"verify_signature": False}
+        token, os.environ["JWT_SECRET"], ["HS256"], options={"verify_signature": False}
     )
     payload_account = payload.get("account", payload)
     account = TokenPayload(**payload_account)

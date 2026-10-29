@@ -1,6 +1,5 @@
 """Controller functions for liaison-related operations"""
 
-from datetime import datetime, timezone
 
 from auth_checker import AuthChecker, TokenPayload
 from clearance_service.models.clearance import Clearance
@@ -30,7 +29,7 @@ class RemoveLiaisonRequestBody(BaseModel):
 @router.get(
     "", tags=["Liaison"], dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_LIAISON_READ"]))]
 )
-def get_liaison_permissions(email: str) -> dict:
+def get_liaison_permissions(response: Response, email: str) -> dict:
     """
     Fetch all clearances a liaison is allowed to assign
 
@@ -40,7 +39,11 @@ def get_liaison_permissions(email: str) -> dict:
     Returns: A dict whose value is a list of clearance IDs
     """
     liaison = Personnel({"EmailAddress": email})
-    permissions = liaison.get_liaison_permissions()
+    try:
+        permissions = liaison.get_liaison_permissions()
+    except RequestException as e:
+        response.status_code = e.status_code
+        return {"clearances": [], "detail": f"Could not get permissions for liaison {email}"}
     return {"clearances": jsonable_encoder(permissions)}
 
 

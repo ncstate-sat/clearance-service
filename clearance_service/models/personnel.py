@@ -1,7 +1,6 @@
 """Model for Personnel"""
 
-from datetime import datetime, timezone
-from typing import Optional, Literal
+from typing import Literal, Optional
 
 from acslib.base.search import BooleanOperators
 from acslib.ccure.types import ObjectType
@@ -94,8 +93,9 @@ class Personnel:
         if record is None:
             return []
         return [
-            Clearance(clearance.get("id"), clearance.get("name"))
-            for clearance in record["clearances"]
+            Clearance(clearance["id"], clearance.get("name"))
+            for clearance in record.get("clearances") or []
+            if isinstance(clearance, dict) and clearance.get("id") is not None
         ]
 
     @staticmethod
@@ -170,15 +170,19 @@ class Personnel:
         """
         search_filter = filters.PersonnelFilter(
             lookups={"EmailAddress": filters.NFUZZ},
-            display_properties=list(set([
-                "ObjectID",
-                "FirstName",
-                "MiddleName",
-                "LastName",
-                "EmailAddress",
-                "Disabled",
-            ] + properties
-            )),
+            display_properties=list(
+                set(
+                    [
+                        "ObjectID",
+                        "FirstName",
+                        "MiddleName",
+                        "LastName",
+                        "EmailAddress",
+                        "Disabled",
+                    ]
+                    + properties
+                )
+            ),
         )
         person = Personnel._find_one(search_filter, email)
         return person
@@ -194,14 +198,18 @@ class Personnel:
 
         Returns: A list of Personnel objects
         """
-        display_properties=list(set([
-            "FirstName",
-            "MiddleName",
-            "LastName",
-            "EmailAddress",
-            "Disabled",
-        ] + properties
-        ))
+        display_properties = list(
+            set(
+                [
+                    "FirstName",
+                    "MiddleName",
+                    "LastName",
+                    "EmailAddress",
+                    "Disabled",
+                ]
+                + properties
+            )
+        )
         search_filter = filters.PersonnelFilter(
             lookups={"EmailAddress": filters.NFUZZ},
             display_properties=display_properties,
@@ -216,9 +224,7 @@ class Personnel:
         if person_records:
             personnel = []
             for record in person_records:
-                person_data = {
-                    prop_name: record.get(prop_name) for prop_name in display_properties
-                }
+                person_data = {prop_name: record.get(prop_name) for prop_name in display_properties}
                 personnel.append(Personnel(person_data))
                 # NOTE this is a different definition of 'active' than in _find_one
             return personnel
@@ -255,14 +261,19 @@ class Personnel:
 
         Returns: list of personnel matching the search
         """
-        display_properties = list(set([
-            "FirstName",
-            "MiddleName",
-            "LastName",
-            "EmailAddress",
-            "Disabled",
-        ] + list(search_fields) + display_properties
-        ))
+        display_properties = list(
+            set(
+                [
+                    "FirstName",
+                    "MiddleName",
+                    "LastName",
+                    "EmailAddress",
+                    "Disabled",
+                ]
+                + list(search_fields)
+                + display_properties
+            )
+        )
         SEARCH_TYPES = {
             "nfuzz": filters.NFUZZ,
             "fuzz": filters.FUZZ,
@@ -270,7 +281,7 @@ class Personnel:
             "rfuzz": filters.RFUZZ,
         }
         search_filter = filters.PersonnelFilter(
-            lookups = {
+            lookups={
                 prop: SEARCH_TYPES[search_type.lower()]
                 for prop, search_type in search_fields.items()
             },
@@ -282,8 +293,7 @@ class Personnel:
             page_size=C9K_PAGE_SIZE,
         )
         personnel_configs = [
-            {prop: person.get(prop) for prop in display_properties}
-            for person in search_results
+            {prop: person.get(prop) for prop in display_properties} for person in search_results
         ]
         return [Personnel(config) for config in personnel_configs]
 
@@ -335,6 +345,7 @@ class Personnel:
                     display_properties=["DoorID", "DoorGroupID"],
                 ),
                 timeout=10,
+                page_size=10000,
             )
             if clearances
             else []
@@ -352,6 +363,7 @@ class Personnel:
                         display_properties=["ObjectID", "Name"],
                     ),
                     timeout=10,
+                    page_size=10000,
                 )
             ]
             if door_ids
@@ -365,13 +377,14 @@ class Personnel:
             [
                 DoorGroup(acs_door_group["ObjectID"], acs_door_group["Name"])
                 for acs_door_group in acs.group.search(
-                    [door_group_id for door_group_id in door_group_ids],
+                    list(door_group_ids),
                     filters.GroupFilter(
                         lookups={"ObjectID": filters.NFUZZ},
                         outer_bool=BooleanOperators.OR,
                         display_properties=["ObjectID", "Name"],
                     ),
                     timeout=10,
+                    page_size=10000,
                 )
             ]
             if door_group_ids
