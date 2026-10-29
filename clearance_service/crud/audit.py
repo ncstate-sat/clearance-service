@@ -2,9 +2,9 @@
 
 from typing import Optional
 
-from auth_checker.models.models import TokenAuthorizer as AuthChecker
+from auth_checker import AuthChecker
 from clearance_service.models.audit import Audit
-from clearance_service.util.authorization_roles import ADMIN_ROLES
+from clearance_service.util.authorization_roles import PERMISSIONS
 from dateutil import parser
 from fastapi import APIRouter, Depends
 from fastapi.encoders import jsonable_encoder
@@ -12,7 +12,9 @@ from fastapi.encoders import jsonable_encoder
 router = APIRouter()
 
 
-@router.get("", tags=["Audit"], dependencies=[Depends(AuthChecker(ADMIN_ROLES))])
+@router.get(
+    "", tags=["Audit"], dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_AUDIT_READ"]))]
+)
 def search_actions(
     assignee_email: Optional[str] = None,
     assigner_email: Optional[str] = None,

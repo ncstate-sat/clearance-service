@@ -3,12 +3,11 @@
 from datetime import datetime
 from typing import Literal, Optional
 
-from auth_checker.models.models import Account
-from auth_checker.models.models import TokenAuthorizer as AuthChecker
+from auth_checker import AuthChecker, TokenPayload
 from bson import ObjectId
 from clearance_service.models.space_schedule import SpaceSchedule
 from clearance_service.util.authorization import get_authorization, user_is_admin
-from clearance_service.util.authorization_roles import READ_ROLES, READ_WRITE_ROLES
+from clearance_service.util.authorization_roles import PERMISSIONS
 from fastapi import APIRouter, Depends, Response, status
 from pydantic import BaseModel
 
@@ -25,12 +24,12 @@ class SpaceScheduleCreateBody(BaseModel):
 @router.post(
     "/create",
     tags=["SpaceSchedule"],
-    dependencies=[Depends(AuthChecker(READ_WRITE_ROLES))],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_SPACE_SCHEDULES_WRITE"]))],
 )
 def create_space_schedule(
     data: SpaceScheduleCreateBody,
     response: Response,
-    account: Account = Depends(get_authorization),
+    account: TokenPayload = Depends(get_authorization),
 ) -> dict[str, str]:
     """Post a new space_schedule document to the `space_schedule` mongo collection"""
     space_schedule = SpaceSchedule(
@@ -58,13 +57,17 @@ def create_space_schedule(
     return {"detail": "Could not create new space schedule"}
 
 
-@router.get("/search", tags=["SpaceSchedule"], dependencies=[Depends(AuthChecker(READ_ROLES))])
+@router.get(
+    "/search",
+    tags=["SpaceSchedule"],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_SPACE_SCHEDULES_READ"]))],
+)
 def search_space_schedules(
     response: Response,
     space_id: Optional[str] = None,
     action_type: Optional[str] = None,
     series_name: Optional[str] = None,
-    account: Account = Depends(get_authorization),
+    account: TokenPayload = Depends(get_authorization),
     skip: int = 0,
     limit: int = 100,
 ) -> list | dict[str, str]:
@@ -99,12 +102,12 @@ class SpaceScheduleUpdateBody(BaseModel):
 @router.put(
     "/update",
     tags=["SpaceSchedule"],
-    dependencies=[Depends(AuthChecker(READ_WRITE_ROLES))],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_SPACE_SCHEDULES_WRITE"]))],
 )
 def update_space_schedule(
     data: SpaceScheduleUpdateBody,
     response: Response,
-    account: Account = Depends(get_authorization),
+    account: TokenPayload = Depends(get_authorization),
 ) -> dict[str, str]:
     """Update an existing space_schedule document in mongo with a new space ID and/or action time"""
     if data.space_id is None and data.action_time is None:
@@ -132,12 +135,12 @@ def update_space_schedule(
 @router.delete(
     "/delete",
     tags=["SpaceSchedule"],
-    dependencies=[Depends(AuthChecker(READ_WRITE_ROLES))],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_SPACE_SCHEDULES_WRITE"]))],
 )
 def delete_space_schedule(
     schedule_id: str,
     response: Response,
-    account: Account = Depends(get_authorization),
+    account: TokenPayload = Depends(get_authorization),
 ) -> dict[str, str]:
     """Delete a space_schedule document from mongo"""
     try:
