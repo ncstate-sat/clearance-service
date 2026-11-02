@@ -1,12 +1,14 @@
 """
 This module is responsible for tasks that run periodically in the background.
 """
+import asyncio
 import atexit
 
 import tzlocal
 from apscheduler.schedulers.background import BackgroundScheduler
 from sat.logs import SATLogger
 
+from clearance_service.util.populate_cache_task import populate_door_names_cache
 from clearance_service.util.scheduler_service import SchedulerService
 from clearance_service.util.settings import SCHEDULE_CLEARANCES
 
@@ -28,6 +30,7 @@ class ServiceScheduler:
         """Add calls to jobs you want to run every day"""
         SchedulerService.update_liaison_clearance_names()
         SchedulerService.purge_scheduled_actions()
+        asyncio.run(populate_door_names_cache())
 
     def hourly_jobs(self):
         """Add calls to jobs you want to run every hour"""
