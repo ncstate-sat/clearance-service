@@ -47,8 +47,10 @@ docker compose down test-db
 
 Coverage is enforced at 60% (`--cov-fail-under=60` in `pytest.ini`) and reports to `.coveragerc` config (source =
 `clearance_service`). `clearance_service/tests/conftest.py` provides DB fixtures (`db`, `dbp` — seeds Mongo
-collections with fixture data) and `fake_auth` (monkeypatches `AuthChecker`/`BaseTokenValidator` to bypass real JWT
-auth in tests).
+collections with fixture data) and `fake_auth` (monkeypatches `AuthChecker.__call__` to bypass real JWT permission
+checks in tests). `clearance_service/tests/override_get_authorization.py` provides `override_get_authorization_admin`
+/ `_liaison`, used via `app.dependency_overrides[get_authorization]` to inject a fake `TokenPayload` for a given
+test.
 
 ### Linting / formatting
 
@@ -79,14 +81,19 @@ module tree can be imported (including in tests) without that env var set.
 ### Auth
 
 `get_authorization` (`util/authorization.py`) decodes a JWT from the `Authorization` header into an `auth_checker`
-`Account` (roles + email) — **signature verification is disabled**, since actual verification happens upstream.
-Route-level access control is layered:
-- `Depends(AuthChecker(ROLE_LIST))` on the route enforces the account has one of the required roles
-  (`READ_ROLES` / `READ_WRITE_ROLES` / `ADMIN_ROLES` in `util/authorization_roles.py`, cumulative — `ADMIN_ROLES`
-  ⊆ `READ_WRITE_ROLES` ⊆ `READ_ROLES`).
-- Inside the handler, `user_is_admin(account.roles)` typically branches between an "admin" code path (unrestricted
-  CCure access) and a "liaison" code path (scoped to what's recorded for that email in the `liaison` Mongo
-  collection).
+`TokenPayload` (`email`, `roles`, `inherited_roles`, `permissions`) — **signature verification is disabled**, since
+actual verification happens upstream. Route-level access control is layered:
+- `Depends(AuthChecker(*required_permissions))` on the route enforces that the token's `permissions` list contains
+  every permission string passed in. Permission strings live in `PERMISSIONS` (`util/authorization_roles.py`), a
+  dict keyed by names like `CLEARANCE_ASSIGNMENTS_READ` / `CLEARANCE_ASSIGNMENTS_WRITE` mapping to the actual
+  `"clearance-<domain>:<read|write>"` strings issued by the Auth Service — always reference permissions through
+  this dict (e.g. `AuthChecker(PERMISSIONS["CLEARANCE_ASSIGNMENTS_WRITE"])`), never as bare strings. There is no
+  role-based tier here (the old `READ_ROLES` / `READ_WRITE_ROLES` / `ADMIN_ROLES` cumulative-role scheme is gone).
+- Inside the handler, `user_is_admin(account.roles)` checks the token's `roles` against `SAT_INTERNAL_ROLES`
+  (`util/authorization_roles.py`) and typically branches between an "admin" code path (unrestricted CCure access)
+  and a "liaison" code path (scoped to what's recorded for that email in the `liaison` Mongo collection). This is
+  a separate concern from the permission-based route gating above — a request can pass the `AuthChecker` dependency
+  without being admin, and `user_is_admin` is never used to gate route access on its own.
 
 ### Scheduler
 

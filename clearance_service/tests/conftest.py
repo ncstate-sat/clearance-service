@@ -2,8 +2,7 @@ import os
 from datetime import datetime, timedelta, timezone
 
 import pytest
-from auth_checker.models.models import BaseTokenValidator
-from auth_checker.models.models import TokenAuthorizer as AuthChecker
+from auth_checker import AuthChecker
 from bson import ObjectId
 from pymongo import ASCENDING, MongoClient
 
@@ -309,4 +308,3 @@ def dbp(db):
 @pytest.fixture
 def fake_auth(monkeypatch):
     monkeypatch.setattr(AuthChecker, "__call__", lambda _: True)
-    monkeypatch.setattr(BaseTokenValidator, "_validate", lambda _: True)

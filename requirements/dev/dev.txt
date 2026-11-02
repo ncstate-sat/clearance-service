@@ -25,14 +25,12 @@ asttokens==2.4.1
     # via stack-data
 async-lru==2.0.4
     # via jupyterlab
-async-timeout==4.0.3
-    # via redis
 attrs==23.1.0
     # via
     #   jsonschema
     #   pytest
     #   referencing
-auth-checker==2.0.10
+auth-checker==3.0.1
     # via clearance-service (pyproject.toml)
 babel==2.14.0
     # via
@@ -46,17 +44,6 @@ black==23.12.1
     # via clearance-service (pyproject.toml)
 bleach==6.1.0
     # via nbconvert
-cachetools==5.3.3
-    # via google-auth
-casbin==1.36.0
-    # via
-    #   auth-checker
-    #   casbin-pymongo-adapter
-    #   casbin-redis-adapter
-casbin-pymongo-adapter==1.1.0
-    # via auth-checker
-casbin-redis-adapter==1.2.0
-    # via auth-checker
 certifi==2022.12.7
     # via
     #   httpcore
@@ -115,8 +102,6 @@ fqdn==1.5.1
     # via jsonschema
 ghp-import==2.1.0
     # via mkdocs
-google-auth==2.19.1
-    # via auth-checker
 h11==0.14.0
     # via
     #   httpcore
@@ -309,17 +294,12 @@ pure-eval==0.2.2
     # via stack-data
 py==1.11.0
     # via pytest
-pyasn1==0.5.0
-    # via
-    #   pyasn1-modules
-    #   rsa
-pyasn1-modules==0.4.0
-    # via google-auth
 pycparser==2.21
     # via cffi
 pydantic[email]==2.6.4
     # via
     #   acslib
+    #   auth-checker
     #   fastapi
     #   sat-utils
 pydantic-core==2.16.3
@@ -336,9 +316,7 @@ pyjwt==2.8.0
 pymdown-extensions==10.4
     # via mkdocs-material
 pymongo==4.6.1
-    # via
-    #   casbin-pymongo-adapter
-    #   clearance-service (pyproject.toml)
+    # via clearance-service (pyproject.toml)
 pyodbc==5.1.0
     # via sat-utils
 pytest==6.2.5
@@ -382,8 +360,6 @@ pyzmq==25.1.2
     #   ipykernel
     #   jupyter-client
     #   jupyter-server
-redis==5.0.7
-    # via casbin-redis-adapter
 referencing==0.33.0
     # via
     #   jsonschema
@@ -413,24 +389,17 @@ rpds-py==0.18.0
     # via
     #   jsonschema
     #   referencing
-rsa==4.9
-    # via google-auth
 ruff==0.1.11
     # via clearance-service (pyproject.toml)
 sat-utils==1.5.0
-    # via
-    #   acslib
-    #   auth-checker
+    # via acslib
 send2trash==1.8.2
     # via jupyter-server
-simpleeval==0.9.13
-    # via casbin
 six==1.16.0
     # via
     #   apscheduler
     #   asttokens
     #   bleach
-    #   google-auth
     #   python-dateutil
     #   rfc3339-validator
 slack-sdk==3.27.1
@@ -506,9 +475,7 @@ tzlocal==4.3
 uri-template==1.3.0
     # via jsonschema
 urllib3==1.26.15
-    # via
-    #   google-auth
-    #   requests
+    # via requests
 uvicorn==0.25.0
     # via clearance-service (pyproject.toml)
 virtualenv==20.23.0
