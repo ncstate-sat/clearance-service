@@ -6,6 +6,7 @@ build-backend = "hatchling.build"
 name = "clearance-service"
 version = "0.2.2"
 dependencies = [
+    "aiocache==0.12.3",
     "apscheduler==3.10.4",
     "pymongo==4.6.1",
     "uvicorn==0.25.0",
