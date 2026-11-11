@@ -1,4 +1,5 @@
 import pytest
+from acslib.base import ACSRequestException
 
 from clearance_service.models import acs
 from clearance_service.util import populate_cache_task
@@ -81,14 +82,22 @@ async def test_logs_error_when_cache_does_not_hold_door_names(mock_ccure, mocker
     logger.info.assert_not_called()
 
 
-async def test_ccure_errors_propagate_and_keep_existing_cache(mock_ccure, clear_cache):
+@pytest.mark.parametrize(
+    "ccure_error",
+    [RequestException(503, "CCURE unavailable"), ACSRequestException(503, "CCURE unavailable")],
+)
+async def test_ccure_errors_are_logged_and_keep_existing_cache(
+    mock_ccure, clear_cache, mocker, ccure_error
+):
+    logger = mocker.patch.object(populate_cache_task, "logger")
     await clear_cache.set("door_names", DOOR_NAMES)
-    mock_ccure.side_effect = RequestException(503, "CCURE unavailable")
+    mock_ccure.side_effect = ccure_error
 
-    with pytest.raises(RequestException):
-        await populate_door_names_cache()
+    await populate_door_names_cache()
 
     assert await clear_cache.get("door_names") == DOOR_NAMES
+    logger.error.assert_called_once()
+    assert "CCURE unavailable" in logger.error.call_args.args[0]
 
 
 async def test_get_cached_door_names_returns_cached_names(clear_cache):
