@@ -8,16 +8,17 @@ from clearance_service.crud.doors import router as door_router
 from clearance_service.crud.liaison import router as liaison_router
 from clearance_service.crud.personnel import router as personnel_router
 from clearance_service.crud.reports import router as reports_router
-from clearance_service.crud.spaces import router as spaces_router
 from clearance_service.crud.space_schedules import router as space_schedule_router
+from clearance_service.crud.spaces import router as spaces_router
 from clearance_service.models import acs
 from clearance_service.util.handle_requests import RequestException
+from clearance_service.util.populate_cache_task import cache, populate_door_names_cache
 from clearance_service.util.scheduler_framework import ServiceScheduler
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
-from sat.logs import SATLogger
 from prometheus_fastapi_instrumentator import Instrumentator
+from sat.logs import SATLogger
 
 logger = SATLogger(__name__)
 
@@ -66,8 +67,9 @@ def default(request: Request):
 
 
 @app.on_event("startup")
-def startup_db_client():
-    """Start the scheduler"""
+async def startup_db_client():
+    """Load the cache and start the scheduler"""
+    await populate_door_names_cache()
     if os.getenv("DEVELOPMENT"):
         logger.info("DEVELOPMENT mode, not starting scheduler")
         return
@@ -83,3 +85,10 @@ def logout_acs_session():
         acs.connection.logout()
     except RequestException as e:
         logger.error(f"{e}")
+
+
+@app.on_event("shutdown")
+async def clear_cache():
+    """Clear the cache on close"""
+    logger.info("Clearing cache")
+    await cache.clear()
