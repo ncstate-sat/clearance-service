@@ -1,4 +1,4 @@
-FROM python:3.10-slim-bookworm
+FROM python:3.15-slim-bookworm
 
 WORKDIR /app
 ADD requirements /app/requirements
