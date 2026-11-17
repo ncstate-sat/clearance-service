@@ -2,10 +2,11 @@ import os
 from datetime import datetime, timedelta, timezone
 
 import pytest
-from auth_checker.models.models import BaseTokenValidator
-from auth_checker.models.models import TokenAuthorizer as AuthChecker
+from auth_checker import AuthChecker
 from bson import ObjectId
 from pymongo import ASCENDING, MongoClient
+
+from clearance_service.util.populate_cache_task import cache
 
 now = datetime.now(timezone.utc)
 
@@ -32,6 +33,20 @@ def before_and_after_test():
     setup_db()
     yield
     tear_down_db()
+
+
+@pytest.fixture
+def anyio_backend():
+    """Run async tests on asyncio only."""
+    return "asyncio"
+
+
+@pytest.fixture
+async def clear_cache():
+    """Start and end each test with an empty cache."""
+    await cache.clear()
+    yield cache
+    await cache.clear()
 
 
 @pytest.fixture
@@ -309,4 +324,3 @@ def dbp(db):
 @pytest.fixture
 def fake_auth(monkeypatch):
     monkeypatch.setattr(AuthChecker, "__call__", lambda _: True)
-    monkeypatch.setattr(BaseTokenValidator, "_validate", lambda _: True)

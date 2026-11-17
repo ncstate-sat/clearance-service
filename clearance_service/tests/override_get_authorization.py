@@ -1,31 +1,23 @@
 """
 Module representing authorization middleware override for testing.
 """
-from auth_checker.models.models import Account
+from auth_checker import TokenPayload
 from fastapi import Header
 
 
 def override_get_authorization_admin():
     """Mock get_authorization for an admin user"""
-    return Account(
-        {
-            "name": "Ryan Semmler",
-            "email": "test_user@test.edu",
-            "client_email": None,
-            "roles": ["dev"],
-        }
+    return TokenPayload(
+        email="test_user@test.edu",
+        roles=["dev"],
     )
 
 
 def override_get_authorization_liaison(authorization: str = Header(default=None)):
     """Mock get_authorization for a liaison user"""
-    account = Account(
-        {
-            "name": "Ryan Semmler",
-            "email": "test_user@test.edu",
-            "client_email": "",
-            "roles": ["clearance:access"],
-        }
+    account = TokenPayload(
+        email="test_user@test.edu",
+        roles=["liaison"],
     )
     match authorization:
         case "Bearer token1":

@@ -4,11 +4,14 @@ from math import ceil
 from typing import Optional
 
 from acslib.base.search import BooleanOperators
-from acslib.ccure.types import ObjectType
+from sat.logs import SATLogger
 
 from clearance_service.models import acs, filters
+from clearance_service.models.door import Door
 from clearance_service.util.db_connect import get_clearance_collection
 from clearance_service.util.sanitize_string import sanitize_string
+
+logger = SATLogger(__name__)
 
 
 class Clearance:
@@ -128,12 +131,16 @@ class Clearance:
         return [Clearance(**clearance) for clearance in allowed_clearances]
 
     @staticmethod
-    def get_doors_by_clearance_id(clearance_ids: list[str]) -> dict[int, dict[int, Optional[str]]]:
+    def get_doors_by_clearance_id(
+        clearance_ids: list[str], cached_door_names: dict[int, Optional[str]]
+    ) -> dict[int, dict[int, Optional[str]]]:
         """
         Get all doors by clearance ID, including doors granted through a door group.
 
         Parameters:
             clearance_ids: A list of clearance IDs of which to find associated doors.
+            cached_door_names: Door names keyed by door ID. Doors missing from it are
+                looked up in CCure.
 
         Returns:
             A map of clearances IDs with associated doors.
@@ -157,14 +164,6 @@ class Clearance:
                 "ScheduleID",
                 "DoorGroupID",
                 "ElevatorGroupID",
-            ],
-        )
-        door_search_filter = filters.ClearanceItemFilter(
-            lookups={"ObjectID": filters.NFUZZ},
-            outer_bool=BooleanOperators.OR,
-            display_properties=[
-                "ObjectID",
-                "Name",
             ],
         )
 
@@ -211,21 +210,7 @@ class Clearance:
             door_id for door_ids_ in door_ids_by_clearance_id.values() for door_id in door_ids_
         }
 
-        # Query door names found in the clearance-to-door relationships.
-        acs_doors = (
-            acs.ccure_object.search(
-                object_type=ObjectType.DOOR.complete,
-                search_filter=door_search_filter,
-                terms=list(all_door_ids),
-                timeout=35,
-                page_size=99999,
-            )
-            if all_door_ids
-            else []
-        )
-        door_names = {}
-        for door in acs_doors:
-            door_names[door["ObjectID"]] = door["Name"]
+        door_names = Clearance._get_door_names(all_door_ids, cached_door_names)
 
         # Map door names to the clearance-to-door relationships.
         clearance_doors: dict[int, dict[int, Optional[str]]] = {}
@@ -244,3 +229,22 @@ class Clearance:
                     )
 
         return clearance_doors
+
+    @staticmethod
+    def _get_door_names(
+        door_ids: set[int], cached_door_names: dict[int, Optional[str]]
+    ) -> dict[int, Optional[str]]:
+        """Get door names from the cache, looking up any doors missing from it in CCure."""
+        door_names = {
+            door_id: cached_door_names[door_id]
+            for door_id in door_ids
+            if door_id in cached_door_names
+        }
+        uncached_door_ids = list(door_ids - door_names.keys())
+        if uncached_door_ids:
+            logger.info(
+                f"{len(uncached_door_ids)} door IDs not found in the door cache, "
+                "fetching their names from CCure."
+            )
+            door_names.update(Door.get_names_by_ids(uncached_door_ids))
+        return door_names

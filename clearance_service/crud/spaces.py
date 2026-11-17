@@ -2,12 +2,11 @@
 
 from typing import Optional
 
-from auth_checker.models.models import Account
-from auth_checker.models.models import TokenAuthorizer as AuthChecker
+from auth_checker import AuthChecker, TokenPayload
 from clearance_service.models.personnel import Personnel
 from clearance_service.models.space import Space
 from clearance_service.util.authorization import get_authorization, user_is_admin
-from clearance_service.util.authorization_roles import READ_ROLES, READ_WRITE_ROLES
+from clearance_service.util.authorization_roles import PERMISSIONS
 from fastapi import APIRouter, Depends, Response, status
 from pydantic import BaseModel
 
@@ -19,11 +18,15 @@ class SpaceCreateBody(BaseModel):
     door_ids: list[int]
 
 
-@router.post("/create", tags=["Space"], dependencies=[Depends(AuthChecker(READ_WRITE_ROLES))])
+@router.post(
+    "/create",
+    tags=["Space"],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_SPACES_WRITE"]))],
+)
 def create_space(
     data: SpaceCreateBody,
     response: Response,
-    account: Account = Depends(get_authorization),
+    account: TokenPayload = Depends(get_authorization),
 ) -> dict[str, str]:
     """Post a new space document to the `space` mongo collection"""
     if data.door_ids:
@@ -55,10 +58,14 @@ def create_space(
     return {"detail": "Could not create new space"}
 
 
-@router.get("/search", tags=["Space"], dependencies=[Depends(AuthChecker(READ_ROLES))])
+@router.get(
+    "/search",
+    tags=["Space"],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_SPACES_READ"]))],
+)
 def search_spaces(
     response: Response,
-    account: Account = Depends(get_authorization),
+    account: TokenPayload = Depends(get_authorization),
     name: str = "",
     skip: int = 0,
     limit: int = 100,
@@ -86,11 +93,15 @@ class SpaceUpdateBody(BaseModel):
     new_door_ids: Optional[list[int]] = None
 
 
-@router.put("/update", tags=["Space"], dependencies=[Depends(AuthChecker(READ_WRITE_ROLES))])
+@router.put(
+    "/update",
+    tags=["Space"],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_SPACES_WRITE"]))],
+)
 def update_space(
     data: SpaceUpdateBody,
     response: Response,
-    account: Account = Depends(get_authorization),
+    account: TokenPayload = Depends(get_authorization),
 ) -> dict[str, str]:
     """Update an existing space document in mongo"""
     if data.new_name is None and data.new_door_ids is None:
@@ -125,11 +136,15 @@ def update_space(
     return {"message": "Updated space"}
 
 
-@router.delete("/delete", tags=["Space"], dependencies=[Depends(AuthChecker(READ_WRITE_ROLES))])
+@router.delete(
+    "/delete",
+    tags=["Space"],
+    dependencies=[Depends(AuthChecker(PERMISSIONS["CLEARANCE_SPACES_WRITE"]))],
+)
 def delete_space(
     space_id: str,
     response: Response,
-    account: Account = Depends(get_authorization),
+    account: TokenPayload = Depends(get_authorization),
 ):
     """Delete a space document from mongo"""
     try:
