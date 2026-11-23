@@ -5,6 +5,7 @@ Tests for the assignments endpoints.
 import json
 from datetime import datetime, timedelta, timezone
 
+import pytest
 import requests
 from acslib.ccure.crud import CcureClearance, CcurePersonnel
 from fastapi import Response
@@ -22,6 +23,7 @@ from clearance_service.tests.override_get_authorization import (
 )
 from clearance_service.util.authorization import get_authorization
 from clearance_service.util.handle_requests import RequestException
+from clearance_service.util.populate_cache_task import get_cached_door_names
 from clearance_service.util.settings import C9K_CLEARANCE_LIMIT
 
 client = TestClient(app)
@@ -472,6 +474,76 @@ def test_get_assignments_with_doors_via_door_group(db, fake_auth, monkeypatch):
                 },
             },
         ]
+    }
+
+
+@pytest.fixture
+def cached_door_names():
+    """Set the door names the endpoint reads from the door cache."""
+
+    def _set_cached_door_names(door_names):
+        app.dependency_overrides[get_cached_door_names] = lambda: door_names
+
+    yield _set_cached_door_names
+    app.dependency_overrides.pop(get_cached_door_names, None)
+
+
+def mock_ccure_door_search_not_allowed(*_, **__):
+    raise AssertionError("Door names should come from the cache, not CCure.")
+
+
+def test_get_assignments_with_doors_from_cache(db, fake_auth, monkeypatch, cached_door_names):
+    """
+    It should take door names from the door cache without searching CCure for doors.
+    """
+    monkeypatch.setattr(acs.clearance, "get_property", mock_get_clearance_name)
+    monkeypatch.setattr(
+        ScheduledAction, "get_clearances_by_assignee", mock_get_clearances_by_assignee
+    )
+    monkeypatch.setattr(acs.clearance_item, "search", mock_get_clearance_items)
+    monkeypatch.setattr(acs.ccure_object, "search", mock_ccure_door_search_not_allowed)
+    cached_door_names({3000: "Cached Door 3000", 3001: "Cached Door 3001", 3999: "Other Door"})
+
+    response = client.get(
+        "/assignments/person2@email.com?get_doors=True", headers={"Authorization": "Bearer token"}
+    )
+
+    assert response.status_code == 200
+    assert response.json()["assignments"][0]["doors"] == {
+        "3000": "Cached Door 3000",
+        "3001": "Cached Door 3001",
+    }
+
+
+def test_get_assignments_with_doors_fetches_uncached_doors(
+    db, fake_auth, monkeypatch, cached_door_names
+):
+    """
+    It should search CCure only for doors missing from the door cache.
+    """
+    searched_door_ids = []
+
+    def mock_search_uncached_doors(*_, terms, **__):
+        searched_door_ids.extend(terms)
+        return [door for door in mock_get_acs_doors() if door["ObjectID"] in terms]
+
+    monkeypatch.setattr(acs.clearance, "get_property", mock_get_clearance_name)
+    monkeypatch.setattr(
+        ScheduledAction, "get_clearances_by_assignee", mock_get_clearances_by_assignee
+    )
+    monkeypatch.setattr(acs.clearance_item, "search", mock_get_clearance_items)
+    monkeypatch.setattr(acs.ccure_object, "search", mock_search_uncached_doors)
+    cached_door_names({3000: "Cached Door 3000"})
+
+    response = client.get(
+        "/assignments/person2@email.com?get_doors=True", headers={"Authorization": "Bearer token"}
+    )
+
+    assert response.status_code == 200
+    assert searched_door_ids == [3001]
+    assert response.json()["assignments"][0]["doors"] == {
+        "3000": "Cached Door 3000",
+        "3001": "VRB-B-B103C-Test Door 5678",
     }
 
 

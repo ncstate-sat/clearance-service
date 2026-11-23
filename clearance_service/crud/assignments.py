@@ -11,6 +11,7 @@ from clearance_service.models.scheduled_action import ScheduledAction
 from clearance_service.util.authorization import get_authorization, user_is_admin
 from clearance_service.util.authorization_roles import PERMISSIONS
 from clearance_service.util.handle_requests import RequestException
+from clearance_service.util.populate_cache_task import get_cached_door_names
 from clearance_service.util.settings import C9K_CLEARANCE_LIMIT
 from fastapi import APIRouter, Depends, Response, status
 from pydantic import BaseModel
@@ -352,6 +353,7 @@ def get_assignments(
     email: str,
     get_doors: Optional[bool] = False,
     account: TokenPayload = Depends(get_authorization),
+    cached_door_names: dict = Depends(get_cached_door_names),
 ) -> dict:
     """
     Return all active clearance assignments for an individual given their email address.
@@ -400,7 +402,7 @@ def get_assignments(
 
     if get_doors:
         clearance_ids = [assignment["id"] for assignment in all_assignments]
-        doors = Clearance.get_doors_by_clearance_id(clearance_ids)
+        doors = Clearance.get_doors_by_clearance_id(clearance_ids, cached_door_names)
         for assignment in all_assignments:
             assignment["doors"] = doors.get(assignment["id"], {})
 
