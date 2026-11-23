@@ -4,7 +4,7 @@ Backend service for Clearance-app functionality.
 
 ## System Requirements
 
-- Python 3.10
+- Python 3.15
 - MongoDB 4.4
 - make
 - mongo-tools
@@ -30,10 +30,10 @@ for most people the [pyenv-installer](https://github.com/pyenv/pyenv-installer) 
     $> curl https://pyenv.run | bash
 ```
 
-#### Install Python 3.10.4
+#### Install Python 3.15.0
 
 ```shell
-    $> pyenv install 3.10.4
+    $> pyenv install 3.15.0rc1
 ```
 
 ### Install direnv
@@ -66,7 +66,7 @@ you do not have access to some of the values.
     $> direnv allow
 ```
 
-This will create and activate a python 3.10.4 virtual environment located in your project directory at `./.direnv`,
+This will create and activate a python 3.15.0 virtual environment located in your project directory at `./.direnv`,
 and set the environment variables required to run the application.
 
 If you are not using `direnv` then you will need to activate your venv and set the environment variables manually. Refer to the `envrc_example` file for the required variables.

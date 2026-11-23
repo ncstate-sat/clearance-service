@@ -1,4 +1,4 @@
-layout pyenv 3.10.4
+layout pyenv 3.15.0
 use nix
 dotenv_if_exists
 
