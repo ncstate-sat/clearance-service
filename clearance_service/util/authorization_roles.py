@@ -1,4 +1,4 @@
-SAT_INTERNAL_ROLES = ["dev", "sat-admin", "helpdesk", "apps-team"]
+SAT_INTERNAL_ROLES = ["dev", "sat-admin", "helpdesk", "apps-team", "service-account"]
 
 PERMISSIONS = {
     "CLEARANCE_ASSIGNMENTS_READ": "clearance-assignment:read",
